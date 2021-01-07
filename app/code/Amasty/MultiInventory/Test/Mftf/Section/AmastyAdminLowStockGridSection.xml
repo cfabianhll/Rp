@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AmastyLowStockGridSection">
+        <element name="selectWarehouse" type="select" selector="#gridLowstock_report_warehouse"/>
+        <element name="searchButton" type="button" selector="button[class='action-default scalable action-secondary']"/>
+        <element name="productNameColumn" type="td" selector="td[class=' col-product col-name  ']"/>
+        <element name="stockQuantityColumn" type="td" selector="td[class=' col-qty col-qty col-number  last']"/>
+        <element name="thereAreNoRecords" type="td" selector="td[class='empty-text']"/>
+    </section>
+</sections>

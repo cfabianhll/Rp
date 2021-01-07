@@ -1,0 +1,35 @@
+<div class="col-12 d-none">
+    <!-- ko foreach: getRegion('estimation') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+
+    <!-- ko foreach: getRegion('authentication') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+</div>
+<div class="col-12">
+    <!-- ko foreach: getRegion('messages') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+</div>
+<div class="col-12 row">
+     <div class="col-12 col-lg-6" id="checkoutSteps">
+        <div class="" data-bind="scope: 'checkout.steps.shipping-step.shippingAddress'">
+            <!-- ko template: getAddressTemplate() --><!-- /ko -->
+        </div>
+        <div class="" data-bind="scope: 'checkout.steps.shipping-step.billingAddress'">
+            <!-- ko template: getAddressTemplate() --><!-- /ko -->
+        </div>
+        <div class="" data-bind="scope: 'checkout.steps.shipping-step'">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
+    </div>
+    <div class="col-12 col-lg-6">    
+        <div class="" data-bind="scope: 'checkout.sidebar'">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
+        <div class="" data-bind="scope: 'checkout.steps.billing-step'">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
+    </div>
+</div>

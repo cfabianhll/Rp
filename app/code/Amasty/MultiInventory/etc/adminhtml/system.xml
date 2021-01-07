@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_multi_inventory" translate="label" type="text" sortOrder="151419" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Amasty_MultiInventory::config_stock</resource>
+            <class>separator-top</class>
+            <label>Multi Warehouse Inventory</label>
+            <tab>amasty</tab>
+            <group id="stock" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Stock Settings</label>
+                <field id="enabled_multi" translate="label comment tooltip" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Multiple Stock Locations</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <comment>Please enable to manage the product stock per warehouse. If disabled, the product stock is managed natively</comment>
+                    <tooltip><![CDATA[
+                        <b>Physical stock</b>: Current Stock in the warehouse<br/>
+                        <b>Quantity to ship</b>: Stock quantity booked for ordered products to be dispatched<br/>
+                        <b>Available Quantity</b>: Stock Quantity in the warehouse available for sale<br/>
+                        <b>Physical Stock</b> = <b>Available Quantity</b> + <b>Quantity to ship</b>  ]]>
+                    </tooltip>
+                </field>
+                <field id="defination_warehouse" translate="label comment tooltip" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Calculate the shipping cost based on warehouse location</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If the option is enabled, the address of a warehouse is considered as a pick-up address for the shipping service provider. Shipping rate to be calculated accordingly.</comment>
+                    <tooltip><![CDATA[
+                        1. If the option is enabled, the address of a warehouse is considered as a pick-up address for the shipping service provider. Shipping rate to be calculated accordingly.<br/>
+                        2. If the option is disabled or when ordered product is not assigned to a warehouse, the store address is considered as a pick-up address for the shipping service provider. The shipping rate is to be calculated accordingly.<br/>
+                        3. When ordered products are assigned to multiple warehouses, multiple orders may be created depending on the appropriate setting. Otherwise, one order is created and the shipping rates are calculated separately for each warehouse and summarized<br/>]]>
+                    </tooltip>
+                </field>
+                <field id="separate_orders" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Separate Orders for Products from different WH</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[<b>Please note, that we can guarantee proper work of Separating Orders option only if offline payments methods are used.</b>]]></comment>
+                </field>
+                <field id="decrease_stock" translate="label comment tooltip" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Decrease Available Stock When Order is Placed</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Decrease Stock Quantity available for sale if order is placed</comment>
+                    <tooltip><![CDATA[<b>Available Stock</b> = <b>Physical stock</b> (are identical) when <b>Decrease Available Stock When Order is placed</b>: No]]></tooltip>
+                </field>
+                <field id="decrease_physical" translate="label comment tooltip" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Decrease Physical Stock during</label>
+                    <frontend_model>Amasty\MultiInventory\Block\Adminhtml\System\Config\Field\Decrease</frontend_model>
+                    <source_model>Amasty\MultiInventory\Model\Config\Source\Dispatch</source_model>
+                    <comment>Decrease Physical Stock Quantity</comment>
+                    <tooltip><![CDATA[<b>Available Stock</b> = <b>Physical stock</b> (are identical) when <b>Decrease Physical Stock during</b>: Order Creation]]>
+                    </tooltip>
+                </field>
+                <field id="lock_on_store" translate="label comment tooltip" type="select" sortOrder="55" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Сhoose warehouse based on store view only</label>
+                    <comment>If 'Yes' is selected then current store view warehouse stock is used only. All other warehouses and criteria is ignored.</comment>
+                    <tooltip>Please, notice that when this option is enabled, you won't be able to create more than 1 warehouse per store view.</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="dispatch_order" translate="label comment tooltip" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Choose Warehouse based on</label>
+                    <frontend_model>Amasty\MultiInventory\Block\Adminhtml\System\Config\Field\PriorityValues</frontend_model>
+                    <frontend_class>dispatch</frontend_class>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Use the drag &amp; drop option to reorder criteria according which a warehouse(s) for products assigned to multiple storages will be determined</comment>
+                    <tooltip><![CDATA[
+                    <br/>
+<b>Customer Group:</b> The warehouse assigned to the Customer Group is selected.<br/>
+<b>Nearest warehouse:</b> The warehouse nearest to customer address (uses the Google API) is selected.<br/>
+<b>Store view:</b> The warehouse assigned to the store view the order placed from is selected.<br/>
+<b>Warehouse priority:</b> The warehouse with the highest priority (1 is the highest) is selected.<br/>
+<b>How it works:</b><br/>
+    &nbsp;&nbsp;1.The extension starts searching for a warehouse by the first criteria. It moves to the next criteria if no warehouse matches the first one.<br/>
+    &nbsp;&nbsp;2.If more than one warehouse is found, the next criteria will be used. And so on until a single warehouse is determined.<br/>
+    &nbsp;&nbsp;3.If in the selected warehouse the product quantity is not enough for the order, the items from the next warehouse will be taken.<br/>
+    &nbsp;&nbsp;4.If more than one warehouse is found after all searches, the warehouse with the highest stock level will be used.<br/>
+    &nbsp;&nbsp;5.In case all search criteria are inactive, the warehouse with the highest stock level will be used.<br/>
+    &nbsp;&nbsp;6.If the ordered item is not assigned to any warehouse, the Total (default) Stock will be chosen.
+]]></tooltip>
+                    <depends>
+                        <field id="lock_on_store">0</field>
+                    </depends>
+                </field>
+                <field id="use_google_to_locate" translate="label comment tooltip" type="select" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Use Google Maps for Warehouse Location</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Method to find nearest warehouse</comment>
+                    <tooltip><![CDATA[The Google Maps provide the most accurate warehouse location and correct distance calculation but increase the number of requests to Google servers. If you choose 'No', the coordinates will be used. It reduces the number of requests but simplifies distances calculation to the straight lines between the two locations.
+
+]]></tooltip>
+                    <depends>
+                        <field id="lock_on_store">0</field>
+                    </depends>
+                </field>
+                <field id="return_creditmemo" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Return Credit Memo Item to Stock</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If the option is enabled, the returned items will affect the general product quantity and will be automatically added to the appropriate warehouse</comment>
+                </field>
+                <field id="low_stock" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Low stock Quantity</label>
+                    <comment>Please specify the quantity value for the 'Low Stock'. All products with the stock level less or equal to the specified value will be considered as 'Low stock'</comment>
+                </field>
+                <field id="backorders_default" translate="label comment tooltip" type="select" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Backorders configuration</label>
+                    <source_model>\Amasty\MultiInventory\Model\Config\Source\BackordersDefault</source_model>
+                    <comment><![CDATA[This option defines the value to use for the "Use Config Settings" field. By default each product utilizes the "Use Config Settings" value for backorders. You can check and modify this options here: Products > Product Edit > Warehouses > Backorders Column.]]></comment>
+                    <tooltip><![CDATA[<b>Product Value</b> — choose this option to use backorders value from the product's Advanced Inventory for "Use Config Settings". You can modify it here: Products > Product Edit > Advanced Inventory > "Backorders" DropDown.<br/>
+                        <b>Warehouse Value</b> — using this option the global backorder variable will be used for each particular warehouse. You can configure it here: Products > Warehouses > Edit Warehouse > "Backorders" DropDown.<br/><br/>
+                        Regardless of the selected value you can change the backorders settings for each particular product by setting the desired parameter instead of "Use Config Settings". You can select from: No Backorders; Allow Qty Below 0; Allow Qty Below 0 and Notify Customers.]]></tooltip>
+                </field>
+                <field id="backorders_action" translate="label comment tooltip" type="select" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Backorders Algorithm for ordering products</label>
+                    <source_model>\Amasty\MultiInventory\Model\Config\Source\BackordersAction</source_model>
+                    <comment>The option allows you to define the backorders algorithm for ordered products</comment>
+                    <tooltip><![CDATA[<b>Backorders first</b> — choose this option to use backorders and avoid selling products that are available in other warehouses.<br/>
+                        <b>Availability first</b> — choose this option to use backorders only when the product is not available in all warehouses.]]></tooltip>
+                </field>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <field id="enable_log" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Log file</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>All stock adjustments are logged in var/log/inventory-yy-mm-dd.log</comment>
+                </field>
+                <field id="google_address" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Google Address Suggestion</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <comment>Enable the Warehouse address auto complete while typing, using geolocation Google technology</comment>
+                </field>
+                <field id="google_api" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Google API</label>
+                    <comment><![CDATA[Click <a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform" target="_blank">here</a> to get an API key. Required for Shipping from the warehouse closest to customer's area]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

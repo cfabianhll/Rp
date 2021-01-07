@@ -1,0 +1,60 @@
+<?php
+/** @var \Mirasvit\Credit\Block\Customer\Account $block */
+$balance = $block->getBalance();
+
+$balanceAmount = $block->formatPrice($balance->getAmount(), $block->getStoreCurrencyCode(), $balance->getCurrencyCode());
+?>
+
+<div class="block credit__account-balance">
+    <div class="block-title">
+        <strong><?= __('Balance') ?></strong>
+    </div>
+    <div class="block-content">
+
+        <?= __('Current credit balance: <b>%1</b>', $balanceAmount) ?>
+
+        <div class="credit__account-subscription">
+            <form action="<?= $block->getUrl('credit/account/subscribe') ?>" method="post" id="form-validate">
+                <div>
+                    <input type="checkbox" id="credit_subscription" class="checkbox" name="is_subscribed" value="1"
+                           <?php if ($balance->getIsSubscribed()): ?>checked="checked"<?php endif ?>>
+
+                    <label for="credit_subscription">
+                        <?= __('Subscribe to email notifications') ?>
+                    </label>
+
+                    &nbsp;&nbsp;
+                    <button id="subscribe_button" type="submit" class="button" style="display: none;">
+                        <span><?= __('Save') ?></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <?php if ($block->hasSeveralBalances()): ?>
+            <p>
+                <?= __('* Also you have credits in another currency') ?>
+            </p>
+        <?php endif; ?>
+    </div>
+</div>
+
+<script>
+    require([
+        "jquery",
+        "mage/mage"
+    ], function ($) {
+        var dataForm = $('#form-send2friend');
+        dataForm.mage('validation', {});
+
+        var subscribeButton = $('#credit_subscription:checked').length;
+
+        $('#credit_subscription').change(function () {
+            if (subscribeButton != $('#credit_subscription:checked').length) {
+                $('#subscribe_button').show();
+            }
+            else {
+                $('#subscribe_button').hide();
+            }
+        })
+    });
+</script>

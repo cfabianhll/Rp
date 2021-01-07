@@ -1,0 +1,49 @@
+<?php
+/* @var $block \Mirasvit\Rma\Block\Rma\View\Items */
+?>
+<div class="order-details-items ordered">
+    <div class="table-wrapper order-items">
+        <table class="data table table-order-items" id="my-orders-table" summary="Items Ordered">
+            <caption class="table-caption"><?= __('RMA Items') ?></caption>
+            <thead>
+                <tr>
+                    <th class="col name"><?= __('Product Name') ?></th>
+                    <th class="col qty"><?= __('Qty') ?></th>
+                    <?php if ($block->isReasonAllowed()): ?>
+                        <th class="col qty"><?= __('Reason') ?></th>
+                    <?php endif; ?>
+                    <?php if ($block->isConditionAllowed()): ?>
+                        <th class="col qty"><?= __('Condition') ?></th>
+                    <?php endif; ?>
+                    <?php if ($block->isResolutionAllowed()): ?>
+                        <th class="col qty"><?= __('Resolution') ?></th>
+                    <?php endif; ?>
+                </tr>
+            </thead>
+            <tfoot>
+                <?= $block->getChildHtml('order_totals') ?>
+            </tfoot>
+            <tbody>
+            <?php foreach ($block->getOfflineItems() as $item): ?>
+                <tr class="border">
+                    <td class="col name" data-th="Product Name">
+                        <strong class="product name product-item-name">
+                            <?= $block->escapeHtml($item->getName()) ?>
+                        </strong>
+                    </td>
+                    <td class="col qty" data-th="Qty"><?= $item->getQtyRequested() ?></td>
+                    <?php if ($block->isReasonAllowed()): ?>
+                        <td class="col qty" data-th="Reason"><?= $block->escapeHtml($block->getReasonName($item)) ?></td>
+                    <?php endif; ?>
+                    <?php if ($block->isConditionAllowed()): ?>
+                        <td class="col qty" data-th="Condition"><?= $block->escapeHtml($block->getConditionName($item)) ?></td>
+                    <?php endif; ?>
+                    <?php if ($block->isResolutionAllowed()): ?>
+                        <td class="col qty" data-th="Resolution"><?= $block->escapeHtml($block->getResolutionName($item)) ?></td>
+                    <?php endif; ?>
+                </tr>
+            <?php endforeach?>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+    <!--Qty Product to Card = 1-->
+    <entity name="_fusionBackpack" type="amastyProduct">
+        <data key="name">Fusion Backpack</data>
+        <data key="urlkey">fusion-backpack</data>
+        <data key="qty">1</data>
+    </entity>
+    <!--Qty Product to Card = 11-->
+    <entity name="_fusionBackpackQtyIsEleven" type="amastyProduct">
+        <data key="name">Fusion Backpack</data>
+        <data key="urlkey">fusion-backpack</data>
+        <data key="qty">11</data>
+    </entity>
+</entities>

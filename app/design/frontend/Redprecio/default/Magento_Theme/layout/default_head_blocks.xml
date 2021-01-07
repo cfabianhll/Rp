@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+		<css src="css/animate.min.css" />
+		<css src="css/hover-min.css" />
+        <css src="css/all.min.css" />
+        <css src="css/bootstrap.min.css" />
+		<css src="css/owl.carousel.min.css" />
+		<css src="css/owl.theme.default.min.css" />	
+        <css src="css/style.css" />
+		<css src="css/custom.css" />
+		<css src="css/fonts/font.css" />
+        <!--<css src="css/responsive.css" />-->
+		
+        <!-- <css src="css/magento_default.css" /> -->
+
+        <script src="js/custom.js" />
+       
+        <remove src="css/styles-m.css" />
+        <remove src="css/styles-l.css" />
+        <remove src="mage/calendar.css"/>
+        <remove src="css/print.css"/>
+        <remove src="mage/gallery/gallery.css"/>
+    </head>
+</page>

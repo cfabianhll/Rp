@@ -1,0 +1,21 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2 $block */
+?>
+
+<div class="mst-rma-create__order rma-step2 rma-new-step2">
+
+    <?= $block->getChildHtml('rma.new.offline.step2.info') ?>
+
+    <?php if ($block->getAllowGift()): ?>
+        <?= $block->getChildHtml('rma.new.gift') ?>
+    <?php endif ?>
+
+    <div class="ui-offline-order-container">
+        <?= $block->getChildHtml('rma.new.offline.step2.order') ?>
+        <?= $block->getChildHtml('rma.new.offline.step2.items') ?>
+    </div>
+
+    <div style="display:none" id="error_message_no_items">
+        <?= __('Please, select RMA items which you would like to return.') ?>
+    </div>
+</div>

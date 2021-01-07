@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="amasty_multi_inventory_lowstock_grid"/>
+    <head>
+        <css src="Amasty_MultiInventory::css/export.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Amasty\MultiInventory\Block\Adminhtml\Warehouse\Lowstock" name="adminhtml.amasty.multiinventory.grid.container"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,26 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Adminhtml\Status\Diagram $block */
+?>
+<?php
+$tree = $block->getTree();
+$nodesAmount = count($tree);
+$i = 0;
+?>
+
+<div class="mst-rma-status-graph">
+    <div class="line">
+        <?php foreach ($tree as $node): ?>
+            <?php $i++; ?>
+            <?php foreach ($node['relation'] as $offset): ?>
+                <div class="edge w<?= $offset ?>" style="background: <?= $node['class'] ?>;border-color: <?= $node['class'] ?>;"></div>
+            <?php endforeach ?>
+
+            <div class="node mst-rma-badge status-branch-<?= $node['class'] ?>"><?= $block->escapeHtml($node['name']) ?></div>
+            <?php if ($i != $nodesAmount): ?>
+                <div class="line">
+            <?php endif ?>
+        <?php endforeach ?>
+
+        <?= str_repeat('</div>', $nodesAmount - 1); ?>
+    </div>
+</div>

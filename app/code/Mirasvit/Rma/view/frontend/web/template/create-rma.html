@@ -1,0 +1,44 @@
+<div class="ui-rma-order-container"></div>
+
+<div class="ui-mst-rma__create-rma" data-bind="visible: isAllowedToAddOrder">
+    <div class="mst-rma-box mst-rma-create__order-selector">
+        <div class="mst-rma-box__title">
+            <span data-bind="html: orderSelectorTitle"></span>
+        </div>
+
+        <div class="field required">
+            <!-- ko if: isAllowedStoreOrder -->
+            <select name="selected_order_id" id="selected_order_id">
+                <option value=""><!-- ko i18n: '-- Select an Order --' --><!-- /ko --></option>
+
+                <!-- ko foreach: { data: allowedOrder, as: 'order' } -->
+                <option value="" data-bind="value: order.id,html:order.label"></option>
+                <!-- /ko -->
+            </select>
+            <button data-bind="click: addSelectedStoreOrder" class="primary">
+                <span><!-- ko i18n: 'Apply' --><!-- /ko --></span>
+            </button>
+            <!-- /ko -->
+            <!-- ko if: isAllowedOfflineOrder && isAllowedStoreOrder -->
+            <span class="mst-rma-buttons-delimiter-text"><!-- ko i18n: 'OR' --><!-- /ko --></span>
+            <!-- /ko -->
+            <!-- ko if: isAllowedOfflineOrder -->
+            <button class="action secondary" data-bind="click: addOfflineOrder">
+                <span><!-- ko i18n: 'Select Offline Order' --><!-- /ko --></span>
+            </button>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
+
+<div data-bind="html: htmlCustomFields, visible: showRmaAdditions"/>
+<div data-bind="html: htmlAdditional, visible: showRmaAdditions"/>
+<div data-bind="html: htmlPolicy, visible: showRmaAdditions"/>
+
+<div class="actions-toolbar" data-bind="visible: showRmaAdditions">
+    <div class="primary">
+        <button type="submit" class="action primary" data-role="rma-submit">
+            <span><!-- ko i18n: 'Submit Request' --><!-- /ko --></span>
+        </button>
+    </div>
+</div>

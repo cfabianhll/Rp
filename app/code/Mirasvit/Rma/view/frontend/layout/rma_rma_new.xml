@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="content">
+            <block name="rma.rma.new" class="Mirasvit\Rma\Block\Rma\NewRma" template="rma/new.phtml" cacheable="false">
+                <block name="rma.new.step2.additional" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\Additional" template="rma/new/step2/additional.phtml"/>
+                <block name="rma.new.step2.custom_fields" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\CustomFields" template="rma/new/step2/custom_fields.phtml"/>
+                <block name="rma.new.step2.info" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\Info" template="rma/new/step2/info.phtml"/>
+
+                <block name="rma.new.offline.step2.offline.items.item" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\Items\Item" template="rma/new/step2/offline/items/item.phtml">
+                    <block name="rma.new.offline.step2.items.item.returnreasons" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\Items\Item\ReturnReason" template="rma/new/step2/items/item/returnreason.phtml"/>
+                </block>
+                <block name="rma.new.step2.policy" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\Policy" template="rma/new/step2/policy.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,30 @@
+<?php /** @var \Mirasvit\Rma\Block\Adminhtml\Rma\Edit\Form\QuickResponse $block */ ?>
+<?php
+$responses = $block->getQuickResponse();
+?>
+<div class="field admin__field">
+    <label class="label admin__field-label" for="quick_reply">
+        <?= __('Insert Quick Response') ?>
+    </label>
+
+    <div class="control admin__field-control">
+        <select name="quick_reply" class="admin__control-select" data-role="quick_reply">
+            <?php $templatesHtml = ''; ?>
+            <?php foreach ($responses as $response): ?>
+                <option value="<?= $response->getId() ?>">
+                    <?= $block->escapeHtml($response->getName()) ?>
+                </option>
+                <?php
+                if ($response->getId() > 0) {
+                    $templatesHtml .= '<div id="htmltemplate-' . $response->getId() . '" style="display: none;">' .
+                        $block->escapeHtml($response->getTemplate()) .
+                        '</div>';
+                }
+                ?>
+            <?php endforeach ?>
+        </select>
+        <?php echo $templatesHtml; ?>
+
+        <div data-role="reply-note"></div>
+    </div>
+</div>

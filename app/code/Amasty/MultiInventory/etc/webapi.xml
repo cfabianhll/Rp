@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/amastymultisetstock" method="POST">
+        <service class="Amasty\MultiInventory\Api\WarehouseItemRepositoryInterface" method="addStock"/>
+        <resources>
+            <resource ref="Amasty_MultiInventory::import_stocks" />
+        </resources>
+    </route>
+    <route url="/V1/amastymultisetstocksku" method="POST">
+        <service class="Amasty\MultiInventory\Api\WarehouseItemRepositoryInterface" method="addStockSku"/>
+        <resources>
+            <resource ref="Amasty_MultiInventory::import_stocks" />
+        </resources>
+    </route>
+    <route url="/V1/amastymultigetstocks/:id/" method="GET">
+        <service class="Amasty\MultiInventory\Api\WarehouseItemRepositoryInterface" method="getStocks"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/amastymultigetstockssku/:sku/" method="GET">
+        <service class="Amasty\MultiInventory\Api\WarehouseItemRepositoryInterface" method="getStocksSku"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/amastymultigetproducts/:code/" method="GET">
+        <service class="Amasty\MultiInventory\Api\WarehouseItemRepositoryInterface" method="getProducts"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+</routes>

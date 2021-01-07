@@ -1,0 +1,20 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2\Policy $block */
+?>
+<?php if ($block->getPolicyIsActive()): ?>
+    <div class="field required">
+        <h2 class="legend" id="policy-title"><?= $block->getPolicyTitle() ?></h2>
+        <ul class="form-list rma-policy">
+            <li class="wide" id="policy-text">
+                <?= $block->getPolicyContent() ?>
+            </li>
+
+            <li class="control">
+                <div class="input-box" id="agree-input-box">
+                    <input id='agree' name="agree-box" type='checkbox' class='checkbox' data-validate="{required:true}"
+                           value="1"> <label for='agree'><?= __('I agree') ?></label>
+                </div>
+            </li>
+        </ul>
+    </div>
+<?php endif ?>

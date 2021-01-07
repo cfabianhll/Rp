@@ -1,0 +1,6 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_ImportExport:etc/export.xsd">
+    <entity name="amasty_warehouse_export"
+            label="Amasty Warehouses"
+            model="Amasty\MultiInventory\Model\Export\Export"
+            entityAttributeFilterType="am_warehouses" />
+</config>

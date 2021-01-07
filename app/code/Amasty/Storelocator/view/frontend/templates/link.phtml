@@ -1,0 +1,38 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Storelocator
+ */
+?>
+<?php
+/** @var \Amasty\Storelocator\Block\Location $block */
+if ($block->getProduct()) {
+    if (!$block->getRequest()->getParam("product")) {
+        $productId = $block->getProduct()->getId();
+    }
+
+    $locationCollection = $block->getLocationCollection();
+
+    /*if (count($locationCollection) > 0 && $block->validateLocations($locationCollection, $block->getProduct())) {*/
+        $target = $block->getTarget();
+        $linkText = $block->getLinkText(); ?>
+       <div class="row">
+           <div class="col-12 col-md-4">
+               <div class="field delivery ">
+                   <label class="label" for="delivery"><span>Please select Delivery options</span></label>
+                   <div class="control">
+                       <select name="delivery" id="delivery" title="Delivery Options" class="field-select_stores form-control"
+                               defaultvalue="0">
+                           <option value="">Please Select..</option>
+                           <option value="home">Home Delivery</option>
+                           <option value="store">PickUp From Store</option>
+                       </select>
+                   </div>
+               </div>
+           </div>
+       </div>
+        <?php echo '<div style="clear: both"><a class="select_drop_link" href="' . $block->escapeHtml($block->getLinkToMap(["product" => $productId]))
+            . '"' . $block->escapeHtml($target) . '>' . $block->escapeHtml($linkText) . '</a></div>';
+    //}
+}

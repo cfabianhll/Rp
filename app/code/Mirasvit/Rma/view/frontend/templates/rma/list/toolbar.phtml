@@ -1,0 +1,63 @@
+<?php if ($block->getCollection()->getSize()): ?>
+<div class="toolbar">
+    <div class="pager">
+        <p class="amount">
+            <?php if ($block->getLastPageNum() > 1): ?>
+                <?= __('Items %1 to %2 of %3 total', $block->getFirstNum(), $block->getLastNum(), $block->getTotalNum()) ?>
+            <?php else: ?>
+                <strong><?= __('%1 Item(s)', $block->getTotalNum()) ?></strong>
+            <?php endif; ?>
+        </p>
+
+        <div class="limiter">
+            <label><?= __('Show') ?></label>
+            <select onchange="setLocation(this.value)">
+            <?php foreach ($block->getAvailableLimit() as  $_key => $_limit): ?>
+                <option value="<?= $block->getLimitUrl($_key) ?>"<?php if ($block->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
+                    <?= $_limit ?>
+                </option>
+            <?php endforeach; ?>
+            </select> <?= __('per page') ?>
+        </div>
+
+        <?= $block->getPagerHtml() ?>
+
+    </div>
+
+    <?php if ($block->isExpanded() && false): ?>
+    <div class="sorter">
+        <?php if ($block->isEnabledViewSwitcher()): ?>
+        <p class="view-mode">
+            <?php $_modes = $block->getModes(); ?>
+            <?php if ($_modes && count($_modes) > 1): ?>
+            <label><?= __('View as') ?>:</label>
+            <?php foreach ($block->getModes() as $_code => $_label): ?>
+                <?php if ($block->isModeActive($_code)): ?>
+                    <strong title="<?= $_label ?>" class="<?= strtolower($_code); ?>"><?= $_label ?></strong>&nbsp;
+                <?php else: ?>
+                    <a href="<?= $block->getModeUrl($_code) ?>" title="<?= $_label ?>" class="<?= strtolower($_code); ?>"><?= $_label ?></a>&nbsp;
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php endif; ?>
+        </p>
+        <?php endif; ?>
+
+        <div class="sort-by">
+            <label><?= __('Sort by') ?></label>
+            <select onchange="setLocation(this.value)">
+            <?php foreach ($block->getAvailableOrders() as $_key => $_order): ?>
+                <option value="<?= $block->getOrderUrl($_key, 'asc') ?>"<?php if ($block->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+                    <?= $_order ?>
+                </option>
+            <?php endforeach; ?>
+            </select>
+            <?php if ($block->getCurrentDirection() == 'desc'): ?>
+                <a href="<?= $block->getOrderUrl(null, 'asc') ?>" title="<?= __('Set Ascending Direction') ?>"><img src="<?= $block->getSkinUrl('images/i_desc_arrow.gif') ?>" alt="<?= __('Set Ascending Direction') ?>" class="v-middle" /></a>
+            <?php else: ?>
+                <a href="<?= $block->getOrderUrl(null, 'desc') ?>" title="<?= __('Set Descending Direction') ?>"><img src="<?= $block->getSkinUrl('images/i_asc_arrow.gif') ?>" alt="<?= __('Set Descending Direction') ?>" class="v-middle" /></a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
+<?php endif ?>

@@ -1,0 +1,484 @@
+"Request RMA","Begär RMA"
+"My Returns","Mina återkomster"
+Grid,Rutnät
+List,Lista
+All,Allt
+"Create RMA","Skapa RMA"
+"Request New Return","Begär ny retur"
+"Max file size: %1Mb","Max filstorlek: %1Mb"
+"New Return for Order #%1","Ny retur för beställning #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Fel Order #, E-post eller Efternamn"
+Items,Artiklar
+"To apply changes you should fill in required ""%1"" field","För att tillämpa ändringar ska du fylla i det önskade &quot;%1&quot; fältet"
+"Please, add order items to the RMA (set 'Qty to Return')","Lägg till beställningsobjekt i RMA (set &#39;Qty to Return&#39;)"
+"Please, set correct order items Quantity to return","Vänligen ange korrekta orderposter Kvantitet för att återvända"
+"RMA was successfully created","RMA skapades successfullyy"
+"Shipping is confirmed. Thank you!","Frakt bekräftas. Tack!"
+"Your message was successfully added","Ditt meddelande var framgångsrikt lagt till"
+"Allowed extensions:","Tillåtna tillägg:"
+"Maximum size:","Maximal storlek:"
+"-- Please Select --","-- Vänligen välj --"
+" at %1 (%2)","vid 12__)"
+"Mark as unresolved","Markera som oupplöst"
+"Mark as resolved","Markera som löst"
+"not set","inte inställd"
+Pattern,Mönster
+"Attribute Value","Attribut Värde"
+Default,Standard
+Integer,Heltal
+Price,Pris
+"Strip Tags","Strip Taggar"
+"Primary Attributes","Primär Egenskaper"
+"Stock Attributes","Lager attribut"
+"Prices & Taxes","Priser och skatter"
+Images,Bilder
+"Custom Attributes","Anpassade attribut"
+Mapping,Kartläggning
+Category,Kategori
+"Amasty Meta Tags","Amasty Meta Tags"
+"Others Attributes","Andra attribut"
+Text,Text
+"Multi-line text",Flervalstext
+Date,Datum
+Checkbox,Kryss~~POS=TRUNC
+"Drop-down list",Listrutan
+Reason,Anledning
+Condition,Skick
+Resolution,Upplösning
+"RMA #","RMA #"
+"Order #","Beställa #"
+"Customer Email","Kundens e-postadress"
+"Customer Name","Köparens namn"
+Owner,Ägare
+"Last Replier","Sista mappen"
+Status,Status
+Store,Lagra
+"Created At","Skapad vid"
+"Last Activity","Sista aktiviteten"
+"View link","Visa länk"
+"New RMA has been created","Ny RMA har skapats"
+"RMA has been changed","RMA har ändrats"
+"New reply from customer","Nytt svar från kunden"
+"New reply from staff","Nytt svar från personalen"
+"-- Default Address --","-- Standard adress --"
+"Update the Product","Uppdatera produkten"
+"Conditions Combination","Villkor Kombination"
+"RMA Attribute",RMA-attribut
+"Last 7-days Clicks","Senaste 7-dagars klick"
+"Last 7-days Orders","Senaste 7-dagars order"
+"Last 7-days Revenue","Senaste 7-dagars intäkter"
+"Last 7-days Conversation Rate (%)","Senaste 7-dagars konversationsfrekvens (%)"
+"Attribute Set",Attributuppsättning
+Quantity,Kvantitet
+"Product Type",Produkttyp
+"Base Image",Basbild
+Thumbnail,Miniatyr
+"Small Image","Liten bild"
+"Base Image Size (bytes)","Basbildstorlek (byte)"
+"Thumbnail Size (bytes)","Miniatyrstorlek (byte)"
+"Small Image Size (bytes)","Små bildstorlek (byte)"
+"PHP Condition","PHP villkor"
+"Open Chooser","Öppna väljaren"
+"Last message body","Senaste meddelande kroppen"
+"Updated At","Uppdaterad på"
+"Status (before change)","Status (före förändring)"
+"Owner (before change)","Ägare (före förändring)"
+"Last Reply By","Senast besvarad av"
+"Hours since Created","Timmar sedan skapade"
+"Hours since Updated","Timmar sedan uppdaterad"
+"Hours since Last reply","Timmar sedan senaste svaret"
+"Items have reason","Föremål har anledning"
+"Items have condition","Föremål har skick"
+"Items have resolution","Föremål har upplösning"
+"%1 (before change)","%1 (före förändring)"
+Customer,Kund
+Staff,Personal
+"- Disable these emails -","- Inaktivera dessa e-postmeddelanden -"
+Yes,Ja
+No,Nej
+Save,Spara
+"Save & Continue Edit","Spara och fortsätt Redigera"
+"Save & Close","Spara och stäng"
+Edit,Redigera
+Delete,Radera
+"Delete ""${ $.$data.name }""","Ta bort "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Är du säker på att du vill radera en "${ $.$data.name }" post?"
+"Are you sure you want to do this?","Är du säker på att du vill göra det här?"
+"Convert To Ticket","Konvertera till biljett"
+"View order #${ $.$data.order_id }","Visa order #${ $.$data.order_id }"
+"View exchange order %1","Visa utbytesorder %1"
+"RMA: Report by Attribute","RMA: Rapport enligt attribut"
+"RMA: Report by Status","RMA: Rapport enligt status"
+"RMA: Report by Product","RMA: Rapport per produkt"
+"RMA: Report by Reasons","RMA: Rapport av skäl"
+"Cannot delete return address with id %1","Kan inte ta bort returadress med id %1"
+"Cannot delete item with id %1","Kan inte radera objekt med id %1"
+"Cannot delete condition with id %1","Kan inte radera villkor med id %1"
+"Cannot delete field with id %1","Kan inte radera fält med id %1"
+"Cannot delete message with id %1","Kan inte radera meddelande med id %1"
+"Cannot delete history with id %1","Kan inte radera historik med id %1"
+"Cannot delete Quick Response with id %1","Det går inte att ta bort snabbt svar med id %1"
+"Cannot delete reason with id %1","Kan inte radera orsak med id %1"
+"Cannot delete resolution with id %1","Kan inte radera upplösning med id %1"
+"Cannot delete rma with id %1","Kan inte radera rma med id %1"
+"Cannot delete rule with id %1","Kan inte radera regel med id %1"
+"Cannot delete status with id %1","Kan inte radera status med id %1"
+"Please, enter a message","Vänligen ange ett meddelande"
+"Product Name",Produktnamn
+SKU,SKU
+Qty,Antal
+"This was a gift, please do not notify purchaser","Detta var en present, var god och meddela inte köparen"
+"Enter your contact information","Ange din kontaktinformation"
+"First Name",Förnamn
+"Last Name",Efternamn
+Email,E-post
+Telephone,Telefon
+"To request a new RMA or check the status of current RMA, please, fill the form:","För att begära en ny RMA eller kontrollera statusen för aktuell RMA, fyll i formuläret:"
+"* Required Fields","* Obligatoriska fält"
+"Order Information",Beställningsinformation
+"Email or Last Name","E-post eller efternamn"
+Next,Nästa
+RMA,RMA
+Actions,Handlingar
+"View Return","Visa Retur"
+"There are no Returns","Det finns inga Returer"
+"Items %1 to %2 of %3 total","Föremål %1 till %2 av %3 totalt"
+"%1 Item(s)","%1 Artikel (er)"
+Show,Show
+"per page","per sida"
+"View as","Visa som"
+"Sort by","Sortera efter"
+"Set Ascending Direction","Stigande ordning"
+"Set Descending Direction","Stigande ordning"
+"Please, select an order","Var vänlig och välj en order"
+Order,Beställa
+"-- Select an Order --","- Välj en beställning -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","Du har inga slutförda beställningar för att begära RMA eller dina beställningar placerades mer än %1 dagar sedan. Vänligen kontakta kundservice."
+"Submit Request","Skicka förfrågan"
+"Please, select RMA items which you would like to return.","Var god välj RMA-objekt som du vill återvända till."
+"Additional Information","Ytterligare information"
+"Attach files","Bifoga filer"
+"Request Information","Begär information"
+"Email Address",E-postadress
+"Order Shipping Address","Beställ leveransadress"
+"Items in this order","Artiklar i denna ordning"
+"There are no items for this product that can be returned.","Det finns inga föremål för den här produkten som kan returneras."
+"Another RMA for this product: %1","En annan RMA för denna produkt: %1"
+"This product can not be returned due to RMA Policy","Denna produkt kan inte returneras på grund av RMA Policy"
+"This is a non-returnable item per our return policy.","Detta är en retur som inte kan returneras per vår returpolicy."
+"Quantity to return","Mängd att återvända"
+"-- Select a Reason --","- Välj en anledning -"
+"-- Select a Condition --","- Välj ett villkor -"
+"-- Select a Resolution --","- Välj en upplösning -"
+"I agree","Jag håller med"
+"Date: %1","Datum: %1"
+"Original order: #%1","Originalorder: #%1"
+"Return Address",Returadress
+"Customer Information",Kundinformation
+"RMA History",RMA-historia
+"RMA Items",RMA-objekt
+Weight,Vikt
+"Print RMA Packing Slip","Skriv ut RMA-paketslip"
+"Print RMA Shipping Label","Skriv ut RMA-fraktetikett"
+"Confirm Shipping","Bekräfta leverans"
+"(This was a gift)","(Detta var en present)"
+"Date Requested","Datum efterfrågad"
+"Contact Information","Kontakt information"
+"Items RMA Requested for","Objekt RMA begärt för"
+QTY,ANTAL
+"Add Message","Lägg till meddelande"
+Submit,Lämna
+%name,%namn
+"The quantity is incorrect.","Mängden är felaktig."
+"New Return for Offline Order","Ny retur för offline order"
+" at %1","vid %1"
+Select,Välj
+"If you do not have account on this store please fill the form below.","Om du inte har konto på denna butik, fyll i formuläret nedan."
+"-- Create Offline Order --","- Skapa offline order -"
+"Returned Item","Returnerad artikel"
+"Remove Item","Ta bort sak"
+"Order or Receipt #","Beställning eller kvitto #"
+"Add Item","Lägg till vara"
+"Add at least one item to this RMA","Lägg till minst ett objekt till denna RMA"
+"Return Addresses",Returadresser
+"Add New Return Address","Lägg till ny returadress"
+"General Information","Allmän information"
+Title,Titel
+"Sort Order",Sorteringsordning
+"Is Active","Är aktiv"
+ID,ID
+Active,Aktiva
+Disabled,Inaktiverad
+Enabled,Aktiverad
+"Change status","Byta status"
+"Are you sure?","Är du säker?"
+Conditions,Betingelser
+"Add New Condition","Lägg till nytt skick"
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer","Skapa RMA för den här kunden"
+Fields,Fields
+"Add New Field","Lägg till nytt fält"
+Code,Koda
+Type,Typ
+Description,Beskrivning
+"Options list",Alternativlista
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Endast för rullgardinsmenyn. <br> Ange varje värde från den nya raden med format: <br> värde1 | LABEL1 <br> value2 | LABEL2"
+"Sort order",Sorteringsordning
+"Is required for staff","Erfordras för personal"
+"Is required for customers","Erfordras för kunder"
+"Visible for customers in statuses","Synlig för kunder i statuser"
+"Is show in confirm shipping dialog","Visa i bekräfta leveransdialogrutan"
+"Is editable for customers","Kan redigeras för kunder"
+Statuses,Status
+Reasons,Anledningar
+Resolutions,Beslut
+"Custom Fields","Anpassade fält"
+"Quick Responses","Snabba svar"
+"Workflow Rules",Arbetsflödesregler
+Reports,Rapporter
+Settings,Inställningar
+"Add New Reason","Lägg till ny anledning"
+"Add New Resolution","Lägg till ny upplösning"
+"Add New RMA","Lägg till ny RMA"
+"Create New RMA","Skapa ny RMA"
+"Purchased From (Store)","Köpt från (Butik)"
+"Purchased On","Köpt på"
+"Bill to Name","Bill till namn"
+"Ship to Name","Skicka till namn"
+"G.T. (Base)","GT (bas)"
+"G.T. (Purchased)","GT (köpt)"
+Print,"Skriva ut"
+"Credit Memo",Kreditnota
+"Exchange Order",Bytesorder
+"Delete File","Radera fil"
+"RMA Owner","RMA Ägare"
+"Upload Return Label","Ladda upp retur etikett"
+"External Link","Extern länk"
+open,öppna
+"(received a gift)","(fick en present)"
+"Exchage Order","Exchage Order"
+Company,Företag
+"Street Address",Gatuadress
+City,Stad
+Zip/Postcode,"Zip / Postnummer"
+Rules,Regler
+"Add New Rule","Lägg till ny regel"
+"Set Status","Ange status"
+"Set Owner","Ange ägare"
+Event,Händelse
+Filters,Filter
+"Rule Name",Regelnamn
+Priority,Prioritet
+"Arranged in the ascending order. 0 is the highest.","Ordnade i stigande ordning. 0 är högst."
+"Stop Further Rules Processing","Stoppa ytterligare regler behandling"
+Notifications,Anmälningar
+"Send email to RMA owner","Skicka e-post till RMA-ägare"
+"Send email to customer","Skicka e-post till kund"
+"Send email to other email addresses","Skicka e-post till andra e-postadresser"
+"Email subject","E-post ämne"
+"Email body",E-postkropp
+"Attach files which were attached to the last message","Bifoga filer som bifogades det senaste meddelandet"
+"Is Stop Processing","Är slutbehandling"
+"Create RMA for this order","Skapa RMA för den här beställningen"
+"Order meets RMA policy","Beställningen uppfyller RMA-policyen"
+"Order doesn't meet RMA policy","Beställningen uppfyller inte RMA-policyen"
+"Add New Status","Lägg till ny status"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Visa knappar &quot;Skriv ut RMA Pack Slip&quot;, &quot;Skriv ut RMA Shipping Label&quot; och &quot;Bekräfta leverans&quot; i kundkontot"
+"Email Notification for customer","E-postmeddelande för kund"
+"leave blank to not send","lämna tomma för att inte skicka"
+"Message for RMA history","Meddelande om RMA-historia"
+"Email Notification for administrator","E-postmeddelande för administratör"
+Templates,Mallar
+"Add New Template","Lägg till ny mall"
+"Internal Title",Interntitel
+Template,Mall
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Du kan använda variabler: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Butiker
+"RMA Return Address","RMA returadress"
+"New Return Address","Ny returadress"
+"Return Address Manager","Returnera adresshanteraren"
+"Add Return Address ","Lägg till Returadress"
+"Add Return Address","Lägg till Returadress"
+"Return Address was successfully deleted","Returadressen har tagits bort"
+"Edit Return Address '%1'","Ändra returadress &quot;%1&quot;"
+"Edit Return Address ","Ändra returadress"
+"The Return Address does not exist.","Returadressen existerar inte."
+"Please select Return Address(es)","Vänligen välj Returadress (er)"
+"Total of %d record(s) were successfully updated","Totalt antal% d-poster har uppdaterats"
+"Total of %1 record(s) were successfully deleted","Totalt %1-post (er) har tagits bort"
+"return Address was successfully saved","Returadressen har sparats"
+"Unable to find Return Address to save","Det går inte att hitta Returadress för att spara"
+"New Condition",Nyskick
+"Condition  Manager",Villkorschef
+"Condition Manager",Villkorschef
+"Add Condition ","Lägg till villkor"
+"Add Condition","Lägg till villkor"
+"Condition was successfully deleted","Skicket har tagits bort"
+"Edit Condition '%1'","Redigera villkor &#39;%1&#39;"
+"Edit Condition ","Redigera villkor"
+"The Condition does not exist.","Villkoret existerar inte."
+"Please select Condition(s)","Vänligen välj Skick (er)"
+"Total of %d record(s) were successfully deleted","Totalt antal% d-poster har tagits bort"
+"Condition was successfully saved","Skicket sparades med framgång"
+"Unable to find Condition to save","Det gick inte att hitta villkor att spara"
+"New Field","Nytt fält"
+"Field  Manager",Fältchef
+"Field Manager",Fältchef
+"Add Field ","Lägg till fält"
+"Add Field","Lägg till fält"
+"Field was successfully deleted","Fältet har tagits bort"
+"Edit Field '%1'","Redigera fältet &#39;%1&#39;"
+"Edit Field ","Redigera fält"
+"The Field does not exist.","Fältet existerar inte."
+"Please select Field(s)","Vänligen välj Fält (er)"
+"Field was successfully saved","Fältet har sparats"
+"Unable to find Field to save","Det gick inte att hitta fält som skulle sparas"
+"New Reason","Ny anledning"
+"Reason  Manager","Reason Manager"
+"Reason Manager","Reason Manager"
+"Add Reason ","Lägg till skäl"
+"Add Reason","Lägg till skäl"
+"Reason was successfully deleted","Orsaken har tagits bort"
+"Edit Reason '%1'","Redigera orsaken &quot;%1&quot;"
+"Edit Reason ","Redigera skäl"
+"The Reason does not exist.","Orsaken finns inte."
+"Please select Reason(s)","Var god välj Reason (s)"
+"Reason was successfully saved","Anledningen lyckades sparas"
+"Unable to find Reason to save","Det gick inte att hitta anledning att spara"
+"Statistics was successfully updated","Statistik uppdaterades"
+"RMA by Brand","RMA enligt varumärke"
+"RMA Report",RMA-rapport
+"RMA by Product",
+Rma,RMA
+"New Resolution","Ny upplösning"
+"Resolution  Manager","Resolution Manager"
+"Resolution Manager","Resolution Manager"
+"Add Resolution ","Lägg till upplösning"
+"Add Resolution","Lägg till upplösning"
+"Resolution was successfully deleted","Upplösningen har tagits bort"
+"Edit Resolution '%1'","Redigera upplösning &#39;%1&#39;"
+"Edit Resolution ","Redigera upplösning"
+"The Resolution does not exist.","Upplösningen finns inte."
+"Please select Resolution(s)","Vänligen välj Resolution (s)"
+"Resolution was successfully saved","Upplösningen lyckades sparas"
+"Unable to find Resolution to save","Det gick inte att hitta Resolution för att spara"
+"New RMA","Ny RMA"
+"RMA was successfully deleted","RMA har tagits bort"
+"The rma does not exist.","Rma existerar inte."
+"Marked as read","Markerad som läst"
+"Marked as unread","Markeras som oläst"
+"Please select rma(s)","Var god välj rma (s)"
+"A total of %1 record(s) have been deleted.","Totalt %1 posten (er) har tagits bort."
+"RMA was successfully saved","RMA lyckades sparas"
+"Unable to find rma to save","Det gick inte att hitta rma för att spara"
+"New Rule","Ny regel"
+"Rule  Manager","Rule Manager"
+"Rule Manager","Rule Manager"
+"Add Rule ","Lägg till regel"
+"Add Rule","Lägg till regel"
+"Rule was successfully deleted","Regel har tagits bort"
+"Edit Rule '%1'","Redigera regeln &#39;%1&#39;"
+"Edit Rule ","Redigera regeln"
+"The Rule does not exist.","Regeln existerar inte."
+"Please select Rule(s)","Var god välj Regel (er)"
+"Rule was successfully saved","Regel lyckades sparas"
+"Unable to find Rule to save","Det gick inte att hitta Regel för att spara"
+"New Status","Ny status"
+"Status  Manager",Statushanteraren
+"Status Manager",Statushanteraren
+"Add Status ","Lägg till status"
+"Add Status","Lägg till status"
+"Status was successfully deleted","Statusen har tagits bort"
+"Edit Status '%1'","Redigera status &quot;%1&quot;"
+"Edit Status ","Redigera status"
+"The Status does not exist.","Statusen existerar inte."
+"Please select Status(s)","Vänligen välj Status (er)"
+"Status was successfully saved","Status har sparats"
+"Unable to find Status to save","Det gick inte att hitta status som ska sparas"
+"New Template","Ny mall"
+"Template  Manager",Mallhanteraren
+"Template Manager",Mallhanteraren
+"Add Template ","Lägg till mall"
+"Add Template","Lägg till mall"
+"Template was successfully deleted","Mallen har tagits bort"
+"Edit Template '%1'","Redigera mall &#39;%1&#39;"
+"Edit Template ","Redigera mall"
+"The Template does not exist.","Mallen existerar inte."
+"Please select Template(s)","Var god välj Mall (er)"
+"Template was successfully saved","Mallen har sparats"
+"Unable to find Template to save","Det gick inte att hitta mall för att spara"
+"Created Date","Skapat Datum"
+Action,Verkan
+View,Se
+RMAs,RMA
+"Select Order","Välj ordning"
+"Exchange/Credit Balance","Utbyte / Kreditbalans"
+"Customer credit balance:",Kundkreditsaldo:
+"Total price of new products:","Totalt pris på nya produkter:"
+"Total price of exchanged/credit products:","Totalt pris för utbyte / kreditprodukter:"
+"Price difference:",Prisskillnad:
+Resolution:,Upplösning:
+"Get %1 from customer credit balance","Få %1 från kundkreditsaldo"
+"Put %1 to customer credit balance","Sätt %1 på kundens kreditbalans"
+"Resolve manually","Lös upp manuellt"
+"Message Type",Meddelandetyper
+"Message to Customer","Meddelande till kunden"
+"Internal Note","Intern not"
+"mark as unread","markera som oläst"
+"mark as read","markera som läst"
+"You can not return more, than available. Please, try again.","Du kan inte returnera mer än tillgänglig. Var god försök igen."
+"show all order items","visa alla beställningsobjekt"
+"Qty to Return","Antalet att återvända"
+"Reason to Return","Anledning att återvända"
+"Item Condition",Föremålskvalitet
+"(Bundled Product)","(Medföljande produkt)"
+Stock,Stock
+Ordered,Beordrade
+Available,Tillgängliga
+--,-
+"Insert Quick Response","Sätt in snabbt svar"
+"Default status for new RMA","Standardstatus för ny RMA"
+"Default owner for new RMA","Standardägare för ny RMA"
+"Ask customer to confirm shipping","Be kunden att bekräfta frakt"
+"Shipping confirmation text","Fraktbekräftelse text"
+"Enable option ""This was a gift""","Aktivera alternativet &quot;Detta var en present&quot;"
+"Enable integration with Help Desk","Aktivera integration med Help Desk"
+"Code of ""Brand"" attribute","Kod för attributet &quot;Brand&quot;"
+"Allow upload only attachments with extensions","Tillåt bara att ladda upp bilagor med tillägg"
+"Limit of attachments size, Mb","Gräns för bilagor storlek, Mb"
+"Show Columns in RMA Grid","Visa kolumner i RMA-nätet"
+"Show RMA section in Customer Account","Visa RMA-sektionen i kundkonto"
+"Customers are required to select:","Kunderna måste välja:"
+"Allow to request RMA after order completion, days","Tillåt att begära RMA efter beställningens slutdatum, dagar"
+"Allow to request RMA if order has status","Tillåt att begära RMA om order har status"
+"Ask to agree with RMA policy text","Be om att hålla med RMA-policytexten"
+"CMS block with RMA policy text","CMS-block med RMA-policytext"
+"Number Format",Nummerformat
+"Start Counter From","Starträknare från"
+"Counter Increment Step",Stegräkningssteg
+"Counter Length","Räknare längd"
+"Email Sender","E-post avsändare"
+"Template of Notification Email for Customer","Meddelandemail för kund"
+"Template of Notification Email for RMA Owner","Meddelandemail för RMA-ägare"
+"Template of Rule Notification","Template of Rule Notification"
+" Send blind carbon copy (BCC) of all emails to","Skicka blind kol kopi (BCC) av alla e-post till"
+"At least one RMA item should have resolution ""Exchange"".","Åtminstone ett RMA-objekt ska ha upplösning &quot;Exchange&quot;."
+"Add another order","Lägg till en annan order"
+"Offline Order","Offline Order"
+OR,ELLER
+"Select Offline Order","Välj offline order"

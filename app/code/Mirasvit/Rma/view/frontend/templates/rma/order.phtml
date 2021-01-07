@@ -1,0 +1,18 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\Order $block */
+$order = $block->getCurrentOrder();
+?>
+<div class="order-details-items">
+    <?php if ($block->isReturnAllowed()): ?>
+    <div class="order-title">
+            <button onclick="window.location.href='<?= $block->getUrl('rma/rma/new', ['order_id' => $order->getId()])?>';" class="button pull-right"><span><span><?= __('Request New Return')?></span></span></button>
+            <br><br>
+    </div>
+    <?php endif ?>
+    <div class="table-wrapper">
+        <?php
+        echo $block->getOrderRmaList();
+        ?>
+    </div>
+
+</div>

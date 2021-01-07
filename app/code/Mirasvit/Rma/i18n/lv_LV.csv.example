@@ -1,0 +1,484 @@
+"Request RMA","Pieprasīt RMA"
+"My Returns","Mani atgriežas"
+Grid,Režģis
+List,Saraksts
+All,Viss
+"Create RMA","Izveidojiet RMA"
+"Request New Return","Pieprasīt jaunu atgriešanu"
+"Max file size: %1Mb","Maksimālais faila lielums: %1Mb"
+"New Return for Order #%1","Jauns atgriešanās pasūtījumam #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Nepareizs pasūtījums #, e-pasts vai uzvārds"
+Items,Vienumi
+"To apply changes you should fill in required ""%1"" field","Lai piemērotu izmaiņas, aizpildiet lauku &quot;%1&quot;"
+"Please, add order items to the RMA (set 'Qty to Return')","Lūdzu, pievienojiet RMA pasūtījuma vienumus (iestatiet daudzumu, lai atgrieztos)"
+"Please, set correct order items Quantity to return","Lūdzu, iestatiet precīzus pasūtījumu daudzumus, lai atgrieztos"
+"RMA was successfully created","RMA tika veiksmīgi izveidots"
+"Shipping is confirmed. Thank you!","Piegāde tiek apstiprināta. Paldies!"
+"Your message was successfully added","Jūsu ziņa tika veiksmīgi pievienota"
+"Allowed extensions:","Atļautie paplašinājumi:"
+"Maximum size:","Maksimālais izmērs:"
+"-- Please Select --","-- Lūdzu izvēlieties --"
+" at %1 (%2)","plkst. %1 (%2)"
+"Mark as unresolved","Atzīmējiet kā neatrisinātu"
+"Mark as resolved","Atzīmēt kā atrisinātu"
+"not set","nav uzstādīts"
+Pattern,Paraugs
+"Attribute Value","Atribūtu vērtība"
+Default,Noklusējums
+Integer,"Vesels skaitlis"
+Price,Cena
+"Strip Tags","Strip Tagi"
+"Primary Attributes","Galvenie atribūti"
+"Stock Attributes","Krājuma īpašības"
+"Prices & Taxes","Cenas un nodokļi"
+Images,Attēli
+"Custom Attributes","Pielāgotie atribūti"
+Mapping,Kartēšana
+Category,Kategorija
+"Amasty Meta Tags","Amasty Meta Tags"
+"Others Attributes","Citi atribūti"
+Text,Teksts
+"Multi-line text","Daudzrindu teksts"
+Date,Datums
+Checkbox,"Izvēles rūtiņa"
+"Drop-down list","Izvēlnes saraksts"
+Reason,Iemesls
+Condition,Nosacījums
+Resolution,Izšķirtspēja
+"RMA #","RMA #"
+"Order #","Pasūtījuma Nr."
+"Customer Email","Klienta e-pasts"
+"Customer Name","Klienta vārds"
+Owner,Īpašnieks
+"Last Replier","Pēdējā mape"
+Status,Statuss
+Store,Uzglabāt
+"Created At","Izveidots pie"
+"Last Activity","Pēdējā darbība"
+"View link","Skatīt saiti"
+"New RMA has been created","Ir izveidota jauna RMA"
+"RMA has been changed","RMA ir mainīts"
+"New reply from customer","Jauna atbilde no klienta"
+"New reply from staff","Jauna atbilde no personāla"
+"-- Default Address --","- Noklusētā adrese -"
+"Update the Product","Atjauniniet produktu"
+"Conditions Combination","Nosacījumi kombinācija"
+"RMA Attribute","RMA atribūti"
+"Last 7-days Clicks","Pēdējie 7 dienu klikšķi"
+"Last 7-days Orders","Pēdējie 7 dienu pasūtījumi"
+"Last 7-days Revenue","Pēdējās 7 dienu ieņēmumi"
+"Last 7-days Conversation Rate (%)","Pēdējo 7 dienu sarunu biežums (%)"
+"Attribute Set","Atribūtu kopums"
+Quantity,Daudzums
+"Product Type","Produkta veids"
+"Base Image","Bāzes attēls"
+Thumbnail,Sīktēls
+"Small Image","Mazs attēls"
+"Base Image Size (bytes)","Bāzes attēla lielums (baiti)"
+"Thumbnail Size (bytes)","Sīktēlu izmērs (baiti)"
+"Small Image Size (bytes)","Maza attēla lielums (baiti)"
+"PHP Condition","PHP nosacījums"
+"Open Chooser","Atvērt izvēli"
+"Last message body","Pēdējā ziņu korpuss"
+"Updated At","Atjaunināts At"
+"Status (before change)","Statuss (pirms izmaiņām)"
+"Owner (before change)","Īpašnieks (pirms izmaiņām)"
+"Last Reply By","Pēdējais komentārs ar"
+"Hours since Created","Stundas kopš izveidošanas"
+"Hours since Updated","Stundas kopš Atjaunots"
+"Hours since Last reply","Stundas kopš pēdējās atbildes"
+"Items have reason","Vienumiem ir iemesls"
+"Items have condition","Vienumiem ir stāvoklis"
+"Items have resolution","Vienumiem ir izšķirtspēja"
+"%1 (before change)","%1 (pirms izmaiņām)"
+Customer,Klients
+Staff,Personāls
+"- Disable these emails -","- atspējot šos e-pastus -"
+Yes,Jā
+No,Nē
+Save,Saglabājiet
+"Save & Continue Edit","Saglabāt un turpināt rediģēt"
+"Save & Close","Saglabāt un aizvērt"
+Edit,Rediģēt
+Delete,Dzēst
+"Delete ""${ $.$data.name }""","Dzēst "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Vai tiešām neesat izdzēsis ierakstu "${ $.$data.name }"?"
+"Are you sure you want to do this?","Vai tiešām vēlaties to izdarīt?"
+"Convert To Ticket","Konvertēt uz biļeti"
+"View order #${ $.$data.order_id }","Skatīt pasūtījumu #${ $.$data.order_id }"
+"View exchange order %1","Skatiet apmaiņas kārtību %1"
+"RMA: Report by Attribute","RMA: atskaite pēc atribūta"
+"RMA: Report by Status","RMA: ziņojums pēc statusa"
+"RMA: Report by Product","RMA: ziņojums pēc produkta"
+"RMA: Report by Reasons","RMA: ziņojums pēc pamatojuma"
+"Cannot delete return address with id %1","Nevar izdzēst atgriešanās adresi ar id %1"
+"Cannot delete item with id %1","Nevar izdzēst vienumu ar id %1"
+"Cannot delete condition with id %1","Nevar izdzēst nosacījumu ar id %1"
+"Cannot delete field with id %1","Nevaru izdzēst lauku ar id %1"
+"Cannot delete message with id %1","Nevar izdzēst ziņu ar id %1"
+"Cannot delete history with id %1","Nevar izdzēst vēsturi ar id %1"
+"Cannot delete Quick Response with id %1","Nevar izdzēst Quick Response ar id %1"
+"Cannot delete reason with id %1","Nevar izdzēst iemeslu ar id %1"
+"Cannot delete resolution with id %1","Nevar izdzēst izšķirtspēju ar id %1"
+"Cannot delete rma with id %1","Nevaru izdzēst rma ar id %1"
+"Cannot delete rule with id %1","Nevar izdzēst kārtulu ar id %1"
+"Cannot delete status with id %1","Nevar izdzēst statusu ar id %1"
+"Please, enter a message","Lūdzu, ievadiet ziņojumu"
+"Product Name","Produkta nosaukums"
+SKU,SKU
+Qty,Daudzums
+"This was a gift, please do not notify purchaser","Šī bija dāvana, lūdzu, nepaziņojiet pircējam"
+"Enter your contact information","Ievadiet savu kontaktinformāciju"
+"First Name",Vārds
+"Last Name",Uzvārds
+Email,E-pasts
+Telephone,Tālrunis
+"To request a new RMA or check the status of current RMA, please, fill the form:","Lai pieprasītu jaunu RMA vai pārbaudītu esošās RMA statusu, lūdzu, aizpildiet veidlapu:"
+"* Required Fields","* Obligāti aizpildāmie lauki"
+"Order Information","Pasūtīt informāciju"
+"Email or Last Name","E-pasts vai uzvārds"
+Next,Nākamais
+RMA,RMA
+Actions,Darbības
+"View Return","Skatīt atgriešanos"
+"There are no Returns","Nav Atgriešanas"
+"Items %1 to %2 of %3 total","Kopā no %1 līdz %2 no %3"
+"%1 Item(s)","__1. Postenis (-i)"
+Show,Parādīt
+"per page","uz lapu"
+"View as","Skatīt kā"
+"Sort by","Kārtot pēc"
+"Set Ascending Direction","Iestatiet augošā secībā"
+"Set Descending Direction","Iestatiet dilstošā virzienā"
+"Please, select an order","Lūdzu, izvēlieties pasūtījumu"
+Order,Pasūtījums
+"-- Select an Order --","- Izvēlieties Pasūtījumu -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","Jums nav pabeigtu pasūtījumu, lai pieprasītu RMA, vai jūsu pasūtījumi tika ievietoti vairāk nekā pirms %1 dienām. Lūdzu, sazinieties ar klientu apkalpošanas dienestu."
+"Submit Request","Iesniegt pieprasījumu"
+"Please, select RMA items which you would like to return.","Lūdzu, izvēlieties RMA vienumus, kurus vēlaties atgriezt."
+"Additional Information","Papildus informācija"
+"Attach files","Pievienojiet failus"
+"Request Information","Pieprasīt informāciju"
+"Email Address","Epasta adrese"
+"Order Shipping Address","Pasūtījuma piegādes adrese"
+"Items in this order","Šajā pasūtījumā esošie vienumi"
+"There are no items for this product that can be returned.","Šim produktam nav atgriešanas priekšmetu."
+"Another RMA for this product: %1","Cits šī produkta RMA: %1"
+"This product can not be returned due to RMA Policy","RMA politikas dēļ šo produktu nevar nosūtīt atpakaļ"
+"This is a non-returnable item per our return policy.","Tas ir neatgriezenisks vienums mūsu atgriešanās politikā."
+"Quantity to return","Atgriešanās daudzums"
+"-- Select a Reason --","- Izvēlieties iemeslu -"
+"-- Select a Condition --","- Izvēlieties nosacījumu -"
+"-- Select a Resolution --","- Izvēlieties izšķirtspēju -"
+"I agree","ES piekrītu"
+"Date: %1","Datums: %1"
+"Original order: #%1","Oriģināls pasūtījums: #%1"
+"Return Address","Atgriešanās adrese"
+"Customer Information","Klienta informācija"
+"RMA History","RMA vēsture"
+"RMA Items","RMA preces"
+Weight,Svars
+"Print RMA Packing Slip","Drukāt RMA iepakošanas slīdēšanas"
+"Print RMA Shipping Label","Drukāt RMA piegādes marķējumu"
+"Confirm Shipping","Apstiprini piegādi"
+"(This was a gift)","(Šī bija dāvana)"
+"Date Requested","Pieprasītais datums"
+"Contact Information",Kontaktinformācija
+"Items RMA Requested for","RMA pieprasītie priekšmeti"
+QTY,QTY
+"Add Message","Pievienot ziņu"
+Submit,Iesniegt
+%name,"% vārds"
+"The quantity is incorrect.","Daudzums ir nepareizs."
+"New Return for Offline Order","Jauna atgriešanās bezsaistes kārtībā"
+" at %1","pie %1"
+Select,Izvēlieties
+"If you do not have account on this store please fill the form below.","Ja jums nav konta šajā veikalā, lūdzu, aizpildiet zemāk redzamo veidlapu."
+"-- Create Offline Order --","- Izveidot bezsaistes pasūtījumu -"
+"Returned Item","Atgrieztais vienums"
+"Remove Item","Noņemt vienumu"
+"Order or Receipt #","Pasūtījums vai saņemšana #"
+"Add Item","Pievienot vienumu"
+"Add at least one item to this RMA","Pievienojiet šim RMA vismaz vienu vienumu"
+"Return Addresses","Atgriezties adreses"
+"Add New Return Address","Pievienojiet jaunu atgriešanās adresi"
+"General Information","Galvenā informācija"
+Title,Nosaukums
+"Sort Order","Šķirošanas secība"
+"Is Active","Ir aktīvs"
+ID,ID
+Active,Aktīvs
+Disabled,Atspējots
+Enabled,Iespējots
+"Change status","Mainīt statusu"
+"Are you sure?","Vai tu esi pārliecināts?"
+Conditions,Nosacījumi
+"Add New Condition","Pievienot jaunu nosacījumu"
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer","Izveidot RMA šim klientam"
+Fields,Lauki
+"Add New Field","Pievienot jaunu lauku"
+Code,Kods
+Type,Tips
+Description,Apraksts
+"Options list","Iespēju saraksts"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Tikai nolaižamajā sarakstā. <br> Ievadiet katru vērtību no jaunās līnijas, izmantojot formātu: <br> vērtība1 | etiķete1 <br> vērtība2 | etiķete2"
+"Sort order","Šķirošanas secība"
+"Is required for staff","Nepieciešams darbiniekiem"
+"Is required for customers","Nepieciešams klientiem"
+"Visible for customers in statuses","Redzams klientiem statusos"
+"Is show in confirm shipping dialog","Tiek parādīts apstiprinājuma nosūtīšanas dialoglodziņā"
+"Is editable for customers","Ir rediģējams klientiem"
+Statuses,Statusi
+Reasons,Iemesli
+Resolutions,Rezolūcijas
+"Custom Fields","Pielāgotie lauki"
+"Quick Responses","Ātrās atbildes"
+"Workflow Rules","Darbplūsmas noteikumi"
+Reports,Ziņojumi
+Settings,Iestatījumi
+"Add New Reason","Pievienot jaunu iemeslu"
+"Add New Resolution","Pievienot jaunu izšķirtspēju"
+"Add New RMA","Pievienot jaunu RMA"
+"Create New RMA","Izveidot jaunu RMA"
+"Purchased From (Store)","Iegādāts no (veikals)"
+"Purchased On",Iegādāts
+"Bill to Name","Rēķins uz vārdu"
+"Ship to Name","Nosūtīt uz vārdu"
+"G.T. (Base)","GT (bāze)"
+"G.T. (Purchased)","GT (iegādāts)"
+Print,Drukāt
+"Credit Memo",Kredītmemo
+"Exchange Order","Apmaiņas rīkojums"
+"Delete File","Izdzēst failu"
+"RMA Owner","RMA īpašnieks"
+"Upload Return Label","Augšupielādes atgriešanas iezīme"
+"External Link","Ārējā saite"
+open,atvērts
+"(received a gift)","(saņēma dāvanu)"
+"Exchage Order","Exchage rīkojums"
+Company,Uzņēmums
+"Street Address","Ielas adrese"
+City,Pilsēta
+Zip/Postcode,"Pasta indekss"
+Rules,Noteikumi
+"Add New Rule","Pievienot jaunu noteikumu"
+"Set Status","Iestatīt statusu"
+"Set Owner","Iestatīt īpašnieku"
+Event,Notikums
+Filters,Filtri
+"Rule Name","Noteikuma nosaukums"
+Priority,Prioritāte
+"Arranged in the ascending order. 0 is the highest.","Sakārtots augošā secībā. 0 ir augstākais."
+"Stop Further Rules Processing","Pārtraukt papildu noteikumu apstrādi"
+Notifications,Paziņojumi
+"Send email to RMA owner","Sūtīt e-pastu RMA īpašniekam"
+"Send email to customer","Sūtīt e-pastu klientam"
+"Send email to other email addresses","Sūtīt e-pastu uz citām e-pasta adresēm"
+"Email subject","E-pasta temats"
+"Email body","E-pasta struktūra"
+"Attach files which were attached to the last message","Pievienojiet pēdējam ziņojumam pievienotos failus"
+"Is Stop Processing","Vai pārtraukt apstrādi"
+"Create RMA for this order","Izveidot RMA šim pasūtījumam"
+"Order meets RMA policy","Pasūtījums atbilst RMA politikai"
+"Order doesn't meet RMA policy","Pasūtījums neatbilst RMA politikai"
+"Add New Status","Pievienot jaunu statusu"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Rādīt klienta kontā esošās pogas „Drukāt RMA iepakojuma sloksni”, “Drukāt RMA piegādes marķējumu” un “Apstiprināt piegādi”"
+"Email Notification for customer","E-pasta paziņojums klientam"
+"leave blank to not send","atstāt tukšu, lai nesūtītu"
+"Message for RMA history","Ziņojums par RMA vēsturi"
+"Email Notification for administrator","E-pasta paziņojums administratoram"
+Templates,Veidnes
+"Add New Template","Pievienot jaunu veidni"
+"Internal Title","Iekšējā sadaļa"
+Template,Veidne
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Varat izmantot mainīgos lielumus: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Veikali
+"RMA Return Address","RMA atgriešanās adrese"
+"New Return Address","Jauna atgriešanās adrese"
+"Return Address Manager","Atgriezties adrešu pārvaldniekā"
+"Add Return Address ","Pievienot atgriešanās adresi"
+"Add Return Address","Pievienot atgriešanās adresi"
+"Return Address was successfully deleted","Atgriešanās adrese tika veiksmīgi izdzēsta"
+"Edit Return Address '%1'","Rediģēt atgriešanās adresi &#39;%1&#39;"
+"Edit Return Address ","Rediģēt atgriešanās adresi"
+"The Return Address does not exist.","Atgriešanās adrese neeksistē."
+"Please select Return Address(es)","Lūdzu, atlasiet Return Address (es)"
+"Total of %d record(s) were successfully updated","Veiksmīgi atjaunināts% d ieraksts (-i)"
+"Total of %1 record(s) were successfully deleted","Veiksmīgi izdzēsti %1 ieraksti"
+"return Address was successfully saved","atgriešanās Adrese tika veiksmīgi saglabāta"
+"Unable to find Return Address to save","Nevar atrast atgriešanās adresi, lai saglabātu"
+"New Condition","Jauns stāvoklis"
+"Condition  Manager","Nosacījumu pārvaldnieks"
+"Condition Manager","Nosacījumu pārvaldnieks"
+"Add Condition ","Pievienot nosacījumu"
+"Add Condition","Pievienot nosacījumu"
+"Condition was successfully deleted","Nosacījums tika veiksmīgi dzēsts"
+"Edit Condition '%1'","Mainīt nosacījumu &#39;%1&#39;"
+"Edit Condition ","Mainīt nosacījumu"
+"The Condition does not exist.","Nosacījums nepastāv."
+"Please select Condition(s)","Lūdzu, atlasiet nosacījumu (-us)"
+"Total of %d record(s) were successfully deleted","Veiksmīgi izdzēsti% d ieraksti"
+"Condition was successfully saved","Nosacījums tika veiksmīgi saglabāts"
+"Unable to find Condition to save","Nevar atrast nosacījumu, lai saglabātu"
+"New Field","Jauns lauks"
+"Field  Manager","Lauku pārvaldnieks"
+"Field Manager","Lauku pārvaldnieks"
+"Add Field ","Pievienot lauku"
+"Add Field","Pievienot lauku"
+"Field was successfully deleted","Lauks tika veiksmīgi izdzēsts"
+"Edit Field '%1'","Rediģēt lauku &#39;%1&#39;"
+"Edit Field ","Rediģēt lauku"
+"The Field does not exist.","Lauks nepastāv."
+"Please select Field(s)","Lūdzu, atlasiet lauks (-i)"
+"Field was successfully saved","Lauks tika veiksmīgi saglabāts"
+"Unable to find Field to save","Nevar atrast lauku, lai saglabātu"
+"New Reason","Jauns iemesls"
+"Reason  Manager","Reason Manager"
+"Reason Manager","Reason Manager"
+"Add Reason ","Pievienot iemeslu"
+"Add Reason","Pievienot iemeslu"
+"Reason was successfully deleted","Iemesls veiksmīgi tika dzēsts"
+"Edit Reason '%1'","Rediģēt iemeslu &#39;%1&#39;"
+"Edit Reason ","Rediģēt iemeslu"
+"The Reason does not exist.","Iemesls nav."
+"Please select Reason(s)","Lūdzu, atlasiet iemeslu (-us)"
+"Reason was successfully saved","Iemesls tika veiksmīgi saglabāts"
+"Unable to find Reason to save","Nevar atrast iemeslu, lai saglabātu"
+"Statistics was successfully updated","Statistika tika veiksmīgi atjaunināta"
+"RMA by Brand","RMA pēc zīmola"
+"RMA Report","RMA ziņojums"
+"RMA by Product","RMA pēc produkta"
+Rma,RMA
+"New Resolution","Jauna rezolūcija"
+"Resolution  Manager","Izšķirtspējas pārvaldnieks"
+"Resolution Manager","Izšķirtspējas pārvaldnieks"
+"Add Resolution ","Pievienot izšķirtspēju"
+"Add Resolution","Pievienot izšķirtspēju"
+"Resolution was successfully deleted","Izšķirtspēja tika veiksmīgi izdzēsta"
+"Edit Resolution '%1'","Rediģēt izšķirtspēju &#39;%1&#39;"
+"Edit Resolution ","Rediģēt izšķirtspēju"
+"The Resolution does not exist.","Rezolūcija nepastāv."
+"Please select Resolution(s)","Lūdzu, atlasiet Izšķirtspēja"
+"Resolution was successfully saved","Izšķirtspēja tika veiksmīgi saglabāta"
+"Unable to find Resolution to save","Nevar atrast rezolūciju, lai saglabātu"
+"New RMA","Jauns RMA"
+"RMA was successfully deleted","RMA tika veiksmīgi izdzēsts"
+"The rma does not exist.","Rma nav."
+"Marked as read","Atzīmēts kā lasīts"
+"Marked as unread","Atzīmēts kā nelasīts"
+"Please select rma(s)","Lūdzu, atlasiet rma (s)"
+"A total of %1 record(s) have been deleted.","Kopā ir izdzēsti %1 ieraksti."
+"RMA was successfully saved","RMA tika veiksmīgi saglabāts"
+"Unable to find rma to save","Nevar atrast rma, lai saglabātu"
+"New Rule","Jauns noteikums"
+"Rule  Manager","Noteikumu pārvaldnieks"
+"Rule Manager","Noteikumu pārvaldnieks"
+"Add Rule ","Pievienot noteikumu"
+"Add Rule","Pievienot noteikumu"
+"Rule was successfully deleted","Noteikums tika veiksmīgi dzēsts"
+"Edit Rule '%1'","Rediģēt noteikumu &#39;%1&#39;"
+"Edit Rule ","Rediģēt noteikumu"
+"The Rule does not exist.","Noteikums nepastāv."
+"Please select Rule(s)","Lūdzu, atlasiet Noteikums (-i)"
+"Rule was successfully saved","Noteikums tika veiksmīgi saglabāts"
+"Unable to find Rule to save","Nevar atrast noteikumus, lai saglabātu"
+"New Status","Jauns statuss"
+"Status  Manager","Statusa pārvaldnieks"
+"Status Manager","Statusa pārvaldnieks"
+"Add Status ","Pievienot statusu"
+"Add Status","Pievienot statusu"
+"Status was successfully deleted","Statuss tika veiksmīgi izdzēsts"
+"Edit Status '%1'","Rediģēt statusu &#39;%1&#39;"
+"Edit Status ","Rediģēt statusu"
+"The Status does not exist.","Statuss nepastāv."
+"Please select Status(s)","Lūdzu, atlasiet Statuss (-i)"
+"Status was successfully saved","Statuss tika veiksmīgi saglabāts"
+"Unable to find Status to save","Nevar atrast statusu, lai saglabātu"
+"New Template","Jauna veidne"
+"Template  Manager","Veidņu pārvaldnieks"
+"Template Manager","Veidņu pārvaldnieks"
+"Add Template ","Pievienot veidni"
+"Add Template","Pievienot veidni"
+"Template was successfully deleted","Veidne tika veiksmīgi izdzēsta"
+"Edit Template '%1'","Rediģēt veidni &#39;%1&#39;"
+"Edit Template ","Rediģēt veidni"
+"The Template does not exist.","Veidne nepastāv."
+"Please select Template(s)","Lūdzu, atlasiet veidni (-es)"
+"Template was successfully saved","Veidne tika veiksmīgi saglabāta"
+"Unable to find Template to save","Nevar atrast saglabājamo veidni"
+"Created Date","Izveidots datums"
+Action,Rīcība
+View,Skatīt
+RMAs,RMA
+"Select Order","Izvēlieties Pasūtīt"
+"Exchange/Credit Balance","Biržas / kredīta atlikums"
+"Customer credit balance:","Klienta kredīta atlikums:"
+"Total price of new products:","Jauno produktu kopējā cena:"
+"Total price of exchanged/credit products:","Apmaiņas / kredīta produktu kopējā cena:"
+"Price difference:","Cenu starpība:"
+Resolution:,Izšķirtspēja:
+"Get %1 from customer credit balance","Saņemiet %1 no klienta kredīta atlikuma"
+"Put %1 to customer credit balance","Ievietojiet %1 uz klienta kredīta atlikumu"
+"Resolve manually","Atrisiniet manuāli"
+"Message Type","Ziņojuma veids"
+"Message to Customer","Ziņojums Klientam"
+"Internal Note","Iekšējā piezīme"
+"mark as unread","atzīmēt kā nelasītu"
+"mark as read","Atzīmēt kā lasītu"
+"You can not return more, than available. Please, try again.","Jūs nevarat atgriezties vairāk, nekā pieejams. Lūdzu mēģiniet vēlreiz."
+"show all order items","parādīt visus pasūtījuma vienumus"
+"Qty to Return",Atgriezties
+"Reason to Return","Iemesls atgriezties"
+"Item Condition","Vienības stāvoklis"
+"(Bundled Product)","(Pievienots produkts)"
+Stock,Krājumi
+Ordered,Pasūtīts
+Available,Pieejams
+--,-
+"Insert Quick Response","Ievietojiet ātrās atbildes"
+"Default status for new RMA","Jaunā RMA noklusējuma statuss"
+"Default owner for new RMA","Noklusējuma īpašnieks jaunajam RMA"
+"Ask customer to confirm shipping","Lūdziet klientu apstiprināt sūtījumu"
+"Shipping confirmation text","Piegādes apstiprinājuma teksts"
+"Enable option ""This was a gift""","Iespējot opciju &quot;Šī bija dāvana&quot;"
+"Enable integration with Help Desk","Iespējot integrāciju ar palīdzības dienestu"
+"Code of ""Brand"" attribute","Atribūta „Brand” kods"
+"Allow upload only attachments with extensions","Atļaut augšupielādēt tikai pielikumus ar paplašinājumiem"
+"Limit of attachments size, Mb","Pielikumu lielums, Mb"
+"Show Columns in RMA Grid","Rādīt kolonnas RMA režģī"
+"Show RMA section in Customer Account","Rādīt RMA sadaļu Klientu kontā"
+"Customers are required to select:","Klientiem ir jāizvēlas:"
+"Allow to request RMA after order completion, days","Ļauj pieprasīt RMA pēc pasūtījuma pabeigšanas, dienas"
+"Allow to request RMA if order has status","Ļauj pieprasīt RMA, ja pasūtījumam ir statuss"
+"Ask to agree with RMA policy text","Lūdziet piekrist RMA politikas tekstam"
+"CMS block with RMA policy text","CMS bloks ar RMA politikas tekstu"
+"Number Format","Numura formāts"
+"Start Counter From","Sākt skaitītāju no"
+"Counter Increment Step","Skaitītāja pieauguma solis"
+"Counter Length","Skaitītāja garums"
+"Email Sender","Nosūtīt sūtītāju"
+"Template of Notification Email for Customer","Klienta paziņojuma e-pasta veidne"
+"Template of Notification Email for RMA Owner","RMA īpašnieka paziņojuma e-pasta veidne"
+"Template of Rule Notification","Noteikumu paziņojuma veidne"
+" Send blind carbon copy (BCC) of all emails to","Sūtīt visu e-pasta aklo oglekļa kopiju (BCC) uz"
+"At least one RMA item should have resolution ""Exchange"".","Vismaz vienam RMA postenim jābūt izšķirtspējai &quot;Exchange&quot;."
+"Add another order","Pievienojiet citu pasūtījumu"
+"Offline Order","Bezsaistes pasūtījums"
+OR,VAI
+"Select Offline Order","Izvēlieties Bezsaistes pasūtījums"

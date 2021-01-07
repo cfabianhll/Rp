@@ -1,0 +1,13 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Init $block */
+?>
+<?php
+$orders = $block->getAllowedOrderList();
+$offlineOrderPlaceholder = \Mirasvit\Rma\Api\Config\OfflineOrderConfigInterface::OFFLINE_ORDER_PLACEHOLDER;
+?>
+
+<div class="init-rma-container">
+    <div>Create From Order</div>
+    <div>Create From Offline Order</div>
+</div>
+

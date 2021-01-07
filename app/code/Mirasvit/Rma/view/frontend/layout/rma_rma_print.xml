@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="rma_print"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="print" />
+    <body>
+        <attribute name="class" value="account"/>
+        <referenceContainer name="content">
+            <block name="rma.rma.print" class="Mirasvit\Rma\Block\Rma\PrintRma" template="rma/print.phtml" cacheable="false">
+                <block name="rma.print.items" class="Mirasvit\Rma\Block\Rma\View\Items" template="rma/print/items.phtml"/>
+                <block name="rma.print.offline.items" class="Mirasvit\Rma\Block\Rma\View\Items" template="rma/print/offline/items.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

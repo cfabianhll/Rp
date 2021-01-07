@@ -1,0 +1,115 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Mirasvit\Core\Block\Adminhtml\Menu">
+        <arguments>
+            <argument name="menu" xsi:type="array">
+                <item name="rma" xsi:type="object">Mirasvit\Rma\Block\Adminhtml\Menu</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Address XML Grid Config -->
+    <virtualType name="RMAIdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AddressGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Address\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ConditionGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Condition\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ReasonGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Reason\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ResolutionGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Resolution\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="StatusGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Status\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="QuickResponseGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\QuickResponse\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="FieldGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Field\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="RuleGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Rule\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="RmaGridDataProvider" type="Mirasvit\Rma\Model\UI\Rma\RmaGridDataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Rma\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="OrderRmaGridDataProvider" type="Mirasvit\Rma\Model\UI\Rma\OrderRmaGridDataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Mirasvit\Rma\Model\ResourceModel\Rma\Grid\Order\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RMAIdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Mirasvit\Rma\Model\UI\Status\Form\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="modifier_name" xsi:type="array">
+                    <item name="class" xsi:type="string">Mirasvit\Rma\Model\UI\Status\Form\Modifier\Status</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Mirasvit\Rma\Model\UI\Status\StatusDataProvider">
+        <arguments>
+            <argument name="pool" xsi:type="object">Mirasvit\Rma\Model\UI\Status\Form\Modifier\Pool</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Sales\Block\Adminhtml\Order\Create\Form">
+        <plugin name="FixCustomerId" type="Mirasvit\Rma\Plugin\Order\Create\Form\GetOrderDataPlugin"/>
+    </type>
+    <type name="Magento\Backend\Block\Widget\Button\Toolbar">
+        <plugin name="RmaOrderFormToolbarButtons" type="Mirasvit\Rma\Plugin\Backend\Block\Widget\Button\Toolbar\AddRmaButtonPlugin" />
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRenderer">
+        <plugin name="RmaOrderItemNameColumn" type="Mirasvit\Rma\Plugin\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRenderer\AddRmaQtyPlugin" />
+    </type>
+</config>

@@ -1,0 +1,139 @@
+<?php
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Rma\Block\Adminhtml\Rma\Edit\Form\Items $block */
+$rma = $block->getRma();
+$orders = $block->getOrders();
+$customerId = 0;
+foreach ($orders as $order) {
+    $customerId = $order->getCustomerId();
+    break;
+}
+?>
+
+<script type="text/javascript">
+    require([
+        "jquery"
+    ], function ($) {
+        'use strict';
+
+        function isNumeric(obj) {
+            return !jQuery.isArray(obj) && (obj - parseFloat(obj) + 1) >= 0;
+        }
+
+        function checkQtyOrdered(currentQty) {
+            var ordered = parseInt($(currentQty.name.substring(0, 8) + '[qtyAvailable]').innerHTML.trim());
+            var defaultQty = 0;
+            if ($('rma_id').value != '') {
+                ordered += parseInt($(currentQty.name.substring(0, 8) + '[rma_item_qty]').value);
+                defaultQty = ordered;
+            }
+            if (isNumeric(currentQty.value) && isNumeric(ordered)) {
+                if (currentQty.value > ordered) {
+                    currentQty.value = defaultQty;
+                    alert("<?php echo __('You can not return more, than available. Please, try again.') ?>");
+                }
+            }
+        }
+    });
+</script>
+
+<input name="is_offline" value="1" type="hidden">
+<input name="store_id" value="<?= $block->getRmaStoreId() ?>" type="hidden">
+<input name="customer_id" value="<?= $customerId ?>" type="hidden">
+<?php $i = $block->getIncrement() ?>
+<?php foreach ($orders as $order): ?>
+    <?php
+    if (!$order->getIsOffline()) {
+        continue;
+    }
+    ?>
+    <?php $block->setOrder($order); ?>
+    <fieldset class="fieldset admin__fieldset rma-edit__items">
+        <legend class="admin__legend legend">
+            <span><?= __('Items for order #%1', $block->escapeHtml($order->getReceiptNumber())) ?></span>
+        </legend>
+        <table class="admin__control-table" data-role="items-table">
+            <thead>
+            <tr>
+                <th><?= __('Product Name') ?></th>
+                <th><?= __('Qty to Return') ?></th>
+                <th><?= __('Reason to Return') ?></th>
+                <th><?= __('Item Condition') ?></th>
+                <th><?= __('Resolution') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <?php foreach ($block->getRmaItems() as $item): ?>
+                <?php
+                if ($order->getId() != $item->getOfflineOrderId()) {
+                    continue;
+                }
+                $i++;
+                ?>
+                <tr>
+                    <td>
+                        <?= $block->escapeHtml($item->getName()) ?>
+                    </td>
+                    <td>
+                        <input name="items[<?= $i ?>][is_offline]" value="1" type="hidden">
+                        <input name="items[<?= $i ?>][item_id]" value="<?= $item->getId() ?>" type="hidden">
+                        <input name="items[<?= $i ?>][order_item_id]"
+                               value="<?= $item->getOrderItemId() ?>" type="hidden">
+                        <input name="orders[<?= $i ?>][order_id]" value="<?= $order->getId() ?>" type="hidden">
+                        <input name="items[<?= $i ?>][order_id]" value="<?= $order->getId() ?>" type="hidden">
+                        <input id="items[<?= $i ?>][rma_item_qty]"
+                               value="<?= $item->getQtyRequested() ? $item->getQtyRequested() : 0 ?>"
+                               type="hidden">
+
+                        <?php $qtyRequested = $item->getQtyRequested() ? $item->getQtyRequested() : 0; ?>
+                        <div class="">
+                            <input name='items[<?= $i ?>][qty_requested]'
+                                   type="number"
+                                   maxlength="3"
+                                   min="0"
+                                   max="<?= $qtyRequested ?>"
+                                   class="admin__control-text required-entry"
+                                   value='<?= $qtyRequested ?>'
+                                   onKeyUp="checkQtyOrdered(this)">
+                        </div>
+                    </td>
+                    <td>
+                        <select name="items[<?= $i ?>][reason_id]" class="admin__control-select">
+                            <option value=""><?= __('--') ?></option>
+                            <?php foreach ($block->getReasonList() as $reason): ?>
+                                <option value="<?= $block->escapeHtml($reason->getId()) ?>"
+                                    <?= $reason->getId() == $item->getReasonId() ? 'selected' : '' ?>>
+                                    <?= $block->escapeHtml($reason->getName()) ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="items[<?= $i ?>][condition_id]" class="admin__control-select">
+                            <option value=""><?= __('--') ?></option>
+                            <?php foreach ($block->getConditionList() as $condition): ?>
+                                <option value="<?= $block->escapeHtml($condition->getId()) ?>"
+                                    <?= $condition->getId() == $item->getConditionId() ? 'selected' : '' ?>>
+                                    <?= $block->escapeHtml($condition->getName()) ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="items[<?= $i ?>][resolution_id]" class="admin__control-select">
+                            <option value=""><?= __('--') ?></option>
+                            <?php foreach ($block->getResolutionList() as $resolution): ?>
+                                <option value="<?= $block->escapeHtml($resolution->getId()) ?>"
+                                    <?= $resolution->getId() == $item->getResolutionId() ? 'selected' : '' ?>>
+                                    <?= $block->escapeHtml($resolution->getName()) ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </fieldset>
+<?php endforeach; ?>

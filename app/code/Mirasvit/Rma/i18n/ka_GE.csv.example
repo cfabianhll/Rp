@@ -1,0 +1,484 @@
+"Request RMA","მოითხოვეთ RMA"
+"My Returns","ჩემი დაბრუნება"
+Grid,ბადე
+List,სია
+All,ყველა
+"Create RMA","შექმნა RMA"
+"Request New Return","ახალი დაბრუნების მოთხოვნა"
+"Max file size: %1Mb","მაქსიმალური ზომა: %1Mb"
+"New Return for Order #%1","ახალი დაბრუნება ორდენი #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","არასწორი ორდენი #, ელ.ფოსტა ან გვარი"
+Items,საქონელი
+"To apply changes you should fill in required ""%1"" field","ცვლილებების შესატანად აუცილებელია შეავსოთ აუცილებელი &quot;_____&quot; ველი"
+"Please, add order items to the RMA (set 'Qty to Return')","გთხოვთ, დაამატოთ ბრძანებები RMA- ზე (კომპლექტი &#39;Qty დაბრუნება&#39;)"
+"Please, set correct order items Quantity to return","გთხოვთ, დაადგინოთ სწორი შეკვეთის ნივთების დაბრუნება"
+"RMA was successfully created","RMA წარმატებული იყო"
+"Shipping is confirmed. Thank you!","გადაზიდვის დასტურია. გმადლობთ!"
+"Your message was successfully added","თქვენი წერილი წარმატებული იყო დამატებული"
+"Allowed extensions:","ნებადართული გაგრძელება:"
+"Maximum size:","მაქსიმალური ზომა:"
+"-- Please Select --","- გთხოვთ აირჩიოთ -"
+" at %1 (%2)","______ (%2)"
+"Mark as unresolved","მონიშნე როგორც გადაუჭრელი"
+"Mark as resolved","მონიშნე როგორც გადაწყდა"
+"not set","არ არის მითითებული"
+Pattern,ნიმუში
+"Attribute Value","ატრიბუტის ღირებულება"
+Default,ნაგულისხმები
+Integer,რიცხვი
+Price,ფასი
+"Strip Tags","Strip Tags"
+"Primary Attributes","პირველადი ატრიბუტები"
+"Stock Attributes","საფონდო ატრიბუტები"
+"Prices & Taxes","ფასები და გადასახადები"
+Images,სურათები
+"Custom Attributes","საბაჟო ატრიბუტები"
+Mapping,"რუკების შედგენა"
+Category,კატეგორია
+"Amasty Meta Tags","Amasty Meta Tags"
+"Others Attributes","სხვა ატრიბუტები"
+Text,ტექსტი
+"Multi-line text","მრავალწლიანი ტექსტი"
+Date,თარიღი
+Checkbox,Checkbox
+"Drop-down list","ჩამოსაშლელი სია"
+Reason,მიზეზი
+Condition,მდგომარეობა
+Resolution,რეზოლუცია
+"RMA #","RMA #"
+"Order #","დაალაგე #"
+"Customer Email","დამკვეთი ელ"
+"Customer Name","მომხმარებლის სახელი"
+Owner,მფლობელი
+"Last Replier","ბოლო საქაღალდე"
+Status,სტატუსი
+Store,მაღაზია
+"Created At",შექმნილია
+"Last Activity","ბოლო აქტივობა"
+"View link","ბმულის ნახვა"
+"New RMA has been created","ახალი RMA შეიქმნა"
+"RMA has been changed","RMA შეიცვალა"
+"New reply from customer","ახალი პასუხი მომხმარებელს"
+"New reply from staff","პერსონალის ახალი პასუხი"
+"-- Default Address --","- ნაგულისხმები მისამართი -"
+"Update the Product","პროდუქტის განახლება"
+"Conditions Combination","პირობები კომბინაცია"
+"RMA Attribute","RMA ატრიბუტები"
+"Last 7-days Clicks","ბოლო 7 დღის დაწკაპუნებები"
+"Last 7-days Orders","ბოლო 7 დღიანი ბრძანებები"
+"Last 7-days Revenue","ბოლო 7 დღიანი შემოსავალი"
+"Last 7-days Conversation Rate (%)","ბოლო 7 დღიანი მიმოწერა კურსი (%)"
+"Attribute Set","ატრიბუტის კომპლექტი"
+Quantity,რაოდენობა
+"Product Type","პროდუქტის ტიპი"
+"Base Image","ბაზა Image"
+Thumbnail,მინიატურა
+"Small Image","მცირე სურათი"
+"Base Image Size (bytes)","ბაზის გამოსახულების ზომა (ბაიტი)"
+"Thumbnail Size (bytes)","მინიატურა ზომა (ბაიტი)"
+"Small Image Size (bytes)","მცირე გამოსახულების ზომა (ბაიტი)"
+"PHP Condition","PHP მდგომარეობა"
+"Open Chooser","ღია შერჩევა"
+"Last message body","ბოლო წერილი სხეული"
+"Updated At",განახლებულია
+"Status (before change)","სტატუსი (შეცვლის დაწყებამდე)"
+"Owner (before change)","მფლობელი (შეცვლის დაწყებამდე)"
+"Last Reply By","ბოლო პასუხი"
+"Hours since Created","საათი შექმნილია"
+"Hours since Updated","საათი განახლდა"
+"Hours since Last reply","ბოლო პასუხი"
+"Items have reason","ნივთი აქვს მიზეზი"
+"Items have condition","ნივთი აქვს მდგომარეობაში"
+"Items have resolution","ნივთი აქვს რეზოლუციას"
+"%1 (before change)","%1 (შეცვლის დაწყებამდე)"
+Customer,დამკვეთი
+Staff,თანამშრომლები
+"- Disable these emails -","- გამორთე ამ ელ -"
+Yes,დიახ
+No,არა
+Save,გადარჩენა
+"Save & Continue Edit","შენახვა და გაგრძელება რედაქტირება"
+"Save & Close","შენახვა და დახურვა"
+Edit,რედაქტირება
+Delete,წაშლა
+"Delete ""${ $.$data.name }""","წაშლა "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","დარწმუნებული ხართ, რომ არ წაიშლება "${ $.$data.name }" ჩანაწერის წაშლა?"
+"Are you sure you want to do this?","ნამდვილად გსურთ ამის გაკეთება?"
+"Convert To Ticket","ბილეთის გადაყვანა"
+"View order #${ $.$data.order_id }","შეკვეთის ნახვა #${ $.$data.order_id }"
+"View exchange order %1","სანაცვლო შეკვეთის ნახვა %1"
+"RMA: Report by Attribute","RMA: ანგარიში ატრიბუტი"
+"RMA: Report by Status","RMA: ანგარიშის სტატუსი"
+"RMA: Report by Product","RMA: ანგარიშის პროდუქტი"
+"RMA: Report by Reasons","RMA: ანგარიშების მიხედვით"
+"Cannot delete return address with id %1","ჩანაწერის წაშლა id%1- სთან შეუძლებელია"
+"Cannot delete item with id %1","ელემენტის წაშლა id%1- თან ერთად"
+"Cannot delete condition with id %1","Id%1- თან ერთად მდგომარეობის წაშლა შეუძლებელია"
+"Cannot delete field with id %1","ველის წაშლა შეუძლებელია id %1"
+"Cannot delete message with id %1","Id%1- სთან შეტყობინების წაშლა ვერ ხერხდება"
+"Cannot delete history with id %1","ისტორიის წაშლა id%1- სთან"
+"Cannot delete Quick Response with id %1","სწრაფი რეაგირების წაშლა id%1- თან ერთად"
+"Cannot delete reason with id %1","მიზეზს ვერ წაშლით ID %1"
+"Cannot delete resolution with id %1","იდენტიფიკაციის წაშლა id%1- თან ერთად"
+"Cannot delete rma with id %1","ვერ წაშლა id %1"
+"Cannot delete rule with id %1","წესი ვერ წაიშლება id%1- სთან"
+"Cannot delete status with id %1","სტატუსის წაშლა id%1- სთან"
+"Please, enter a message","გთხოვთ, შეიყვანოთ შეტყობინება"
+"Product Name","პროდუქტის სახელი"
+SKU,SKU
+Qty,Qty
+"This was a gift, please do not notify purchaser","ეს საჩუქარი იყო, გთხოვთ, არ აცნობოთ მყიდველს"
+"Enter your contact information","შეიყვანეთ თქვენი საკონტაქტო ინფორმაცია"
+"First Name",სახელი
+"Last Name",გვარი
+Email,ელ.ფოსტა
+Telephone,ტელეფონი
+"To request a new RMA or check the status of current RMA, please, fill the form:","მოითხოვოს ახალი RMA ან შეამოწმეთ სტატუსის მიმდინარე RMA, გთხოვთ, შეავსოთ ფორმა:"
+"* Required Fields","* აუცილებლად შესავსები ველები"
+"Order Information","შეკვეთის ინფორმაცია"
+"Email or Last Name","ელ.ფოსტის ან ბოლო სახელით"
+Next,შემდეგი
+RMA,RMA
+Actions,მოქმედებები
+"View Return","სანახავად დაბრუნება"
+"There are no Returns","არ არსებობს დაბრუნება"
+"Items %1 to %2 of %3 total",%3________________
+"%1 Item(s)","%1 საქონელი"
+Show,ჩვენება
+"per page","თითო გვერდზე"
+"View as","იხილეთ როგორც"
+"Sort by",დალაგება
+"Set Ascending Direction","აღმავალი მიმართულების დაყენება"
+"Set Descending Direction","დაწერეთ მიმართულება"
+"Please, select an order","გთხოვთ, შეუკვეთოთ ბრძანება"
+Order,დაალაგე
+"-- Select an Order --","- აირჩიეთ შეკვეთა -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","არ გაქვთ დასრულებული ბრძანებები, რომ მოითხოვოთ RMA ან თქვენი ბრძანებები განთავსებული იყო %1 დღის წინ. გთხოვთ, დაუკავშირდეთ მომხმარებელთა მომსახურებას."
+"Submit Request","მოთხოვნის გაგზავნა"
+"Please, select RMA items which you would like to return.","გთხოვთ, აირჩიოთ RMA ელემენტი, რომელიც გსურთ დაბრუნებას."
+"Additional Information","დამატებითი ინფორმაცია"
+"Attach files","ფაილების მიმაგრება"
+"Request Information","ინფორმაციის მოთხოვნა"
+"Email Address","ელექტრონული მისამართი"
+"Order Shipping Address","შეკვეთა გადაზიდვის მისამართი"
+"Items in this order","საქონელი ამ მიზნით"
+"There are no items for this product that can be returned.","ამ პროდუქტისთვის ელემენტი არ არის დაბრუნებული."
+"Another RMA for this product: %1","კიდევ ერთი RMA ამ პროდუქტისთვის: %1"
+"This product can not be returned due to RMA Policy","ეს პროდუქტი არ შეიძლება დაბრუნდეს RMA პოლიტიკის გამო"
+"This is a non-returnable item per our return policy.","ეს არის ჩვენი დაბრუნების პოლიტიკის არაფრის დაბრუნება."
+"Quantity to return","დაბრუნების რაოდენობა"
+"-- Select a Reason --","- აირჩიეთ მიზეზი -"
+"-- Select a Condition --","- აირჩიეთ მდგომარეობა -"
+"-- Select a Resolution --","- აირჩიეთ რეზოლუცია -"
+"I agree",ვეთანხმები
+"Date: %1","თარიღი: %1"
+"Original order: #%1","ორიგინალური შეკვეთა: #%1"
+"Return Address","მისამართის დაბრუნება"
+"Customer Information","მომხმარებელთა ინფორმაცია"
+"RMA History","RMA ისტორია"
+"RMA Items","RMA საქონელი"
+Weight,წონა
+"Print RMA Packing Slip","ბეჭდვა RMA შეფუთვა სლიპი"
+"Print RMA Shipping Label","ბეჭდვა RMA მიწოდება ლეიბლი"
+"Confirm Shipping","დაადასტურეთ მიწოდება"
+"(This was a gift)","(ეს იყო საჩუქარი)"
+"Date Requested","მოთხოვნილი თარიღი"
+"Contact Information","საკონტაქტო ინფორმაცია"
+"Items RMA Requested for","საგნები RMA მოითხოვა"
+QTY,QTY
+"Add Message","წერილის დამატება"
+Submit,წარუდგინოს
+%name,სახელი
+"The quantity is incorrect.","არასწორია რაოდენობა."
+"New Return for Offline Order","ახალი დაბრუნება ოფლაინისთვის"
+" at %1",%1
+Select,აირჩიეთ
+"If you do not have account on this store please fill the form below.","თუ მაღაზიაში არ გაქვთ ანგარიში, გთხოვთ, შეავსოთ ქვემოთ მოცემული ფორმა."
+"-- Create Offline Order --","- შეკვეთა შეკვეთა -"
+"Returned Item","დაბრუნებული საქონელი"
+"Remove Item","ამოიღე საქონელი"
+"Order or Receipt #","ორდერი ან მიღება #"
+"Add Item","დაამატეთ საქონელი"
+"Add at least one item to this RMA","ამ RMA- ზე ერთი ელემენტის დამატება"
+"Return Addresses","მისამართების დაბრუნება"
+"Add New Return Address","ახალი დაბრუნების მისამართი"
+"General Information","Ზოგადი ინფორმაცია"
+Title,სათაური
+"Sort Order","სორტირება განალაგეთ"
+"Is Active",აქტიურია
+ID,ID
+Active,აქტიური
+Disabled,გამორთულია
+Enabled,ჩართულია
+"Change status","სტატუსის შეცვლა"
+"Are you sure?","Დარწმუნებული ხარ?"
+Conditions,პირობები
+"Add New Condition","ახალი მდგომარეობის დამატება"
+"[STORE VIEW]",
+"Create RMA for this customer","შექმნა RMA ამ მომხმარებელს"
+Fields,სფეროები
+"Add New Field","ახალი ველი დამატება"
+Code,კოდექსი
+Type,ტიპი
+Description,აღწერა
+"Options list","პარამეტრები სია"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","მხოლოდ ჩამოსაშლელი სიისთვის. <br> შეიყვანეთ თითოეული ხაზი ახალი ხაზის გამოყენებით: <br> ღირებულება 1 | label1 <br> value2 | label2"
+"Sort order","დალაგების წესი"
+"Is required for staff","საჭიროა პერსონალისთვის"
+"Is required for customers","საჭიროა მომხმარებელს"
+"Visible for customers in statuses","კლიენტებისთვის თვალსაჩინოებისთვის"
+"Is show in confirm shipping dialog","აჩვენებს დადასტურების დიალოგს"
+"Is editable for customers","დამკვეთისთვის არის რედაქტირება"
+Statuses,სტატუსები
+Reasons,მიზეზები
+Resolutions,რეზოლუციები
+"Custom Fields","საბაჟო სფეროები"
+"Quick Responses","სწრაფი რეაგირება"
+"Workflow Rules","სამუშაოს წესები"
+Reports,ანგარიშები
+Settings,პარამეტრები
+"Add New Reason","ახალი მიზეზის დამატება"
+"Add New Resolution","ახალი რეზოლუციის დამატება"
+"Add New RMA","ახალი RMA- ს დამატება"
+"Create New RMA","ახალი RMA- ის შექმნა"
+"Purchased From (Store)","შეიძინა (მაღაზია)"
+"Purchased On",შეიძინა
+"Bill to Name","ბილ სახელით"
+"Ship to Name","გემი სახელით"
+"G.T. (Base)","GT (ბაზა)"
+"G.T. (Purchased)","GT (შეძენილი)"
+Print,ბეჭდვა
+"Credit Memo","Საკრედიტო შენიშვნა"
+"Exchange Order","გაცვლითი შეკვეთა"
+"Delete File","Ფაილის წაშლა"
+"RMA Owner","RMA მფლობელი"
+"Upload Return Label","დაბრუნება ლეიბლის ატვირთვა"
+"External Link","გარე ბმული"
+open,ღია
+"(received a gift)","(მიღებული საჩუქარი)"
+"Exchage Order","Exchage დაალაგე"
+Company,კომპანია
+"Street Address","Ქუჩის მისამართი"
+City,ქალაქი
+Zip/Postcode,"საფოსტო / საფოსტო კოდი"
+Rules,წესები
+"Add New Rule","ახალი წესის დამატება"
+"Set Status","სტატუსის დაყენება"
+"Set Owner","დააყენეთ მფლობელი"
+Event,ღონისძიება
+Filters,ფილტრები
+"Rule Name","წესი სახელი"
+Priority,პრიორიტეტი
+"Arranged in the ascending order. 0 is the highest.","აღინიშნება აღმავალი შეკვეთით. 0 არის ყველაზე მაღალი."
+"Stop Further Rules Processing","შეაჩერე დამატებითი წესების დამუშავება"
+Notifications,შეტყობინებები
+"Send email to RMA owner","გააგზავნე ელ-ფოსტაზე RMA- ის მფლობელი"
+"Send email to customer","ელ.ფოსტის გაგზავნა"
+"Send email to other email addresses","ელფოსტის სხვა ელფოსტის მისამართების გაგზავნა"
+"Email subject","ელ-ფოსტის თემა"
+"Email body",ელ
+"Attach files which were attached to the last message","მიამაგრეთ ფაილები, რომლებიც დაემატა ბოლო შეტყობინებას"
+"Is Stop Processing","შეწყვიტეთ დამუშავება"
+"Create RMA for this order","შექმენით RMA ამ მიზნით"
+"Order meets RMA policy","შეკვეთა აკმაყოფილებს RMA პოლიტიკას"
+"Order doesn't meet RMA policy","ორდერი არ აკმაყოფილებს RMA პოლიტიკას"
+"Add New Status","ახალი სტატუსის დამატება"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","შოუ ღილაკები &#39;ბეჭდვის RMA შეფუთვა Slip&#39;, &#39;ბეჭდვის RMA მიწოდება ლეიბლი&#39; და &#39;დაადასტურეთ მიწოდება&#39; in კლიენტების ანგარიშზე"
+"Email Notification for customer","ელ-ფოსტის შეტყობინება მომხმარებელს"
+"leave blank to not send","დატოვე ცარიელი არ გაგზავნოს"
+"Message for RMA history","შეტყობინება RMA- ს ისტორიისთვის"
+"Email Notification for administrator","ელფოსტის შეტყობინება ადმინისტრატორისთვის"
+Templates,შაბლონები
+"Add New Template","ახალი თარგის დამატება"
+"Internal Title","შიდა სათაური"
+Template,თარგი
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","შეგიძლიათ გამოიყენოთ ცვლადები: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,მაღაზიები
+"RMA Return Address","RMA დაბრუნება მისამართი"
+"New Return Address","ახალი დაბრუნება მისამართი"
+"Return Address Manager","მიმართვა მისამართი მენეჯერი"
+"Add Return Address ","დაამატე მისამართი"
+"Add Return Address","დაამატე მისამართი"
+"Return Address was successfully deleted","დაბრუნების მისამართი წარმატებით წაიშალა"
+"Edit Return Address '%1'","რედაქტირება დაბრუნების მისამართი &#39;%1&#39;"
+"Edit Return Address ","რედაქტირება მისამართი მისამართი"
+"The Return Address does not exist.","დაბრუნების მისამართი არ არსებობს."
+"Please select Return Address(es)","გთხოვთ მიუთითოთ დაბრუნება მისამართი (es)"
+"Total of %d record(s) were successfully updated","% D რეკორდის (s) სულ წარმატებით განახლდა"
+"Total of %1 record(s) were successfully deleted","_____ ჩანაწერი (ებ) ის წარმატებით წაიშალა"
+"return Address was successfully saved","დაბრუნების მისამართი წარმატებით შეინახა"
+"Unable to find Return Address to save","ვერ მოიძებნა დაბრუნება მისამართი შენახვა"
+"New Condition","ახალი მდგომარეობა"
+"Condition  Manager","მდგომარეობა მენეჯერი"
+"Condition Manager","მდგომარეობა მენეჯერი"
+"Add Condition ","დაამატეთ მდგომარეობა"
+"Add Condition","დაამატეთ მდგომარეობა"
+"Condition was successfully deleted","მდგომარეობა წარმატებით წაიშალა"
+"Edit Condition '%1'","შეცვალეთ მდგომარეობა &#39;%1&#39;"
+"Edit Condition ","მდგომარეობა რედაქტირება"
+"The Condition does not exist.","მდგომარეობა არ არსებობს."
+"Please select Condition(s)","გთხოვთ შეარჩიოთ მდგომარეობა (ებ)"
+"Total of %d record(s) were successfully deleted","% D რეკორდის (s) სულ წარმატებით წაიშალა"
+"Condition was successfully saved","მდგომარეობა წარმატებით იქნა შენახული"
+"Unable to find Condition to save","შენახვის პირობების მოძიება ვერ ხერხდება"
+"New Field","ახალი ველი"
+"Field  Manager","საველე მენეჯერი"
+"Field Manager","საველე მენეჯერი"
+"Add Field ","საველე დამატება"
+"Add Field","საველე დამატება"
+"Field was successfully deleted","ველი წარმატებით წაიშალა"
+"Edit Field '%1'","მართებული სფერო &#39;%1&#39;"
+"Edit Field ","საველე რედაქტირება"
+"The Field does not exist.","სფერო არ არსებობს."
+"Please select Field(s)","გთხოვთ, აირჩიოთ სფერო (ებ)"
+"Field was successfully saved","საველე წარმატებით იქნა შენახული"
+"Unable to find Field to save","ვერ მოიძებნა საველე შენახვა"
+"New Reason","ახალი მიზეზი"
+"Reason  Manager","მიზეზი მენეჯერი"
+"Reason Manager","მიზეზი მენეჯერი"
+"Add Reason ","დაამატე მიზეზი"
+"Add Reason","დაამატე მიზეზი"
+"Reason was successfully deleted","მიზეზი წარმატებით წაიშალა"
+"Edit Reason '%1'","რედაქტირების მიზეზი &#39;______&#39;"
+"Edit Reason ","რედაქტირების მიზეზი"
+"The Reason does not exist.","მიზეზი არ არსებობს."
+"Please select Reason(s)","გთხოვთ, აირჩიოთ მიზეზი (ებ)"
+"Reason was successfully saved","მიზეზი წარმატებით იქნა შენახული"
+"Unable to find Reason to save","შენახვა ვერ მოიძებნა"
+"Statistics was successfully updated","სტატისტიკა წარმატებით განახლდა"
+"RMA by Brand","RMA ბრენდის მიხედვით"
+"RMA Report","RMA ანგარიში"
+"RMA by Product","RMA მიერ პროდუქტი"
+Rma,RMA
+"New Resolution","ახალი რეზოლუცია"
+"Resolution  Manager","რეზოლუციის მენეჯერი"
+"Resolution Manager","რეზოლუციის მენეჯერი"
+"Add Resolution ","რეზოლუციის დამატება"
+"Add Resolution","რეზოლუციის დამატება"
+"Resolution was successfully deleted","რეზოლუცია წარმატებით წაიშალა"
+"Edit Resolution '%1'","რეზოლუციის რედაქტირება &#39;_____&#39;"
+"Edit Resolution ","რეზოლუციის რედაქტირება"
+"The Resolution does not exist.","რეზოლუცია არ არსებობს."
+"Please select Resolution(s)","გთხოვთ, აირჩიოთ რეზოლუცია"
+"Resolution was successfully saved","რეზოლუცია წარმატებით გადაარჩინა"
+"Unable to find Resolution to save","რეზოლუციის შენახვა ვერ ხერხდება"
+"New RMA","ახალი RMA"
+"RMA was successfully deleted","RMA წარმატებით წაიშალა"
+"The rma does not exist.","არ არსებობს რემი."
+"Marked as read","როგორც წაკითხულია"
+"Marked as unread","აღინიშნა, როგორც წაუკითხავი"
+"Please select rma(s)","გთხოვთ აირჩიოთ rma (s)"
+"A total of %1 record(s) have been deleted.","სულ %1 ჩანაწერი (ებ) წაიშალა."
+"RMA was successfully saved","RMA წარმატებით გადაარჩინა"
+"Unable to find rma to save","ვერ მოიძებნა რვა გადარჩენა"
+"New Rule","ახალი წესი"
+"Rule  Manager","წესი მენეჯერი"
+"Rule Manager","წესი მენეჯერი"
+"Add Rule ","წესის დამატება"
+"Add Rule","წესის დამატება"
+"Rule was successfully deleted","წესი წარმატებით წაიშალა"
+"Edit Rule '%1'","რედაქტირების წესი &#39;%1&#39;"
+"Edit Rule ","წესის რედაქტირება"
+"The Rule does not exist.","წესი არ არსებობს."
+"Please select Rule(s)","გთხოვთ, აირჩიოთ წესი (ებ)"
+"Rule was successfully saved","წესი წარმატებით იქნა შენახული"
+"Unable to find Rule to save","ვერ მოიძებნა წესის შენახვა"
+"New Status","ახალი სტატუსი"
+"Status  Manager","სტატუსი მენეჯერი"
+"Status Manager","სტატუსი მენეჯერი"
+"Add Status ","დაამატეთ სტატუსი"
+"Add Status","დაამატეთ სტატუსი"
+"Status was successfully deleted","სტატუსი წარმატებით წაიშალა"
+"Edit Status '%1'","სტატუსის რედაქტირება &#39;_____&#39;"
+"Edit Status ","სტატუსის რედაქტირება"
+"The Status does not exist.","სტატუსი არ არსებობს."
+"Please select Status(s)","გთხოვთ, აირჩიოთ სტატუსი"
+"Status was successfully saved","სტატუსი წარმატებით იქნა შენახული"
+"Unable to find Status to save","სტატუსის შენახვა ვერ ხერხდება"
+"New Template","ახალი თარგი"
+"Template  Manager","თარგი მენეჯერი"
+"Template Manager","თარგი მენეჯერი"
+"Add Template ","დამატება თარგი"
+"Add Template","დამატება თარგი"
+"Template was successfully deleted","თარგი წარმატებით წაიშალა"
+"Edit Template '%1'","თარგი &quot;%1&quot;"
+"Edit Template ","თარგი რედაქტირება"
+"The Template does not exist.","თარგი არ არსებობს."
+"Please select Template(s)","გთხოვთ, აირჩიოთ თარგი"
+"Template was successfully saved","თარგი წარმატებით იქნა შენახული"
+"Unable to find Template to save","ვერ იპოვეთ თარგი შენახვა"
+"Created Date","შექმნის თარიღი"
+Action,აქცია
+View,ნახვა
+RMAs,RMAs
+"Select Order","აირჩიეთ შეკვეთა"
+"Exchange/Credit Balance","გაცვლითი / საკრედიტო ბალანსი"
+"Customer credit balance:","კლიენტის საკრედიტო ბალანსი:"
+"Total price of new products:","სულ ახალი პროდუქტის ფასი:"
+"Total price of exchanged/credit products:","გაცვლითი / საკრედიტო პროდუქტების საერთო ფასი:"
+"Price difference:","ფასი განსხვავება:"
+Resolution:,რეზოლუცია:
+"Get %1 from customer credit balance","კლიენტის საკრედიტო ბალანსის მიღება %1"
+"Put %1 to customer credit balance","დააყენეთ %1 კლიენტთა საკრედიტო ბალანსი"
+"Resolve manually","გააუქმეთ ხელით"
+"Message Type","წერილის ტიპი"
+"Message to Customer","შეტყობინება მომხმარებელზე"
+"Internal Note","შიდა შენიშვნა"
+"mark as unread","აღსანიშნავად, როგორც წაუკითხავი"
+"mark as read","როგორც წაკითხული"
+"You can not return more, than available. Please, try again.","თქვენ ვერ დაუბრუნდებით, ვიდრე შესაძლებელია. Გთხოვთ კიდევ სცადეთ."
+"show all order items","აჩვენე ყველა შეკვეთის ელემენტი"
+"Qty to Return","დაბრუნება დაბრუნება"
+"Reason to Return","დაბრუნების მიზეზი"
+"Item Condition","საქონლის მდგომარეობა"
+"(Bundled Product)","(შეფუთული პროდუქტი)"
+Stock,საფონდო
+Ordered,უბრძანა
+Available,ხელმისაწვდომია
+--,-
+"Insert Quick Response","სწრაფი რეაგირების ჩასმა"
+"Default status for new RMA","ნაგულისხმები სტატუსი ახალი RMA"
+"Default owner for new RMA","ნაგულისხმები მფლობელი ახალი RMA"
+"Ask customer to confirm shipping","დაუსვით მომხმარებელს და დაადასტურეთ გადაზიდვა"
+"Shipping confirmation text","გადაზიდვის დადასტურების ტექსტი"
+"Enable option ""This was a gift""","პარამეტრის ჩართვა &quot;ეს საჩუქარი იყო&quot;"
+"Enable integration with Help Desk","ინტეგრირება დახმარების სალაროსთან"
+"Code of ""Brand"" attribute","&quot;ბრენდის&quot; ატრიბუტის კოდი"
+"Allow upload only attachments with extensions","ატვირთეთ მხოლოდ ატვირთვების გაფართოებით"
+"Limit of attachments size, Mb","ზომა, Mb"
+"Show Columns in RMA Grid","სვეტების ჩვენება RMA- ში"
+"Show RMA section in Customer Account","კლიენტის ანგარიშზე RMA განყოფილების ჩვენება"
+"Customers are required to select:","მომხმარებელს უნდა აირჩიოთ:"
+"Allow to request RMA after order completion, days","ნება მოითხოვოს RMA მოთხოვნის დასრულების შემდეგ, დღე"
+"Allow to request RMA if order has status","RMA- ს მოთხოვნის შემთხვევაში, შეკვეთის სტატუსი აქვს"
+"Ask to agree with RMA policy text","სთხოვეთ დაეთანხმოთ RMA პოლიტიკის ტექსტს"
+"CMS block with RMA policy text","CMS ბლოკი RMA პოლიტიკის ტექსტით"
+"Number Format","ხმების ფორმატი"
+"Start Counter From","დაიწყეთ მრიცხველი"
+"Counter Increment Step","Counter ზრდა ნაბიჯი"
+"Counter Length","Counter სიგრძე"
+"Email Sender","ელფოსტის გამგზავნი"
+"Template of Notification Email for Customer","მომხმარებელთა შეტყობინებისთვის შეტყობინების შეტყობინება"
+"Template of Notification Email for RMA Owner","RMA მფლობელისთვის შეტყობინების შეტყობინების თარგი"
+"Template of Rule Notification","თაღლითობის შეტყობინების თარგი"
+" Send blind carbon copy (BCC) of all emails to","გააგზავნეთ ბრმა ნახშირბადის ასლი (BCC) ყველა ელ"
+"At least one RMA item should have resolution ""Exchange"".","მინიმუმ ერთი RMA პუნქტი უნდა ჰქონდეს რეზოლუცია &quot;გაცვლითი&quot;."
+"Add another order","დამატება სხვა წესრიგს"
+"Offline Order","ხაზგარეშე შეკვეთა"
+OR,OR
+"Select Offline Order","აირჩიეთ ოფლაინ ბრძანება"

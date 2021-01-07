@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Review\Block\Product\ReviewRenderer $block */
+
+$url = $block->getReviewsUrl() . '#reviews';
+$urlForm = $block->getReviewsUrl() . '#reviews';
+?>
+<?php if ($block->isReviewEnabled() && $block->getReviewsCount()) : ?>
+    <?php $rating = $block->getRatingSummary(); ?>
+	<?php $starcount = $block->getReviewsCount()  ?>
+	
+	
+	
+    <div class="product-reviews-summary<?= !$rating ? ' no-rating' : '' ?>" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        <?php if ($rating) :?>
+        <div class="rating-summary">
+             <div class="rating-result" title="<?= $block->escapeHtmlAttr($rating); ?>%">
+                <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>">
+                <span class="result-before">
+                    <i class="fas fa-star gary"></i><i class="fas fa-star gary"></i><i class="fas fa-star gary"></i><i class="fas fa-star gary"></i><i class="fas fa-star gary"></i><span class="pl-2"><?php echo $starcount; ?></span><span style="margin-left: 6px;" class="review_links" data-toggle="modal" data-target="#reviews">Review</span>
+                </span></a>
+
+                 <span style="width:<?= $block->escapeHtmlAttr($rating); ?>%" class="custom-span">
+                <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>">
+                <span class="result-after">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </span></a>
+
+                     <span class="rating-values">
+                         <span itemprop="ratingValue"><?= $block->escapeHtml($rating); ?></span>% of <span itemprop="bestRating">100</span>
+                     </span>
+                 </span>
+             </div>
+         </div>
+        <?php endif;?>
+        <div class="reviews-actions reviewcount">
+            <a class="action view"
+               href="<?= $block->escapeUrl($url) ?>">
+                <span itemprop="reviewCount"><?= $block->escapeHtml($block->getReviewsCount()) ?></span>&nbsp;
+                <span><?= ($block->getReviewsCount() == 1) ? $block->escapeHtml(__('Review')) : $block->escapeHtml(__('Reviews')) ?></span>
+            </a>
+            <a class="action add" href="<?= $block->escapeUrl($urlForm) ?>"><?= $block->escapeHtml(__('Add Your Review')) ?></a>
+        </div>
+    </div>
+<?php elseif ($block->isReviewEnabled() && $block->getDisplayIfEmpty()) : ?>
+    <div class="product-reviews-summary empty">
+        <div class="reviews-actions">
+            <a class="action add main_colr" href="<?= $block->escapeUrl($urlForm) ?>">
+                <?= $block->escapeHtml(__('Be the first to review this product')) ?>
+            </a>
+        </div>
+    </div>
+<?php endif; ?>

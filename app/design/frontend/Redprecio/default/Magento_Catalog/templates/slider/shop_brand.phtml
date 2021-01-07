@@ -1,0 +1,35 @@
+<?php 
+$brands = $this->getBrands();
+$featured = $this->getFeaturedBrands();
+$media = $this->getImageMediaPath();
+?>
+<div class="row">
+	<div class="col-12">
+		<div class="pre_order_content">
+			<div class="section_title">
+				<h2><?php echo $block->escapeHtml(__('Our Brands')); ?></h2>
+				<span class="bottom_line"></span>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<div class="brand_new owl-carousel owl-theme">
+	<?php foreach($featured as $_fbrand):?>
+		<div class="brand_box" >
+				<?php if($_fbrand->getUrlKey()) { ?>
+					<a href="<?php echo $this->getUrl('brand').$_fbrand->getUrlKey()?>">
+				<?php } else { ?>
+					<a href="<?php echo $this->getUrl('brand/view/',array('id'=>$_fbrand->getId()));?>">
+				<?php } ?>
+				<?php if($_fbrand->getLogo()) { ?>
+					<img class="f-barnd-img" src="<?php echo $media.$_fbrand->getLogo() ?>" title="<?php echo $_fbrand->getName();?>" alt="<?php echo $_fbrand->getName();?>" style="height:100%;width: 100%;"/>
+				<?php } else { ?>
+				<span class="brand-title" style="font-weight: 600; font-size: 20px;">
+					<?php echo $_fbrand->getName();?>
+				</span>
+				<?php } ?>
+			</a>
+		</div>
+<?php endforeach;?>
+	</div>

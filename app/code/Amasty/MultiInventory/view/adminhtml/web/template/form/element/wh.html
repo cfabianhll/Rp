@@ -1,0 +1,44 @@
+<div class="data-grid-combi">
+    <table>
+        <tbody>
+        <tr data-bind="foreach: { data: getList(), as: 'item' }">
+            <td attr="class: 'wh-'+item.key">
+                <!-- ko if: $parent.isCheck(item.key) -->
+                    <!-- ko ifnot: $parent.isStockStatus(item.key) -->
+                    <input class="admin__control-text" type="text"
+                           data-bind="
+                        event: {change: $parent.userChanges, blur: $parent.OnBlurEvent.bind($parent)},
+                        value: $parent[item.key],
+                        hasFocus: false,
+                        valueUpdate: $parent.valueUpdate,
+                        attr: {
+                            name: $parent.inputName + '[' +item.key +']'
+                    }"
+                    />
+                    <!-- /ko -->
+                    <!-- ko if: $parent.isStockStatus(item.key) -->
+                    <select
+                            name="stock_status"
+                            type="select"
+                            data-bind="
+                                    event: {change: $parent.userChanges, blur: $parent.OnBlurEvent.bind($parent)},
+                                    value: $parent[item.key],
+                                    hasFocus: false,
+                                    valueUpdate: $parent.valueUpdate,
+                                    attr: {
+                                        name: $parent.inputName + '[' +item.key +']'
+                                }"
+                    >
+                        <option value="1">In Stock</option>
+                        <option value="0">Out of Stock</option>
+                    </select>
+                    <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: !$parent.isCheck(item.key) -->
+                <!--ko text: item.value --><!--/ko-->
+                <!-- /ko -->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

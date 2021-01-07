@@ -1,0 +1,101 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Model\Session');
+if($customerSession->isLoggedIn()) {
+   // customer login action
+
+$currenturl=$this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
+$myaccount=$this->getUrl('customer/account/index');
+$myorder=$this->getUrl('sales/order/history');
+$mywishlist=$this->getUrl('wishlist');
+$addressbook=$this->getUrl('customer/address/index');
+$accountinfo=$this->getUrl('customer/account/edit');
+$gift_card=$this->getUrl('mpgiftcard');
+$add_new_address=$this->getUrl('customer/address/form');
+?>
+<section class="banner_Section add_address_bg">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="pre_order_content">
+                        <div class="section_title text-center mb-0">
+                            <?php if ($currenturl==$myaccount) :?>
+                           <h2><?php echo $block->escapeHtml(__('My Account')); ?></h2>
+                            <?php endif; ?>
+                            <?php if ($currenturl==$myorder) :?>
+                           <h2><?php echo $block->escapeHtml(__('My Orders')); ?></h2>
+                            <?php endif; ?>
+                            <?php if (strpos($currenturl, $mywishlist) !== false) :?>
+                           <h2><?php echo $block->escapeHtml(__('My Wishlist')); ?></h2>
+                            <?php endif; ?>
+                            <?php if ($currenturl==$addressbook) :?>
+                           <h2><?php echo $block->escapeHtml(__('My Address Book')); ?></h2>
+                            <?php endif; ?>
+                            <?php if ($currenturl==$accountinfo) :?>
+                           <h2><?php echo $block->escapeHtml(__('Edit  Account Information')); ?></h2>
+                            <?php endif; ?>
+                          <?php if ($currenturl==$gift_card) :?>
+                           <h2><?php echo $block->escapeHtml(__('Gift Code')); ?></h2>
+                            <?php endif; ?>
+                            <?php if (strpos($currenturl, $add_new_address) !== false) :?>
+                           <h2><?php echo $block->escapeHtml(__('Add New Address')); ?></h2>
+                            <?php endif; ?>
+							<?php if (strpos($currenturl, "returns/rma") !== false) :?>
+                           <h2><?php echo $block->escapeHtml(__('My Returns')); ?></h2>
+                            <?php endif; ?>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+</section>
+<section class="showing_result">
+       <div class="row align-items-center">
+          <div class="col-12 col-md-6">
+            <ul class="breadcum_links">
+             <li><a href="<?php echo $this->getUrl() ?>"><?php echo $block->escapeHtml(__('Home')); ?></a></li>
+             <li>></li>
+             <?php if ($currenturl==$myaccount) :?>
+             <li><?php echo $block->escapeHtml(__('My Account')); ?></li>
+             <li></li>
+             <?php endif; ?>
+             <?php if ($currenturl==$myorder) :?>
+            <li><a href="<?php echo $myaccount ?>"><?php echo $block->escapeHtml(__('My Account')); ?></a></li>
+            <li>></li>
+            <li><?php echo $block->escapeHtml(__('My Orders')); ?></li>
+            <li></li>
+            <?php endif; ?>
+            <?php if (strpos($currenturl, $mywishlist) !== false) :?>
+            <li><a href="<?php echo $myaccount ?>"><?php echo $block->escapeHtml(__('My Account')); ?></a></li>
+            <li>></li>
+            <li><?php echo $block->escapeHtml(__('My Wishlist')); ?></li>
+            <li></li>
+            <?php endif; ?>
+            <?php if ($currenturl==$addressbook) :?>
+            <li><?php echo $block->escapeHtml(__('My Address Book')); ?></li>
+            <li></li>
+            <?php endif; ?>
+            <?php if ($currenturl==$accountinfo) :?>
+            <li><?php echo $block->escapeHtml(__('Edit  Account Information')); ?></li>
+            <li></li>
+            <?php endif; ?>
+
+            <?php if ($currenturl==$gift_card) :?>
+            <li><?php echo $block->escapeHtml(__('Gift Code')); ?></li>
+            <li></li>
+            <?php endif; ?>
+            
+            <?php if (strpos($currenturl, $add_new_address) !== false) :?>
+            <li><?php echo $block->escapeHtml(__('Add New Address')); ?></li>
+            <li></li>
+            <?php endif; ?>
+           
+							<?php if (strpos($currenturl, "returns/rma") !== false) :?>
+            <li><a href="<?php echo $myaccount ?>"><?php echo $block->escapeHtml(__('My Account')); ?></a></li>
+            <li>></li>
+            <li><?php echo $block->escapeHtml(__('My Returns')); ?></li>
+            <li></li>
+			<?php endif; ?>
+          </ul> 
+       </div>
+    </div>
+</section>
+<?php } ?>

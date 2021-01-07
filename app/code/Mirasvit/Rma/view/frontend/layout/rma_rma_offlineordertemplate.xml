@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="rma.offline.order.block" class="Mirasvit\Rma\Block\Rma\NewRma\Step2" template="rma/new/offlinestep2.phtml" cacheable="false">
+                <block name="rma.new.offline.step2.order" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\Order" template="rma/new/step2/offline/order.phtml"/>
+                <block name="rma.new.offline.step2.items" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\Items" template="rma/new/step2/offline/items.phtml">
+                </block>
+                <block name="rma.new.offline.step2.policy" class="Mirasvit\Rma\Block\Rma\NewRma\Step2\Policy" template="rma/new/step2/policy.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

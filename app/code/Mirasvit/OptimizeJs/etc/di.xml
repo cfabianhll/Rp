@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!--DATA-->
+    <preference for="Mirasvit\OptimizeJs\Api\Data\BundleFileInterface" type="Mirasvit\OptimizeJs\Model\BundleFile"/>
+
+    <!--REPOSITORY-->
+    <preference for="Mirasvit\OptimizeJs\Api\Repository\BundleFileRepositoryInterface" type="Mirasvit\OptimizeJs\Repository\BundleFileRepository"/>
+
+    <!--Entity Manager-->
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Mirasvit\OptimizeJs\Api\Data\BundleFileInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\OptimizeJs\Api\Data\BundleFileInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\OptimizeJs\Api\Data\BundleFileInterface::ID</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Mirasvit\OptimizeJs\Api\Data\BundleFileInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Mirasvit_OptimizeJs::test" xsi:type="object">Mirasvit\OptimizeJs\Console\Command\TestCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Mirasvit\Optimize\Processor\OutputProcessor">
+        <arguments>
+            <argument name="pool" xsi:type="array">
+                <item name="js" xsi:type="object">Mirasvit\OptimizeJs\Processor\MoveToBottomProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Magento\Deploy\Package\BundleInterface" type="Mirasvit\OptimizeJs\Preference\Deploy\Package\BundlePreference"/>
+
+    <type name="Magento\RequireJs\Model\FileManager">
+        <plugin name="Mirasvit_OptimizeJs::filterBundleFiles" type="Mirasvit\OptimizeJs\Plugin\RequireJs\Model\FileManager\FilterBundleFilesPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\View\Asset\ConfigInterface">
+        <plugin name="Mirasvit_OptimizeJs::setBundlingFlag" type="Mirasvit\OptimizeJs\Plugin\Framework\View\Asset\Config\SetBundlingFlagPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\View\Asset\Minification">
+        <plugin name="Mirasvit_OptimizeJs::enableJsMinification" type="Mirasvit\OptimizeJs\Plugin\Framework\View\Asset\Minification\EnableJsMinificationPlugin"/>
+    </type>
+</config>

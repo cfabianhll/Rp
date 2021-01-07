@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="MultiInventory15ChooseWHBasedOnStoreViewNo">
+        <annotations>
+            <features value="ChooseWHBasedOnStoreViewNo"/>
+            <stories value="ChooseWHBasedOnStoreViewNo"/>
+            <title value="WH is choosen based on Location (not on Store View)."/>
+            <description value="WH is choosen based on Location (not on Store View)."/>
+            <severity value="CRITICAL"/>
+            <testCaseId value="MWI-MFTF-15"/>
+            <group value="Amasty"/>
+            <group value="AmastyMultiInventory"/>
+            <group value="AmastyMultiInventoryStockSettings"/>
+            <group value="AmastyMultiInventoryChooseWHBasedOnStoreViewNo"/>
+        </annotations>
+        <before>
+            <actionGroup stepKey="loginAsAdmin" ref="LoginAsAdmin"/>
+            <amOnPage stepKey="openMWIConfigurationPage1" url="{{AmastyMWIConfigurationPage.url}}"/>
+            <waitForPageLoad stepKey="waitForPageLoad1" time="30"/>
+            <actionGroup stepKey="YesChooseWHBasedOnStoreView" ref="AmastyMWIConfigurationYesNoChooseWHBasedOnStoreView">
+                <argument name="YesNoChooseWHBasedOnStoreView" value="no"/>
+            </actionGroup>
+            <wait stepKey="waitTime1" time="2"/>
+            <click stepKey="saveConfig1" selector="{{AmastyMWIConfigurationSection.saveconfig}}"/>
+            <magentoCLI stepKey="flushCache1" command="cache:clean"/>
+        </before>
+        <after>
+            <!--delete Warehouses-->
+            <actionGroup stepKey="deleteAllWarehouses" ref="DeleteAllWarehouses"/>
+        </after>
+
+        <actionGroup stepKey="addWH1" ref="AddNewWarehouse">
+            <argument name="amastyWarehouse" value="_Chicago"/>
+        </actionGroup>
+        <!--grab url from WH1-->
+        <grabFromCurrentUrl regex="~.*/amasty_multi_inventory/warehouse/edit/warehouse_id/(\d+)/.*~" stepKey="grabFromCurrentUrlWh1"/>
+        <actionGroup stepKey="addWH2" ref="AddNewWarehouse">
+            <argument name="amastyWarehouse" value="_NYstoreView2"/>
+        </actionGroup>
+        <!--grab url from WH2-->
+        <grabFromCurrentUrl regex="~.*/amasty_multi_inventory/warehouse/edit/warehouse_id/(\d+)/.*~" stepKey="grabFromCurrentUrlWh2"/>
+        <amOnPage url="{{_ENV.MAGENTO_BACKEND_NAME}}/admin/auth/logout/" stepKey="amOnLogoutPage1"/>
+        <actionGroup stepKey="loginAsCustomer" ref="CustomerLoginOnStorefront">
+            <argument name="customer" value="AmastyCustomerEntityOne"/>
+        </actionGroup>
+        <!--Place order with Fusion Backpack-->
+        <actionGroup stepKey="AddFusionBackpackToCart" ref="AmastyAddSimpleProductToCart">
+            <argument name="amastyProduct" value="_fusionBackpack"/>
+        </actionGroup>
+        <actionGroup stepKey="PlaceOrder" ref="AmastyPlaceOrderSimpleProduct"/>
+        <!--grab url from Order-->
+        <grabTextFrom stepKey="orderId" selector="a[class='order-number']"/>
+        <!--check Warehouse in Order-->
+        <actionGroup stepKey="loginAsAdmin2" ref="LoginAsAdmin"/>
+        <amOnPage stepKey="openOrderGridPage" url="{{AmastyOrderGridPage.url}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad2" time="30"/>
+        <click stepKey="openCreatedOrder" selector="//*[@id='container']//td[contains(string(), '$orderId')]"/>
+        <waitForPageLoad stepKey="waitForPageLoad3" time="30"/>
+        <scrollTo stepKey="scroll1" selector="{{AmastyOrderSection.warehouse}}"/>
+        <see stepKey="seeWhName" userInput="whNewYork" selector="{{AmastyOrderSection.warehouse}}"/>
+        <wait stepKey="waitTime2" time="3"/>
+        <!--check product qty at WH1-->
+        <amOnPage stepKey="openManageWarehouse1Page" url="admin/amasty_multi_inventory/warehouse/edit/warehouse_id/$grabFromCurrentUrlWh1"/>
+        <waitForPageLoad stepKey="waitForPageLoad4" time="30"/>
+        <click stepKey="openProductsInWarehouse1Tab" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <wait stepKey="waitTime3" time="2"/>
+        <scrollTo stepKey="scroll2" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <see stepKey="seeQtyToShip1" selector="{{AmastyMWIWarehouseSection.qtyToShip}}" userInput="0"/>
+        <see stepKey="seeAvailableQty1" selector="{{AmastyMWIWarehouseSection.availableQty}}" userInput="10"/>
+        <see stepKey="seeTotalQty1" selector="{{AmastyMWIWarehouseSection.totalQty}}" userInput="10"/>
+        <wait stepKey="waitTime4" time="2"/>
+        <!--check product qty at WH2-->
+        <amOnPage stepKey="openManageWarehouse2Page" url="admin/amasty_multi_inventory/warehouse/edit/warehouse_id/$grabFromCurrentUrlWh2"/>
+        <waitForPageLoad stepKey="waitForPageLoad5" time="30"/>
+        <click stepKey="openProductsInWarehouse2Tab" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <wait stepKey="waitTime5" time="2"/>
+        <scrollTo stepKey="scroll3" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <see stepKey="seeQtyToShip2" selector="{{AmastyMWIWarehouseSection.qtyToShip}}" userInput="1"/>
+        <see stepKey="seeAvailableQty2" selector="{{AmastyMWIWarehouseSection.availableQty}}" userInput="9"/>
+        <see stepKey="seeTotalQty2" selector="{{AmastyMWIWarehouseSection.totalQty}}" userInput="10"/>
+        <wait stepKey="waitTime6" time="2"/>
+    </test>
+  </tests>

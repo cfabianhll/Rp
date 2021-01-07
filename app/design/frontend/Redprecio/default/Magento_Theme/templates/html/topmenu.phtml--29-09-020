@@ -1,0 +1,37 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+/* if ($this->_request->getFullActionName() == 'cms_index_index') {
+    echo "you are on the homepage"
+} */
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit)
+?>
+<?php if($block->getFullActionName() == "cms_index_index") { ?>
+<nav class="navigation" data-action="navigation">
+<ul class="left_mega_menu" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+	<?= /* @noEscape */ $_menuHtml?>
+	<?= $block->getChildHtml() ?>
+</ul>
+<nav class="navigation" data-action="navigation">
+<?php } else { ?>
+<div id="mySidenav" class="sidenav desktop_visible">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="close_menu" style="display: inline-block;">&times;</span><span style="display: inherit;font-size: 10px;"><?= $block->escapeHtml(__('Menu')) ?></span></a>
+<a class="logo logo_section custom-top-left-logo" href="<?= $block->getUrl('') ?>" title="<?= $block->getChildHtml('logo') ?>" aria-label="store logo"><span class="gw-menu-text"><img src="<?php echo $block->getViewFileUrl('images/logo1.svg'); ?>" title="<?= $block->getChildHtml('logo') ?>"  alt="logo"></span></a>
+<nav class="navigation" data-action="navigation">
+<ul class="left_mega_menu nohome" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+	<?= /* @noEscape */ $_menuHtml?>
+	<?= $block->getChildHtml() ?>
+</ul>
+<nav class="navigation" data-action="navigation">
+</div>
+<?php } ?>

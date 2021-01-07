@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+
+<?php if ($block->canShowBlock()) : ?>
+<div id="mySidenavv" class="sidenavv desktop_visiblee">
+		<?php /* <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> */ ?>
+    <div class="block filter">
+        <h4><?= $block->escapeHtml(__('Filter')) ?></h4>
+
+        <div class="block-content filter-content">
+            <?= $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()) : ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?= $block->escapeUrl($block->getClearUrl()) ?>" class="action clear filter-clear"><span><?= $block->escapeHtml(__('Clear All')) ?></span></a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $filter) : ?>
+                <?php if (!$wrapOptions) : ?>
+                    <ul class="gw-nav gw-nav-list custom_category" id="narrow-by-list">
+                    <?php $wrapOptions = true;
+                endif; ?>
+                    <?php if ($filter->getItemsCount()) : ?>
+                        <li  class="arrow-down add_plus"><a href="javascript:void(0)" class="gw-menu-text"><?= $block->escapeHtml(__($filter->getName())) ?></a>
+						<a href="javascript:void(0)" class="icon_expand"> <b class="gw-arrow"></b> </a>
+						<?= /* @noEscape */ $block->getChildBlock('renderer')->render($filter) ?>
+						</li>
+                        
+                    <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions) : ?>
+                </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+	</div>
+<?php endif; ?>

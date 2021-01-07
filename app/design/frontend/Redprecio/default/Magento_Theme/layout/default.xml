@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+	
+		<referenceContainer name="main.content" htmlId="content" />
+		<referenceContainer name="gw-sidebar.left_menu_bar" remove="true"/>
+		<referenceContainer name="category_sidebar_left" remove="true"/>
+		
+		
+        <referenceContainer name="page.wrapper" htmlId="wrapper">
+			<container name="container.fluid" htmlTag="div" htmlClass="container-fluid" before="-">
+				<container name="container.fluid.row" htmlTag="div" htmlClass="row" before="-">
+					<container name="container.fluid.row.col-12.p-0" htmlTag="div" htmlClass="col-12 p-0" before="-">
+						<container name="main_body_wrapper" htmlTag="div" htmlClass="main_body_wrapper" before="-">
+							<container name="gw-sidebar.left_menu_bar" htmlTag="div" htmlClass="gw-sidebar left_menu_bar" before="right_bar">
+								<container name="gw-sidebar" htmlTag="div" htmlId="gw-sidebar" htmlClass="gw-sidebar" before="-">
+									<container name="nano-content" htmlTag="div" htmlClass="nano-content" before="-">
+										<!-- <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.top.nav.custom" template="Magento_Theme::html/topmenu.phtml" ttl="0" after="logo"/> -->
+										<block class="Trootech\General\Block\Navigation" after="logo" name="category_sidebar_left" template="Magento_Catalog::category/sidebar_left.phtml"/>
+									</container>
+								</container>
+							</container>
+							<container name="right_bar" htmlTag="div" htmlClass="right_bar full_right" after="gw-sidebar.left_menu_bar">
+								<container name="right_bar.fixed_header2" htmlTag="header" htmlClass="fixed_header2" before="-">
+									<container name="right_bar.mobile_display" htmlTag="div" htmlClass="mobile_display" before="top_menu">
+										<block class="Magento\Theme\Block\Html\Header\Logo" before="-" name="mobile" template="Magento_Theme::html/header/mobile.phtml"/>
+									</container>
+									
+									<container name="right_bar.search_menu" htmlTag="div" htmlClass="search_menu" after="top_menu">
+										<container name="right_bar.search_menu.row" htmlTag="div" htmlClass="row" after="-">
+											<container name="right_bar.search_menu.logo" htmlTag="div" htmlClass="col-12 col-lg-2 d-flex align-items-center sitelogo" before="right_bar.search_menu.row.search">
+											</container>
+											<container name="right_bar.search_menu.row.search" htmlTag="div" htmlClass="col-12 col-lg-5 col-md-4 searchbar" after="-">
+												<!-- <container name="right_bar.search_menu.row.drop_search_box" htmlTag="div" htmlClass="drop_search_box" after="-">
+												</container> -->
+											</container>
+											<container name="right_bar.search_menu.row.col-12" htmlTag="div" htmlClass="col-12 col-lg-5 col-md-8" after="-">
+												<container name="right_bar.search_menu.row.cart_account_sec" htmlTag="div" htmlClass="cart_account_sec" after="-">
+													<block class="Magento\Customer\Block\Account\AuthorizationLink" before="right_bar.minicart" name="my_account" template="Magento_Customer::extra/view.phtml"/>
+													<container name="right_bar.minicart" htmlTag="div" htmlClass="account_div dropdown show" after="my_account">
+													</container>
+													<block class="Magento\Cms\Block\Block" name="top_menu">
+													<arguments>
+														<argument name="block_id" xsi:type="string">top_menu</argument>
+													</arguments>
+													</block>
+												</container>
+											</container>
+										</container>
+									</container>
+								</container>
+								<container name="footer" htmlTag="footer" htmlClass="footer wow fadeIn" after="main.content">
+									<container name="footer.footer_inner" htmlTag="div" htmlClass="footer_inner" before="footer.footer_copyright">
+										<container name="footer.footer_inner.row" htmlTag="div" htmlClass="row" after="-">
+											<block class="Magento\Cms\Block\Block" name="footer_data">
+												<arguments>
+													<argument name="block_id" xsi:type="string">footer_data</argument>
+												</arguments>
+											</block>
+										</container>
+									</container>
+									<container name="footer.footer_copyright" htmlTag="div" htmlClass="footer_copyright" after="footer.footer_inner">
+										<container name="footer.footer_copyright.row" htmlTag="div" htmlClass="row" after="-">
+											<container name="footer.footer_copyright.row.col" htmlTag="div" htmlClass="col-12 col-lg-6 col-md-8" before="footer.footer_copyright.row.col.social">
+											</container>
+											<container name="footer.footer_copyright.row.col.social" htmlTag="div" htmlClass="col-12 col-lg-6 col-md-8 text-center text-md-right" after="footer.footer_copyright.row.col">
+												<block class="Magento\Cms\Block\Block" name="footer_social">
+													<arguments>
+														<argument name="block_id" xsi:type="string">footer_social</argument>
+													</arguments>
+												</block>
+											</container>
+										</container>
+									</container>
+								</container>
+							</container>
+							<container name="overlay" htmlTag="div" htmlClass="overlay" after="right_bar">
+								 <block class="Magento\Framework\View\Element\Text">
+							        <arguments>
+							            <argument name="text" xsi:type="string"><![CDATA[&nbsp;]]></argument>
+							        </arguments>
+							    </block>
+							</container>
+							<container name="overlay_new" htmlTag="div" htmlClass="overlay1" after="right_bar">
+								 <block class="Magento\Framework\View\Element\Text">
+							        <arguments>
+							            <argument name="text" xsi:type="string"><![CDATA[&nbsp;]]></argument>
+							        </arguments>
+							    </block>
+							</container>
+						</container>
+					</container>
+				</container>
+			</container>
+		</referenceContainer>
+		
+		<move element="minicart" destination="right_bar.minicart" before="-" />
+		<move element="logo" destination="right_bar.search_menu.logo" before="-" />
+		<move element="top.search" destination="right_bar.search_menu.row.search" after="-" />
+		<move element="main.content" destination="right_bar" after="right_bar.fixed_header2" />
+		<move element="page.messages" destination="main.content" before="-" />
+		<move element="copyright" destination="footer.footer_copyright.row.col" after="-" />
+		<move element="catalog.topnav" destination="after.body.start" after="page.wrapper" />
+		<referenceContainer name="header.panel.wrapper" remove="true" />
+        <referenceContainer name="header-wrapper" remove="true" />
+		<referenceBlock name="navigation.sections" remove="true" />
+		<referenceBlock name="footer_links" remove="true" />
+		<referenceBlock name="report.bugs" remove="true" />
+        <referenceBlock name="authentication-popup" remove="true" />
+		 <referenceBlock name="top.links" remove="true" />
+        <referenceBlock name="store_switcher" remove="true" />
+		<referenceBlock name="catalog.compare.sidebar" remove="true" />
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+		<!-- <referenceContainer name="main.content" remove="true" /> -->
+    </body>
+</page>

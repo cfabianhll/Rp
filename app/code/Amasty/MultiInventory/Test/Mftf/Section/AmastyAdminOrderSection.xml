@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AmastyOrderSection">
+        <element name="warehouse" type="td" selector="td[class='col-warehouse']"/>
+        <element name="invoice" type="button" selector="#order_invoice"/>
+        <element name="shipment" type="button" selector="#order_ship"/>
+        <element name="creditMemo" type="button" selector="#order_creditmemo"/>
+    </section>
+</sections>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <!-- <head>
+        <title>My Account</title>
+    </head> -->
+    <body>
+        <referenceContainer name="main.content" htmlId="content">
+            <block class="Magento\Framework\View\Element\Template" name="custom-myaccount" template="Magento_Customer::myaccount.phtml" before="my_account_section"/>
+            <container name="my_account_section" htmlClass="my_profile_section" htmlTag="section" before="-">
+                    <container name="my.account.row" htmlClass="row" htmlTag="div" before="-">
+                        <container name="my.account.left" htmlClass="col-12 col-md-4 col-lg-3" htmlTag="div" before="-">         
+                        </container>
+                        <container name="my_account-right" htmlClass="col-12 col-md-8 col-lg-9" htmlTag="div" after="-"/> 
+                    </container>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="customer_account_navigation">
+            <arguments>
+                <argument name="css_class" xsi:type="string">nav flex-column nav-pills profile_tabs</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="page.main.title">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Customer::title/title.phtml</argument>
+            </action>    
+        </referenceBlock>
+        <referenceBlock name="customer-account-navigation-account-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">My Account</argument>
+            </arguments>
+        </referenceBlock>
+        <move element="customer_account_navigation" destination="my.account.left" before="-" />
+        <move element="page.main.title" destination="my_account_section" before="-" />
+        <move element="customer_account_dashboard_info" destination="my_account-right" after="-" />
+        
+        <referenceBlock name="customer_account_dashboard_top" remove="true"/>
+        <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+        <referenceBlock name="sidebar.main.account_nav" remove="true" />
+        <referenceContainer name="sidebar.main" remove="true" />
+        <referenceBlock name="customer_account_dashboard_address" remove="true" />
+        <referenceBlock name="customer-account-navigation-delimiter-1" remove="true" />
+        <referenceBlock name="customer-account-navigation-delimiter-2" remove="true" />
+        <referenceContainer name="div.sidebar.additional" remove="true" />
+        <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true" />
+        <referenceBlock name="customer-account-navigation-billing-agreements-link" remove="true" />
+        <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true" />
+        <referenceBlock name="customer-account-navigation-newsletter-subscriptions-link" remove="true" />
+    </body>
+</page>

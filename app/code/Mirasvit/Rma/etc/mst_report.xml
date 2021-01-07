@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../module-report/src/ReportApi/etc/mst_report.xsd">
+    <table name="mst_rma_rma">
+        <column name="created_at" label="Created At" type="date"/>
+
+        <column name="user_id" label="User #" type="qty"/>
+
+        <column name="pending_rma_cnt" label="Pending Approval RMAs #" fields="status_id" type="qty"
+                expr="SUM(IF(%1 = 1, 1, 0))"
+        />
+        <column name="approved_rma_cnt" label="Approved RMAs #" fields="status_id" type="qty"
+                expr="SUM(IF(%1 = 2, 1, 0))"
+        />
+        <column name="rejected_rma_cnt" label="Rejected RMAs #" fields="status_id" type="qty"
+                expr="SUM(IF(%1 = 3, 1, 0))"
+        />
+        <column name="sent_rma_cnt" label="Package Sent RMAs #" fields="status_id" type="qty"
+                expr="SUM(IF(%1 = 4, 1, 0))"
+        />
+        <column name="closed_rma_cnt" label="Closed RMAs #" fields="status_id" type="qty"
+                expr="SUM(IF(%1 = 5, 1, 0))"
+        />
+        <column name="total_rma_cnt" label="Total RMAs #" fields="status_id" type="qty"
+                expr="COUNT(*)"
+        />
+    </table>
+
+    <table name="mst_rma_item">
+        <column name="created_at" label="Created At" type="date"/>
+
+        <column name="qty_requested" label="QTY Requested"/>
+
+        <column name="total_condition_cnt" label="Total conditions #" fields="condition_id" type="qty"
+                expr="SUM(IF(%1 IS NULL, 0, 1))"
+        />
+
+        <column name="total_reasons_cnt" label="Total reasons #" fields="reason_id" type="qty"
+                expr="SUM(IF(%1 IS NULL, 0, 1))"
+        />
+
+        <column name="total_resolution_cnt" label="Total resolutions #" fields="resolution_id" type="qty"
+                expr="SUM(IF(%1 IS NULL, 0, 1))"
+        />
+
+        <column name="total_rma_cnt" label="Total RMA #" fields="rma_id" type="qty"
+                expr="COUNT(DISTINCT rma_id)"
+        />
+
+        <column name="total_items_cnt" label="Total Items #" fields="order_item_id" type="qty"
+                expr="SUM(IF(mst_rma_item.qty_requested, 1, 0))"
+        />
+
+        <column name="item_qty_requested" label="Total Items Requested #" fields="qty_requested" type="qty"
+                expr="SUM(mst_rma_item.qty_requested)"
+        />
+    </table>
+
+    <table name="mst_rma_offline_item">
+        <column name="created_at" label="Created At" type="date"/>
+
+        <column name="name" label="Name"/>
+
+        <column name="qty_requested" label="QTY Requested"/>
+
+        <column name="total_condition_cnt" label="Total conditions #" fields="condition_id" type="qty"
+                expr="SUM(IF(%1 IS NULL, 0, 1))"
+        />
+
+        <column name="total_reasons_cnt" label="Total reasons #" fields="reason_id" type="qty"
+                expr="SUM(IF(%1 IS NULL, 0, 1))"
+        />
+
+        <column name="total_resolution_cnt" label="Total resolutions #" fields="resolution_id" type="qty"
+                expr="SUM(IF(%1 IS NULL, 0, 1))"
+        />
+
+        <column name="total_rma_cnt" label="Total RMA #" fields="rma_id" type="qty"
+                expr="COUNT(DISTINCT rma_id)"
+        />
+
+        <column name="total_items_cnt" label="Total Items #" fields="name" type="qty"
+                expr="SUM(IF(mst_rma_offline_item.qty_requested, 1, 0))"
+        />
+
+        <column name="item_qty_requested" label="Total Items Requested #" fields="qty_requested" type="qty"
+                expr="SUM(mst_rma_offline_item.qty_requested)"
+        />
+    </table>
+    <table name="mst_rma_reason">
+        <column name="reason_cnt" label="Total Reasons" fields="reason_id" type="Mirasvit.reason_cnt"/>
+        <column name="reason_name" label="Reason Name" fields="reason_id" type="Mirasvit.reason_store_name"/>
+    </table>
+
+    <table name="sales_order" connection="sales">
+        <column name="entity_id" label="Order ID" type="qty"/>
+    </table>
+
+    <table name="sales_order_item" connection="sales">
+        <column name="order_id" label="Order ID"/>
+        <column name="product_id" label="Product ID"/>
+        <column name="sku" label="SKU"/>
+        <column name="name" label="Name"/>
+    </table>
+
+    <eavTable name="catalog_product_entity" type="catalog_product">
+        <column name="entity_id" label="Product ID" type="qty"/>
+        <column name="type_id" label="Product Type" type="select"
+                options="Mirasvit\Report\Config\Source\Catalog\ProductType"/>
+        <column name="attribute" label="Attribute" fields="entity_id"/>
+    </eavTable>
+
+    <relation name="mst_rma_item-sales_order_item" type="11">
+        <leftTable>mst_rma_item</leftTable>
+        <rightTable>sales_order_item</rightTable>
+        <condition>((%1.order_item_id=%2.item_id AND %2.parent_item_id IS NULL) OR %1.order_item_id=%2.parent_item_id) AND %2.product_type='simple'</condition>
+    </relation>
+
+    <relation name="sales_order-sales_order_item" type="1n">
+        <leftTable>sales_order</leftTable>
+        <rightTable>sales_order_item</rightTable>
+        <condition>%1.entity_id=%2.order_id</condition>
+    </relation>
+
+    <relation name="catalog_product_entity-sales_order_item" type="1n">
+        <leftTable>catalog_product_entity</leftTable>
+        <rightTable>sales_order_item</rightTable>
+        <condition>%1.entity_id=%2.product_id</condition>
+    </relation>
+    <relation name="mst_rma_rma-mst_rma_item" type="1n">
+        <leftTable>mst_rma_rma</leftTable>
+        <rightTable>mst_rma_item</rightTable>
+        <condition>%1.rma_id=%2.rma_id</condition>
+    </relation>
+    <relation name="mst_rma_rma-mst_rma_offline_item" type="1n">
+        <leftTable>mst_rma_rma</leftTable>
+        <rightTable>mst_rma_offline_item</rightTable>
+        <condition>%1.rma_id=%2.rma_id</condition>
+    </relation>
+</config>

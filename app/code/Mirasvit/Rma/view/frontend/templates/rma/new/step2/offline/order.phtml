@@ -1,0 +1,31 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2\Order $block */
+?>
+<?php
+$orderId = '%%order_id%%';
+?>
+
+<div class="mst-rma-create__order-header">
+    <div class="increment-id"><?= __('Offline Order') ?></div>
+
+    <div class="remove"><?= __('Remove') ?></div>
+</div>
+
+<div class="block">
+    <div class="block-content ui-rma-items">
+        <fieldset class="fieldset">
+            <div class="field required">
+                <label class="label">
+                    <span><?= __('Order or Receipt #') ?></span>
+                </label>
+
+                <input type="text" name="receipt_number[<?= $orderId ?>]" data-order-number="<?= $orderId ?>" value="" title="Order or Receipt #"
+                       maxlength="255" class="input-text ui-receiptnumber required-entry">
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<input type="hidden" name="customer_id" value="<?= $block->getCustomerId() ?>">
+<input type="hidden" name="store_id" value="<?= $block->getStoreId() ?>">
+<input name="is_offline" value="1" type="hidden">

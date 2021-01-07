@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="MultiInventory01ModuleEnableTest">
+        <annotations>
+            <features value="MultiInventory module Enable"/>
+            <stories value="Enable MultiInventory module"/>
+            <title value="You should be able to enable MultiInventory module."/>
+            <description value="You should be able to enable MultiInventory module."/>
+            <severity value="CRITICAL"/>
+            <testCaseId value="MWI-MFTF-1"/>
+            <group value="Amasty"/>
+            <group value="AmastyMultiInventory"/>
+            <group value="AmastyMultiInventoryPreconditions"/>
+            <group value="AmastyMultiInventoryModuleEnable"/>
+        </annotations>
+        <!--Configuration settings-->
+        <actionGroup stepKey="loginAsAdmin1" ref="LoginAsAdmin"/>
+        <amOnPage stepKey="openMWIConfigurationPage" url="{{AmastyMWIConfigurationPage.url}}"/>
+        <actionGroup stepKey="enableModule" ref="AmastyMWIConfigurationEnableDisableModule">
+            <argument name="enableDisable" value="enable"/>
+        </actionGroup>
+        <wait stepKey="waitTime1" time="2"/>
+        <actionGroup stepKey="YesUseGoogleMapsForWarehouseLocation" ref="AmastyMWIConfigurationYesNoUseGoogleMapsForWarehouseLocation">
+            <argument name="UseGoogleMapsForWarehouseLocation" value="yes"/>
+        </actionGroup>
+        <wait stepKey="waitTime2" time="2"/>
+        <actionGroup stepKey="YesUGoogleAddressSuggestion" ref="AmastyMWIConfigurationEnableDisableGoogleAddressSuggestion">
+            <argument name="enableDisableGoogleAddressSuggestion" value="enable"/>
+        </actionGroup>
+        <wait stepKey="waitTime3" time="2"/>
+        <actionGroup stepKey="fillInGoogleApi" ref="AmastyMWIConfigurationFillInGoogleApi"/>
+        <wait stepKey="waitTime4" time="2"/>
+        <click stepKey="saveConfig" selector="{{AmastyMWIConfigurationSection.saveconfig}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad1" time="30"/>
+        <magentoCLI stepKey="flushCache1" command="cache:clean"/>
+        <waitForPageLoad stepKey="waitForPageLoad2" time="30"/>
+        <amOnPage stepKey="openManageWarehousesPage" url="{{AmastyMWIManageWarehousesPage.url}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad3" time="30"/>
+        <seeInCurrentUrl stepKey="checkOpeningManageWarehousesPage" url="{{AmastyMWIManageWarehousesPage.url}}"/>
+        <!--Create a new StoreView-->
+        <actionGroup stepKey="createNewStoreView" ref="AdminCreateStoreViewActionGroup">
+            <argument name="customStore" value="storeView2"/>
+        </actionGroup>
+        <!--Create a new Customer-->
+        <actionGroup stepKey="createCustomer" ref="SignUpNewUserFromStorefrontActionGroup">
+            <argument name="Customer" value="AmastyCustomerEntityOne"/>
+        </actionGroup>
+        <actionGroup stepKey="fillCustomerData" ref="AmastyStorefrontCustomerData">
+            <argument name="customer" value="AmastyCustomerEntityOne"/>
+        </actionGroup>
+        <amOnPage url="{{_ENV.MAGENTO_BACKEND_NAME}}/admin/auth/logout/" stepKey="amOnLogoutPage"/>
+    </test>
+  </tests>

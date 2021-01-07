@@ -1,0 +1,43 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!--CONFIG-->
+    <preference for="Mirasvit\Credit\Api\Config\CalculationConfigInterface" type="Mirasvit\Credit\Service\Config\CalculationConfig"/>
+
+
+    <preference for="Mirasvit\Credit\Api\CreditManagementInterface" type="Mirasvit\Credit\Model\CreditManagement"/>
+
+    <type name="Magento\Payment\Model\Checks\ZeroTotal">
+        <plugin name="mstCreditIsApplicable" type="Mirasvit\Credit\Plugin\Payment\Model\Checks\ZeroTotal\IsApplicablePlugin" sortOrder="10"/>
+    </type>
+
+    <type name="Magento\Sales\Model\ResourceModel\Order\Handler\State">
+        <plugin name="mstCreditState" type="Mirasvit\Credit\Plugin\Sales\Model\ResourceModel\Order\Handler\State\StatePlugin" sortOrder="10"/>
+    </type>
+
+    <type name="Magento\Sales\Model\Config">
+        <plugin name="mstCreditChangeCreditTotalOrder" type="Mirasvit\Credit\Plugin\Sales\Model\Config\ChangeCreditTotalOrderPlugin" sortOrder="1000"/>
+    </type>
+
+    <type name="Magento\Sales\Block\Adminhtml\Order\View\Items">
+        <plugin name="mstCreditOrderPurchasedCreditsColumn" type="Mirasvit\Credit\Plugin\Sales\Block\Adminhtml\Order\View\Items\CreditColumnHeaderPlugin" sortOrder="1000"/>
+    </type>
+
+    <type name="Mirasvit\Report\Api\Repository\ReportRepositoryInterface">
+        <arguments>
+            <argument name="reports" xsi:type="array">
+                <item name="credit_overview" xsi:type="string">Mirasvit\Credit\Reports\Overview</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--COMMAND-->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="mstCreditMergeBalances" xsi:type="object">Mirasvit\Credit\Console\Command\MergeBalancesCommand</item>
+                <item name="mstCreditImportExport" xsi:type="object">Mirasvit\Credit\Console\Command\ImportExportCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

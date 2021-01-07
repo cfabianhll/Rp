@@ -1,0 +1,98 @@
+<?php
+/** @var \Mirasvit\OptimizeInsight\Block\Adminhtml\System\Config\InsightGroup $block */
+$desktopCode   = \Mirasvit\OptimizeInsight\Api\Data\ScoreInterface::PAGESPEED_PERFORMANCE_DESKTOP;
+$desktopMobile = \Mirasvit\OptimizeInsight\Api\Data\ScoreInterface::PAGESPEED_PERFORMANCE_MOBILE;
+
+
+$sections = [
+    $desktopCode   => 'Google PageSpeed Desktop Score',
+    $desktopMobile => 'Google PageSpeed Mobile Score',
+];
+
+?>
+<div class="section-config active">
+    <div class="entry-edit-head admin__collapsible-block">
+        <a href="#" class="open">
+            <?= __('Insight') ?>
+        </a>
+    </div>
+    <fieldset class="admin__collapsible-block">
+        <div class="insight">
+            <?php foreach ($sections as $code => $label): ?>
+                <div class="insight-col">
+                    <h3><?= $label ?></h3>
+
+                    <?php $lastCheck = $block->getLastCheck($code); ?>
+
+                    <?php if ($lastCheck): ?>
+                        <?php
+                        $sparkLine = $block->getSparklineConfiguration($block->getScoreValues($code));
+                        $radial    = $block->getRadialConfiguration($block->getAverageScore($code));
+                        ?>
+                        <img src='https://quickchart.io/chart?width=300&height=300&c=<?= \Zend_Json::encode($radial) ?>' width="100px" height="100px">
+
+                        <img src='https://quickchart.io/chart?width=900&height=300&c=<?= \Zend_Json::encode($sparkLine) ?>' width="450px" height="150px">
+                        <small><?= __('last check: %1', date('M d, h:i A', strtotime($lastCheck))) ?></small>
+                    <?php else: ?>
+                        <p class="message"><?= __('There is no data yet. Don\'t worry, extension will collect page speed score automatically by cron.') ?></p>
+                    <?php endif ?>
+                </div>
+            <?php endforeach ?>
+        </div>
+        <div class="insight-run">
+            <a href="https://developers.google.com/speed/pagespeed/insights/?url=<?= $block->getData('url') ?>" target="_blank" class="action-basic">Run Google PageSpeed Test</a>
+        </div>
+
+        <script type="text/x-magento-init">
+            <?= \Zend_Json_Encoder::encode([
+                '*' => [
+                    'Magento_Ui/js/core/app' => [
+                        'components' => [
+                            'pagespeed' => [
+                                'component' => 'Mirasvit_OptimizeInsight/js/pagespeed',
+                                'config'    => [
+                                    'url' => 'http://optimize.m2.mirasvit.com/',
+                                    'url_' => $block->getData('url'),
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ]) ?>
+        </script>
+
+        <table width="100%">
+            <tr>
+                <td>
+                    <?= $block->getData('elements') ?>
+                </td>
+            </tr>
+        </table>
+
+    </fieldset>
+</div>
+<style>
+    .insight {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .insight-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+        padding: 0 1rem;
+    }
+
+    .insight-col img {
+        margin: 1rem;
+    }
+
+    .insight-run {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

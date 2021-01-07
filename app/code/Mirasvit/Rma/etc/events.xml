@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="helpdesk_process_email">
+        <observer name="m_rma_observer" instance="\Mirasvit\Rma\Observer\HelpdeskProcessEmail"/>
+    </event>
+    <event name="adminhtml_sales_order_creditmemo_register_before">
+        <observer name="m_rma_observer" instance="\Mirasvit\Rma\Observer\SalesOrderCreditmemoRegisterBefore"/>
+    </event>
+    <event name="sales_order_creditmemo_save_after">
+        <observer name="m_rma_observer" instance="\Mirasvit\Rma\Observer\SalesOrderCreditmemoSaveAfter"/>
+    </event>
+
+    <event name="controller_action_postdispatch">
+        <observer name="m_rma_postdispatch" instance="\Mirasvit\Rma\Observer\RmaPostdispatch"/>
+    </event>
+    <event name="checkout_submit_all_after">
+        <observer name="m_rma_checkout_submit_all_after" instance="\Mirasvit\Rma\Observer\QuoteSubmitAfter"/>
+    </event>
+
+    <event name="rma_update_rma_after">
+        <observer name="m_rma_observer" instance="\Mirasvit\Rma\Observer\RmaChangedObserver"/>
+    </event>
+
+    <event name="rma_add_message_after">
+        <observer name="m_rma_observer" instance="\Mirasvit\Rma\Observer\AddMessageObserver"/>
+    </event>
+
+    <event name="sales_order_save_after">
+        <observer name="mst_rma_save_order_status_history" instance="\Mirasvit\Rma\Observer\OrderSaveAfter"/>
+    </event>
+</config>

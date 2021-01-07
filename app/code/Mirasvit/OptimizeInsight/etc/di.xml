@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--DATA-->
+    <preference for="Mirasvit\OptimizeInsight\Api\Data\ScoreInterface" type="Mirasvit\OptimizeInsight\Model\Score"/>
+
+    <!--Entity Manager-->
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Mirasvit\OptimizeInsight\Api\Data\ScoreInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\OptimizeInsight\Api\Data\ScoreInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\OptimizeInsight\Api\Data\ScoreInterface::ID</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Mirasvit\OptimizeJs\Api\Data\BundleFileInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Mirasvit_OptimizeInsight::pagespeed" xsi:type="object">Mirasvit\OptimizeInsight\Console\Command\PageSpeedCommand</item>
+                <item name="Mirasvit_OptimizeInsight::cron" xsi:type="object">Mirasvit\OptimizeInsight\Console\Command\CronCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Amasty\MultiInventory\Block\Adminhtml\Shipping\Items\AfterRenderer"
+                   as="multi_shipping"
+                   template="Amasty_MultiInventory::sales/items/after_renderer.phtml"
+                   after="sales_shipment_view">
+                <arguments>
+                    <argument name="options" xsi:type="array">
+                        <item name="classTable" xsi:type="string">.order-creditmemo-tables</item>
+                        <item name="regexp" xsi:type="string">order_item_(\\d+)+_title</item>
+                        <item name="findRegexp" xsi:type="string">tbody td.col-product div.product-title</item>
+                        <item name="findRegexpOptions" xsi:type="string">td.col-product div.option-value</item>
+                        <item name="attrRegexp" xsi:type="string">id</item>
+                        <item name="numberRegexp" xsi:type="string">1</item>
+                        <item name="addSelect" xsi:type="string">false</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

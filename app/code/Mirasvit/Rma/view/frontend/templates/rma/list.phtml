@@ -1,0 +1,17 @@
+<?php
+/* @var $block \Mirasvit\Rma\Block\Rma\Listing */
+?>
+<?php
+$url = $block->getNewRmaUrl();
+?>
+<div>
+    <?php if ($url): ?>
+        <button onclick="window.location.href='<?= $url ?>'" class="action primary mst-rma-list__new-request">
+            <span><?= __('Request New Return') ?></span>
+        </button>
+    <?php endif ?>
+
+    <div class="clearfix"></div>
+
+    <?= $block->getChildHtml('rma.list.list') ?>
+</div>

@@ -1,0 +1,16 @@
+<div class="MagicToolboxContainer selectorsRight minWidth"<?= $thumbSwitcherOptions ?>>
+    <div class="MagicToolboxMainContainer">
+        <?= $mainHTML; ?>
+    </div>
+<?php
+if (count($selectorsArray)) {
+    ?>
+    <div class="MagicToolboxSelectorsContainer<?php if (count($selectorsArray) == 1) echo ' hidden-container' ?>" style="flex-basis: <?= $selectorMaxWidth ?>px; width: <?= $selectorMaxWidth ?>px;">
+        <div id="MagicToolboxSelectors<?= $id ?>" class="<?= $additionalClasses ?>"<?= $scrollOptions ?>>
+            <?= join("\n\t\t", $selectorsArray); ?>
+        </div>
+    </div>
+<?php
+}
+?>
+</div>

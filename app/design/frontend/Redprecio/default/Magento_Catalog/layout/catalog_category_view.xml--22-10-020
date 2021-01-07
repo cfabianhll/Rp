@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+		
+		<referenceContainer name="nano-content" htmlClass="nano-contentt" />
+		<referenceContainer name="right_bar" htmlClass="right_bar" />
+		<referenceContainer name="right_bar.search_menu.row.search" htmlClass="col-12 col-lg-6 col-md-4" />
+		<referenceContainer name="right_bar.search_menu.row.col-12" htmlClass="col-12 col-lg-6 col-md-8" />
+		<referenceBlock name="category.view.container" remove="true" />
+		<!-- <referenceBlock name="catalog.leftnav" remove="true"/> -->
+		<referenceContainer name="sidebar.additional" remove="true"/>
+		<referenceContainer name="gw-sidebar.left_menu_bar" remove="false"/>
+		<referenceContainer name="category_sidebar_left" remove="false"/>
+		<referenceContainer name="right_bar.search_menu.logo" remove="true"/>
+		
+		<referenceContainer name="main.content">
+		       <container name="breadcum.section.view.showingresult" htmlClass="showing_result" htmlTag="div" before="banner.Section">
+                    <container name="breadcum.container.view.category.row" htmlClass="row" htmlTag="div" before="-">
+                         <container name="breadcum.view.cols.category" htmlClass="col-12" htmlTag="div" before="-">
+                         </container>
+                    </container>
+                </container>
+        <!-- <container name="banner.Section" htmlClass="banner_Section" htmlTag="section" after="columns">
+			<container name="banner.Section.row" htmlClass="row" htmlTag="div" after="-">
+				<container name="banner.Section.row.col-12" htmlClass="col-12" htmlTag="div" after="-">
+					<container name="banner.Section.row.col-12.pre_order_content" htmlClass="pre_order_content" htmlTag="div" after="-">
+						<container name="banner.Section.row.col-12.pre_order_content.section_title" htmlClass="section_title text-center mb-0" htmlTag="div" after="-">
+						</container>
+					</container>
+				</container>
+			</container>
+		</container> -->
+		<!-- <container name="showing.result" htmlClass="showing_result" htmlTag="section" after="banner.Section">
+			<container name="showing.result.row" htmlClass="row align-items-center" htmlTag="div" after="-">
+				<container name="showing.result.row.col-12" htmlClass="col-12 col-md-6" htmlTag="div" after="-">
+				</container>
+				<container name="showing.result.row.col-12.sorter" htmlClass="col-12 col-md-6 text-md-right" htmlTag="div" after="showing.result.row.col-12">
+					<block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
+                        <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
+						<action method="setToolbarBlockName">
+                        <argument name="name" xsi:type="string">product_list_toolbar</argument>
+                    </action>
+                    </block>
+                    
+				</container>
+			</container>
+		</container> -->
+		</referenceContainer>
+		
+		<move element="page.main.title" destination="main.content" after="breadcrumbs" />
+		<move element="breadcrumbs" destination="breadcum.view.cols.category" before="page.main.title" />
+		<move element="category.products" destination="main.content" after="-" />
+		<move element="catalog.leftnav" destination="nano-content" after="category_sidebar_left"/>
+		<move element="logo" destination="nano-content" before="-" />
+		<move element="catalog.topnav" destination="after.body.start" after="page.wrapper" />
+    </body>
+</page>

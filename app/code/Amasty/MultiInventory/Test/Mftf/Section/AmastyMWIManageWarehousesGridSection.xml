@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AmastyMWIManageWarehousesGridSection">
+        <element name="addNewWarehouse" type="button" selector="#add"/>
+        <element name="allWhCheckboxes" type="button" selector="#container > div > div.admin__data-grid-wrap > table > thead > tr > th.data-grid-multicheck-cell > div > button"/>
+        <element name="selectAll" type="span" selector="#container > div > div.admin__data-grid-wrap > table > thead > tr > th.data-grid-multicheck-cell > div > ul > li:nth-child(1) > span"/>
+        <element name="massAction" type="button" selector="#container > div > div.admin__data-grid-header > div.admin__data-grid-header-row.row.row-gutter > div.col-xs-2 > div > button"/>
+        <element name="delete" type="span" selector="//*[@id='container']//span[contains (string(), 'Delete')]"/>
+        <element name="modalForm" type="button" selector="#html-body > div.modals-wrapper > aside > div.modal-inner-wrap > footer > button.action-primary.action-accept"/>
+        <element name="okDelete" type="button" selector="#html-body > div.modals-wrapper > aside > div.modal-inner-wrap > footer > button.action-primary.action-accept"/>
+        <element name="warehouseQty" type="div" selector="//*[@id='container']//div[contains (string(), '1 records found')]"/>
+    </section>
+</sections>

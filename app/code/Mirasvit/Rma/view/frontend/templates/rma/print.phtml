@@ -1,0 +1,85 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\PrintRma $block */
+?>
+
+<?php
+$printMessages = false; //you can change this
+/** @var \Mirasvit\Rma\Api\Data\RmaInterface $rma */
+$rma = $block->getRma();
+$orders = $block->getOrders();
+$customFields = $block->getCustomFields($rma);
+?>
+
+<p class="order-date">
+    <?= __('Date: %1', $block->formatDate($rma->getCreatedAt(), \IntlDateFormatter::LONG)) ?><br>
+</p>
+<div class="block block-order-details-view">
+    <div class="title">
+        <strong>Order Information</strong>
+    </div>
+    <div class="block-content">
+        <div class="box">
+            <strong class="box-title"><span><?= __('Return Address') ?></span></strong>
+            <div class="box-content">
+                <address><?= nl2br($block->escapeHtml($block->getReturnAddressHtml($rma))) ?></address>
+            </div>
+        </div>
+        <div class="box">
+            <strong class="box-title"><span><?= __('Customer Information') ?></span></strong>
+            <div class="box-content">
+                <address><?= $block->getShippingAddressHtml($rma) ?></address>
+            </div>
+        </div>
+        <?php if (count($customFields)): ?>
+        <div class="box">
+            <strong class="box-title"><span><?= __('Additional Information') ?></span></strong>
+            <div class="box-content">
+                <?php foreach ($customFields as $field): ?>
+                    <?php if (!$value = $block->getRmaField()->getValue($rma, $field)) {
+                        continue;
+                    } ?>
+                    <b><?= __($block->escapeHtml($field->getName())) ?>:</b> <?= $block->escapeHtml($value) ?><br>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<?php foreach ($orders as $order): ?>
+    <p class="order-date">
+        <?= __('Order: %1', $block->escapeHtml($block->getOrderLabel($order))) ?>
+    </p>
+    <?php
+    if ($order->getIsOffline()) {
+        $itemsBlock = $block->getChildBlock('rma.print.offline.items');
+    } else {
+        $itemsBlock = $block->getChildBlock('rma.print.items');
+    }
+    $itemsBlock->setOrder($order);
+    echo $itemsBlock->toHtml();
+    ?>
+<?php endforeach; ?>
+
+<?php if ($printMessages && ($messages = $block->getMessages($rma)) && count($messages)): ?>
+<div class="fieldset rma-history">
+    <h3 class="legend"><?= __('RMA History') ?></h3>
+    <?php foreach ($messages as $message):?>
+        <div class="fieldset">
+            <h3 class="legend">
+                <?php if ($message->getCustomerName()):?>
+                    <?= $message->getCustomerName() ?> |
+                <?php elseif ($block->getMessageManagement()->getUserName($message)): ?>
+                    <?= $block->getMessageManagement()->getUserName($message) ?> |
+                <?php endif ?>
+                <?= $block->formatDate(
+                    $message->getCreatedAt(), \IntlDateFormatter::MEDIUM
+                ) ?> <?= $block->formatTime(
+                    $message->getCreatedAt(), \IntlDateFormatter::SHORT
+                ) ?>
+            </h3>
+            <?= $block->getMessageManagement()->getTextHtml($message) ?>
+        </div>
+    <?php endforeach ?>
+</div>
+<?php endif; ?>

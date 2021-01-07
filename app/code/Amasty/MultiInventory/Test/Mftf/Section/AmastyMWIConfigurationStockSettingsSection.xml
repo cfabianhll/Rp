@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AmastyMWIConfigurationStockSettingsSection">
+        <element name="open" type="a" selector="#amasty_multi_inventory_stock-head"/>
+        <element name="enable" type="select" selector="#amasty_multi_inventory_stock_enabled_multi"/>
+        <element name="noChooseWHBasedOnStoreView" type="select" selector="#amasty_multi_inventory_stock_lock_on_store"/>
+        <element name="separateOrder" type="select" selector="#amasty_multi_inventory_stock_separate_orders"/>
+        <element name="useGoogleMapsForWarehouseLocation" type="select" selector="#amasty_multi_inventory_stock_use_google_to_locate"/>
+        <element name="decreaseAvailableStockWhenOrderIsPlaced" type="select" selector="#amasty_multi_inventory_stock_decrease_stock"/>
+        <element name="decreasePhysicalStockDuring" type="select" selector="#amasty_multi_inventory_stock_decrease_physical"/>
+        <element name="returnCreditMemoToStock" type="select" selector="#amasty_multi_inventory_stock_return_creditmemo"/>
+        <element name="lowStockQuantity" type="input" selector="#amasty_multi_inventory_stock_low_stock"/>
+    </section>
+ </sections>

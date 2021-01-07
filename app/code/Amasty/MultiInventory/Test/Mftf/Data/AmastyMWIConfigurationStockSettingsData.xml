@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+
+    <!--enable/disable Module-->
+    <entity name="enable" type="enableDisable">
+        <data key="status">1</data>
+    </entity>
+    <entity name="disable" type="enableDisable">
+        <data key="status">0</data>
+    </entity>
+
+    <!--Yes/No Separate Orders for Products from different WH-->
+    <entity name="yes" type="YesNoSeparateOrder">
+        <data key="separate">1</data>
+    </entity>
+    <entity name="no" type="YesNoSeparateOrder">
+        <data key="separate">0</data>
+    </entity>
+
+    <!--Yes/No Decrease Available Stock When Order is Placed-->
+    <entity name="yes" type="YesNoDecreaseAvailableStockWhenOrderIsPlaced">
+        <data key="decreaseAvailableStock">1</data>
+    </entity>
+    <entity name="no" type="YesNoDecreaseAvailableStockWhenOrderIsPlaced">
+        <data key="decreaseAvailableStock">0</data>
+    </entity>
+
+    <!--Decrease Physical Stock during-->
+    <entity name="orderShipment" type="DecreasePhysicalStockDuring">
+        <data key="during">0</data>
+    </entity>
+    <entity name="orderCreation" type="DecreasePhysicalStockDuring">
+        <data key="during">1</data>
+    </entity>
+    <entity name="invoiceCreation" type="DecreasePhysicalStockDuring">
+        <data key="during">2</data>
+    </entity>
+
+    <!--Yes/No Choose WH Based On StoreView-->
+    <entity name="yes" type="YesNoChooseWHBasedOnStoreView">
+        <data key="choose">1</data>
+    </entity>
+    <entity name="no" type="YesNoChooseWHBasedOnStoreView">
+        <data key="choose">0</data>
+    </entity>
+    
+    <!--Yes/No Use Google Maps for Warehouse Location-->
+    <entity name="yes" type="UseGoogleMapsForWarehouseLocation">
+        <data key="choose">1</data>
+    </entity>
+    <entity name="no" type="UseGoogleMapsForWarehouseLocation">
+        <data key="choose">0</data>
+    </entity>
+
+    <!--Yes/No Return Credit Memo Item to Stock-->
+    <entity name="yes" type="YesNoReturnCreditMemoToStock">
+        <data key="return">1</data>
+    </entity>
+    <entity name="no" type="YesNoReturnCreditMemoToStock">
+        <data key="return">0</data>
+    </entity>
+
+    <!--Low stock Quantity-->
+    <entity name="9" type="LowStockQuantity">
+        <data key="quantity">9</data>
+    </entity>
+    <entity name="1" type="LowStockQuantity">
+        <data key="quantity">1</data>
+    </entity>
+</entities>

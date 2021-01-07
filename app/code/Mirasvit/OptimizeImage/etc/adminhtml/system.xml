@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mst_optimize">
+            <group id="optimize_image">
+
+                <group id="statistic" showInDefault="1" sortOrder="0">
+                    <frontend_model>Mirasvit\OptimizeImage\Block\Adminhtml\System\Config\StatisticGroup</frontend_model>
+                </group>
+
+                <field id="is_webp" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use WebP images</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                    <attribute type="onChange">
+                        Please clear magento cache after save configuration
+                    </attribute>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

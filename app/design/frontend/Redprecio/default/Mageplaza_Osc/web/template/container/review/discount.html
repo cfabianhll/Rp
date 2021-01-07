@@ -1,0 +1,36 @@
+<div class="osc-place-order-block checkout-comment-block row">
+    <div class="field-row col-12 col-md-12 col-lg-12">
+        <div class="checkout_title">
+            <h4 class="wow fadeIn" data-bind="i18n: 'Apply Discount Code'"></h4>
+        </div>
+        <div class="addrsses_box payment-option-content" data-role="content">
+            <!-- ko foreach: getRegion('messages') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+            <form class="form mt-2 row form-discount" id="discount-form" data-bind="blockLoader: (typeof isLoading === 'undefined') ? isBlockLoading : isLoading">
+                <div class="col-12 col-md-7 col-lg-7 payment-option-inner">
+                    <div class="field form-group">
+                        <input class="form-control input-text"
+                               type="text"
+                               id="discount-code"
+                               name="discount_code"
+                               data-validate="{'required-entry':true}"
+                               data-bind="value: couponCode, attr:{placeholder: $t('Enter discount code')} "/>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 col-lg-5 form-group actions-toolbar">
+                    <!-- ko ifnot: isApplied() -->
+                        <button class="btn theme_btn action action-apply" type="submit" data-bind="'value': $t('Apply Discount'), click: apply">
+                            <!-- ko i18n: 'Apply Discount'--><!-- /ko -->
+                        </button>
+                    <!-- /ko -->
+                    <!-- ko if: isApplied() -->
+                        <button class="btn theme_btn action action-cancel" type="submit" data-bind="'value': $t('Cancel'), click: cancel">
+                            <!-- ko i18n: 'Cancel coupon'--><!-- /ko -->
+                        </button>
+                    <!-- /ko -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

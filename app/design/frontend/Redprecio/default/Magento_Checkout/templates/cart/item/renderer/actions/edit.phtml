@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Checkout\Block\Cart\Item\Renderer\Actions\Edit */
+?>
+<?php if ($block->isProductVisibleInSiteVisibility()): ?>
+    <a class="edit_de pl-0 action action-edit Remove_de remove_from"
+       href="<?= /* @escapeNotVerified */ $block->getConfigureUrl() ?>"
+       title="<?= $block->escapeHtml(__('Edit item parameters')) ?>">
+        
+        <i class="far fa-edit"></i>
+    </a>
+<?php endif ?>

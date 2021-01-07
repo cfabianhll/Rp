@@ -1,0 +1,138 @@
+.clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+& when (@media-common = true) {
+    .mst-rma {
+        &-block {
+            display: flex;
+            flex-wrap: wrap;
+
+            &._align-top {
+                align-items: baseline;
+            }
+        }
+
+        &-box {
+            border: 2px solid #e8e8e8;
+            padding: 1.5rem 2rem 2rem 2rem;
+            flex-grow: 1;
+            margin-bottom: 2rem;
+
+            &._half {
+                max-width: 50%;
+            }
+
+            &._no-border {
+                padding: 0;
+                border: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &__title {
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            &__content {
+                table {
+                    tr {
+                        th {
+                            &:first-child {
+                                padding-left: 0;
+                                font-weight: 600;
+                                font-size: 1.3rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            +.mst-rma-box {
+                margin-left: 2rem;
+            }
+        }
+
+        &-badge, &-status {
+            background: #dfe3e8;
+            color: #454f5b;
+            text-align: center;
+            border-radius: 3rem;
+            font-size: 1.3rem;
+            line-height: 1.9rem;
+            padding: 0 1.5rem;
+            white-space: nowrap;
+
+            &._pending {
+                background-color: #ffea8a;
+                color: #595130;
+            }
+
+            &._approved {
+                background-color: #bbe5b3;
+                color: #414f3e;
+            }
+
+            &._rejected {
+                background-color: #ffc58b;
+                color: #594430;
+            }
+
+            &._package_sent {
+                background-color: #b4e1fa;
+                color: #3e4e57;
+            }
+
+            &._closed {
+
+            }
+
+            //background-color: #b4e1fa;
+            //color: #3e4e57;
+
+            //background-color: #bbe5b3;
+            //color: #414f3e;
+
+            //background-color: #ffea8a;
+            //color: #595130;
+
+            //background-color: #ffc58b;
+            //color: #594430;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .mst-rma {
+        &-box {
+            width: 100%;
+            margin-left: 0 !important;
+
+            &._half {
+                max-width: 100%;
+            }
+        }
+    }
+}
+//
+//& when (@media-target = 'mobile') {
+//    .mst-rma {
+//
+//        &-box {
+//            max-width: 100%;
+//
+//        }
+//    }
+//}

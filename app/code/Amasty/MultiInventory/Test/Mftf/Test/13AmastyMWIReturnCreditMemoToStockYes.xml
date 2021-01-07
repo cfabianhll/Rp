@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="MultiInventory13ReturnCreditMemoToStockYes">
+        <annotations>
+            <features value="Return Credit Memo Item to Stock Yes"/>
+            <stories value="Return Credit Memo Item to Stock Yes"/>
+            <title value="Product has been returned to Stock After Credit Memo"/>
+            <description value="Product has been returned to Stock After Credit Memo"/>
+            <severity value="CRITICAL"/>
+            <testCaseId value="MWI-MFTF-13"/>
+            <group value="Amasty"/>
+            <group value="AmastyMultiInventory"/>
+            <group value="AmastyMultiInventoryStockSettings"/>
+            <group value="AmastyMultiInventoryReturnCreditMemoToStockYes"/>
+        </annotations>
+        <before>
+            <actionGroup stepKey="loginAsAdmin1" ref="LoginAsAdmin"/>
+            <amOnPage stepKey="openMWIConfigurationPage1" url="{{AmastyMWIConfigurationPage.url}}"/>
+            <waitForPageLoad stepKey="waitForPageLoad1" time="30"/>
+            <actionGroup stepKey="returnCreditMemoToStockYes" ref="AmastyMWIConfigurationYesNoReturnCreditMemoToStock">
+                <argument name="YesNoReturnCreditMemoToStock" value="yes"/>
+            </actionGroup>
+            <wait stepKey="waitTime1" time="3"/>
+            <click stepKey="saveConfig1" selector="{{AmastyMWIConfigurationSection.saveconfig}}"/>
+            <magentoCLI stepKey="flushCache1" command="cache:clean"/>
+        </before>
+        <after>
+            <!--delete Warehouses-->
+            <actionGroup stepKey="deleteAllWarehouses" ref="DeleteAllWarehouses"/>
+            <amOnPage url="{{_ENV.MAGENTO_BACKEND_NAME}}/admin/auth/logout/" stepKey="amOnLogoutPage1"/>
+        </after>
+
+        <actionGroup stepKey="addWH1" ref="AddNewWarehouse">
+            <argument name="amastyWarehouse" value="_NY"/>
+        </actionGroup>
+        <!--grab url from WH1-->
+        <grabFromCurrentUrl regex="~.*/amasty_multi_inventory/warehouse/edit/warehouse_id/(\d+)/.*~" stepKey="grabFromCurrentUrlWh1"/>
+        <magentoCLI command="indexer:reindex" stepKey="reindex"/>
+        <amOnPage url="{{_ENV.MAGENTO_BACKEND_NAME}}/admin/auth/logout/" stepKey="amOnLogoutPage2"/>
+        <actionGroup stepKey="loginAsCustomer" ref="CustomerLoginOnStorefront">
+            <argument name="customer" value="AmastyCustomerEntityOne"/>
+        </actionGroup>
+        <!--Place order with Fusion Backpack Qty=1-->
+        <actionGroup stepKey="AddFusionBackpackQtyIsOne" ref="AmastyAddSimpleProductToCart">
+            <argument name="amastyProduct" value="_fusionBackpack"/>
+        </actionGroup>
+        <actionGroup stepKey="PlaceOrder" ref="AmastyPlaceOrderSimpleProduct"/>
+        <!--grab url from Order-->
+        <grabTextFrom stepKey="orderId" selector="a[class='order-number']"/>
+        <actionGroup stepKey="loginAsAdmin2" ref="LoginAsAdmin"/>
+        <!--check product qty at WH1-->
+        <amOnPage stepKey="openManageWarehouse1Page1" url="admin/amasty_multi_inventory/warehouse/edit/warehouse_id/$grabFromCurrentUrlWh1"/>
+        <wait stepKey="waitTime2" time="3"/>
+        <click stepKey="openProductsInWarehouse1Tab1" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <wait stepKey="waitTime3" time="2"/>
+        <scrollTo stepKey="scroll1" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <see stepKey="seeQtyToShip1" selector="{{AmastyMWIWarehouseSection.qtyToShip}}" userInput="1"/>
+        <see stepKey="seeAvailableQty1" selector="{{AmastyMWIWarehouseSection.availableQty}}" userInput="9"/>
+        <see stepKey="seeTotalQty1" selector="{{AmastyMWIWarehouseSection.totalQty}}" userInput="10"/>
+        <wait stepKey="waitTime4" time="2"/>
+        <!--create Invoice-->
+        <amOnPage stepKey="openOrderGridPage" url="{{AmastyOrderGridPage.url}}"/>
+        <wait stepKey="waitTime5" time="3"/>
+        <click stepKey="openCreatedOrder" selector="//*[@id='container']//td[contains(string(), '$orderId')]"/>
+        <wait stepKey="waitTime6" time="3"/>
+        <click stepKey="clickInvoice" selector="{{AmastyOrderSection.invoice}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad2" time="30"/>
+        <scrollTo stepKey="scroll2" selector="{{AmastyInvoiceSection.submitInvoice}}"/>
+        <click stepKey="clickInvoiceButton" selector="{{AmastyInvoiceSection.submitInvoice}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad3" time="30"/>
+        <see userInput="The invoice has been created."  stepKey="SeeConfirmMessageInvoice"/>
+        <!--create Shipment-->
+        <click stepKey="clickShip" selector="{{AmastyOrderSection.shipment}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad4" time="30"/>
+        <scrollTo stepKey="scroll3" selector="{{AmastyShipmentSection.submitShipment}}"/>
+        <click stepKey="clickShipmentButton" selector="{{AmastyShipmentSection.submitShipment}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad5" time="30"/>
+        <see userInput="The shipment has been created."  stepKey="SeeConfirmMessageShipment"/>
+        <!--create Credit Memo-->
+        <click stepKey="clickCreditMemo" selector="{{AmastyOrderSection.creditMemo}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad6" time="30"/>
+        <scrollTo stepKey="scroll4" selector="{{AmastyStoreCreditSection.itemsToRefund}}"/>
+        <wait stepKey="waitTime7" time="2"/>
+        <click stepKey="tickReturnToStockCheckbox" selector="{{AmastyStoreCreditSection.returnToStockCheckbox}}"/>
+        <wait stepKey="waitTime8" time="2"/>
+        <click stepKey="clickRefundOffline" selector="{{AmastyStoreCreditSection.refundOffline}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad7" time="30"/>
+        <see stepKey="SeeConfirmMessageReturned" userInput="The returned item(s) affected the product quantity in the appropriate Warehouse whNewYork."/>
+        <see stepKey="SeeConfirmMessageCreatedCreditMemo" userInput="You created the credit memo."/>
+        <!--check product qty at WH1 after Credit Memo creating-->
+        <amOnPage stepKey="openManageWarehouse1Page2" url="admin/amasty_multi_inventory/warehouse/edit/warehouse_id/$grabFromCurrentUrlWh1"/>
+        <wait stepKey="waitTime9" time="3"/>
+        <click stepKey="openProductsInWarehouse1Tab2" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <wait stepKey="waitTime10" time="2"/>
+        <scrollTo stepKey="scroll5" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <see stepKey="seeQtyToShip2" selector="{{AmastyMWIWarehouseSection.qtyToShip}}" userInput="0"/>
+        <see stepKey="seeAvailableQty2" selector="{{AmastyMWIWarehouseSection.availableQty}}" userInput="10"/>
+        <see stepKey="seeTotalQty2" selector="{{AmastyMWIWarehouseSection.totalQty}}" userInput="10"/>
+        <wait stepKey="waitTime11" time="2"/>
+    </test>
+  </tests>

@@ -1,0 +1,34 @@
+<?php
+/** @var \Clerk\Clerk\Block\LiveSearch $block */
+?>
+<span
+    class="clerk"
+    data-template="@<?php echo $block->getLiveSearchTemplate(); ?>"
+    data-instant-search-suggestions="<?php echo $block->getSuggestions(); ?>"
+    data-instant-search-categories="<?php echo $block->getCategories(); ?>"
+    data-instant-search-pages="<?php echo $block->getPages(); ?>"
+    data-instant-search-pages-type="<?php echo $block->getPagesType(); ?>"
+    data-instant-search-positioning="<?php echo $block->getDropdownPosition(); ?>"
+    <?php if (empty($block->getInputSelector())) {
+        echo "data-instant-search=\"#search\">";
+    } else {
+        echo "data-instant-search=\"".$block->getInputSelector()."\">";
+    }?>
+
+</span>
+<?php
+
+if (!empty($block->getFormSelector())) {?>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', (event) => {
+        ClerkSearchPage = function(){
+            var elems = document.querySelectorAll('<?php echo $block->getFormSelector(); ?>');
+            elems.forEach(element => element.action = "/catalogsearch/result/");
+        };
+        ClerkSearchPage();
+    });
+</script>
+<?php } ?>
+<style type="text/css">
+#search_autocomplete { display: none !important; }
+</style>

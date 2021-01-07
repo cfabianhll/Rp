@@ -1,0 +1,21 @@
+<?php
+
+namespace Mirasvit\Rma\Model\Config\Source\Visible\Customer;
+
+class Status implements \Magento\Framework\Option\ArrayInterface
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function toOptionArray()
+    {
+        $result = [];
+        foreach ($this->toArray() as $k => $v) {
+            $result[] = ['value' => $k, 'label' => $v];
+        }
+
+        return $result;
+    }
+
+    /************************/
+}

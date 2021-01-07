@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+$storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt()
+
+?>
+<?php
+/* <span data-action="toggle-nav" class="action nav-toggle"><span><?= $block->escapeHtml(__('Toggle Nav')) ?></span></span> */ 
+$url = $block->getUrl('');
+if($block->isHomePage()) :
+	$url = 'javascrip:void(0)';
+endif;
+?>
+<div class="filter_m hide_inmo" style="cursor: pointer;" onclick="nav2()"><i class="fas fa-stream"></i></div>
+<a class="logo logo_section" href="<?= $block->getUrl('') ?>" title="<?= /* @escapeNotVerified */ $storeName ?>" aria-label="store logo">
+	<span class="gw-menu-text">
+		<img src="<?php echo $block->getViewFileUrl('images/logo1.svg'); ?>" title="logo"  alt="logo">
+	</span>
+</a>
+

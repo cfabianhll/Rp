@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <!--enable/disable Module-->
+    <actionGroup name="AmastyMWIConfigurationEnableDisableModule">
+        <arguments>
+            <argument name="enableDisable"/>
+        </arguments>
+        <click stepKey="openStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+        <selectOption stepKey="enableMultipleStockLocations" selector="{{AmastyMWIConfigurationStockSettingsSection.enable}}" userInput="{{enableDisable.status}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad" time="30"/>
+        <click stepKey="closeStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+    </actionGroup>
+
+    <!--Separate Orders for Products from different WH = Yes/No-->
+    <actionGroup name="AmastyMWIConfigurationYesNoSeparateOrder">
+        <arguments>
+            <argument name="YesNoSeparateOrder"/>
+        </arguments>
+        <click stepKey="openStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+        <selectOption stepKey="YesNoSeparateOrder" selector="{{AmastyMWIConfigurationStockSettingsSection.separateOrder}}" userInput="{{YesNoSeparateOrder.separate}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad" time="30"/>
+        <click stepKey="closeStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+    </actionGroup>
+
+    <!--Decrease Available Stock When Order is Placed = Yes/No-->
+    <actionGroup name="AmastyMWIConfigurationYesNoDecreaseAvailableStockWhenOrderIsPlaced">
+        <arguments>
+            <argument name="YesNoDecreaseAvailableStockWhenOrderIsPlaced"/>
+        </arguments>
+        <click stepKey="openStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+        <selectOption stepKey="YesNoDecreaseAvailableStockWhenOrderIsPlaced" selector="{{AmastyMWIConfigurationStockSettingsSection.decreaseAvailableStockWhenOrderIsPlaced}}" userInput="{{YesNoDecreaseAvailableStockWhenOrderIsPlaced.decreaseAvailableStock}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad" time="30"/>
+        <click stepKey="closeStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+    </actionGroup>
+
+    <!--Decrease Physical Stock during (Order Shipment/Order Creation/Invoice Creation)-->
+    <actionGroup name="AmastyMWIConfigurationDecreasePhysicalStock">
+        <arguments>
+            <argument name="DecreasePhysicalStockDuring"/>
+        </arguments>
+        <click stepKey="openStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+        <selectOption stepKey="decreasePhysicalStock" selector="{{AmastyMWIConfigurationStockSettingsSection.decreasePhysicalStockDuring}}" userInput="{{DecreasePhysicalStockDuring.during}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad" time="30"/>
+        <click stepKey="closeStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+    </actionGroup>
+
+    <!--Choose WH Based On StoreView = Yes/No-->
+    <actionGroup name="AmastyMWIConfigurationYesNoChooseWHBasedOnStoreView">
+        <arguments>
+            <argument name="YesNoChooseWHBasedOnStoreView"/>
+        </arguments>
+        <click stepKey="openStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+        <selectOption stepKey="NoChooseWHBasedOnStoreView" selector="{{AmastyMWIConfigurationStockSettingsSection.noChooseWHBasedOnStoreView}}" userInput="{{YesNoChooseWHBasedOnStoreView.choose}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad" time="30"/>
+        <click stepKey="closeStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+    </actionGroup>
+
+    <!--Use Google Maps for Warehouse Location = Yes/No-->
+    <actionGroup name="AmastyMWIConfigurationYesNoUseGoogleMapsForWarehouseLocation">
+        <arguments>
+            <argument name="UseGoogleMapsForWarehouseLocation"/>
+        </arguments>
+        <click stepKey="openStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+        <scrollTo selector="{{AmastyMWIConfigurationStockSettingsSection.useGoogleMapsForWarehouseLocation}}" stepKey="scroll1"/>
+        <selectOption stepKey="yesNoUseGoogleMapsForWarehouseLocation" selector="{{AmastyMWIConfigurationStockSettingsSection.useGoogleMapsForWarehouseLocation}}" userInput="{{UseGoogleMapsForWarehouseLocation.choose}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad2" time="30"/>
+        <scrollTo selector="{{AmastyMWIConfigurationSection.pageTitleConfiguration}}" stepKey="scroll2"/>
+        <click stepKey="closeStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+    </actionGroup>
+
+    <!--Return Credit Memo Item to Stock = Yes/No-->
+    <actionGroup name="AmastyMWIConfigurationYesNoReturnCreditMemoToStock">
+        <arguments>
+            <argument name="YesNoReturnCreditMemoToStock"/>
+        </arguments>
+        <click stepKey="openStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+        <scrollTo selector="{{AmastyMWIConfigurationStockSettingsSection.returnCreditMemoToStock}}" stepKey="scroll1"/>
+        <selectOption stepKey="yesNoReturnCreditMemoToStock" selector="{{AmastyMWIConfigurationStockSettingsSection.returnCreditMemoToStock}}" userInput="{{YesNoReturnCreditMemoToStock.return}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad2" time="30"/>
+        <scrollTo selector="{{AmastyMWIConfigurationSection.pageTitleConfiguration}}" stepKey="scroll2"/>
+        <click stepKey="closeStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+    </actionGroup>
+
+    <!--set Low stock Quantity-->
+    <actionGroup name="AmastyMWILowStockQuantity">
+        <arguments>
+            <argument name="LowStockQuantity"/>
+        </arguments>
+        <click stepKey="openStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+        <scrollTo selector="{{AmastyMWIConfigurationStockSettingsSection.lowStockQuantity}}" stepKey="scroll1"/>
+        <fillField stepKey="fillLowStockQuantity" selector="{{AmastyMWIConfigurationStockSettingsSection.lowStockQuantity}}" userInput="{{LowStockQuantity.quantity}}"/>
+        <wait stepKey="waitTime" time="2"/>
+        <scrollTo selector="{{AmastyMWIConfigurationSection.pageTitleConfiguration}}" stepKey="scroll2"/>
+        <click stepKey="closeStockSettingsTab" selector="{{AmastyMWIConfigurationStockSettingsSection.open}}"/>
+    </actionGroup>
+</actionGroups>

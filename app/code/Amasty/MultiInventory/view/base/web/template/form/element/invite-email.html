@@ -1,0 +1,33 @@
+<div class="inviter">
+    <div class="admin__control-text">
+        <div class="apps-share-chips-editor">
+            <input class="admin__control-text" type="hidden"
+                   data-bind="
+        value: value,
+        valueUpdate: valueUpdate,
+        attr: {
+            name: inputName,
+            placeholder: placeholder,
+            'aria-describedby': noticeId,
+            id: uid,
+            disabled: disabled
+    }"/>
+            <span data-bind="foreach: { data: list, as: 'item' }">
+                <span class="amasty-email-chip">
+                <div class="amasty-email-content" data-bind="text: item"></div>
+                <div
+                        class="amasty-close-before"><span
+                        class="amasty-close" data-bind="event: {click: $parent.deleteEmail.bind($parent, $index)}"></span></div>
+
+                </span>
+            </span>
+            <textarea
+                    class="amasty-email-input" placeholder="Add more people..." data-bind="
+        event: {change: userChanges, blur: OnBlurEvent},
+        hasFocus: focused,
+        valueUpdate: valueUpdate,
+        value: valueArea
+        "></textarea>
+        </div>
+    </div>
+</div>

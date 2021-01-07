@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="AmastyPlaceOrderSimpleProduct">
+        <amOnPage stepKey="openCheckoutPage" url="{{AmastyCheckoutPage.url}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad1" time="50"/>
+        <click stepKey="chooseTableRateShippingMethod" selector="{{AmastyCheckoutSection.tableRateMethod}}"/>
+        <click stepKey="nextCheckoutStep" selector="{{AmastyCheckoutSection.next}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad2" time="40"/>
+        <click stepKey="placeOrder" selector="{{AmastyCheckoutSection.placeOrder}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad3" time="40"/>
+        <see stepKey="seeOrderSuccessMsg" userInput="Thank you for your purchase!"/>
+    </actionGroup>
+</actionGroups>

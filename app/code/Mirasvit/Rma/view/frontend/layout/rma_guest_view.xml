@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="rma.rma.view" class="Mirasvit\Rma\Block\Rma\View" template="rma/view.phtml" cacheable="false">
+                <block name="rma.view.buttons" class="Mirasvit\Rma\Block\Rma\View\Buttons" template="rma/view/buttons.phtml"/>
+                <block name="rma.view.history" class="Mirasvit\Rma\Block\Rma\View\History" template="rma/view/history.phtml"/>
+                <block name="rma.view.info" class="Mirasvit\Rma\Block\Rma\View\Info" template="rma/view/info.phtml"/>
+                <block name="rma.view.items" class="Mirasvit\Rma\Block\Rma\View\Items" template="rma/view/items.phtml"/>
+                <block name="rma.view.message" class="Mirasvit\Rma\Block\Rma\View\Message" template="rma/view/message.phtml"/>
+                    </block>
+        </referenceContainer>
+    </body>
+</page>

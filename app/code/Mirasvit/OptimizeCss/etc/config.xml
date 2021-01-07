@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mst_optimize>
+            <optimize_css>
+                <move_css_exception><![CDATA[merged
+styles-l
+]]></move_css_exception>
+            </optimize_css>
+        </mst_optimize>
+    </default>
+</config>

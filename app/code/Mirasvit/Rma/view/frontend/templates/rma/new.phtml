@@ -1,0 +1,36 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma $block */
+?>
+<?php
+$orders = $block->getAllowedOrderList();
+?>
+<?php if (count($orders) || $block->getIsAllowedOfflineOrder()): ?>
+
+    <form id="rma-new-form" action="<?= $block->getPostUrl() ?>" method="POST" enctype="multipart/form-data"
+          data-hasrequired="<?= __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
+
+        <div id="checkout-loader" data-role="checkout-loader" class="loading-mask" data-mage-init='{"checkoutLoader": {}}'>
+            <div class="loader">
+                <img src="<?= $block->getViewFileUrl('images/loader-1.gif') ?>">
+            </div>
+        </div>
+
+        <div data-mage-init='{"Mirasvit_Rma/js/new-rma": {}}'></div>
+
+        <script type="text/x-magento-init"><?= \Zend_Json_Encoder::encode($block->getMageInit()) ?></script>
+
+        <div data-bind="scope: 'rmaCreate'" class="init-rma-container">
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
+    </form>
+
+    <div style="display:none" id="error_message_no_items">
+        <?= __('Please, select order and RMA items which you would like to return.') ?>
+    </div>
+
+    <?php echo $block->getChildBlock('rma.new.offline.step2.offline.items.item')->toHtml() ?>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?= __('You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.', $block->getReturnPeriod()) ?></span>
+    </div>
+<?php endif ?>

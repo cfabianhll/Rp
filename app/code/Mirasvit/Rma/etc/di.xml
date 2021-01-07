@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--DATA-->
+    <preference for="Mirasvit\Rma\Api\Data\RmaInterface" type="Mirasvit\Rma\Model\Rma" />
+    <preference for="Mirasvit\Rma\Api\Data\ItemInterface" type="Mirasvit\Rma\Model\Item" />
+    <preference for="Mirasvit\Rma\Api\Data\MessageInterface" type="Mirasvit\Rma\Model\Message" />
+    <preference for="Mirasvit\Rma\Api\Data\AttachmentInterface" type="Mirasvit\Rma\Model\Attachment" />
+    <preference for="Mirasvit\Rma\Api\Data\StatusInterface" type="Mirasvit\Rma\Model\Status" />
+    <preference for="Mirasvit\Rma\Api\Data\ResolutionInterface" type="Mirasvit\Rma\Model\Resolution" />
+    <preference for="Mirasvit\Rma\Api\Data\ConditionInterface" type="Mirasvit\Rma\Model\Condition" />
+    <preference for="Mirasvit\Rma\Api\Data\ReasonInterface" type="Mirasvit\Rma\Model\Reason" />
+    <preference for="Mirasvit\Rma\Api\Data\QuickResponseInterface" type="Mirasvit\Rma\Model\QuickResponse" />
+    <preference for="Mirasvit\Rma\Api\Data\AddressInterface" type="Mirasvit\Rma\Model\Address" />
+    <preference for="Mirasvit\Rma\Api\Data\OrderStatusHistoryInterface" type="Mirasvit\Rma\Model\OrderStatusHistory" />
+    <preference for="Mirasvit\Rma\Api\Data\OfflineItemInterface" type="Mirasvit\Rma\Model\OfflineItem" />
+    <preference for="Mirasvit\Rma\Api\Data\OfflineOrderInterface" type="Mirasvit\Rma\Model\OfflineOrder" />
+
+
+    <!--REPOSITORY-->
+    <preference for="Mirasvit\Rma\Api\Repository\RmaRepositoryInterface" type="Mirasvit\Rma\Repository\RmaRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\RmaSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\ItemRepositoryInterface" type="Mirasvit\Rma\Repository\ItemRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\ItemSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\StatusRepositoryInterface" type="Mirasvit\Rma\Repository\StatusRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\StatusSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\ReasonRepositoryInterface" type="Mirasvit\Rma\Repository\ReasonRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\ReasonSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\ConditionRepositoryInterface" type="Mirasvit\Rma\Repository\ConditionRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\ConditionSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\ResolutionRepositoryInterface" type="Mirasvit\Rma\Repository\ResolutionRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\ResolutionSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\MessageRepositoryInterface" type="Mirasvit\Rma\Repository\MessageRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\MessageSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\AttachmentRepositoryInterface" type="Mirasvit\Rma\Repository\AttachmentRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\AttachmentSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\FieldRepositoryInterface" type="Mirasvit\Rma\Repository\FieldRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\FieldSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\RuleRepositoryInterface" type="Mirasvit\Rma\Repository\RuleRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\RuleSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\QuickResponseRepositoryInterface" type="Mirasvit\Rma\Repository\QuickResponse" />
+    <preference for="Mirasvit\Rma\Api\Data\QuickResponseSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\AddressRepositoryInterface" type="Mirasvit\Rma\Repository\AddressRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\AddressSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\OrderStatusHistoryRepositoryInterface" type="Mirasvit\Rma\Repository\OrderStatusHistoryRepository" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\OfflineOrderRepositoryInterface" type="Mirasvit\Rma\Repository\OfflineOrderRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\OfflineOrderSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <preference for="Mirasvit\Rma\Api\Repository\OfflineItemRepositoryInterface" type="Mirasvit\Rma\Repository\OfflineItemRepository" />
+    <preference for="Mirasvit\Rma\Api\Data\OfflineItemSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+
+    <!--SERVICE-->
+    <preference for="Mirasvit\Rma\Api\Service\Rma\RmaManagementInterface" type="Mirasvit\Rma\Service\Rma\RmaManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Rma\RmaManagement\AddInterface" type="Mirasvit\Rma\Service\Rma\RmaManagement\Add" />
+    <preference for="Mirasvit\Rma\Api\Service\Rma\RmaManagement\CreateReplacementOrderInterface" type="Mirasvit\Rma\Service\Rma\RmaManagement\CreateReplacementOrder" />
+    <preference for="Mirasvit\Rma\Api\Service\Rma\RmaManagement\SaveInterface" type="Mirasvit\Rma\Service\Rma\RmaManagement\Save" />
+    <preference for="Mirasvit\Rma\Api\Service\Rma\RmaManagement\SearchInterface" type="Mirasvit\Rma\Service\Rma\RmaManagement\Search" />
+    <preference for="Mirasvit\Rma\Api\Service\Rma\ShippingManagementInterface" type="Mirasvit\Rma\Service\Rma\ShippingManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Rma\RmaOrderInterface" type="Mirasvit\Rma\Service\Rma\RmaOrder" />
+    <preference for="Mirasvit\Rma\Api\Service\Mimetypes\MimetypesServiceInterface" type="Mirasvit\Rma\Service\Mimetypes\MimetypesService" />
+    <preference for="Mirasvit\Rma\Api\Service\Item\ItemListBuilderInterface" type="Mirasvit\Rma\Service\Item\ItemListBuilder" />
+    <preference for="Mirasvit\Rma\Api\Service\Item\ItemManagementInterface" type="Mirasvit\Rma\Service\Item\ItemManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Item\ItemManagement\ProductInterface" type="Mirasvit\Rma\Service\Item\ItemManagement\Product" />
+    <preference for="Mirasvit\Rma\Api\Service\Item\ItemManagement\QuantityInterface" type="Mirasvit\Rma\Service\Item\ItemManagement\Quantity" />
+    <preference for="Mirasvit\Rma\Api\Service\Message\MessageManagementInterface" type="Mirasvit\Rma\Service\Message\MessageManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Message\MessageManagement\AddInterface" type="Mirasvit\Rma\Service\Message\MessageManagement\Add" />
+    <preference for="Mirasvit\Rma\Api\Service\Message\MessageManagement\SearchInterface" type="Mirasvit\Rma\Service\Message\MessageManagement\Search" />
+    <preference for="Mirasvit\Rma\Api\Service\Attachment\AttachmentManagementInterface" type="Mirasvit\Rma\Service\Attachment\AttachmentManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Order\LoginInterface" type="Mirasvit\Rma\Service\Order\Login" />
+    <preference for="Mirasvit\Rma\Api\Service\Order\OrderManagementInterface" type="Mirasvit\Rma\Service\Order\OrderManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Performer\PerformerFactoryInterface" type="Mirasvit\Rma\Service\Performer\PerformerFactory" />
+    <preference for="Mirasvit\Rma\Api\Service\Notification\NotificationFactoryInterface" type="Mirasvit\Rma\Service\Notification\NotificationFactory" />
+    <preference for="Mirasvit\Rma\Api\Service\Field\FieldManagementInterface" type="Mirasvit\Rma\Service\Field\FieldManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Rule\RuleManagementInterface" type="Mirasvit\Rma\Service\Rule\RuleManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Strategy\SearchInterface" type="Mirasvit\Rma\Service\Strategy\Search" />
+    <preference for="Mirasvit\Rma\Api\Service\Resolution\ResolutionManagementInterface" type="Mirasvit\Rma\Service\Resolution\ResolutionManagement" />
+    <preference for="Mirasvit\Rma\Api\Service\Status\StatusManagementInterface" type="Mirasvit\Rma\Service\Status\StatusManagement" />
+
+    <!--CONFIG-->
+    <preference for="Mirasvit\Rma\Api\Config\AttachmentConfigInterface" type="Mirasvit\Rma\Service\Config\AttachmentConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\BackendConfigInterface" type="Mirasvit\Rma\Service\Config\BackendConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\FrontendConfigInterface" type="Mirasvit\Rma\Service\Config\FrontendConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\HelpdeskConfigInterface" type="Mirasvit\Rma\Service\Config\HelpdeskConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\NotificationConfigInterface" type="Mirasvit\Rma\Service\Config\NotificationConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\OfflineOrderConfigInterface" type="Mirasvit\Rma\Service\Config\OfflineOrderConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\RmaConfigInterface" type="Mirasvit\Rma\Service\Config\RmaConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\RmaNumberConfigInterface" type="Mirasvit\Rma\Service\Config\RmaNumberConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\RmaPolicyConfigInterface" type="Mirasvit\Rma\Service\Config\RmaPolicyConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\ShippingConfigInterface" type="Mirasvit\Rma\Service\Config\ShippingConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\RmaRequirementConfigInterface" type="Mirasvit\Rma\Service\Config\RmaRequirementConfig" />
+    <preference for="Mirasvit\Rma\Api\Config\AdvancedConfigInterface" type="Mirasvit\Rma\Service\Config\AdvancedConfig" />
+
+    <!--PLUGINS-->
+    <type name="Mirasvit\Rma\Api\Data\RmaInterface">
+        <plugin name="RmaSetDefaultsBeforeCreate" type="Mirasvit\Rma\Plugin\Rma\SetDefaultsBeforeCreatePlugin"/>
+    </type>
+    <type name="Mirasvit\Rma\Api\Data\AttachmentInterface">
+        <plugin name="AttachmentSetDefaultsBeforeCreate" type="Mirasvit\Rma\Plugin\Attachment\SetDefaultsBeforeCreatePlugin"/>
+    </type>
+
+    <type name="Mirasvit\Report\Api\Repository\ReportRepositoryInterface">
+        <arguments>
+            <argument name="reports" xsi:type="array">
+                <item name="rma_overview" xsi:type="string">Mirasvit\Rma\Reports\Overview</item>
+                <item name="rma_reasons" xsi:type="string">Mirasvit\Rma\Reports\Reasons</item>
+                <item name="rma_product" xsi:type="string">Mirasvit\Rma\Reports\Product</item>
+                <item name="rma_offline_product" xsi:type="string">Mirasvit\Rma\Reports\OfflineProduct</item>
+                <item name="rma_attribute" xsi:type="string">Mirasvit\Rma\Reports\Attribute</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Mirasvit\ReportApi\Config\Loader\Map">
+        <plugin name="rma.reason.columns" type="Mirasvit\Rma\Plugin\Report\ReasonConfigMapPlugin" sortOrder="10"/>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="address_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Address\Grid\Collection</item>
+                <item name="condition_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Condition\Grid\Collection</item>
+                <item name="field_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Field\Grid\Collection</item>
+                <item name="reason_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Reason\Grid\Collection</item>
+                <item name="resolution_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Resolution\Grid\Collection</item>
+                <item name="rule_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Rule\Grid\Collection</item>
+                <item name="status_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Status\Grid\Collection</item>
+                <item name="template_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\QuickResponse\Grid\Collection</item>
+                <item name="rma_listing_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Rma\Grid\Collection</item>
+                <item name="sales_order_view_rma_list_grid_data_source" xsi:type="string">Mirasvit\Rma\Model\ResourceModel\Rma\Grid\Order\Collection</item>
+                <item name="rma_customer_grid_data_source" xsi:type="string">Magento\Customer\Model\ResourceModel\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Mirasvit\ReportApi\Api\SchemaInterface">
+        <arguments>
+            <argument name="type" xsi:type="array">
+                <item name="Mirasvit.reason_cnt" xsi:type="string">Mirasvit\Rma\Reports\Config\Type\ReasonCnt</item>
+                <item name="Mirasvit.reason_store_name" xsi:type="string">Mirasvit\Rma\Reports\Config\Type\ReasonStoreName</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--MAIL-->
+    <preference for="\Mirasvit\Rma\Model\Mail\Template\TransportBuilderInterface"
+                type="\Mirasvit\Rma\Model\Mail\Template\TransportBuilder" />
+
+</config>

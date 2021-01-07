@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AmastyMWIConfigurationFillInGoogleApi">
+        <click stepKey="openGeneralSettingsTab" selector="{{AmastyMWIConfigurationGeneralSettingsSection.open}}"/>
+        <fillField stepKey="fillGoogleApi" selector="{{AmastyMWIConfigurationGeneralSettingsSection.GoogleApi}}" userInput="{{AmastyMWIConfigurationGeneralSettingsData.googleApi}}"/>
+        <wait stepKey="waitTime" time="2"/>
+        <click stepKey="closeGeneralSettingsTab" selector="{{AmastyMWIConfigurationGeneralSettingsSection.open}}"/>
+    </actionGroup>
+    <!--enable/disable Google Address Suggestion-->
+    <actionGroup name="AmastyMWIConfigurationEnableDisableGoogleAddressSuggestion">
+        <arguments>
+            <argument name="enableDisableGoogleAddressSuggestion"/>
+        </arguments>
+        <click stepKey="openGeneralSettingsTab" selector="{{AmastyMWIConfigurationGeneralSettingsSection.open}}"/>
+        <selectOption stepKey="enableGoogleAddressSuggestion" selector="{{AmastyMWIConfigurationGeneralSettingsSection.enableDisableAddressSuggestion}}" userInput="{{enableDisableGoogleAddressSuggestion.status}}"/>
+        <wait stepKey="waitTime" time="2"/>
+        <click stepKey="closeGeneralSettingsTab" selector="{{AmastyMWIConfigurationGeneralSettingsSection.open}}"/>
+    </actionGroup>
+</actionGroups>

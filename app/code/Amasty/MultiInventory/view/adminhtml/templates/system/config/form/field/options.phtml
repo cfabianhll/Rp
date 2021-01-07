@@ -1,0 +1,159 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+?>
+<?php
+
+/** @var $block \Amasty\MultiInventory\Block\Adminhtml\System\Config\Field\PriorityValues */
+
+$data = $block->getDataOptions();
+
+?>
+<div id="manage-options-panel" data-index="dispatch_orders_select_container">
+    <table class="admin__control-table" data-index="dispatch_orders_select">
+        <thead>
+        <tr id="dispatch_orders-table">
+            <th class="col-draggable"></th>
+            <th>
+                <span><?= $block->escapeHtml(__('Criteria')); ?></span>
+            </th>
+            <th>
+                <span><?= $block->escapeHtml(__('Active')); ?></span>
+            </th>
+        </tr>
+        </thead>
+        <tbody data-role="orders-container" class="ignore-validate"></tbody>
+        <tfoot>
+        <tr>
+            <th colspan="4" class="validation">
+                <input type="hidden" class="required-dropdown-dispatch-entry" name="dropdown_dispatch_validation"/>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<script id="row-template" type="text/x-magento-template">
+    <tr>
+        <td class="col-draggable">
+            <div data-role="draggable-handle"
+                 class="draggable-handle"
+                 title="<?= $block->escapeHtml(__('Sort Option')); ?>"></div>
+            <input data-role="order" type="hidden"
+                   name="groups[stock][fields][dispatch_order_<%- data.id %>_priority][value]"
+                   data-ui-id="text-groups-stock-fields-dispatch_order-<%- data.id %>-priority-value"
+                   id="<?= $block->getElement()->getHtmlId() ?>_<%- data.id %>_priority"
+                   value="<%- data.priority %>"/>
+        </td>
+        <td class="col-default">
+            <%- data.value %>
+        </td>
+        <td class="col-<%- data.id %>">
+            <select name="groups[stock][fields][dispatch_order_<%- data.id %>_is_active][value]"
+                    data-ui-id="text-groups-stock-fields-dispatch_order-<%- data.id %>-is_active-value"
+                    id="<?= $block->getElement()->getHtmlId() ?>_<%- data.id %>_is_active"
+                    value="<%- data.is_active %>"
+                    class="select">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </td>
+    </tr>
+</script>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mage/template',
+        'uiRegistry',
+        'underscore',
+        'jquery/ui',
+        'prototype',
+        'form',
+        'validation'
+    ], function (jQuery, mageTemplate, rg, _) {
+        'use strict';
+
+        var attributeOption = {
+            table: $('dispatch_orders-table'),
+            itemCount: 0,
+            config: {
+                attributesData: <?= /* @noEscape */  json_encode($data, JSON_HEX_QUOT); ?>,
+                isSortable: 1,
+                isReadOnly: 1
+            },
+            rendered: 0,
+            template: mageTemplate('#row-template'),
+            add: function (data, render) {
+                var element;
+
+                element = this.template({
+                    data: data
+                });
+
+                this.itemCount++;
+                this.elements += element;
+
+                if (render) {
+                    this.render();
+                }
+
+            },
+            selectItem: function (element) {
+                jQuery(
+                    'select[name="groups[stock][fields][dispatch_order_'
+                    + element['id'] + '_is_active][value]"] [value='
+                    + element['is_active'] + ']'
+                ).attr("selected", "selected");
+            },
+            render: function () {
+                Element.insert($$('[data-role=orders-container]')[0], this.elements);
+                this.elements = '';
+            },
+            renderWithDelay: function (data) {
+                var self = this;
+                _.each(data, function (element, index) {
+                    element["id"] = index;
+                    element['checked'] = "";
+                    element['sort_order'] = element['priority'];
+                    if (element['is_active']) {
+                        element['checked'] = 'checked="checked"';
+                    }
+                    self.add(element);
+                });
+                this.render();
+
+                _.each(data, function (element, index) {
+                    self.selectItem(element);
+                });
+            }
+        };
+
+        if (attributeOption.rendered) {
+            return false;
+        }
+        jQuery('body').trigger('processStart');
+        attributeOption.renderWithDelay(attributeOption.config.attributesData);
+
+        if (attributeOption.config.isSortable) {
+            jQuery(function ($) {
+                $('[data-role=orders-container]').sortable({
+                    distance: 8,
+                    tolerance: 'pointer',
+                    cancel: 'select, input',
+                    axis: 'y',
+                    update: function () {
+                        $('[data-role=orders-container] [data-role=order]').each(function (index, element) {
+                            $(element).val(index + 1);
+                        });
+                    }
+                });
+            });
+        }
+
+        window.attributeOption = attributeOption;
+
+        rg.set('manage-options-panel', attributeOption);
+    });
+</script>

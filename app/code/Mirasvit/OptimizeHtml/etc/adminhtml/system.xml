@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mst_optimize" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="label">
+            <group id="optimize_html" showInDefault="1" sortOrder="30">
+                <label>HTML Optimization</label>
+
+                <field id="minify_html" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minify HTML</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>dev/template/minify_html</config_path>
+                    <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                    <attribute type="description">
+                        HTML minification slightly reduce HTML size by removing extra symbols
+                    </attribute>
+                    <attribute type="onChange">
+                        Please run bin/magento setup:static-content:deploy after save configuration
+                    </attribute>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

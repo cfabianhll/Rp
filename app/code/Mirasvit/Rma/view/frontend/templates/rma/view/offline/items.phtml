@@ -1,0 +1,66 @@
+<?php
+/* @var \Mirasvit\Rma\Block\Rma\View\Items $block */
+?>
+<div class="block">
+    <div class="block-content">
+        <div class="table-wrapper">
+            <table class="data table">
+                <thead>
+                <tr>
+                    <th scope="col" class="col"><?= __('Product Name') ?></th>
+                    <th scope="col" class="col"><?= __('Qty') ?></th>
+                    <th scope="col" class="col"><?= __('Order') ?></th>
+
+                    <?php if ($block->isReasonAllowed()): ?>
+                        <th scope="col" class="col"><?= __('Reason') ?></th>
+                    <?php endif ?>
+
+                    <?php if ($block->isConditionAllowed()): ?>
+                        <th scope="col" class="col"><?= __('Condition') ?></th>
+                    <?php endif ?>
+
+                    <?php if ($block->isResolutionAllowed()): ?>
+                        <th scope="col" class="col"><?= __('Resolution') ?></th>
+                    <?php endif ?>
+                </tr>
+                </thead>
+                <tbody>
+                <?php /** @var \Mirasvit\Rma\Api\Data\ItemInterface $item */ ?>
+                <?php foreach ($block->getOfflineItems() as $item): ?>
+                    <tr>
+                        <td data-th="<?= __('Product Name') ?>" class="col">
+                            <?= $block->escapeHtml($item->getName()) ?>
+                        </td>
+
+                        <td data-th="<?= __('QTY') ?>" class="col">
+                            <?= $item->getQtyRequested() ?>
+                        </td>
+
+                        <td data-th="<?= __('Order') ?>" class="col">
+                            <?= $block->escapeHtml($block->getOfflineOrder($item)->getReceiptNumber()) ?>
+                        </td>
+
+                        <?php if ($block->isReasonAllowed()): ?>
+                            <td data-th="<?= __('Reason') ?>" class="col">
+                                <?= $block->escapeHtml($block->getReasonName($item)) ?>
+                            </td>
+                        <?php endif ?>
+
+                        <?php if ($block->isConditionAllowed()): ?>
+                            <td data-th="<?= __('Condition') ?>" class="col">
+                                <?= $block->escapeHtml($block->getConditionName($item)) ?>
+                            </td>
+                        <?php endif ?>
+
+                        <?php if ($block->isResolutionAllowed()): ?>
+                            <td data-th="<?= __('Resolution') ?>" class="col">
+                                <span class="mst-rma-badge"><?= $block->escapeHtml($block->getResolutionName($item)) ?></span>
+                            </td>
+                        <?php endif ?>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

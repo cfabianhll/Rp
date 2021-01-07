@@ -1,0 +1,183 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Sales\Block\Order\History $block */
+
+?>
+<?php 
+    $_orders = $block->getOrders(); 
+    $imageHelper  = $this->helper('\Magento\Catalog\Helper\Image');
+    $_addressHelper  = $this->helper('\Trootech\General\Helper\Data');
+    $swatchhelper = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Swatches\Helper\Data');
+    /*$_refundBlock = $this->getLayout()->createBlock('\Bss\RefundRequest\Block\Label');    
+    $orderRefund = $_refundBlock->getOrderRefund();*/
+?>
+<?= $block->getChildHtml('info') ?>
+<?php if ($_orders && count($_orders)): ?>
+     <div class="tab-content profile_tab_content" id="v-pills-tabContent">
+       <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+        
+        <?php foreach ($_orders as $_order): $returnAllowed = false; ?>
+            <div class="my_orders_list">
+              <div class="account_tile">
+
+                 <div class="order_wraper" data-oder-id="<?= $_order->getRealOrderId() ?>">
+                         <div class="order_dtils">
+                                <div class="row">
+                                   <div class="col-12 col-md-6">
+                                      <div class="orderid_place">
+                                         <span class="pro_id"><?= $block->escapeHtml(__('ORDER ID: ')) ?><b>#<?= $_order->getRealOrderId() ?></b></span>
+                                         <span><?= $block->escapeHtml(__('Order Placed :')) ?> <b><?= $block->formatDate($_order->getCreatedAt(), \IntlDateFormatter::LONG) ?></b></span>
+                                      </div>
+                                   </div>
+                                   <div class="col-12 col-md-6 text-md-right">
+                                      <div class="orderid_place">
+                                         <span class="status"><?= $block->escapeHtml(__('Status: ')) ?> <b><?= $_order->getStatusLabel() ?></b></span>
+                                        <?php if ($_order->canCancel()) : ?>
+                                            <a class="main_colr" href="<?= $this->getUrl('trootech/order/cancel').'?order_id='.$_order->getEntityId(); ?>"><?= __('Cancel Order') ?></a>
+                                         <?php endif;?>
+                                      </div>
+                                   </div>
+                                </div>
+                        </div>
+
+                <?php 
+                    $items = $_order->getAllVisibleItems();                     
+                ?>
+                <?php foreach($items as $_item) { ?>
+                    <?php if ($_item->getParentItem()) continue; 
+                    $_product = $_item->getProduct();  ?>
+                    <div class="step_one_content">
+                        <div class="row align-items-center">
+                           <div class="col-12 col-lg-3 col-md-4">
+                              <div class="cart_img1"><img src="<?= $_product ? $imageHelper->init($_product, 'cart_page_product_thumbnail')->getUrl() : $this->getBaseUrl().'pub/media/catalog/product/placeholder/default/ladona1_1.png'; ?>"></div>
+                           </div>
+                           <div class="col-12 col-lg-6 col-md-8">
+                              <div class="product_details_outer">
+                                 <h4 class="product_name"><?= $block->escapeHtml($_item->getName()) ?></h4>
+                                 <div class="rating_product mb-2">
+                                    <h6><?= __('Price: ') ?><span ><?= $_order->formatPrice($_item->getRowTotal()) ?></span></h6>
+                                 </div>
+                                 <div class="size_color_chart mt-3">
+                                     <?php $options = $_item->getProductOptions(); ?>
+                                             <?php if($options && (isset($options['attributes_info']) || isset($options['options']))) { ?>
+                                                <?php if(isset($options['attributes_info'])) { ?>
+                                                 <?php foreach($options['attributes_info'] as $option) { ?>          
+                                            <div class="size_chrt">
+                                                           <h6><?= $option['label'] ?></h6>
+
+                                                           <ul class="size_option mb-0">
+                                                            <?php $optionValue = $option['option_value']; ?>
+                                                      <?php $swatch = $swatchhelper->getSwatchesByOptionsId(array($optionValue)); ?>
+                                                      <?php if($swatch[$optionValue]['type'] != 0): ?>
+                                                          <li class="swatch-option" style="background: <?= $swatch[$optionValue]['value']; ?>" ></li>
+                                                          <?php else: ?>
+                                                              <li class="size-option"><?= $option['value'] ?></li>
+                                                        <?php endif; ?>
+                                                           </ul>
+                                            </div>
+                                                    <?php } ?>
+                                                <?php } ?>
+                                        <?php if(isset($options['options'])) { ?>
+                                            <?php foreach($options['options'] as $option) { ?>
+                                                <p><span><?= $option['label'] ?></span><?= " : ".$option['value'] ?></p>    
+                                            <?php } ?>
+                                        <?php } ?>
+                                    <?php } else { ?>
+                                        <p>&nbsp;</p>
+                                    <?php } ?>
+                                        <div class="product_numbr login_form m-0">
+                                           <h6 class="mb-3"><span><?= __('Qty: ') ?></h6>
+                                           <span><?= $_item->getQtyOrdered()*1 ?><span>
+                                        </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-12 col-lg-3 col-md-12">
+                              <div class="totla_price">
+                                 <p class="mb-2"><?= $block->escapeHtml(__('Total ')) ?><span><?= $_order->formatPrice($_item->getRowTotal()) ?></span></p>
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                <?php } ?>
+                <div class="promo_address">
+                    <?php if($_order->getCouponCode()) { ?>
+                        <div class="row">
+                            <div class="col-12 col-lg-9 offset-lg-3">                                
+                                <p class="promo_Applied mb-1"><i class="fas fa-check-circle"></i><?= __('Promocode applied') ?></p>                                
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <div class="row mt-3">
+                        <div class="col-12 col-lg-4 offset-lg-3">
+                            <div class="order_address">
+                                <h6><?= __('Billing Address :'); ?></h6>
+                                <p><?= $_addressHelper->getFormattedAddress($_order->getBillingAddress()); ?></p>
+                            </div>
+                        </div>
+                        <?php if(!$_order->getIsVirtual() && $_order->getShippingAddress()){ ?>
+                            <div class="col-12 col-lg-4 ">
+                                <div class="order_address">
+                                    <h6>Shipping Address :</h6>
+                                    <p><?= $_addressHelper->getFormattedAddress($_order->getShippingAddress()); ?></p>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+                     <div class="total_Section">
+                            <div class="row">
+                               <div class="col-12 col-lg-6 col-md-6">
+                                    <?php if($_order->getDiscountAmount() < 0) : ?>
+                                        <h6 style="margin-bottom: 5px;"><?= $block->escapeHtml(__('Discount Amount : ')) ?><?= $_order->formatPrice($_order->getDiscountAmount()) ?></h6>
+                                    <?php endif; ?>
+                               <!-- </div>
+                               <div class="col-12  col-md-6 col-lg-6 text-md-right"> -->
+                                  <div class="tottal_order">
+                                     <?= $block->escapeHtml(__('Sub Total: ')) ?> <span><?= $_order->formatPrice($_order->getSubtotal()) ?></span>
+                                     <h5><?= $block->escapeHtml(__('Total Amount: ')) ?><span><?= $_order->formatPrice($_order->getGrandTotal()) ?></span></h5>
+                                  </div>
+                               </div>
+                            </div>
+                        </div>
+                <?php if($returnAllowed) { ?>
+                    <div class="mt-4 return_block_section" style="display: none;">
+                        <form action="<?= $this->getUrl('refundrequest/order/index'); ?>" class="form refund" id="refund-form-<?= $_order->getId()?>" method="post" data-mage-init='{"validation":{}}'>
+                            <input type="hidden" name="bss-refund-order-id" value="<?= $_order->getRealOrderId() ?>" class="bss-refund-oder-id">
+                            <?php $formKey = $block->getFormKey()?>
+                            <input type="hidden" name="form_key" value="<?= $block->escapeHtml($formKey) ?>" class="form_key">
+                            <div class="form-group">
+                                <label><?= __('Reason For Return') ?></label>                            
+                                <textarea class="form-control input-text" placeholder="<?= __('Write Here') ?>" name="bss-refund-reason" data-validate="{required:true}"></textarea>                               
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn_red"><?= __('Submit') ?></button>
+                            </div>
+                        </form>
+                    </div>
+                <?php } ?>              
+            </div>
+            </div>
+         </div>
+        <?php endforeach; ?>
+        <?php if ($block->getPagerHtml()): ?>
+            <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+        <?php endif ?>
+    </div>
+    </div>
+  
+
+<?php else: ?>
+    <div class="account_tile">
+        <h4 class="border-0"><?= __('My Orders') ?></h4>
+    </div>
+    <div class="order_wraper">
+        <div class="message info empty"><span><?= __('You have placed no orders.') ?></span></div>
+    </div>
+<?php endif ?>

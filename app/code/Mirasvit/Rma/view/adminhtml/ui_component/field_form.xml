@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">field_form.field_form_data_source</item>
+            <item name="deps" xsi:type="string">field_form.field_form_data_source</item>
+        </item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">field_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/</item>
+            </item>
+            <item name="reset" xsi:type="array">
+                <item name="name" xsi:type="string">reset</item>
+                <item name="label" xsi:type="string" translate="true">Reset</item>
+                <item name="class" xsi:type="string">reset</item>
+                <item name="url" xsi:type="string">*/*/add</item>
+            </item>
+            <item name="delete" xsi:type="string">Mirasvit\Rma\Model\UI\GenericDeleteButton</item>
+            <item name="save" xsi:type="string">Mirasvit\Rma\Model\UI\Field\Button\SaveButton</item>
+        </item>
+    </argument>
+
+    <dataSource name="field_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Mirasvit\Rma\Model\UI\Field\FieldDataProvider</argument>
+            <argument name="name" xsi:type="string">field_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">field_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataScope" xsi:type="string">data</item>
+                    <item name="submit_url" xsi:type="url" path="*/*/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="label" xsi:type="string" translate="true">General Information</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+            </item>
+        </argument>
+        <field name="field_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">field_id</item>
+                    <item name="dataScope" xsi:type="string">data</item>
+                </item>
+            </argument>
+        </field>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Title</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                    <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                    <item name="required" xsi:type="boolean">true</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="code">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Code</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">code</item>
+                    <item name="required" xsi:type="boolean">true</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="disabled" xsi:type="string">${ $.provider }:data.disabled</item>
+                    </item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Internal field. Can contain only letters, digits and underscore.
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="type">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Mirasvit\Rma\Model\Config\Source\Field\Type</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">int</item>
+                    <item name="label" xsi:type="string" translate="true">Type</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">type</item>
+                    <item name="default" xsi:type="string">0</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="accessory">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Mirasvit\Rma\Model\Config\Source\Field\Accessory</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">int</item>
+                    <item name="label" xsi:type="string" translate="true">Visible for</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">accessory</item>
+                    <item name="default" xsi:type="string">0</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="all" xsi:type="string">0</item>
+                        <item name="online" xsi:type="string">1</item>
+                        <item name="offline" xsi:type="string">2</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="description">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">description</item>
+                </item>
+            </argument>
+        </field>
+        <field name="values">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Options List</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">values</item>
+                    <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                    <item name="additionalInfo" xsi:type="string"><![CDATA[
+                        Only for drop-down list.
+                        Enter each value from the new line using format:<br>
+                        value1 | label1<br>
+                        value2 | label2
+                        ]]>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="sort_order">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Sort Order</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">sort_order</item>
+                </item>
+            </argument>
+        </field>
+        <field name="is_active">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="label" xsi:type="string" translate="true">Active</item>
+                    <item name="dataScope" xsi:type="string">is_active</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/yesno</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="string">1</item>
+                        <item name="false" xsi:type="string">0</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+    <fieldset name="conditions">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="label" xsi:type="string" translate="true">Conditions</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+        <field name="is_required_staff">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="label" xsi:type="string" translate="true">Is required for staff</item>
+                    <item name="dataScope" xsi:type="string">is_required_staff</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/yesno</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="string">1</item>
+                        <item name="false" xsi:type="string">0</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="is_visible_customer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="label" xsi:type="string" translate="true">Is visible for customers</item>
+                    <item name="dataScope" xsi:type="string">is_visible_customer</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/yesno</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="string">1</item>
+                        <item name="false" xsi:type="string">0</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="visible_customer_status">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Mirasvit\Rma\Model\UI\Field\Form\Status</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">int</item>
+                    <item name="label" xsi:type="string" translate="true">Visible for customers in statuses</item>
+                    <item name="formElement" xsi:type="string">multiselect</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="dataScope" xsi:type="string">visible_customer_status</item>
+                    <item name="default" xsi:type="string">0</item>
+                </item>
+            </argument>
+        </field>
+        <field name="is_show_in_confirm_shipping">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="label" xsi:type="string" translate="true">Is shown on shipping confirmation</item>
+                    <item name="dataScope" xsi:type="string">is_show_in_confirm_shipping</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/yesno</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="string">1</item>
+                        <item name="false" xsi:type="string">0</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="is_required_customer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="label" xsi:type="string" translate="true">Is required for customers</item>
+                    <item name="dataScope" xsi:type="string">is_required_customer</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/yesno</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="string">1</item>
+                        <item name="false" xsi:type="string">0</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="is_editable_customer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="label" xsi:type="string" translate="true">Is editable for customers</item>
+                    <item name="dataScope" xsi:type="string">is_editable_customer</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/components/visible-on-option/yesno</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="string">1</item>
+                        <item name="false" xsi:type="string">0</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+    </fieldset>
+</form>

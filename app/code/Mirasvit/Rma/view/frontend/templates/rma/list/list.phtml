@@ -1,0 +1,88 @@
+<?php
+//@codingStandardsIgnoreFile
+
+/* @var $block \Mirasvit\Rma\Block\Rma\Listing\Listing */
+$list       = $block->getRmaList();
+$itemsBlock = $block->getItemsBlock();
+?>
+<?php if (count($list)): ?>
+    <?= $block->getChildHtml('rma.toolbar') ?>
+
+    <div class="table-wrapper">
+        <table class="data table mst-rma-list">
+            <caption class="table-caption"><?= __('RMA') ?></caption>
+            <thead>
+            <tr class="first last">
+                <th scope="col" class="col"><?= __('RMA #') ?></th>
+                <th scope="col" class="col"><?= __('Date') ?></th>
+                <th scope="col" class="col"><?= __('Order #') ?></th>
+                <th scope="col" class="col"><?= __('Status') ?></th>
+                <th scope="col" class="col actions"><?=__('Actions')?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($list as $rma): ?>
+                <tr>
+                    <td data-th="<?= __('RMA') ?>" class="col">
+                        #<?= $block->escapeHtml($rma->getIncrementId()) ?>
+                    </td>
+
+                    <td data-th="<?= __('Date') ?>" class="col">
+                        <?= $block->escapeHtml($block->formatDate($rma->getCreatedAt())) ?>
+                    </td>
+
+                    <td data-th="<?= __('Order') ?>" class="col mst-rma-list__items">
+                        <?php foreach ($block->getOrders($rma) as $order): ?>
+                            <p>
+                            <?php if ($order->getIsOffline()): ?>
+                                <?= $block->escapeHtml($block->getOrderIncrementId($order)) ?>
+                            <?php else: ?>
+                                <a href="<?= $this->getUrl('sales/order/view', ['order_id' => $order->getId()]) ?>">#<?= $block->getOrderIncrementId($order) ?></a>
+                            <?php endif ?>
+                            </p>
+                        <?php endforeach ?>
+
+                        <?php $items = $block->getItems($rma) ?>
+                        <?php if (count($items)): ?>
+
+                        <div>
+                            <ul>
+                                <?php foreach ($items as $item): ?>
+                                    <li>
+                                        <img src="<?= $itemsBlock->initImage($item, 'product_page_image_small')->resize(120)->getUrl() ?>"/>
+                                        <strong><?= $itemsBlock->getOrderItemLabel($item) ?></strong>
+                                    </li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    <?php endif ?>
+                    </td>
+
+
+
+                    <td data-th="<?= __('Status') ?>" class="col">
+                        <span class="mst-rma-status status-branch-<?= $block->getStatus($rma)->getColor() ?>">
+                            <?= $block->escapeHtml($block->getStatus($rma)->getName()) ?>
+                        </span>
+                    </td>
+
+
+                    <td data-th="<?= __('Action') ?>" class="col mst-rma-list__actions">
+                        <?php if ($block->isLastMessageUnread($rma)): ?><span class="mst-rma-list__unread"></span><?php endif ?>
+
+                        <a href="<?= $block->getRmaUrl($rma) ?>"><?= __('View Return') ?></a>
+                    </td>
+                </tr>
+
+
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+
+    <?= $block->getChildHtml('rma.toolbar') ?>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?= __('There are no returns') ?></span>
+    </div>
+<?php endif ?>

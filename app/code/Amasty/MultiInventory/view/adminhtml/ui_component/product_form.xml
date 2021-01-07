@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <modal name="amasty_multi_inventory_modal">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataScope" xsi:type="string">data.product</item>
+                <item name="provider" xsi:type="string">product_form.product_form_data_source</item>
+                <item name="onCancel" xsi:type="string">actionDone</item>
+                <item name="options" xsi:type="array">
+                    <item name="title" xsi:type="string">Warehouses</item>
+                    <item name="buttons" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="text" xsi:type="string">Done</item>
+                            <item name="class" xsi:type="string">action-primary</item>
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">${ $.name }</item>
+                                    <item name="actionName" xsi:type="string">actionDone</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </argument>
+        <fieldset name="warehouse_data">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string"/>
+                    <item name="collapsible" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+                <container name="assign_warehouse_container">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="sortOrder" xsi:type="number">170</item>
+                        </item>
+                    </argument>
+                    <htmlContent name="html_content">
+                        <argument name="block" xsi:type="object">Amasty\MultiInventory\Block\Adminhtml\Warehouse\AssignWarehouses</argument>
+                    </htmlContent>
+                </container>
+        </fieldset>
+    </modal>
+</form>

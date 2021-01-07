@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_GiftCard
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mageplaza_Core::css/font-awesome.min.css"/>
+    </head>
+    <body>
+            <referenceBlock name="view.addto.compare" remove="true" />
+            <!-- <referenceBlock name="breadcrumbs" remove="true" /> -->
+        <referenceContainer name="main.content" htmlId="content">
+            <block class="Magento\Framework\View\Element\Template" name="custom-product-banner" template="Magento_Catalog::productbanner.phtml" before="product.section.view"/>
+
+          <!--   <container name="breadcum.section.view" htmlClass="breadcum_section" htmlTag="section" before="product.section.view">
+                    <container name="breadcum.container.view" htmlClass="container" htmlTag="div" after="-">
+                         <container name="breadcum.row.view" htmlClass="row" htmlTag="div" after="-">
+
+
+                         </container>
+                    </container>
+                </container> -->
+            <container name="product.section.view" htmlClass="product_Details" htmlTag="section" before="-">
+                <!-- <container name="product.container.view" htmlClass="container" htmlTag="div" before="-"> -->
+                    <container name="product.row.view" htmlClass="row" htmlTag="div" before="-">
+                        <container name="product.image" htmlClass="col-12 col-md-5" htmlTag="div" before="-">         
+                        </container>
+                        <container name="product.details" htmlClass="col-12 col-md-7" htmlTag="div" after="-">
+                            <container name="product.details.outer" htmlClass="product_details_outer" htmlTag="div" after="-">
+                                    <container name="product.details.outer.rating" htmlClass="rating_product mb-2" htmlTag="div" after="-">
+                                    </container>
+                            </container>
+                        </container>
+                    </container>
+                    <container name="product.view.review" htmlClass="product_review" htmlTag="div" after="product.row.view">
+                        <container name="product.view.review.row" htmlClass="row" htmlTag="div" before="-">
+                            <container name="product.view.review.tab" htmlClass="col-12" htmlTag="div" before="-">
+                                
+                            </container>
+                        </container>
+                    </container>
+                <!-- </container> -->
+            </container>
+        </referenceContainer>
+        <referenceBlock name="page.main.title">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Catalog::product/view/product-title.phtml</argument>
+            </action>    
+        </referenceBlock>
+
+         <referenceBlock name="product.info.media.image">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Mageplaza_GiftCard::product/view/gallery.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <move element="page.main.title" destination="product.details.outer" before="product.details.outer.rating"/>
+        <move element="product.info.sku" destination="product.details.outer.rating" after="-"/>
+        <move element="product.info.review" destination="product.details.outer.rating" after="-"/>
+        <move element="product.info.overview" destination="product.details.outer" before="product.info.price"/>
+        <move element="product.info.price" destination="product.details.outer" before="product.info"/>
+        <move element="product.info.media.image" destination="product.image" after="-"/>
+        <move element="product.info" destination="product.details.outer" after="product.info.price"/>
+        <move element="view.addto.wishlist" destination="product.details.outer" after="-"/>
+        <move element="product.info.details" destination="product.view.review.tab" after="-"/>
+        <!-- <move element="reviews.tab" destination="product.info.details" after="-"/>    -->
+        <move element="breadcrumbs" destination="breadcum.row.view" before="product.section.view"/>
+    </body>
+</page>
+
+
+
+
+
+
+
+
+       

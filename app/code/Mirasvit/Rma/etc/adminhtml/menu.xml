@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Mirasvit_Rma::rma_rma" title="RMA" module="Mirasvit_Rma" sortOrder="51" action="rma/rma" resource="Mirasvit_Rma::rma_rma" parent="Magento_Sales::sales_operation"/>
+
+        <!--<add id="Mirasvit_Rma::rma" title="RMA" module="Mirasvit_Rma" sortOrder="70" resource="Mirasvit_Rma::rma"/>-->
+        <!--<add id="Mirasvit_Rma::rma_rma" title="RMA" module="Mirasvit_Rma" sortOrder="10" action="rma/rma" resource="Mirasvit_Rma::rma_rma" parent="Mirasvit_Rma::rma"/>-->
+        <!--<add id="Mirasvit_Rma::rma_dictionary" title="Dictionaries" module="Mirasvit_Rma" sortOrder="20" resource="Mirasvit_Rma::rma_dictionary" parent="Mirasvit_Rma::rma"/>-->
+        <!--<add id="Mirasvit_Rma::rma_dictionary_status" title="Statuses" module="Mirasvit_Rma" sortOrder="10" action="rma/status" resource="Mirasvit_Rma::rma_dictionary_status" parent="Mirasvit_Rma::rma_dictionary"/>-->
+        <!--<add id="Mirasvit_Rma::rma_dictionary_reason" title="Reasons" module="Mirasvit_Rma" sortOrder="20" action="rma/reason" resource="Mirasvit_Rma::rma_dictionary_reason" parent="Mirasvit_Rma::rma_dictionary"/>-->
+        <!--<add id="Mirasvit_Rma::rma_dictionary_condition" title="Conditions" module="Mirasvit_Rma" sortOrder="30" action="rma/condition" resource="Mirasvit_Rma::rma_dictionary_condition" parent="Mirasvit_Rma::rma_dictionary"/>-->
+        <!--<add id="Mirasvit_Rma::rma_dictionary_resolution" title="Resolutions" module="Mirasvit_Rma" sortOrder="40" action="rma/resolution" resource="Mirasvit_Rma::rma_dictionary_resolution" parent="Mirasvit_Rma::rma_dictionary"/>-->
+        <!--<add id="Mirasvit_Rma::rma_dictionary_field" title="Custom Fields" module="Mirasvit_Rma" sortOrder="50" action="rma/field" resource="Mirasvit_Rma::rma_dictionary_field" parent="Mirasvit_Rma::rma_dictionary"/>-->
+        <!--<add id="Mirasvit_Rma::rma_dictionary_template" title="Quick Responses" module="Mirasvit_Rma" sortOrder="60" action="rma/template" resource="Mirasvit_Rma::rma_dictionary_template" parent="Mirasvit_Rma::rma_dictionary"/>-->
+        <!--<add id="Mirasvit_Rma::rma_rule" title="Workflow Rules" module="Mirasvit_Rma" sortOrder="30" action="rma/rule" resource="Mirasvit_Rma::rma_rule" parent="Mirasvit_Rma::rma"/>-->
+        <!--&lt;!&ndash;<add id="Mirasvit_Rma::rma_report" title="Reports" module="Mirasvit_Rma" sortOrder="40" resource="Mirasvit_Rma::rma_report" parent="Mirasvit_Rma::rma"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<add id="Mirasvit_Rma::rma_report_report_rma" title="RMA" module="Mirasvit_Rma" sortOrder="10" action="rma/report_rma" resource="Mirasvit_Rma::rma_report_report_rma" parent="Mirasvit_Rma::rma_report"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<add id="Mirasvit_Rma::rma_report_report_rma_product" title="RMA by Product" module="Mirasvit_Rma" sortOrder="20" action="rma/report_rma_product" resource="Mirasvit_Rma::rma_report_report_rma_product" parent="Mirasvit_Rma::rma_report"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<add id="Mirasvit_Rma::rma_report_report_rma_brand" title="RMA by Brand" module="Mirasvit_Rma" sortOrder="30" action="rma/report_rma_brand" resource="Mirasvit_Rma::rma_report_report_rma_brand" parent="Mirasvit_Rma::rma_report"/>&ndash;&gt;-->
+        <!--<add id="Mirasvit_Rma::rma_settings" title="Settings" module="Mirasvit_Rma" sortOrder="50" action="adminhtml/system_config/edit/section/rma" resource="Mirasvit_Rma::rma_settings" parent="Mirasvit_Rma::rma"/>-->
+    </menu>
+</config>

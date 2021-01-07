@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mst_optimize>
+            <optimize_image>
+                <image_lazy_load>
+                    <skip_number>1</skip_number>
+                    <exception><![CDATA[lazy
+no-lazy
+data-src
+.svg
+]]></exception>
+                </image_lazy_load>
+            </optimize_image>
+        </mst_optimize>
+    </default>
+</config>

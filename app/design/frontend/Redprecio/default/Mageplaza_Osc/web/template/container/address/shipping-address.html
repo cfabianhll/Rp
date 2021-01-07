@@ -1,0 +1,64 @@
+<div class="tab-content profile_tab_content" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+<div id="shipping" class="checkout-shipping-address" data-bind="fadeVisible: visible()">
+    <div class="checkout_title">
+        <h4 class="wow fadeIn totle_tablr_header" data-bind="i18n: 'Shipping Address'"></h4>
+    </div>    
+    <div id="checkout-step-shipping"
+         class="addrsses_box wow step-content"
+         data-role="content">
+
+        <!-- ko if: (!quoteIsVirtual) -->
+            <!-- ko foreach: getRegion('customer-email') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        <!--/ko-->
+
+        <!-- ko foreach: getRegion('address-list') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+
+        <!-- ko foreach: getRegion('address-list-additional-addresses') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+
+        <!-- Address form pop up -->
+        <!-- ko if: (!isFormInline) -->
+        <div class="row"><div class="mb-3 col-12">
+        <a href="javascript:void(0)"
+                data-bind="i18n: '+ Add New', click: showFormPopUp, visible: !isNewAddressAdded()"
+                class="add_new_ad action action-show-popup"></a>
+        </div></div>
+        <div id="opc-new-shipping-address" data-bind="visible: isFormPopUpVisible()">
+            <!-- ko template: 'Mageplaza_Osc/container/address/shipping/form' --><!-- /ko -->
+        </div>
+        <!-- /ko -->
+
+        <!-- ko foreach: getRegion('before-form') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+
+        <!-- ko if: !isAmazonAccountLoggedIn() -->
+            <!-- Inline address form -->
+            <!-- ko if: (isFormInline) -->
+            <!-- ko template: 'Mageplaza_Osc/container/address/shipping/form' --><!-- /ko -->
+            <!-- /ko -->
+
+            <!-- ko if: (!isCustomerLoggedIn() && !quoteIsVirtual) -->
+                <!-- ko foreach: getRegion('customer-email') -->
+                    <!-- ko template: 'Mageplaza_Osc/container/address/billing/create' --><!-- /ko -->
+                <!--/ko-->
+            <!--/ko-->
+
+            <div class="mp-clear"></div>
+
+            <!-- ko scope: 'checkout.steps.shipping-step.billingAddress' -->
+                <!-- ko template: 'Mageplaza_Osc/container/address/billing/checkbox' --><!-- /ko -->
+            <!--/ko-->
+        <!--/ko-->
+
+        <div class="mp-clear"></div>
+    </div>
+</div>
+</div>
+</div>

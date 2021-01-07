@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="MultiInventory16LowStockQuantity">
+        <annotations>
+            <features value="LowStockQuantity"/>
+            <stories value="LowStockQuantity"/>
+            <title value="All products with the stock level less or equal to the specified value will appear on the Warehouses Low Stock"/>
+            <description value="All products with the stock level less or equal to the specified value will appear on the Warehouses Low Stock"/>
+            <severity value="CRITICAL"/>
+            <testCaseId value="MWI-MFTF-16"/>
+            <group value="Amasty"/>
+            <group value="AmastyMultiInventory"/>
+            <group value="AmastyMultiInventoryStockSettings"/>
+            <group value="AmastyMultiInventoryLowStockQuantity"/>
+        </annotations>
+        <before>
+            <actionGroup stepKey="loginAsAdmin" ref="LoginAsAdmin"/>
+            <amOnPage stepKey="openMWIConfigurationPage1" url="{{AmastyMWIConfigurationPage.url}}"/>
+            <waitForPageLoad stepKey="waitForPageLoad1" time="30"/>
+            <actionGroup stepKey="setLowStockQuantity1" ref="AmastyMWILowStockQuantity">
+                <argument name="LowStockQuantity" value="9"/>
+            </actionGroup>
+            <wait stepKey="waitTime1" time="2"/>
+            <click stepKey="saveConfig1" selector="{{AmastyMWIConfigurationSection.saveconfig}}"/>
+            <waitForPageLoad stepKey="waitForPageLoad2" time="30"/>
+            <magentoCLI stepKey="flushCache1" command="cache:clean"/>
+        </before>
+        <after>
+            <!--delete Warehouses-->
+            <actionGroup stepKey="deleteAllWarehouses" ref="DeleteAllWarehouses"/>
+            <!--default Configuration-->
+            <amOnPage stepKey="openMWIConfigurationPage2" url="{{AmastyMWIConfigurationPage.url}}"/>
+            <waitForPageLoad stepKey="waitForPageLoad3" time="30"/>
+            <actionGroup stepKey="setLowStockQuantity2" ref="AmastyMWILowStockQuantity">
+                <argument name="LowStockQuantity" value="1"/>
+            </actionGroup>
+            <wait stepKey="waitTime2" time="2"/>
+            <click stepKey="saveConfig2" selector="{{AmastyMWIConfigurationSection.saveconfig}}"/>
+            <waitForPageLoad stepKey="waitForPageLoad4" time="30"/>
+        </after>
+
+        <actionGroup stepKey="addWH1" ref="AddNewWarehouse">
+            <argument name="amastyWarehouse" value="_Chicago"/>
+        </actionGroup>
+        <!--grab url from WH1-->
+        <grabFromCurrentUrl regex="~.*/amasty_multi_inventory/warehouse/edit/warehouse_id/(\d+)/.*~" stepKey="grabFromCurrentUrlWh1"/>
+        <!--check LowStock grid is empty-->
+        <amOnPage stepKey="openLowStockGridPage1" url="{{AmastyLowStockGridPage.url}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad5" time="30"/>
+        <selectOption stepKey="selectRequiredWarehouse1" selector="{{AmastyLowStockGridSection.selectWarehouse}}" userInput="whChicago"/>
+        <click stepKey="clickSearchButton1" selector="{{AmastyLowStockGridSection.searchButton}}"/>
+        <see stepKey="notSeeProducts" selector="{{AmastyLowStockGridSection.thereAreNoRecords}}" userInput="We couldn't find any records."/>
+        <actionGroup stepKey="loginAsCustomer" ref="CustomerLoginOnStorefront">
+            <argument name="customer" value="AmastyCustomerEntityOne"/>
+        </actionGroup>
+        <!--Place order with Fusion Backpack-->
+        <actionGroup stepKey="AddFusionBackpackToCart" ref="AmastyAddSimpleProductToCart">
+            <argument name="amastyProduct" value="_fusionBackpack"/>
+        </actionGroup>
+        <actionGroup  stepKey="PlaceOrder" ref="AmastyPlaceOrderSimpleProduct"/>
+        <!--grab url from Order-->
+        <grabTextFrom stepKey="orderId" selector="a[class='order-number']"/>
+        <amOnPage url="{{_ENV.MAGENTO_BACKEND_NAME}}/admin/auth/logout/" stepKey="amOnLogoutPage1"/>
+        <actionGroup stepKey="loginAsAdmin2" ref="LoginAsAdmin"/>
+        <!--create Invoice-->
+        <amOnPage stepKey="openOrderGridPage1" url="{{AmastyOrderGridPage.url}}"/>
+        <wait stepKey="waitTime3" time="3"/>
+        <click stepKey="openCreatedOrder" selector="//*[@id='container']//td[contains(string(), '$orderId')]"/>
+        <wait stepKey="waitTime4" time="3"/>
+        <click stepKey="clickInvoice" selector="{{AmastyOrderSection.invoice}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad6" time="30"/>
+        <scrollTo stepKey="scroll1" selector="{{AmastyInvoiceSection.submitInvoice}}"/>
+        <click stepKey="clickInvoiceButton" selector="{{AmastyInvoiceSection.submitInvoice}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad7" time="30"/>
+        <see userInput="The invoice has been created."  stepKey="SeeConfirmMessageInvoice"/>
+        <!--create Shipment-->
+        <click stepKey="clickShip" selector="{{AmastyOrderSection.shipment}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad8" time="30"/>
+        <scrollTo stepKey="scroll2" selector="{{AmastyShipmentSection.submitShipment}}"/>
+        <click stepKey="clickShipmentButton" selector="{{AmastyShipmentSection.submitShipment}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad9" time="30"/>
+        <see userInput="The shipment has been created."  stepKey="SeeConfirmMessageShipment"/>
+        <!--check LowStock grid-->
+        <amOnPage stepKey="openLowStockGridPage2" url="{{AmastyLowStockGridPage.url}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad10" time="30"/>
+        <selectOption stepKey="selectRequiredWarehouse2" selector="{{AmastyLowStockGridSection.selectWarehouse}}" userInput="whChicago"/>
+        <click stepKey="clickSearchButton2" selector="{{AmastyLowStockGridSection.searchButton}}"/>
+        <see stepKey="seeProductFusionBackpack" selector="{{AmastyLowStockGridSection.productNameColumn}}" userInput="Fusion Backpack"/>
+        <see stepKey="seeStockQuantity" selector="{{AmastyLowStockGridSection.stockQuantityColumn}}" userInput="9"/>
+        <!--check product qty at WH1-->
+        <amOnPage stepKey="openManageWarehouse1Page" url="admin/amasty_multi_inventory/warehouse/edit/warehouse_id/$grabFromCurrentUrlWh1"/>
+        <waitForPageLoad stepKey="waitForPageLoad11" time="30"/>
+        <click stepKey="openProductsInWarehouse1Tab" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <wait stepKey="waitTime5" time="2"/>
+        <scrollTo stepKey="scroll3" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <see stepKey="seeQtyToShip1" selector="{{AmastyMWIWarehouseSection.qtyToShip}}" userInput="0"/>
+        <see stepKey="seeAvailableQty1" selector="{{AmastyMWIWarehouseSection.availableQty}}" userInput="9"/>
+        <see stepKey="seeTotalQty1" selector="{{AmastyMWIWarehouseSection.totalQty}}" userInput="9"/>
+        <wait stepKey="waitTime6" time="2"/>
+    </test>
+  </tests>

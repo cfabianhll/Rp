@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mst_optimize" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="label">
+            <group id="optimize_css" showInDefault="1" sortOrder="20">
+                <label>CSS Optimization</label>
+
+                <field id="merge_css" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Merge CSS Files</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>dev/css/merge_css_files</config_path>
+                    <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                    <attribute type="description">
+                        Merge CSS seeks to reduce the number of HTTP requests made by a browser during page refresh by replacing multiple distinct CSS files with a single CSS file.
+                    </attribute>
+                    <attribute type="onChange">
+                        Please run bin/magento setup:static-content:deploy after save configuration
+                    </attribute>
+                </field>
+
+                <field id="minify_css" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Minify CSS Files</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>dev/css/minify_files</config_path>
+                    <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                    <attribute type="description">
+                        CSS minification allows strip some extras and applies a number of optimizations to reduce file size.
+                    </attribute>
+                    <attribute type="onChange">
+                        Please run bin/magento setup:static-content:deploy after save configuration
+                    </attribute>
+                </field>
+
+                <field id="move_css" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Move CSS To Page Bottom</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                    <attribute type="description">
+                        CSS resources near the top of the page can cause unnecessary delay to the loading and rendering of the page content/layout.
+                    </attribute>
+                    <attribute type="onChange">
+                        Please clear magento cache after save configuration
+                    </attribute>
+                </field>
+
+                <field id="move_css_exception" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Do not move CSS that contains</label>
+                    <depends>
+                        <field id="move_css">1</field>
+                    </depends>
+                    <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                    <attribute type="description">
+                        The list of CSS file names (or parts of CSS file names) which should be leaved at the HEAD tag.
+                        &lt;/br&gt;Each name in the new line.
+                    </attribute>
+                </field>
+
+                <field id="defer_google_font" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Defer Google Fonts</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

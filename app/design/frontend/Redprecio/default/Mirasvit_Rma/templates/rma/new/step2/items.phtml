@@ -1,0 +1,28 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2\Items $block */
+/** @var \Mirasvit\Rma\Api\Data\ItemInterface $item */
+?>
+<div class="block">
+    <div class="title">
+        <strong><?= __('Items in this order') ?></strong>
+    </div>
+    <div class="block-content ui-rma-items ui-store-items-container">
+        <?php foreach ($block->getRmaItems() as $item): ?>
+            <?php
+            if ($item->getProductType() == 'bundle') {
+                continue;
+            }
+            ?>
+            <?php
+            /** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2\Items\Item $itemsBlock */
+            $itemsBlock = $block->getChildBlock('rma.new.step2.items.item')
+                ->setItem($item)
+                ->setOrder($block->getOrder())
+            ;
+            ?>
+            <?php echo $itemsBlock->toHtml() ?>
+        <?php endforeach ?>
+    </div>
+</div>
+
+<div class="clearfix"></div>

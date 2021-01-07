@@ -1,0 +1,73 @@
+<?php
+/* @var $block \Mirasvit\Rma\Block\Rma\View\Info */
+$rma    = $block->getRma();
+$orders = $block->getOrders();
+?>
+<div class="mst-rma-block">
+    <div class="mst-rma-box mst-rma__return">
+        <div class="mst-rma-box__title"><?= __('Request Information') ?></div>
+        <div class="mst-rma-box__content">
+            <table width="100%">
+                <tbody>
+                <tr>
+                    <th><?= __('RMA') ?>:</th>
+                    <td>
+                        #<?= $block->escapeHtml($rma->getIncrementId()) ?>&nbsp;
+                        <span class="mst-rma-status status-branch-<?= $block->getStatus($rma)->getColor() ?>">
+                                <?= $block->escapeHtml($block->getStatus($rma)->getName()) ?>
+                            </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><?= __('Order') ?>:</th>
+                    <td>
+                        <?php foreach ($orders as $order): ?>
+                            <div>
+                                <?php if ($rma->getCustomerId()): ?>
+                                    <?= $block->getOrderLabel($order, $block->getOrderUrl($order->getId())) ?>
+                                <?php else: ?>
+                                    <?= $block->getOrderLabel($order) ?>
+                                <?php endif ?>
+                            </div>
+                        <?php endforeach; ?>
+                        <?= $rma->getIsGift() ? __('(This was a gift)') : '' ?>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><?= __('Date Requested') ?>:</th>
+                    <td><?= $block->formatDate($rma->getCreatedAt(), \IntlDateFormatter::MEDIUM) ?></td>
+                </tr>
+
+                <?php foreach ($block->getCustomFields($rma) as $field): ?>
+                    <?php if (!$value = $block->getRmaFieldValue($rma, $field)) {
+                        continue;
+                    } ?>
+                    <tr>
+                        <th><?= __($block->escapeHtml($field->getName())) ?>:</th>
+                        <td>
+                            <?= $block->escapeHtml($value) ?>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mst-rma-box mst-rma__contact" style="display: none;">
+        <div class="mst-rma-box__title"><?= __('Contact Information') ?></div>
+        <div class="mst-rma-box__content">
+            <?= nl2br($block->escapeHtml($block->getShippingAddressHtml($rma))) ?>
+        </div>
+    </div>
+
+    <?php if ($address = $block->getReturnAddressHtml($rma)): ?>
+        <div class="mst-rma-box mst-rma__return-address">
+            <div class="mst-rma-box__title"><?= __('Return Address') ?></div>
+            <div class="mst-rma-box__content">
+                <?= nl2br($block->escapeHtml($address)) ?>
+            </div>
+        </div>
+    <?php endif ?>
+</div>

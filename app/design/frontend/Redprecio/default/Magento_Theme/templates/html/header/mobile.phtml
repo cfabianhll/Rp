@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+$storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt()
+
+?>
+<?php
+/* <span data-action="toggle-nav" class="action nav-toggle"><span><?= $block->escapeHtml(__('Toggle Nav')) ?></span></span> */ 
+$url = $block->getUrl('');
+if($block->isHomePage()) :
+	$url = 'javascrip:void(0)';
+endif;
+?>
+<?php if($block->isHomePage()) : ?>
+<a href="#" class="menu_icon menuicon icon_home" id="ham"><i class="fas fa-stream"></i></a>
+<a class="logo logo_section mobile" href="<?php echo $url; ?>" title="<?= $block->escapeHtmlAttr($storeName) ?>" aria-label="store logo">
+	<span class="gw-menu-text">
+		<img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
+             title="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             alt="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+             <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+        />
+	</span>
+</a>
+<?php else : ?>
+<div class="filter_m desktop_visible pl-0 menuicon" style="cursor: pointer;" id="ham"><i class="fas fa-stream"></i></div>
+<a class="logo logo_section mobile" href="<?php echo $url; ?>" title="<?= $block->escapeHtmlAttr($storeName) ?>" aria-label="store logo">
+	<span class="gw-menu-text">
+		<img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
+             title="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             alt="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+             <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+        />
+	</span>
+</a>
+<!-- <a href="#" class="menu_icon filter_icon"><i class="fas fa-filter"></i></a> -->
+<button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
+            <i class="fas fa-filter"></i>
+        </button>
+<?php endif; ?>
+									

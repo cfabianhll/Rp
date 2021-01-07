@@ -1,0 +1,78 @@
+<?php
+/* @var \Mirasvit\Rma\Block\Rma\View\Items $block */
+?>
+<div class="block">
+    <div class="block-content">
+        <div class="table-wrapper">
+            <table class="data table">
+                <thead>
+                <tr>
+                    <th scope="col" class="col"></th>
+                    <th scope="col" class="col"><?= __('Product Name') ?></th>
+                    <th scope="col" class="col"><?= __('SKU') ?></th>
+                    <th scope="col" class="col"><?= __('Order') ?></th>
+                    <th scope="col" class="col"><?= __('Qty') ?></th>
+
+                    <?php if ($block->isReasonAllowed()): ?>
+                        <th scope="col" class="col"><?= __('Reason') ?></th>
+                    <?php endif ?>
+
+                    <?php if ($block->isConditionAllowed()): ?>
+                        <th scope="col" class="col"><?= __('Condition') ?></th>
+                    <?php endif ?>
+
+                    <?php if ($block->isResolutionAllowed()): ?>
+                        <th scope="col" class="col"><?= __('Resolution') ?></th>
+                    <?php endif ?>
+                </tr>
+                </thead>
+                <tbody>
+                <?php /** @var \Mirasvit\Rma\Api\Data\ItemInterface $item */ ?>
+                <?php foreach ($block->getItems() as $item): ?>
+                    <tr>
+                        <td data-th="Product" class="col" width="75px">
+                            <img id="image"
+                                 src="<?= $block->initImage($item, 'product_page_image_small')->resize(150)->getUrl() ?>"
+                            />
+                        </td>
+
+                        <td data-th="<?= __('Product Name') ?>" class="col">
+                            <?= $block->getOrderItemLabel($item) ?>
+                        </td>
+
+                        <td data-th="<?= __('SKU') ?>" class="col">
+                            <?= $block->getOrderItemSku($item) ?>
+                        </td>
+
+                        <td data-th="<?= __('Order') ?>" class="col">
+                            #<?= $block->getOrderItemOrderIncrement($item) ?>
+                        </td>
+
+                        <td data-th="<?= __('QTY') ?>" class="col">
+                            <?= $item->getQtyRequested() ?>
+                        </td>
+
+                        <?php if ($block->isReasonAllowed()): ?>
+                            <td data-th="<?= __('Reason') ?>" class="col">
+                                <?= $block->escapeHtml($block->getReasonName($item)) ?>
+                            </td>
+                        <?php endif ?>
+
+                        <?php if ($block->isConditionAllowed()): ?>
+                            <td data-th="<?= __('Condition') ?>" class="col">
+                                <?= $block->escapeHtml($block->getConditionName($item)) ?>
+                            </td>
+                        <?php endif ?>
+
+                        <?php if ($block->isResolutionAllowed()): ?>
+                            <td data-th="<?= __('Resolution') ?>" class="col">
+                                <div class="mst-rma-badge"><?= $block->escapeHtml($block->getResolutionName($item)) ?></div>
+                            </td>
+                        <?php endif ?>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

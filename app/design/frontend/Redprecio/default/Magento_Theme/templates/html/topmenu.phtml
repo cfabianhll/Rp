@@ -1,0 +1,107 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+/* if ($this->_request->getFullActionName() == 'cms_index_index') {
+    echo "you are on the homepage"
+} */
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit)
+?>
+<?php if($block->getFullActionName() == "cms_index_index") { ?>
+<nav class="navigation desktop_menu" data-action="navigation">
+<ul class="left_mega_menu nav-items" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+	<?= /* @noEscape */ $_menuHtml?>
+	<?= $block->getChildHtml() ?>
+</ul>
+</nav>
+<?php } else { ?>
+<div id="mySidenav" class="sidenav desktop_visible">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="close_menu" style="display: inline-block;">&times;</span><span style="display: inherit;font-size: 10px;"><?= $block->escapeHtml(__('Menu')) ?></span></a>
+<a class="logo logo_section custom-top-left-logo" href="<?= $block->getUrl('') ?>" title="<?= $block->getChildHtml('logo') ?>" aria-label="store logo"><span class="gw-menu-text">
+	<img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
+             title="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             alt="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+             <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+        /></span></a>
+<nav class="navigation desktop_menu" data-action="navigation">
+<ul class="left_mega_menu nohome" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+	<?= /* @noEscape */ $_menuHtml?>
+	<?= $block->getChildHtml() ?>
+</ul>
+</nav>
+</div>
+<?php } ?>
+<!------------Mobile Menu--------->
+<?php 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category_model = $objectManager->get('Magento\Catalog\Model\Category');
+$category_id = 2;//default category
+$category = $category_model->load($category_id); 
+?>
+<?php if($category->getChildrenCount() > 0) { ?> 
+<nav class="nav-drill mobile_nav">
+<ul class="nav-items nav-level-1">
+     <li class="nav-item category_title">
+             <a href="#" class="nav-link">Categorías</a>
+        </li>
+    <?php $childrenCategories = $category->getChildrenCategories();
+    foreach ($childrenCategories as $_categoryy): ?>
+        <?php $_categorys = $category_model->load($_categoryy->getId()); ?>
+        <?php if($_categorys->getChildrenCount() > 0 ) { ?>      
+            <li class="nav-item nav-expand">
+                <a href="<?php echo $_categorys->getUrl() ?>" class="nav-link nav-expand-link"><?php echo $_categorys->getName(); ?></a>
+                <i class="fas fa-chevron-right"></i>
+                <?php $categoryyy = $category_model->load($_categorys->getId()); ?>
+                <?php $childrenCategoriess = $categoryyy->getChildrenCategories();?>
+                <ul class="nav-items nav-expand-content level-2">
+                    <li class="nav-item parent_cat">
+                                 <a class="nav-link parentcat" href="#"><?php echo $_categorys->getName(); ?></a>
+                             </li>
+                    <?php foreach ($childrenCategoriess as $_categoryss): ?>
+                        <?php $_categorysy = $category_model->load($_categoryss->getId()); ?>
+                        <?php if($_categorysy->getChildrenCount() > 0 ) { ?>
+                             
+                            <li class="nav-item nav-expand">
+                                <a class="nav-link nav-expand-link" href="<?php echo $_categorysy->getUrl(); ?>"><?php echo $_categorysy->getName(); ?></a>
+                                <i class="fas fa-chevron-right"></i>
+                                <?php $categoryaw = $category_model->load($_categorysy->getId()); ?>
+                                <?php $childrenCategoriesys = $categoryaw->getChildrenCategories();?>
+                                <ul class="nav-items nav-expand-content level-3">
+                                    <li class="nav-item parent_cat">
+                                 <a class="nav-link parentcat" href="#"><?php echo $_categorysy->getName(); ?></a>
+                             </li>
+                                    <?php foreach ($childrenCategoriesys as $_categoryaa): ?>
+                                    <?php $_categorya = $category_model->load($_categoryaa->getId()); ?>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?php echo $_categorya->getUrl(); ?>"><?php echo $_categorya->getName(); ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            
+                            </li>
+                        <?php } else { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo $_categorysy->getUrl() ?>"><?php echo $_categorysy->getName(); ?></a>
+                            </li>
+                        <?php } ?>
+                    <?php endforeach; ?>
+                </ul>
+            </li>
+        <?php } else { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo $_categorys->getUrl() ?>"> <span class="gw-menu-text"><?php echo $_categorys->getName(); ?></span></a>
+            </li>
+        <?php } ?>
+    <?php endforeach; ?>
+</ul>
+</nav>
+<?php } ?>

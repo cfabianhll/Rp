@@ -1,0 +1,484 @@
+"Request RMA","Be om RMA"
+"My Returns","Mine retur"
+Grid,Nett
+List,Liste
+All,Alle
+"Create RMA","Opprett RMA"
+"Request New Return","Be om ny retur"
+"Max file size: %1Mb","Maks filstørrelse: %1Mb"
+"New Return for Order #%1","Ny retur for bestilling #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Feil bestilling #, E-post eller etternavn"
+Items,Elementer
+"To apply changes you should fill in required ""%1"" field","For å bruke endringer bør du fylle ut ønsket &quot;%1&quot; -felt"
+"Please, add order items to the RMA (set 'Qty to Return')","Vennligst legg til bestillingselementer til RMA (sett &#39;Qty to Return&#39;)"
+"Please, set correct order items Quantity to return","Vennligst sett riktig ordreelementer Mengde som skal returneres"
+"RMA was successfully created","RMA ble opprettet successfullyy"
+"Shipping is confirmed. Thank you!","Frakt er bekreftet. Takk skal du ha!"
+"Your message was successfully added","Din melding ble lagt til"
+"Allowed extensions:","Tillatte utvidelser:"
+"Maximum size:","Maksimal størrelse:"
+"-- Please Select --","-- Vennligst velg --"
+" at %1 (%2)","på %1 (%2)"
+"Mark as unresolved","Merk som uoppløst"
+"Mark as resolved","Merk som løst"
+"not set","ikke satt"
+Pattern,Mønster
+"Attribute Value",Egenskapsverdi
+Default,Misligholde
+Integer,Integer
+Price,Pris
+"Strip Tags","Strip Tags"
+"Primary Attributes",Primærattributter
+"Stock Attributes",Lagerattributter
+"Prices & Taxes","Priser og avgifter"
+Images,Bilder
+"Custom Attributes","Egendefinerte attributter"
+Mapping,Kartlegging
+Category,Kategori
+"Amasty Meta Tags","Amasty Meta Tags"
+"Others Attributes","Andre attributter"
+Text,Tekst
+"Multi-line text","Multi-line tekst"
+Date,Dato
+Checkbox,Avkrysnings
+"Drop-down list",Nedtrekksliste
+Reason,"Grunnen til"
+Condition,Betingelse
+Resolution,Vedtak
+"RMA #","RMA #"
+"Order #","Rekkefølge #"
+"Customer Email","Kundens e-postadresse"
+"Customer Name",Kundenavn
+Owner,Eieren
+"Last Replier","Siste mappe"
+Status,Status
+Store,Butikk
+"Created At","Opprettet på"
+"Last Activity","Siste aktivitet"
+"View link","Se lenke"
+"New RMA has been created","Ny RMA er opprettet"
+"RMA has been changed","RMA har blitt endret"
+"New reply from customer","Nytt svar fra kunden"
+"New reply from staff","Nytt svar fra personalet"
+"-- Default Address --","-- Standard adresse --"
+"Update the Product","Oppdater produktet"
+"Conditions Combination","Betingelser Kombinasjon"
+"RMA Attribute",RMA-attributter
+"Last 7-days Clicks","Siste 7-dagers klikk"
+"Last 7-days Orders","Siste 7-dagers bestillinger"
+"Last 7-days Revenue","Siste 7-dagers inntekt"
+"Last 7-days Conversation Rate (%)","Siste 7-dagers samtalesats (%)"
+"Attribute Set",Egenskapssett
+Quantity,Mengde
+"Product Type",Produkttype
+"Base Image",Base-bilde
+Thumbnail,Thumbnail
+"Small Image","Små bilde"
+"Base Image Size (bytes)","Base Image Size (bytes)"
+"Thumbnail Size (bytes)","Miniatyrstørrelse (bytes)"
+"Small Image Size (bytes)","Liten bildestørrelse (bytes)"
+"PHP Condition","PHP Tilstand"
+"Open Chooser","Åpne velgeren"
+"Last message body","Siste meldingsorgan"
+"Updated At","Oppdatert på"
+"Status (before change)","Status (før endring)"
+"Owner (before change)","Eier (før endring)"
+"Last Reply By","Siste svar av"
+"Hours since Created","Timer siden opprettet"
+"Hours since Updated","Timer siden oppdatert"
+"Hours since Last reply","Timer siden Siste svar"
+"Items have reason","Elementer har grunn"
+"Items have condition","Elementene har tilstand"
+"Items have resolution","Elementene har oppløsning"
+"%1 (before change)","%1 (før endring)"
+Customer,Kunde
+Staff,Personale
+"- Disable these emails -","- Deaktiver disse e-postene -"
+Yes,Ja
+No,Nei
+Save,Lagre
+"Save & Continue Edit","Lagre og fortsett Rediger"
+"Save & Close","Lagre og lukk"
+Edit,Redigere
+Delete,Slett
+"Delete ""${ $.$data.name }""","Slett "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Er du sikker på at du vil slette en "${ $.$data.name }" -oppføring?"
+"Are you sure you want to do this?","Er du sikker på at du vil gjøre dette?"
+"Convert To Ticket","Konverter til billett"
+"View order #${ $.$data.order_id }","Se rekkefølge #${ $.$data.order_id }"
+"View exchange order %1","Se utvekslingsordre %1"
+"RMA: Report by Attribute","RMA: Rapporter etter attributt"
+"RMA: Report by Status","RMA: Rapporter etter status"
+"RMA: Report by Product","RMA: Rapporter etter produkt"
+"RMA: Report by Reasons","RMA: Rapport av grunner"
+"Cannot delete return address with id %1","Kan ikke slette returadresse med id %1"
+"Cannot delete item with id %1","Kan ikke slette element med id %1"
+"Cannot delete condition with id %1","Kan ikke slette tilstand med id %1"
+"Cannot delete field with id %1","Kan ikke slette felt med id %1"
+"Cannot delete message with id %1","Kan ikke slette melding med id %1"
+"Cannot delete history with id %1","Kan ikke slette historie med id %1"
+"Cannot delete Quick Response with id %1","Kan ikke slette hurtigrespons med id %1"
+"Cannot delete reason with id %1","Kan ikke slette grunn med id %1"
+"Cannot delete resolution with id %1","Kan ikke slette oppløsning med id %1"
+"Cannot delete rma with id %1","Kan ikke slette rma med id %1"
+"Cannot delete rule with id %1","Kan ikke slette regel med id %1"
+"Cannot delete status with id %1","Kan ikke slette status med id %1"
+"Please, enter a message","Vennligst skriv inn en melding"
+"Product Name",Produktnavn
+SKU,SKU
+Qty,Antall
+"This was a gift, please do not notify purchaser","Dette var en gave, vennligst ikke gi beskjed til kjøperen"
+"Enter your contact information","Skriv inn kontaktinformasjonen din"
+"First Name",Fornavn
+"Last Name",Etternavn
+Email,E-post
+Telephone,Telefon
+"To request a new RMA or check the status of current RMA, please, fill the form:","For å be om en ny RMA eller sjekk statusen for dagens RMA, vennligst fyll ut skjemaet:"
+"* Required Fields","* Obligatoriske felt"
+"Order Information",BESTILLINGSINFORMASJON
+"Email or Last Name","E-post eller etternavn"
+Next,Neste
+RMA,RMA
+Actions,Handlinger
+"View Return","Vis retur"
+"There are no Returns","Det er ingen retur"
+"Items %1 to %2 of %3 total","Elementer %1 til %2 av %3 totalt"
+"%1 Item(s)","%1 vare (r)"
+Show,Forestilling
+"per page","per side"
+"View as","Se som"
+"Sort by","Sorter etter"
+"Set Ascending Direction","Sett stigende retning"
+"Set Descending Direction","Sett nedadgående retning"
+"Please, select an order","Vennligst velg en bestilling"
+Order,Rekkefølge
+"-- Select an Order --","- Velg en bestilling -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","Du har ikke fullført bestillinger for å be om RMA, eller bestillingene dine ble plassert mer enn %1 dager siden. Vennligst kontakt kundeservice."
+"Submit Request","Send inn forespørsel"
+"Please, select RMA items which you would like to return.","Vennligst velg RMA-elementer som du vil returnere."
+"Additional Information",Tilleggsinformasjon
+"Attach files","Legg til filer"
+"Request Information","Be om informasjon"
+"Email Address",Epostadresse
+"Order Shipping Address","Bestill leveringsadresse"
+"Items in this order","Elementer i denne rekkefølgen"
+"There are no items for this product that can be returned.","Det er ingen produkter for dette produktet som kan returneres."
+"Another RMA for this product: %1","En annen RMA for dette produktet: %1"
+"This product can not be returned due to RMA Policy","Dette produktet kan ikke returneres på grunn av RMA Policy"
+"This is a non-returnable item per our return policy.","Dette er en ikke-returnerbar vare per returretningslinje."
+"Quantity to return","Mengde å returnere"
+"-- Select a Reason --","- Velg en grunn -"
+"-- Select a Condition --","- Velg en tilstand -"
+"-- Select a Resolution --","- Velg en oppløsning -"
+"I agree","Jeg er enig"
+"Date: %1","Dato: %1"
+"Original order: #%1","Original ordre: #%1"
+"Return Address",Returadresse
+"Customer Information",Kundeinformasjon
+"RMA History","RMA historie"
+"RMA Items",RMA-elementer
+Weight,Vekt
+"Print RMA Packing Slip","Skriv ut RMA Packing Slip"
+"Print RMA Shipping Label","Skriv ut RMA Shipping Label"
+"Confirm Shipping","Bekreft frakt"
+"(This was a gift)","(Dette var en gave)"
+"Date Requested","Dato forespurt"
+"Contact Information",Kontaktinformasjon
+"Items RMA Requested for","Elementer RMA ønsket om"
+QTY,ANT
+"Add Message","Legg til melding"
+Submit,"Sende inn"
+%name,%Navn
+"The quantity is incorrect.","Mengden er feil."
+"New Return for Offline Order","Ny retur for frakoblet bestilling"
+" at %1","på %1"
+Select,"Plukke ut"
+"If you do not have account on this store please fill the form below.","Hvis du ikke har konto på denne butikken, vennligst fyll ut skjemaet nedenfor."
+"-- Create Offline Order --","- Lag offlineordre -"
+"Returned Item","Returnert vare"
+"Remove Item","Fjerne gjenstand"
+"Order or Receipt #","Bestilling eller kvittering #"
+"Add Item","Legg til element"
+"Add at least one item to this RMA","Legg til minst ett element i denne RMA"
+"Return Addresses",Returadresser
+"Add New Return Address","Legg til nytt returadresse"
+"General Information","Generell informasjon"
+Title,Tittel
+"Sort Order",Sorteringsrekkefølge
+"Is Active","Er aktiv"
+ID,ID
+Active,Aktiv
+Disabled,Funksjonshemmet
+Enabled,Aktivert
+"Change status","Endre status"
+"Are you sure?","Er du sikker?"
+Conditions,Forhold
+"Add New Condition","Legg til ny betingelse"
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer","Opprett RMA for denne kunden"
+Fields,Enger
+"Add New Field","Legg til nytt felt"
+Code,Kode
+Type,Type
+Description,Beskrivelse
+"Options list",Alternativliste
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Bare for rullegardinliste. <br> Skriv inn hver verdi fra den nye linjen ved hjelp av format: <br> verdi1 | Label1 <br> value2 | Label2"
+"Sort order",Sorteringsrekkefølge
+"Is required for staff","Er nødvendig for ansatte"
+"Is required for customers","Er nødvendig for kunder"
+"Visible for customers in statuses","Synlig for kunder i statusene"
+"Is show in confirm shipping dialog","Vises i bekreft leveringsdialogboksen"
+"Is editable for customers","Kan redigeres for kunder"
+Statuses,Statuser
+Reasons,Grunner
+Resolutions,Resolusjoner
+"Custom Fields","Egendefinerte felt"
+"Quick Responses","Rask respons"
+"Workflow Rules",Arbeidsflytregler
+Reports,Rapporter
+Settings,Innstillinger
+"Add New Reason","Legg til ny grunn"
+"Add New Resolution","Legg til ny oppløsning"
+"Add New RMA","Legg til nytt RMA"
+"Create New RMA","Opprett ny RMA"
+"Purchased From (Store)","Kjøpt fra (Store)"
+"Purchased On","Kjøpt på"
+"Bill to Name","Bill til navn"
+"Ship to Name","Send til navn"
+"G.T. (Base)","GT (Base)"
+"G.T. (Purchased)","GT (kjøpt)"
+Print,"Skrive ut"
+"Credit Memo",Kreditnota
+"Exchange Order","Exchange Order"
+"Delete File","Slett fil"
+"RMA Owner","RMA Eier"
+"Upload Return Label","Last opp retur etikett"
+"External Link","Ekstern lenke"
+open,åpen
+"(received a gift)","(mottatt en gave)"
+"Exchage Order",Ekspansjonsordre
+Company,Selskap
+"Street Address",Gateadresse
+City,By
+Zip/Postcode,"Zip / postnummer"
+Rules,Regler
+"Add New Rule","Legg til ny regel"
+"Set Status","Angi status"
+"Set Owner","Sett eier"
+Event,Begivenhet
+Filters,Filtre
+"Rule Name",Regelnavn
+Priority,Prioritet
+"Arranged in the ascending order. 0 is the highest.","Ordnet i stigende rekkefølge. 0 er høyest."
+"Stop Further Rules Processing","Stopp videreregistreringsbehandling"
+Notifications,Varsler
+"Send email to RMA owner","Send e-post til RMA-eier"
+"Send email to customer","Send e-post til kunde"
+"Send email to other email addresses","Send e-post til andre e-postadresser"
+"Email subject","E-post Emne"
+"Email body","E-post kroppen"
+"Attach files which were attached to the last message","Legg ved filer som var knyttet til den siste meldingen"
+"Is Stop Processing","Er Stoppbehandling"
+"Create RMA for this order","Opprett RMA for denne bestillingen"
+"Order meets RMA policy","Bestillingen oppfyller RMA-policyen"
+"Order doesn't meet RMA policy","Bestillingen oppfyller ikke RMA-policyen"
+"Add New Status","Legg til ny status"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Vis knapper &#39;Print RMA Packing Slip&#39;, &#39;Print RMA Shipping Label&#39; og &#39;Bekreft frakt&#39; i kundekontoen"
+"Email Notification for customer","E-postvarsling for kunde"
+"leave blank to not send","la være tom for ikke å sende"
+"Message for RMA history","Melding om RMA-historie"
+"Email Notification for administrator","E-postvarsling for administrator"
+Templates,Maler
+"Add New Template","Legg til ny mal"
+"Internal Title","Internt tittel"
+Template,Mal
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Du kan bruke variabler: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Butikker
+"RMA Return Address","RMA returadresse"
+"New Return Address","Ny returadresse"
+"Return Address Manager",Returadressebehandling
+"Add Return Address ","Legg til returadresse"
+"Add Return Address","Legg til returadresse"
+"Return Address was successfully deleted","Returadresse ble slettet"
+"Edit Return Address '%1'","Rediger returadresse &#39;%1&#39;"
+"Edit Return Address ","Rediger returadresse"
+"The Return Address does not exist.","Returadressen finnes ikke."
+"Please select Return Address(es)","Vennligst velg Returadresse (r)"
+"Total of %d record(s) were successfully updated","Totalt antall% d-poster ble oppdatert"
+"Total of %1 record(s) were successfully deleted","Totalt %1 post (er) ble slettet"
+"return Address was successfully saved","Returadresse ble lagret"
+"Unable to find Return Address to save","Kan ikke finne Returadresse for å lagre"
+"New Condition","Ny tilstand"
+"Condition  Manager",Tilstandsbehandling
+"Condition Manager",Tilstandsbehandling
+"Add Condition ","Legg Tilstand"
+"Add Condition","Legg Tilstand"
+"Condition was successfully deleted","Tilstanden ble slettet"
+"Edit Condition '%1'","Rediger betingelse &#39;%1&#39;"
+"Edit Condition ","Rediger Tilstand"
+"The Condition does not exist.","Tilstanden eksisterer ikke."
+"Please select Condition(s)","Vennligst velg Tilstand (er)"
+"Total of %d record(s) were successfully deleted","Totalt antall% d-poster ble slettet"
+"Condition was successfully saved","Tilstanden ble lagret"
+"Unable to find Condition to save","Kunne ikke finne betingelse for å lagre"
+"New Field","Nytt felt"
+"Field  Manager","Field Manager"
+"Field Manager","Field Manager"
+"Add Field ","Legg til felt"
+"Add Field","Legg til felt"
+"Field was successfully deleted","Feltet ble slettet"
+"Edit Field '%1'","Rediger felt &#39;%1&#39;"
+"Edit Field ","Rediger felt"
+"The Field does not exist.","Feltet finnes ikke."
+"Please select Field(s)","Vennligst velg Felt (e)"
+"Field was successfully saved","Feltet ble vellykket lagret"
+"Unable to find Field to save","Kan ikke finne felt som skal lagres"
+"New Reason","Ny grunn"
+"Reason  Manager","Reason Manager"
+"Reason Manager","Reason Manager"
+"Add Reason ","Legg til grunn"
+"Add Reason","Legg til grunn"
+"Reason was successfully deleted","Årsaken ble slettet"
+"Edit Reason '%1'","Rediger grunnen &#39;%1&#39;"
+"Edit Reason ","Rediger grunn"
+"The Reason does not exist.","Årsaken eksisterer ikke."
+"Please select Reason(s)","Vennligst velg Årsak (er)"
+"Reason was successfully saved","Årsaken ble vellykket lagret"
+"Unable to find Reason to save","Kunne ikke finne grunn til å lagre"
+"Statistics was successfully updated","Statistikken ble vellykket oppdatert"
+"RMA by Brand","RMA etter merkevare"
+"RMA Report",RMA-rapport
+"RMA by Product","RMA etter produkt"
+Rma,RMA
+"New Resolution","Ny oppløsning"
+"Resolution  Manager",Oppløsningshåndtering
+"Resolution Manager",Oppløsningshåndtering
+"Add Resolution ","Legg til oppløsning"
+"Add Resolution","Legg til oppløsning"
+"Resolution was successfully deleted","Oppløsning ble slettet"
+"Edit Resolution '%1'","Rediger oppløsning &#39;%1&#39;"
+"Edit Resolution ","Rediger oppløsning"
+"The Resolution does not exist.","Oppløsningen eksisterer ikke."
+"Please select Resolution(s)","Vennligst velg Oppløsning (er)"
+"Resolution was successfully saved","Oppløsning ble vellykket lagret"
+"Unable to find Resolution to save","Kunne ikke finne oppløsning for å lagre"
+"New RMA","Ny RMA"
+"RMA was successfully deleted","RMA ble slettet"
+"The rma does not exist.","Rma eksisterer ikke."
+"Marked as read","Merket som lest"
+"Marked as unread","Merket som ulest"
+"Please select rma(s)","Vennligst velg rma (s)"
+"A total of %1 record(s) have been deleted.","Totalt %1 post (er) er slettet."
+"RMA was successfully saved","RMA ble lagret"
+"Unable to find rma to save","Kan ikke finne rma for å lagre"
+"New Rule","Ny regel"
+"Rule  Manager",Regelbehandling
+"Rule Manager",Regelbehandling
+"Add Rule ","Legg til regel"
+"Add Rule","Legg til regel"
+"Rule was successfully deleted","Regelen ble slettet"
+"Edit Rule '%1'","Rediger regel &#39;%1&#39;"
+"Edit Rule ","Rediger regel"
+"The Rule does not exist.","Regelen eksisterer ikke."
+"Please select Rule(s)","Vennligst velg Regel (er)"
+"Rule was successfully saved","Regelen ble vellykket lagret"
+"Unable to find Rule to save","Kan ikke finne Regel for å lagre"
+"New Status","Ny status"
+"Status  Manager",Statusbehandling
+"Status Manager",Statusbehandling
+"Add Status ","Legg til status"
+"Add Status","Legg til status"
+"Status was successfully deleted","Status ble slettet"
+"Edit Status '%1'","Rediger status &#39;%1&#39;"
+"Edit Status ","Rediger status"
+"The Status does not exist.","Statusen eksisterer ikke."
+"Please select Status(s)","Vennligst velg Status (er)"
+"Status was successfully saved","Status ble lagret"
+"Unable to find Status to save","Kan ikke finne status som skal lagres"
+"New Template","Ny mal"
+"Template  Manager","Template Manager"
+"Template Manager","Template Manager"
+"Add Template ","Legg til mal"
+"Add Template","Legg til mal"
+"Template was successfully deleted","Malen ble slettet"
+"Edit Template '%1'","Rediger mal &#39;%1&#39;"
+"Edit Template ","Rediger mal"
+"The Template does not exist.","Malen eksisterer ikke."
+"Please select Template(s)","Vennligst velg Mal (er)"
+"Template was successfully saved","Malen ble lagret"
+"Unable to find Template to save","Kunne ikke finne mal for å lagre"
+"Created Date","Opprettet dato"
+Action,Handling
+View,Utsikt
+RMAs,RMAs
+"Select Order","Velg bestilling"
+"Exchange/Credit Balance","Utveksling / Kredittbalanse"
+"Customer credit balance:",Kredittkortsaldo:
+"Total price of new products:","Total pris på nye produkter:"
+"Total price of exchanged/credit products:","Totalpris på utvekslede / kredittprodukter:"
+"Price difference:",Prisforskjell:
+Resolution:,Vedtak:
+"Get %1 from customer credit balance","Få %1 fra kundens kredittbalanse"
+"Put %1 to customer credit balance","Sett %1 til kundens kredittbalanse"
+"Resolve manually","Løs opp manuelt"
+"Message Type",Meldingstype
+"Message to Customer","Melding til kunden"
+"Internal Note","Intern notat"
+"mark as unread","merk som ulest"
+"mark as read","merk som lest"
+"You can not return more, than available. Please, try again.","Du kan ikke returnere mer enn tilgjengelig. Vær så snill, prøv på nytt."
+"show all order items","vis alle bestillingsartikler"
+"Qty to Return","Antall å returnere"
+"Reason to Return","Årsak til retur"
+"Item Condition","Vare Tilstand"
+"(Bundled Product)","(Kombinert produkt)"
+Stock,Lager
+Ordered,Bestilt
+Available,Tilgjengelig
+--,-
+"Insert Quick Response","Sett inn raskt svar"
+"Default status for new RMA","Standardstatus for ny RMA"
+"Default owner for new RMA","Standard eier for ny RMA"
+"Ask customer to confirm shipping","Spør kunden om å bekrefte frakt"
+"Shipping confirmation text",Fraktbekreftelsestekst
+"Enable option ""This was a gift""","Aktiver alternativet &quot;Dette var en gave&quot;"
+"Enable integration with Help Desk","Aktiver integrasjon med Help Desk"
+"Code of ""Brand"" attribute","Kode for &quot;Brand&quot; attributt"
+"Allow upload only attachments with extensions","Tillat bare laste opp vedlegg med utvidelser"
+"Limit of attachments size, Mb","Grense for vedleggsstørrelse, Mb"
+"Show Columns in RMA Grid","Vis kolonner i RMA-nettet"
+"Show RMA section in Customer Account","Vis RMA-delen i Kundekonto"
+"Customers are required to select:","Kunder må velge:"
+"Allow to request RMA after order completion, days","Tillat å be om RMA etter at bestillingen er fullført, dager"
+"Allow to request RMA if order has status","Tillat å be om RMA hvis bestillingen har status"
+"Ask to agree with RMA policy text","Be om å være enig med RMA-politikkteksten"
+"CMS block with RMA policy text","CMS-blokk med RMA-policy tekst"
+"Number Format",Nummerformat
+"Start Counter From","Start counter from"
+"Counter Increment Step","Tellerøkning Steg"
+"Counter Length",Tellerlengde
+"Email Sender","E-post Sender"
+"Template of Notification Email for Customer","Meldingsmelding for kunden"
+"Template of Notification Email for RMA Owner","Meldingsmelding for RMA Eier"
+"Template of Rule Notification","Melding om regelmelding"
+" Send blind carbon copy (BCC) of all emails to","Send blind kullkopi (BCC) av alle e-post til"
+"At least one RMA item should have resolution ""Exchange"".","Minst ett RMA-element skal ha oppløsning &quot;Exchange&quot;."
+"Add another order","Legg til en annen bestilling"
+"Offline Order","Frakoblet ordre"
+OR,ELLER
+"Select Offline Order","Velg frakoblet rekkefølge"

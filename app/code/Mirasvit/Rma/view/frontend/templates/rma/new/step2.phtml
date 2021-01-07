@@ -1,0 +1,26 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2 $block */
+?>
+<?php
+$order = $block->getOrder();
+if (!$order) {
+    return;
+}
+?>
+<div class="mst-rma-create__order rma-step2 rma-order-id-<?= $order->getId() ?>">
+    <div class="mst-rma-create__order-header">
+        <div class="increment-id">#<?= $order->getIncrementId() ?></div>
+
+        <div class="remove"><?= __('Remove') ?></div>
+    </div>
+
+    <div class="rma-new-step2">
+        <?= $block->getChildHtml('rma.new.step2.info') ?>
+
+        <?php if ($block->getAllowGift()): ?>
+            <?= $block->getChildHtml('rma.new.gift') ?>
+        <?php endif ?>
+
+        <?= $block->getChildHtml('rma.new.step2.items') ?>
+    </div>
+</div>

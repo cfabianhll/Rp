@@ -1,0 +1,19 @@
+<div class="data-grid-cell-content">
+    <table class="amasty-shipping-content" data-bind="foreach: { data: methods, as: 'item' }">
+        <tr>
+            <td><span data-bind="text:item.label"></span></td>
+            <td> <input class="admin__control-text wh-shipping"
+                        data-form-part="amasty_multi_inventory_warehouse_form"
+                        type="text"
+                        data-bind="
+        event: {change: $parent.userChanges},
+        value: $parent[item.key],
+        hasFocus: false,
+        valueUpdate: $parent.valueUpdate,
+        attr: {
+            name: $parent.inputName + '[' + item.key + ']'
+            }
+"/></td>
+        </tr>
+    </table>
+</div>

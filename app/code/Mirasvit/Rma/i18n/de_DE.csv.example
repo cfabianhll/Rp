@@ -1,0 +1,484 @@
+"Request RMA","Anfrage RMA"
+"My Returns","Meine Rückkehr"
+Grid,Gitter
+List,Liste
+All,Alle
+"Create RMA","Erstellen Sie eine RMA"
+"Request New Return","Fordern Sie eine neue Rückgabe an"
+"Max file size: %1Mb","Maximale Dateigröße: %1Mb"
+"New Return for Order #%1","Neue Rückkehr zur Bestellung #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Falsche Bestellnummer, E-Mail oder Nachname"
+Items,Artikel
+"To apply changes you should fill in required ""%1"" field","Um Änderungen zu übernehmen, füllen Sie das erforderliche Feld &quot;%1&quot; aus"
+"Please, add order items to the RMA (set 'Qty to Return')","Bitte fügen Sie der RMA Auftragspositionen hinzu (setzen Sie &#39;Menge bis zurück&#39;)"
+"Please, set correct order items Quantity to return","Bitte geben Sie die korrekten Bestellpositionen an, die Sie zurückgeben möchten"
+"RMA was successfully created","RMA wurde erfolgreich erstellt"
+"Shipping is confirmed. Thank you!","Versand ist bestätigt. Vielen Dank!"
+"Your message was successfully added","Ihre Nachricht wurde erfolgreich hinzugefügt"
+"Allowed extensions:","Erlaubte Erweiterungen:"
+"Maximum size:","Maximale Größe:"
+"-- Please Select --","-- Bitte auswählen --"
+" at %1 (%2)","um 12__)"
+"Mark as unresolved","Als nicht aufgelöst markieren"
+"Mark as resolved","Als gelöst markieren"
+"not set","nicht eingestellt"
+Pattern,Muster
+"Attribute Value",Attributwert
+Default,Standard
+Integer,"Ganze Zahl"
+Price,Preis
+"Strip Tags",Streifen-Tags
+"Primary Attributes","Primäre Attribute"
+"Stock Attributes",Aktienattribute
+"Prices & Taxes","Preise und Steuern"
+Images,Bilder
+"Custom Attributes","Benutzerdefinierte Attribute"
+Mapping,Kartierung
+Category,Kategorie
+"Amasty Meta Tags","Amasty Meta Tags"
+"Others Attributes","Andere Attribute"
+Text,Text
+"Multi-line text","Mehrzeiliger Text"
+Date,Datum
+Checkbox,Kontrollkästchen
+"Drop-down list",Dropdown-Liste
+Reason,Grund
+Condition,Bedingung
+Resolution,Auflösung
+"RMA #","RMA #"
+"Order #","Auftrag #"
+"Customer Email",Kunden-eMail
+"Customer Name",Kundenname
+Owner,Inhaber
+"Last Replier","Letzter Ordner"
+Status,Status
+Store,Geschäft
+"Created At","Hergestellt in"
+"Last Activity","Letzte Aktivität"
+"View link","Link anzeigen"
+"New RMA has been created","Neue RMA wurde erstellt"
+"RMA has been changed","RMA wurde geändert"
+"New reply from customer","Neue Antwort vom Kunden"
+"New reply from staff","Neue Antwort von den Mitarbeitern"
+"-- Default Address --","-- Standardadresse --"
+"Update the Product","Aktualisieren Sie das Produkt"
+"Conditions Combination","Bedingungen Kombination"
+"RMA Attribute","RMA Attribute"
+"Last 7-days Clicks","Letzte 7-Tage-Klicks"
+"Last 7-days Orders","Letzte 7 Tage Bestellungen"
+"Last 7-days Revenue","Letzter 7-Tage-Umsatz"
+"Last 7-days Conversation Rate (%)","Letzte 7-Tage Conversation Rate (%)"
+"Attribute Set","Attribut festgelegt"
+Quantity,Menge
+"Product Type",Produktart
+"Base Image",Basisbild
+Thumbnail,Miniaturansicht
+"Small Image","Kleines Bild"
+"Base Image Size (bytes)","Basisbildgröße (Bytes)"
+"Thumbnail Size (bytes)","Miniaturbildgröße (Bytes)"
+"Small Image Size (bytes)","Kleine Bildgröße (Bytes)"
+"PHP Condition",PHP-Bedingung
+"Open Chooser","Öffnen Sie die Auswahl"
+"Last message body","Letzter Nachrichtentext"
+"Updated At","Aktualisiert am"
+"Status (before change)","Status (vor Änderung)"
+"Owner (before change)","Besitzer (vor Änderung)"
+"Last Reply By","Letzte Antwort von"
+"Hours since Created","Stunden seit der Erstellung"
+"Hours since Updated","Stunden seit dem Update"
+"Hours since Last reply","Stunden seit letzter Antwort"
+"Items have reason","Gegenstände haben Grund"
+"Items have condition","Gegenstände haben einen Zustand"
+"Items have resolution","Artikel haben eine Auflösung"
+"%1 (before change)","%1 (vor Änderung)"
+Customer,Kunde
+Staff,Mitarbeiter
+"- Disable these emails -","- Deaktivieren Sie diese E-Mails -"
+Yes,Ja
+No,Nein
+Save,Sparen
+"Save & Continue Edit","Speichern und Weiter Bearbeiten"
+"Save & Close","Speichern und schließen"
+Edit,Bearbeiten
+Delete,Löschen
+"Delete ""${ $.$data.name }""","Löschen Sie "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Sind Sie sicher, dass Sie einen Datensatz "${ $.$data.name }" löschen möchten?"
+"Are you sure you want to do this?","Bist du sicher, dass du das machen willst?"
+"Convert To Ticket","In Ticket konvertieren"
+"View order #${ $.$data.order_id }","Reihenfolge anzeigen: ${ $.$data.order_id }"
+"View exchange order %1","Tauschauftrag anzeigen %1"
+"RMA: Report by Attribute","RMA: Bericht nach Attribut"
+"RMA: Report by Status","RMA: Bericht nach Status"
+"RMA: Report by Product","RMA: Bericht nach Produkt"
+"RMA: Report by Reasons","RMA: Bericht aus Gründen"
+"Cannot delete return address with id %1","Rücksendeadresse mit ID %1 kann nicht gelöscht werden"
+"Cannot delete item with id %1","Element mit ID %1 kann nicht gelöscht werden"
+"Cannot delete condition with id %1","Bedingung kann nicht mit ID %1 gelöscht werden"
+"Cannot delete field with id %1","Kann Feld mit ID %1 nicht löschen"
+"Cannot delete message with id %1","Nachricht mit ID %1 kann nicht gelöscht werden"
+"Cannot delete history with id %1","Der Verlauf kann nicht mit der ID %1 gelöscht werden"
+"Cannot delete Quick Response with id %1","Quick Response mit ID %1 kann nicht gelöscht werden"
+"Cannot delete reason with id %1","Der Grund kann nicht mit der ID %1 gelöscht werden"
+"Cannot delete resolution with id %1","Auflösung kann nicht mit ID %1 gelöscht werden"
+"Cannot delete rma with id %1","Rma kann nicht mit ID %1 gelöscht werden"
+"Cannot delete rule with id %1","Regel mit ID %1 kann nicht gelöscht werden"
+"Cannot delete status with id %1","Der Status mit der ID %1 kann nicht gelöscht werden"
+"Please, enter a message","Bitte geben Sie eine Nachricht ein"
+"Product Name",Produktname
+SKU,SKU
+Qty,Menge
+"This was a gift, please do not notify purchaser","Dies war ein Geschenk, bitte benachrichtigen Sie den Käufer nicht"
+"Enter your contact information","Geben Sie Ihre Kontaktinformationen ein"
+"First Name",Vorname
+"Last Name","Familienname, Nachname"
+Email,Email
+Telephone,Telefon
+"To request a new RMA or check the status of current RMA, please, fill the form:","Um eine neue RMA anzufordern oder den Status der aktuellen RMA zu überprüfen, füllen Sie bitte das Formular aus:"
+"* Required Fields","* Benötigte Felder"
+"Order Information",Bestellinformationen
+"Email or Last Name","E-Mail oder Nachname"
+Next,Nächster
+RMA,RMA
+Actions,Aktionen
+"View Return","Rücksendung anzeigen"
+"There are no Returns","Es gibt keine Rückgaben"
+"Items %1 to %2 of %3 total","Elemente %1 bis %2 von %3 gesamt"
+"%1 Item(s)","%1 Gegenstand (e)"
+Show,Show
+"per page","pro Seite"
+"View as","Ansicht als"
+"Sort by","Sortiere nach"
+"Set Ascending Direction","In aufsteigender Richtung festlegen"
+"Set Descending Direction","In absteigender Richtung festlegen"
+"Please, select an order","Bitte wählen Sie eine Bestellung aus"
+Order,Auftrag
+"-- Select an Order --","- Wählen Sie einen Auftrag -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","Sie haben keine abgeschlossenen Bestellungen, um RMA anzufordern oder Ihre Bestellungen wurden vor mehr als %1 Tagen aufgegeben. Bitte kontaktieren Sie den Kundendienst."
+"Submit Request","Anfrage einreichen"
+"Please, select RMA items which you would like to return.","Bitte wählen Sie RMA-Artikel, die Sie zurückgeben möchten."
+"Additional Information","Zusätzliche Information"
+"Attach files","Dateien anhängen"
+"Request Information","Anfrage Informationen"
+"Email Address",E-Mail-Addresse
+"Order Shipping Address","Versandadresse bestellen"
+"Items in this order","Artikel in dieser Reihenfolge"
+"There are no items for this product that can be returned.","Es gibt keine Artikel für dieses Produkt, die zurückgegeben werden können."
+"Another RMA for this product: %1","Eine weitere RMA für dieses Produkt: %1"
+"This product can not be returned due to RMA Policy","Dieses Produkt kann aufgrund der RMA-Richtlinie nicht zurückgegeben werden"
+"This is a non-returnable item per our return policy.","Dies ist ein nicht rückgabepflichtiger Artikel gemäß unserer Rückgaberichtlinie."
+"Quantity to return","Zurückzugebende Menge"
+"-- Select a Reason --","-- Wähle einen Grund --"
+"-- Select a Condition --","- Wählen Sie eine Bedingung -"
+"-- Select a Resolution --","- Wählen Sie eine Auflösung -"
+"I agree","Ich stimme zu"
+"Date: %1","Datum: %1"
+"Original order: #%1","Original Bestellung: #%1"
+"Return Address",Absender
+"Customer Information",Kundeninformation
+"RMA History",RMA-Geschichte
+"RMA Items",RMA-Artikel
+Weight,Gewicht
+"Print RMA Packing Slip","Drucken RMA-Verpackungszettel"
+"Print RMA Shipping Label","Drucken Sie den RMA-Versandaufkleber"
+"Confirm Shipping","Bestätigen Sie den Versand"
+"(This was a gift)","(Dies war ein Geschenk)"
+"Date Requested","Datum ist verlangt"
+"Contact Information","Kontakt Informationen"
+"Items RMA Requested for","Artikel, für die RMA angefordert wurde"
+QTY,Menge
+"Add Message","Nachricht hinzufügen"
+Submit,Einreichen
+%name,%Name
+"The quantity is incorrect.","Die Menge ist falsch."
+"New Return for Offline Order","Neue Rückgabe für Offline-Bestellung"
+" at %1","um 1__"
+Select,Wählen
+"If you do not have account on this store please fill the form below.","Wenn Sie kein Konto in diesem Geschäft haben, füllen Sie bitte das folgende Formular aus."
+"-- Create Offline Order --","- Offline Auftrag erstellen -"
+"Returned Item","Zurückgegebene Artikel"
+"Remove Item","Gegenstand entfernen"
+"Order or Receipt #","Bestellung oder Rechnung #"
+"Add Item","Artikel hinzufügen"
+"Add at least one item to this RMA","Fügen Sie dieser RMA mindestens einen Artikel hinzu"
+"Return Addresses",Rücksendeadressen
+"Add New Return Address","Neue Absenderadresse hinzufügen"
+"General Information","Allgemeine Information"
+Title,Titel
+"Sort Order",Sortierreihenfolge
+"Is Active","Ist aktiv"
+ID,"ICH WÜRDE"
+Active,Aktiv
+Disabled,Deaktiviert
+Enabled,Aktiviert
+"Change status","Status ändern"
+"Are you sure?","Bist du sicher?"
+Conditions,Bedingungen
+"Add New Condition","Neue Bedingung hinzufügen"
+"[STORE VIEW]",[SPEICHERANSICHT]
+"Create RMA for this customer","Erstellen Sie eine RMA für diesen Kunden"
+Fields,Felder
+"Add New Field","Neues Feld hinzufügen"
+Code,Code
+Type,Art
+Description,Beschreibung
+"Options list",Optionsliste
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Nur für Dropdown-Liste. <br> Geben Sie jeden Wert aus der neuen Zeile im folgenden Format ein: <br> value1 | label1 <br> value2 | label2"
+"Sort order",Sortierreihenfolge
+"Is required for staff","Wird für Personal benötigt"
+"Is required for customers","Wird für Kunden benötigt"
+"Visible for customers in statuses","Sichtbar für Kunden in Status"
+"Is show in confirm shipping dialog","Wird im Versandbestätigungsdialog angezeigt"
+"Is editable for customers","Ist für Kunden editierbar"
+Statuses,Status
+Reasons,"Gründe dafür"
+Resolutions,Beschlüsse
+"Custom Fields","Benutzerdefinierte Felder"
+"Quick Responses","Schnelle Antworten"
+"Workflow Rules",Workflow-Regeln
+Reports,Berichte
+Settings,"Die Einstellungen"
+"Add New Reason","Neuen Grund hinzufügen"
+"Add New Resolution","Neue Auflösung hinzufügen"
+"Add New RMA","Neue RMA hinzufügen"
+"Create New RMA","Neue RMA erstellen"
+"Purchased From (Store)","Gekauft von (Geschäft)"
+"Purchased On","Gekauft am"
+"Bill to Name","Rechnung zum Namen"
+"Ship to Name","Versand an Name"
+"G.T. (Base)","GT (Basis)"
+"G.T. (Purchased)","GT (gekauft)"
+Print,Drucken
+"Credit Memo",Gutschrift
+"Exchange Order",Umtauschauftrag
+"Delete File","Datei löschen"
+"RMA Owner",RMA-Besitzer
+"Upload Return Label","Rücksendeetikett hochladen"
+"External Link","Externer Link"
+open,öffnen
+"(received a gift)","(hat ein Geschenk erhalten)"
+"Exchage Order",Umtauschauftrag
+Company,Unternehmen
+"Street Address",Adresse
+City,Stadt
+Zip/Postcode,Postleitzahl
+Rules,Regeln
+"Add New Rule","Neue Regel hinzufügen"
+"Set Status","Status setzen"
+"Set Owner","Besitzer festlegen"
+Event,Veranstaltung
+Filters,Filter
+"Rule Name",Regelname
+Priority,Priorität
+"Arranged in the ascending order. 0 is the highest.","In aufsteigender Reihenfolge angeordnet. 0 ist die höchste."
+"Stop Further Rules Processing","Beenden Sie die weitere Regelverarbeitung"
+Notifications,Benachrichtigungen
+"Send email to RMA owner","E-Mail an RMA-Besitzer senden"
+"Send email to customer","E-Mail an Kunden senden"
+"Send email to other email addresses","E-Mail an andere E-Mail-Adressen senden"
+"Email subject","E-Mail Betreff"
+"Email body",Nachrichtentext
+"Attach files which were attached to the last message","Anhängen von Dateien, die an die letzte Nachricht angehängt wurden"
+"Is Stop Processing","Beendet die Verarbeitung"
+"Create RMA for this order","Erstellen Sie eine RMA für diese Bestellung"
+"Order meets RMA policy","Bestellung entspricht der RMA-Richtlinie"
+"Order doesn't meet RMA policy","Bestellung entspricht nicht der RMA-Richtlinie"
+"Add New Status","Neuen Status hinzufügen"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Zeigen Sie im Kundenkonto die Schaltflächen &#39;RMA-Lieferschein drucken&#39;, &#39;RMA-Versandetikett drucken&#39; und &#39;Versand bestätigen&#39; an"
+"Email Notification for customer","E-Mail-Benachrichtigung für Kunden"
+"leave blank to not send","leer lassen, um nicht zu senden"
+"Message for RMA history","Nachricht für die RMA-Historie"
+"Email Notification for administrator","E-Mail-Benachrichtigung für den Administrator"
+Templates,Vorlagen
+"Add New Template","Neue Vorlage hinzufügen"
+"Internal Title","Interner Titel"
+Template,Vorlage
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Sie können Variablen verwenden: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Shops
+"RMA Return Address",RMA-Rücksendeadresse
+"New Return Address","Neue Absenderadresse"
+"Return Address Manager",Rücksprungadressen-Manager
+"Add Return Address ","Absenderadresse hinzufügen"
+"Add Return Address","Absenderadresse hinzufügen"
+"Return Address was successfully deleted","Absenderadresse wurde erfolgreich gelöscht"
+"Edit Return Address '%1'","Absenderadresse &#39;%1&#39; bearbeiten"
+"Edit Return Address ","Absenderadresse bearbeiten"
+"The Return Address does not exist.","Die Absenderadresse existiert nicht."
+"Please select Return Address(es)","Bitte wählen Sie Absenderadresse (n)"
+"Total of %d record(s) were successfully updated","Insgesamt% d Datensätze wurden erfolgreich aktualisiert"
+"Total of %1 record(s) were successfully deleted","Insgesamt wurden %1 Datensätze erfolgreich gelöscht"
+"return Address was successfully saved","Absenderadresse wurde erfolgreich gespeichert"
+"Unable to find Return Address to save","Die zu speichernde Absenderadresse konnte nicht gefunden werden"
+"New Condition","Neue Bedingung"
+"Condition  Manager","Condition Manager"
+"Condition Manager","Condition Manager"
+"Add Condition ","Bedingung hinzufügen"
+"Add Condition","Bedingung hinzufügen"
+"Condition was successfully deleted","Bedingung wurde erfolgreich gelöscht"
+"Edit Condition '%1'","Bedingung &#39;%1&#39; bearbeiten"
+"Edit Condition ","Bedingung bearbeiten"
+"The Condition does not exist.","Die Bedingung existiert nicht."
+"Please select Condition(s)","Bitte Bedingung (en) auswählen"
+"Total of %d record(s) were successfully deleted","Insgesamt% d Datensätze wurden erfolgreich gelöscht"
+"Condition was successfully saved","Bedingung wurde erfolgreich gespeichert"
+"Unable to find Condition to save","Die zu speichernde Bedingung konnte nicht gefunden werden"
+"New Field","Neues Feld"
+"Field  Manager","Field Manager"
+"Field Manager","Field Manager"
+"Add Field ","Feld hinzufügen"
+"Add Field","Feld hinzufügen"
+"Field was successfully deleted","Feld wurde erfolgreich gelöscht"
+"Edit Field '%1'","Feld &#39;%1&#39; bearbeiten"
+"Edit Field ","Feld bearbeiten"
+"The Field does not exist.","Das Feld existiert nicht."
+"Please select Field(s)","Bitte Feld (er) auswählen"
+"Field was successfully saved","Feld wurde erfolgreich gespeichert"
+"Unable to find Field to save","Das zu speichernde Feld konnte nicht gefunden werden"
+"New Reason","Neuer Grund"
+"Reason  Manager","Reason Manager"
+"Reason Manager","Reason Manager"
+"Add Reason ","Grund hinzufügen"
+"Add Reason","Grund hinzufügen"
+"Reason was successfully deleted","Grund wurde erfolgreich gelöscht"
+"Edit Reason '%1'","Grund bearbeiten &#39;%1&#39;"
+"Edit Reason ","Grund bearbeiten"
+"The Reason does not exist.","Der Grund existiert nicht."
+"Please select Reason(s)","Bitte wählen Sie Grund (e)"
+"Reason was successfully saved","Grund wurde erfolgreich gespeichert"
+"Unable to find Reason to save","Grund zum Speichern nicht gefunden"
+"Statistics was successfully updated","Die Statistik wurde erfolgreich aktualisiert"
+"RMA by Brand","RMA von Brand"
+"RMA Report",RMA-Bericht
+"RMA by Product","RMA nach Produkt"
+Rma,RMA
+"New Resolution","Neue Auflösung"
+"Resolution  Manager","Resolution Manager"
+"Resolution Manager","Resolution Manager"
+"Add Resolution ","Auflösung hinzufügen"
+"Add Resolution","Auflösung hinzufügen"
+"Resolution was successfully deleted","Auflösung wurde erfolgreich gelöscht"
+"Edit Resolution '%1'","Auflösung &#39;%1&#39; bearbeiten"
+"Edit Resolution ","Auflösung bearbeiten"
+"The Resolution does not exist.","Die Resolution existiert nicht."
+"Please select Resolution(s)","Bitte Auflösung (en) auswählen"
+"Resolution was successfully saved","Auflösung wurde erfolgreich gespeichert"
+"Unable to find Resolution to save","Die zu speichernde Auflösung konnte nicht gefunden werden"
+"New RMA","Neue RMA"
+"RMA was successfully deleted","RMA wurde erfolgreich gelöscht"
+"The rma does not exist.","Das RMA existiert nicht."
+"Marked as read","Als gelesen markiert"
+"Marked as unread","Als ungelesen markiert"
+"Please select rma(s)","Bitte rma (s) auswählen"
+"A total of %1 record(s) have been deleted.","Insgesamt wurden %1 Datensätze gelöscht."
+"RMA was successfully saved","RMA wurde erfolgreich gespeichert"
+"Unable to find rma to save","Kann rma zum Speichern nicht finden"
+"New Rule","Neue Regel"
+"Rule  Manager",Regelmanager
+"Rule Manager",Regelmanager
+"Add Rule ","Regel hinzufügen"
+"Add Rule","Regel hinzufügen"
+"Rule was successfully deleted","Regel wurde erfolgreich gelöscht"
+"Edit Rule '%1'","Regel &#39;%1&#39; bearbeiten"
+"Edit Rule ","Regel bearbeiten"
+"The Rule does not exist.","Die Regel existiert nicht."
+"Please select Rule(s)","Bitte Regel (n) auswählen"
+"Rule was successfully saved","Regel wurde erfolgreich gespeichert"
+"Unable to find Rule to save","Die zu speichernde Regel konnte nicht gefunden werden"
+"New Status","Neuer Status"
+"Status  Manager","Status Manager"
+"Status Manager","Status Manager"
+"Add Status ","Status hinzufügen"
+"Add Status","Status hinzufügen"
+"Status was successfully deleted","Status wurde erfolgreich gelöscht"
+"Edit Status '%1'","Status &#39;%1&#39; bearbeiten"
+"Edit Status ","Status bearbeiten"
+"The Status does not exist.","Der Status existiert nicht."
+"Please select Status(s)","Bitte wählen Sie Status (s)"
+"Status was successfully saved","Status wurde erfolgreich gespeichert"
+"Unable to find Status to save","Der zu speichernde Status wurde nicht gefunden"
+"New Template","Neue Vorlage"
+"Template  Manager",Vorlagen-Manager
+"Template Manager",Vorlagen-Manager
+"Add Template ","Vorlage hinzufügen"
+"Add Template","Vorlage hinzufügen"
+"Template was successfully deleted","Vorlage wurde erfolgreich gelöscht"
+"Edit Template '%1'","Vorlage &#39;%1&#39; bearbeiten"
+"Edit Template ","Vorlage bearbeiten"
+"The Template does not exist.","Die Vorlage existiert nicht."
+"Please select Template(s)","Bitte wählen Sie eine Vorlage aus"
+"Template was successfully saved","Vorlage wurde erfolgreich gespeichert"
+"Unable to find Template to save","Vorlage zum Speichern nicht gefunden"
+"Created Date",Erstellungsdatum
+Action,Aktion
+View,Aussicht
+RMAs,RMAs
+"Select Order","Wählen Sie Auftrag"
+"Exchange/Credit Balance","Umtausch / Guthaben"
+"Customer credit balance:",Kundenguthaben:
+"Total price of new products:","Gesamtpreis der neuen Produkte:"
+"Total price of exchanged/credit products:","Gesamtpreis der umgetauschten / Kreditprodukte:"
+"Price difference:",Preisunterschied:
+Resolution:,Auflösung:
+"Get %1 from customer credit balance","Holen Sie sich %1 vom Kundenguthaben"
+"Put %1 to customer credit balance","%1 auf das Guthaben des Kunden setzen"
+"Resolve manually","Manuell auflösen"
+"Message Type",Nachrichtentyp
+"Message to Customer","Nachricht an den Kunden"
+"Internal Note","Interne Notiz"
+"mark as unread","als ungelesen markieren"
+"mark as read","als gelesen markieren"
+"You can not return more, than available. Please, try again.","Sie können nicht mehr als verfügbar zurückgeben. Bitte versuche es erneut."
+"show all order items","Alle Bestellpositionen anzeigen"
+"Qty to Return","Menge, um zurückzukehren"
+"Reason to Return","Grund zur Rückkehr"
+"Item Condition","Artikel Zustand"
+"(Bundled Product)","(Gebündeltes Produkt)"
+Stock,Stock
+Ordered,Bestellt
+Available,Verfügbar
+--,-
+"Insert Quick Response","Schnelle Antwort einfügen"
+"Default status for new RMA","Standardstatus für neue RMA"
+"Default owner for new RMA","Standardbesitzer für neue RMA"
+"Ask customer to confirm shipping","Bitten Sie den Kunden, den Versand zu bestätigen"
+"Shipping confirmation text",Versandbestätigungstext
+"Enable option ""This was a gift""","Option &quot;Dies war ein Geschenk&quot; aktivieren"
+"Enable integration with Help Desk","Aktivieren Sie die Integration mit Helpdesk"
+"Code of ""Brand"" attribute","Code des Attributs &quot;Marke&quot;"
+"Allow upload only attachments with extensions","Zulassen, dass nur Anhänge mit Erweiterungen hochgeladen werden"
+"Limit of attachments size, Mb","Begrenzung der Größe der Anhänge, Mb"
+"Show Columns in RMA Grid","Spalten im RMA-Raster anzeigen"
+"Show RMA section in Customer Account","RMA-Bereich im Kundenkonto anzeigen"
+"Customers are required to select:","Kunden müssen Folgendes auswählen:"
+"Allow to request RMA after order completion, days","Erlauben Sie RMA nach Abschluss der Bestellung anzufordern, Tage"
+"Allow to request RMA if order has status","Ermöglichen, RMA anzufordern, wenn die Bestellung den Status hat"
+"Ask to agree with RMA policy text","Bitten Sie um Zustimmung zum RMA-Richtlinientext"
+"CMS block with RMA policy text","CMS-Block mit RMA-Richtlinientext"
+"Number Format",Zahlenformat
+"Start Counter From","Zähler starten von"
+"Counter Increment Step",Zähler-Inkrementierungsschritt
+"Counter Length",Zählerlänge
+"Email Sender",E-Mail-Absender
+"Template of Notification Email for Customer","Vorlage der Benachrichtigungs-E-Mail für den Kunden"
+"Template of Notification Email for RMA Owner","Vorlage für Benachrichtigungs-E-Mail für RMA-Besitzer"
+"Template of Rule Notification","Vorlage für die Regelbenachrichtigung"
+" Send blind carbon copy (BCC) of all emails to","Senden Sie Blind Carbon Copy (BCC) aller E-Mails an"
+"At least one RMA item should have resolution ""Exchange"".","Mindestens ein RMA-Artikel sollte die Auflösung &quot;Umtausch&quot; haben."
+"Add another order","Fügen Sie eine weitere Bestellung hinzu"
+"Offline Order","Offline Bestellung"
+OR,ODER
+"Select Offline Order","Wählen Sie Offline-Bestellung"

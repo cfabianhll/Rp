@@ -1,0 +1,29 @@
+<?php
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Credit\Block\Adminhtml\Sales\Order\Creditmemo\Controls $block */
+?>
+<?php
+$baseCurrencyCode = $block->getBaseCurrencyCode();
+?>
+<?php if ($block->canRefundToCredit()): ?>
+    <div class="field admin__field admin__field-option choice admin__field-option store-credit-totals-actions">
+        <p>
+            <label for="return_applied_credits" class="admin__field-label">
+                <?php if ($baseCurrencyCode): ?>
+                    <?= __('Refund to Store Credit, (%1)', $baseCurrencyCode) ?>
+                <?php else: ?>
+                    <?= __('Refund to Store Credit') ?>
+                <?php endif; ?>
+            </label>
+            <input type="text" name="creditmemo[return_applied_credits]" value="<?= $block->getAppliedValue() ?>"
+                   class="input-text admin__control-text not-negative-amount" id="return_applied_credits"
+                   style="width: 7rem; margin-left: 1rem; text-align: right;">
+
+            <button title="Update Totals" type="button" class="action-default scalable update-totals"
+                    onclick="submitAndReloadArea($('creditmemo_item_container'), '<?= $this->getUpdateUrl(); ?>')"
+                    data-ui-id="order-items-update-button">
+                <span>Update Totals</span>
+            </button>
+        </p>
+    </div>
+<?php endif ?>

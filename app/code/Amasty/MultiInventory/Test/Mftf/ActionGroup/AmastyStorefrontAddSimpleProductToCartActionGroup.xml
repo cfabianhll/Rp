@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="AmastyAddSimpleProductToCart">
+        <arguments>
+            <argument name="amastyProduct"/>
+        </arguments>
+        <amOnPage url="/{{amastyProduct.urlkey}}.html" stepKey="navigateProductPage"/>
+        <fillField selector="{{AmastyStorefrontProductPageSection.QtyField}}" userInput="{{amastyProduct.qty}}" stepKey="fillProductQuantity"/>
+        <click selector="{{AmastyStorefrontProductPageSection.AddToCartBtn}}" stepKey="addToCart"/>
+        <waitForElementVisible selector="{{AmastyStorefrontProductPageSection.SuccessMsg}}" time="30" stepKey="waitForProductAdded"/>
+        <see selector="{{StorefrontCategoryMainSection.SuccessMsg}}" userInput="You added {{amastyProduct.name}} to your shopping cart." stepKey="seeAddedToCartMessage"/>
+    </actionGroup>
+    <actionGroup name="AmastyDeleteSingleProductFromCart">
+        <amOnPage url="/checkout/cart" stepKey="navigateToShoppingCart1"/>
+        <click selector="{{CartPageSection.RemoveItem}}" stepKey="removeSingleItemFromCart"/>
+        <waitForPageLoad stepKey="waitForPageLoad3"/>
+        <see selector="{{CartPageSection.CartEmpty}}" userInput="You have no items in your shopping cart." stepKey="seeCartIsEmpty"/>
+    </actionGroup>
+</actionGroups>

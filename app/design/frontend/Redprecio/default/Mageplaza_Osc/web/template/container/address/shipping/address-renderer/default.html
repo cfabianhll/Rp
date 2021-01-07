@@ -1,0 +1,22 @@
+<div class="col-12 mb-3 col-lg-6 col-md-6">
+    <div class="addres_1 shipping-address-item" data-bind="css: isSelected() ? 'selected-item added_address' : 'not-selected-item', click: selectAddress">
+        <p><!-- ko text: address().prefix --><!-- /ko --> <!-- ko text: address().firstname --><!-- /ko -->
+        <!-- ko text: address().lastname --><!-- /ko --> <!-- ko text: address().suffix --><!-- /ko -->, 
+        <!-- ko text: address().street --><!-- /ko -->, 
+        <!-- ko text: address().city --><!-- /ko -->, <!-- ko text: address().region --><!-- /ko --> <!-- ko text: address().postcode --><!-- /ko --><br/>
+        <!-- ko text: getCountryName(address().countryId) --><!-- /ko -->, 
+        <!-- ko text: address().telephone --><!-- /ko --></p>
+        <div class="addrsses_box_btm">
+            <!-- ko if: (address().isEditable()) -->
+            <a href="javascript:void(0)" class="edit_de pl-0 action edit-address-link" data-bind="i18n: 'Edit', click: editAddress, visible: address().isEditable()">
+            </a>
+            <!-- /ko -->
+            <!-- ko if: (!isSelected()) -->
+            <a href="javascript:void(0)" click="selectAddress" class="Remove_de action action-select-shipping-item">
+                <span translate="'Ship Here'"></span>
+            </a>
+            <!-- /ko -->
+            <a href="" class="add_add_btn"><img src=""></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,484 @@
+"Request RMA",RMAをリクエストする
+"My Returns",私の返品
+Grid,グリッド
+List,リスト
+All,すべて
+"Create RMA",RMAを作成する
+"Request New Return",新しい返品をリクエストする
+"Max file size: %1Mb",最大ファイルサイズ：%1Mb
+"New Return for Order #%1","注文番号___ 1の新しい返品"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1  -  %2"
+"Wrong Order #, Email or Last Name",間違った注文番号、電子メールまたは姓
+Items,アイテム
+"To apply changes you should fill in required ""%1"" field",変更を適用するには、必須の「%1」フィールドに記入する必要があります
+"Please, add order items to the RMA (set 'Qty to Return')",RMAに注文アイテムを追加してください（返品数を設定してください）。
+"Please, set correct order items Quantity to return",正しい注文項目を設定してください返品する数量
+"RMA was successfully created",RMAが正常に作成されました
+"Shipping is confirmed. Thank you!",配送が確認されます。ありがとうございました！
+"Your message was successfully added",メッセージが正常に追加されました
+"Allowed extensions:",許可される拡張子：
+"Maximum size:",最大サイズ：
+"-- Please Select --","-  選んでください  -"
+" at %1 (%2)",%1（%2）に
+"Mark as unresolved",未解決としてマークする
+"Mark as resolved",解決済みとマークする
+"not set",設定されていません
+Pattern,パターン
+"Attribute Value",属性値
+Default,デフォルト
+Integer,整数
+Price,価格
+"Strip Tags",ストリップタグ
+"Primary Attributes",主属性
+"Stock Attributes",在庫属性
+"Prices & Taxes",価格と税金
+Images,イメージ
+"Custom Attributes",カスタム属性
+Mapping,マッピング
+Category,カテゴリー
+"Amasty Meta Tags",アマチュアメタタグ
+"Others Attributes",その他の属性
+Text,テキスト
+"Multi-line text",複数行のテキスト
+Date,日付
+Checkbox,チェックボックス
+"Drop-down list",ドロップダウンリスト
+Reason,理由
+Condition,調子
+Resolution,解決
+"RMA #",RMA＃
+"Order #",注文番号
+"Customer Email",顧客の電子メール
+"Customer Name",顧客名
+Owner,オーナー
+"Last Replier",最後のフォルダ
+Status,状態
+Store,格納
+"Created At",作成者：
+"Last Activity",最後の活動
+"View link",リンクを表示
+"New RMA has been created",新しいRMAが作成されました
+"RMA has been changed",RMAが変更されました
+"New reply from customer",顧客からの新しい返信
+"New reply from staff",スタッフからの新しい返信
+"-- Default Address --","-  デフォルトの住所  -"
+"Update the Product",製品のアップデート
+"Conditions Combination",条件の組み合わせ
+"RMA Attribute",RMA属性
+"Last 7-days Clicks",過去7日間のクリック数
+"Last 7-days Orders",過去7日間の注文
+"Last 7-days Revenue",過去7日間の収入
+"Last 7-days Conversation Rate (%)",過去7日間の会話率（％）
+"Attribute Set",属性セット
+Quantity,量
+"Product Type",製品の種類
+"Base Image",ベースイメージ
+Thumbnail,サムネイル
+"Small Image",小さな画像
+"Base Image Size (bytes)",基本イメージサイズ（バイト）
+"Thumbnail Size (bytes)",サムネイルサイズ（バイト）
+"Small Image Size (bytes)",小さい画像サイズ（バイト）
+"PHP Condition",PHPの条件
+"Open Chooser",オープンセレクタ
+"Last message body",最後のメッセージ本文
+"Updated At",更新日
+"Status (before change)",ステータス（変更前）
+"Owner (before change)",所有者（変更前）
+"Last Reply By",最後の返信
+"Hours since Created",作成からの時間
+"Hours since Updated",更新後の時間
+"Hours since Last reply",最後の返信以降の時間
+"Items have reason",アイテムに理由がある
+"Items have condition",アイテムには条件があります
+"Items have resolution",アイテムには解決方法があります
+"%1 (before change)",%1（変更前）
+Customer,顧客
+Staff,スタッフ
+"- Disable these emails -","- これらのメールを無効にする -"
+Yes,はい
+No,いいえ
+Save,セーブ
+"Save & Continue Edit",保存して編集を続ける
+"Save & Close",保存して閉じる
+Edit,編集
+Delete,削除
+"Delete ""${ $.$data.name }""",""${ $.$data.name }"を削除する"
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","あなたは "${ $.$data.name }"レコードを削除してもよろしいですか？"
+"Are you sure you want to do this?",これをやりたいですか？
+"Convert To Ticket",チケットに変換
+"View order #${ $.$data.order_id }","オーダー＃${ $.$data.order_id }を表示する"
+"View exchange order %1",交換注文の表示%1
+"RMA: Report by Attribute",RMA：属性別レポート
+"RMA: Report by Status",RMA：ステータス別レポート
+"RMA: Report by Product",RMA：製品別レポート
+"RMA: Report by Reasons",RMA：理由別レポート
+"Cannot delete return address with id %1",IDが%1のリターンアドレスを削除できません
+"Cannot delete item with id %1",IDが%1のアイテムは削除できません
+"Cannot delete condition with id %1",IDが%1の条件を削除できません
+"Cannot delete field with id %1",IDが%1のフィールドは削除できません
+"Cannot delete message with id %1",IDが%1のメッセージは削除できません
+"Cannot delete history with id %1",%1のIDを持つ履歴は削除できません
+"Cannot delete Quick Response with id %1",IDが%1のクイックレスポンスを削除できません
+"Cannot delete reason with id %1",IDが%1の理由を削除できません
+"Cannot delete resolution with id %1","ID %1の解像度は削除できません"
+"Cannot delete rma with id %1",IDが%1のrmaを削除できません
+"Cannot delete rule with id %1",%1のIDを持つルールは削除できません
+"Cannot delete status with id %1","ID %1のステータスを削除できません"
+"Please, enter a message",メッセージを入力してください
+"Product Name",商品名
+SKU,SKU
+Qty,数量
+"This was a gift, please do not notify purchaser",これは贈り物でしたが、購入者に通知しないでください
+"Enter your contact information",連絡先情報を入力してください
+"First Name",ファーストネーム
+"Last Name",苗字
+Email,Eメール
+Telephone,電話
+"To request a new RMA or check the status of current RMA, please, fill the form:",新しいRMAをリクエストするか、現在のRMAのステータスを確認するには、次のフォームに記入してください：
+"* Required Fields",*必須フィールド
+"Order Information",注文情報
+"Email or Last Name",メールアドレスまたは姓
+Next,次
+RMA,RMA
+Actions,行動
+"View Return",返品を見る
+"There are no Returns",返品はありません
+"Items %1 to %2 of %3 total",%3合計のアイテム__1〜%2
+"%1 Item(s)",%1項目
+Show,ショー
+"per page",1ページあたり
+"View as",表示形式
+"Sort by",並び替え
+"Set Ascending Direction",昇順に設定
+"Set Descending Direction",降順を設定
+"Please, select an order",注文を選択してください
+Order,注文
+"-- Select an Order --","- 注文を選択する -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.",RMAをリクエストする注文は完了していないか、__1日以上前に注文が行われました。カスタマーサービスに連絡してください。
+"Submit Request",リクエストを送信する
+"Please, select RMA items which you would like to return.",返品したいRMA商品を選択してください。
+"Additional Information",追加情報
+"Attach files",添付ファイル
+"Request Information",要請情報
+"Email Address",電子メールアドレス
+"Order Shipping Address",注文の発送先住所
+"Items in this order",この順番のアイテム
+"There are no items for this product that can be returned.",返品可能なこの商品のアイテムはありません。
+"Another RMA for this product: %1",この製品の別のRMA：%1
+"This product can not be returned due to RMA Policy",この商品はRMAポリシーのため返品できません
+"This is a non-returnable item per our return policy.",これは返品ポリシーに応じて返品不可能な商品です。
+"Quantity to return",返品する数量
+"-- Select a Reason --","- 理由を選択 -"
+"-- Select a Condition --","- 条件を選択する -"
+"-- Select a Resolution --","- 解像度を選択する -"
+"I agree",同意する
+"Date: %1",日付：%1
+"Original order: #%1",元の注文：#%1
+"Return Address",差出人住所
+"Customer Information",顧客情報
+"RMA History",RMAの歴史
+"RMA Items",RMAアイテム
+Weight,重量
+"Print RMA Packing Slip",RMAパッキングスリップを印刷する
+"Print RMA Shipping Label",RMA出荷ラベルを印刷する
+"Confirm Shipping",出荷確認
+"(This was a gift)",（これは贈り物だった）
+"Date Requested",リクエストされた日付
+"Contact Information",連絡先
+"Items RMA Requested for",RMAが要求したアイテム
+QTY,数量
+"Add Message",メッセージを追加
+Submit,提出する
+%name,％名
+"The quantity is incorrect.",数量が正しくありません。
+"New Return for Offline Order",オフライン注文のための新しい返品
+" at %1",%1で
+Select,選択
+"If you do not have account on this store please fill the form below.",このストアにアカウントをお持ちでない場合は、下記のフォームにご記入ください。
+"-- Create Offline Order --","- オフライン注文を作成する -"
+"Returned Item",返品アイテム
+"Remove Item",アイテムを削除
+"Order or Receipt #",注文書または領収書番号
+"Add Item",アイテムを追加
+"Add at least one item to this RMA",このRMAに少なくとも1つのアイテムを追加する
+"Return Addresses",住所を返す
+"Add New Return Address",新しい返信先を追加
+"General Information",一般情報
+Title,タイトル
+"Sort Order",ソート順
+"Is Active",アクティブです
+ID,ID
+Active,アクティブ
+Disabled,無効
+Enabled,有効
+"Change status",ステータスを変更する
+"Are you sure?",本気ですか？
+Conditions,条件
+"Add New Condition",新しい条件を追加
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer",この顧客のRMAを作成
+Fields,フィールド
+"Add New Field",新しいフィールドを追加
+Code,コード
+Type,タイプ
+Description,説明
+"Options list",オプション一覧
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","ドロップダウンリスト専用です。 <br>フォーマットを使用して、新しい行から各値を入力します。 <br>値1 | label1 <br>値2 | label2"
+"Sort order",ソート順
+"Is required for staff",スタッフに必須
+"Is required for customers",お客様に必須
+"Visible for customers in statuses",ステータスで顧客に表示
+"Is show in confirm shipping dialog",配送確認ダイアログに表示されます
+"Is editable for customers",顧客向けに編集可能
+Statuses,状況
+Reasons,理由
+Resolutions,決議
+"Custom Fields",カスタムフィールド
+"Quick Responses",クイックレスポンス
+"Workflow Rules",ワークフロールール
+Reports,レポート
+Settings,設定
+"Add New Reason",新しい理由を追加
+"Add New Resolution",新しい解像度を追加
+"Add New RMA",新しいRMAを追加
+"Create New RMA",新しいRMAを作成する
+"Purchased From (Store)",から購入（ストア）
+"Purchased On",購入日
+"Bill to Name",請求先の名前
+"Ship to Name",お名前で発送
+"G.T. (Base)",GT（ベース）
+"G.T. (Purchased)",GT（購入済み）
+Print,印刷する
+"Credit Memo",クレジットメモ
+"Exchange Order",交換注文
+"Delete File",ファイルを削除する
+"RMA Owner",RMAオーナー
+"Upload Return Label",返品ラベルをアップロード
+"External Link",外部リンク
+open,開いた
+"(received a gift)",（プレゼントをもらった）
+"Exchage Order",交換注文
+Company,会社
+"Street Address",住所
+City,シティ
+Zip/Postcode,郵便番号
+Rules,規則
+"Add New Rule",新しいルールを追加
+"Set Status",ステータス設定
+"Set Owner",所有者を設定
+Event,イベント
+Filters,フィルター
+"Rule Name",ルール名
+Priority,優先度
+"Arranged in the ascending order. 0 is the highest.","昇順に並んでいます。 0が最高です。"
+"Stop Further Rules Processing",それ以上のルール処理を停止する
+Notifications,通知
+"Send email to RMA owner",RMAの所有者にメールを送る
+"Send email to customer",顧客にEメールを送信する
+"Send email to other email addresses",他のメールアドレスにメールを送信する
+"Email subject",メールの件名
+"Email body",メール本文
+"Attach files which were attached to the last message",最後のメッセージに添付されたファイルを添付する
+"Is Stop Processing",処理停止です
+"Create RMA for this order",この注文のRMAを作成
+"Order meets RMA policy",注文はRMAポリシーを満たしています
+"Order doesn't meet RMA policy",注文がRMAポリシーを満たしていません
+"Add New Status",新しいステータスを追加
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account",顧客アカウントに[RMA梱包明細の印刷]、[RMA出荷ラベルの印刷]、および[出荷の確認]ボタンを表示します。
+"Email Notification for customer",顧客へのEメール通知
+"leave blank to not send",送信しないように空白のままにする
+"Message for RMA history",
+"Email Notification for administrator",管理者への電子メール通知
+Templates,テンプレート
+"Add New Template",新しいテンプレートを追加
+"Internal Title",内部タイトル
+Template,テンプレート
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]",変数を使用できます：[rma_increment_id]、[rma_firstname]、[rma_lastname]、[rma_email]、[store_name]、[store_phone]、[store_address]、[user_firstname]、[user_lastname]、[user_email]
+Stores,お店
+"RMA Return Address",RMAリターンアドレス
+"New Return Address",新しい住所
+"Return Address Manager",リターンアドレスマネージャ
+"Add Return Address ",差出人住所を追加
+"Add Return Address",差出人住所を追加
+"Return Address was successfully deleted",差出人住所は正常に削除されました
+"Edit Return Address '%1'","リターンアドレス &#39;%1&#39;を編集"
+"Edit Return Address ",差出人住所の編集
+"The Return Address does not exist.",リターンアドレスが存在しません。
+"Please select Return Address(es)",返信先住所を選択してください
+"Total of %d record(s) were successfully updated",合計％dレコードが正常に更新されました
+"Total of %1 record(s) were successfully deleted",合計%1個のレコードが正常に削除されました
+"return Address was successfully saved",住所の保存に成功しました
+"Unable to find Return Address to save",保存する差出人住所が見つかりません
+"New Condition",新規条件
+"Condition  Manager",コンディションマネージャ
+"Condition Manager",コンディションマネージャ
+"Add Condition ",条件を追加
+"Add Condition",条件を追加
+"Condition was successfully deleted",条件は正常に削除されました
+"Edit Condition '%1'",条件「%1」を編集
+"Edit Condition ",条件を編集
+"The Condition does not exist.",条件が存在しません。
+"Please select Condition(s)",条件を選択してください
+"Total of %d record(s) were successfully deleted",合計％dレコードが正常に削除されました
+"Condition was successfully saved",条件は正常に保存されました
+"Unable to find Condition to save",保存する条件が見つかりません
+"New Field",新しい分野
+"Field  Manager",フィールドマネージャー
+"Field Manager",フィールドマネージャー
+"Add Field ",フィールドを追加
+"Add Field",フィールドを追加
+"Field was successfully deleted",フィールドは正常に削除されました
+"Edit Field '%1'","フィールド &#39;%1&#39;を編集"
+"Edit Field ",フィールドを編集
+"The Field does not exist.",フィールドが存在しません。
+"Please select Field(s)",フィールドを選択してください
+"Field was successfully saved",フィールドは正常に保存されました
+"Unable to find Field to save",保存するフィールドが見つかりません
+"New Reason",新しい理由
+"Reason  Manager",理由マネージャー
+"Reason Manager",理由マネージャー
+"Add Reason ",理由を追加
+"Add Reason",理由を追加
+"Reason was successfully deleted",理由は正常に削除されました
+"Edit Reason '%1'",編集理由「%1」
+"Edit Reason ",理由を編集
+"The Reason does not exist.",その理由は存在しません。
+"Please select Reason(s)",理由を選択してください
+"Reason was successfully saved",理由は正常に保存されました
+"Unable to find Reason to save",保存する理由が見つかりません
+"Statistics was successfully updated",統計は正常に更新されました
+"RMA by Brand",ブランド別RMA
+"RMA Report",RMAレポート
+"RMA by Product",製品別のRMA
+Rma,RMA
+"New Resolution",新しい決議
+"Resolution  Manager",解決マネージャ
+"Resolution Manager",解決マネージャ
+"Add Resolution ",解像度を追加
+"Add Resolution",解像度を追加
+"Resolution was successfully deleted",解決は正常に削除されました
+"Edit Resolution '%1'","解像度 &#39;%1&#39;を編集"
+"Edit Resolution ",解像度を編集
+"The Resolution does not exist.",決議は存在しません。
+"Please select Resolution(s)",解像度を選択してください
+"Resolution was successfully saved",解像度は正常に保存されました
+"Unable to find Resolution to save",保存する解像度が見つかりません
+"New RMA",新しいRMA
+"RMA was successfully deleted",RMAは正常に削除されました
+"The rma does not exist.",Rmaは存在しません。
+"Marked as read",既読としてマーク
+"Marked as unread",未読としてマーク
+"Please select rma(s)",Rmaを選択してください
+"A total of %1 record(s) have been deleted.",合計%1個のレコードが削除されました。
+"RMA was successfully saved",RMAは正常に保存されました
+"Unable to find rma to save",保存するrmaが見つかりません
+"New Rule",新しい規則
+"Rule  Manager",ルールマネージャ
+"Rule Manager",ルールマネージャ
+"Add Rule ",ルールを追加
+"Add Rule",ルールを追加
+"Rule was successfully deleted",ルールは正常に削除されました
+"Edit Rule '%1'",ルール「%1」を編集
+"Edit Rule ",ルール編集
+"The Rule does not exist.",そのルールは存在しません。
+"Please select Rule(s)",ルールを選択してください
+"Rule was successfully saved",ルールは正常に保存されました
+"Unable to find Rule to save",保存するルールが見つかりません
+"New Status",新しい状況
+"Status  Manager",ステータスマネージャ
+"Status Manager",ステータスマネージャ
+"Add Status ",ステータスを追加
+"Add Status",ステータスを追加
+"Status was successfully deleted",状況は正常に削除されました
+"Edit Status '%1'",ステータス「%1」を編集
+"Edit Status ",ステータスを編集
+"The Status does not exist.",ステータスが存在しません。
+"Please select Status(s)",ステータスを選択してください
+"Status was successfully saved",状況は正常に保存されました
+"Unable to find Status to save",保存するステータスが見つかりません
+"New Template",新しいテンプレート
+"Template  Manager",テンプレートマネージャ
+"Template Manager",テンプレートマネージャ
+"Add Template ",テンプレートを追加
+"Add Template",テンプレートを追加
+"Template was successfully deleted",テンプレートは正常に削除されました
+"Edit Template '%1'",テンプレート「%1」を編集
+"Edit Template ",テンプレートを編集
+"The Template does not exist.",テンプレートが存在しません。
+"Please select Template(s)",テンプレートを選択してください
+"Template was successfully saved",テンプレートは正常に保存されました
+"Unable to find Template to save",保存するテンプレートが見つかりません
+"Created Date",作成日
+Action,アクション
+View,見る
+RMAs,RMA
+"Select Order",注文を選択
+"Exchange/Credit Balance",為替/クレジットバランス
+"Customer credit balance:",顧客のクレジット残高
+"Total price of new products:",新製品の合計価格：
+"Total price of exchanged/credit products:",交換/クレジット商品の合計金額：
+"Price difference:",価格差：
+Resolution:,解決：
+"Get %1 from customer credit balance",顧客の残高から%1を取得
+"Put %1 to customer credit balance",顧客の残高を%1にする
+"Resolve manually",手動で解決する
+"Message Type",メッセージの種類
+"Message to Customer",お客様へのメッセージ
+"Internal Note",内部メモ
+"mark as unread",未読としてマーク
+"mark as read",既読にする
+"You can not return more, than available. Please, try again.",あなたは利用可能よりも多くを返すことはできません。やり直してください。
+"show all order items",すべての注文商品を表示
+"Qty to Return",返品する数量
+"Reason to Return",返品する理由
+"Item Condition",アイテムの状態
+"(Bundled Product)",（同梱品）
+Stock,株式
+Ordered,順序付けられました
+Available,利用可能
+--,-
+"Insert Quick Response",クイックレスポンスを挿入
+"Default status for new RMA",新しいRMAのデフォルトステータス
+"Default owner for new RMA",新しいRMAのデフォルトの所有者
+"Ask customer to confirm shipping",配送を確認するように顧客に依頼する
+"Shipping confirmation text",出荷確認テキスト
+"Enable option ""This was a gift""",オプション「これは贈り物でした」を有効にする
+"Enable integration with Help Desk",ヘルプデスクとの統合を有効にする
+"Code of ""Brand"" attribute",「ブランド」属性のコード
+"Allow upload only attachments with extensions",拡張子のある添付ファイルのみのアップロードを許可する
+"Limit of attachments size, Mb",添付ファイルサイズの制限、Mb
+"Show Columns in RMA Grid",RMAグリッドに列を表示
+"Show RMA section in Customer Account",顧客アカウントにRMAセクションを表示する
+"Customers are required to select:",顧客は以下を選択する必要があります。
+"Allow to request RMA after order completion, days",注文完了後、RMAの請求を許可する
+"Allow to request RMA if order has status",注文にステータスがある場合、RMAを要求することを許可する
+"Ask to agree with RMA policy text",RMAポリシーテキストに同意するよう依頼する
+"CMS block with RMA policy text",RMAポリシーテキストを含むCMSブロック
+"Number Format",数値フォーマット
+"Start Counter From",からカウンターを開始
+"Counter Increment Step",カウンターインクリメントステップ
+"Counter Length",カウンター長
+"Email Sender",メール送信者
+"Template of Notification Email for Customer",顧客への通知Eメールのテンプレート
+"Template of Notification Email for RMA Owner",RMA所有者用の通知Eメールのテンプレート
+"Template of Rule Notification",ルール通知のテンプレート
+" Send blind carbon copy (BCC) of all emails to",すべての電子メールのブラインドカーボンコピー（BCC）を
+"At least one RMA item should have resolution ""Exchange"".","少なくとも1つのRMAアイテムの解像度が &quot;Exchange&quot;になっている必要があります。"
+"Add another order",別の注文を追加
+"Offline Order",オフライン注文
+OR,または
+"Select Offline Order",オフライン注文を選択

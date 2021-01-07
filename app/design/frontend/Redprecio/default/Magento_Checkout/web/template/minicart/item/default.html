@@ -1,0 +1,109 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<li class="shoping_Con item product product-item" data-role="product-item">
+    <div class="row">
+		<div class="col-3  pr-0">
+			<div class="cart_img_Con">
+				<!-- ko if: product_has_url -->
+				<a data-bind="attr: {href: product_url, title: product_name}" tabindex="-1" class="product-item-photo">
+					<!-- ko foreach: $parent.getRegion('itemImage') -->
+						<!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+					<!-- /ko -->
+				</a>
+				<!-- /ko -->
+				<!-- ko ifnot: product_has_url -->
+				<span class="product-item-photo">
+					<!-- ko foreach: $parent.getRegion('itemImage') -->
+						<!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+					<!-- /ko -->
+				</span>
+				<!-- /ko -->
+			</div>
+		</div>
+        
+		<div class="col-9">
+			<p class="name_of_p">
+				<!-- ko if: product_has_url -->
+                <a data-bind="attr: {href: product_url}, html: product_name"></a>
+                <!-- /ko -->
+                <!-- ko ifnot: product_has_url -->
+                    <!-- ko text: product_name --><!-- /ko -->
+                <!-- /ko -->
+			</p>
+			<p class="qnt_of_p">
+				<span class="details-qty qty">
+                    <input data-bind="attr: {
+                           id: 'cart-item-'+item_id+'-qty',
+                           'data-cart-item': item_id,
+                           'data-item-qty': qty,
+                           'data-cart-item-id': product_sku
+                           }, value: qty"
+                           type="number"
+                           size="4"
+                           class="item-qty cart-item-qty minicart-qty">
+                </span>
+				<span class="cross">X</span>
+				<span class="pricing" style="display: inline-block;">
+					<!-- ko if: canApplyMsrp -->
+
+					<span class="details-map">
+						<span class="label" data-bind="i18n: 'Price'"></span>
+						<span class="value" data-bind="i18n: 'See price before order confirmation.'"></span>
+					</span>
+					<!-- /ko -->
+					<!-- ko ifnot: canApplyMsrp -->
+					<!-- ko foreach: $parent.getRegion('priceSidebar') -->
+						<!-- ko template: {name: getTemplate(), data: item.product_price, as: 'price'} --><!-- /ko -->
+					<!-- /ko -->
+					<!-- /ko -->
+				</span>
+				<button data-bind="attr: {
+					   id: 'update-cart-item-'+item_id,
+					   'data-cart-item': item_id,
+					   title: $t('Update')
+					   }"
+						class="update-cart-item main-color-text"
+						style="background: none; display: none;">
+					<span data-bind="i18n: 'Update'"></span>
+                </button>
+			</p>
+			<div class="cart_bbmt">
+				<!-- ko if: options.length -->
+					<div class="product options veiw_de" data-mage-init='{"collapsible":{"openedState": "active", "saveState": false}}'>
+						<span data-role="title" class="toggle"><!-- ko i18n: 'View Details' --><!-- /ko --></span>
+
+						<div data-role="content" class="content">
+							<dl class="product options list">
+								<!-- ko foreach: { data: options, as: 'option' } -->
+								<dt class="label"><!-- ko text: option.label --><!-- /ko --></dt>
+								<dd class="values">
+									<!-- ko if: Array.isArray(option.value) -->
+										<span data-bind="html: option.value.join('<br>')"></span>
+									<!-- /ko -->
+									<!-- ko ifnot: Array.isArray(option.value) -->
+										<span data-bind="text: option.value"></span>
+									<!-- /ko -->
+								</dd>
+								<!-- /ko -->
+							</dl>
+						</div>
+					</div>
+				<!-- /ko -->
+				<!-- ko ifnot: options.length -->
+				<a href="javascript:void(0)" class="veiw_de"></a>
+				<!-- /ko -->
+				<a href="#" data-bind="attr: {'data-cart-item': item_id, title: $t('Remove item')}" class="action delete Remove_de">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+				<a data-bind="attr: {href: configure_url, title: $t('Edit item')}" class="action edit edit_de">
+					<i class="far fa-edit"></i>
+				</a>
+			</div>
+		</div>     
+        </div>
+    </div>
+</li>

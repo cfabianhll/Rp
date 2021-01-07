@@ -1,0 +1,69 @@
+<?php
+/* @var $block \Mirasvit\Rma\Block\Rma\View */
+$rma      = $block->getRma();
+$orders   = $block->getOrders();
+$progress = $block->getProgress();
+
+$statusMessage = $block->getStatusMessage();
+
+$isMultiorders = count($orders) > 1;
+?>
+<div class="mst-rma-view">
+    <?php if ($progress): ?>
+        <div style="display: flex; justify-content: center;">
+            <ul class="opc-progress-bar">
+                <?php foreach ($progress as $item): ?>
+                    <?php if (!$item['visible']) {
+                        continue;
+                    } ?>
+                    <li class="opc-progress-bar-item <?php if ($item['active']): ?>_active<?php endif ?>">
+                        <span><?= $block->escapeHtml($item['label']) ?></span>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+    <?php endif ?>
+
+    <?php if ($statusMessage): ?>
+        <div class="mst-rma-box mst-rma__status">
+            <?= $statusMessage ?>
+        </div>
+    <?php endif; ?>
+
+    <?= $block->getChildHtml('rma.view.buttons') ?>
+
+    <?= $block->getChildHtml('rma.view.info') ?>
+
+    <div class="mst-rma-view__orders">
+        <?php foreach ($orders as $order): ?>
+            <?php if ($order): ?>
+                <div class="_no-border">
+                    <div class="mst-rma-box _no-border">
+                        <div class="mst-rma-box__title">
+                            <?php if ($isMultiorders): ?>
+                                <?= __('RMA Items (order %1)', $block->escapeHtml($block->getOrderLabel($order))) ?>
+                            <?php else: ?>
+                                <?= __('RMA Items') ?>
+                            <?php endif ?>
+                        </div>
+
+                        <div class="mst-rma-box__content">
+                            <?php
+                            $itemsBlock = $order->getIsOffline()
+                                ? $block->getChildBlock('rma.view.offline.items')
+                                : $block->getChildBlock('rma.view.items');
+                            $itemsBlock->setOrder($order);
+                            ?>
+                            <?= $itemsBlock->toHtml() ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endif ?>
+        <?php endforeach ?>
+    </div>
+
+    <div class="mst-rma-block _align-top">
+        <?= $block->getChildHtml('rma.view.message') ?>
+        <?= $block->getChildHtml('rma.view.history') ?>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<?php
+$product = $block->getProduct();
+?>
+ <?php if($product->getData('specifications')): ?>
+  <?php echo $product->getData('specifications'); ?>
+<?php endif; ?>

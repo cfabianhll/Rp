@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="advancedAmastyMultiWarehouse" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\MultiInventory\Ui\DataProvider\Product\Form\Modifier\AdvancedWarehouse</item>
+                    <item name="sortOrder" xsi:type="number">99</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider">
+        <arguments>
+            <argument name="addFieldStrategies" xsi:type="array">
+                <item name="ship_qty" xsi:type="object">Amasty\MultiInventory\Ui\DataProvider\Product\AddQuantityShipFieldToCollection</item>
+                <item name="available_qty" xsi:type="object">Amasty\MultiInventory\Ui\DataProvider\Product\AddQuantityAvailableFieldToCollection</item>
+            </argument>
+            <argument name="addFilterStrategies" xsi:type="array">
+                <item name="ship_qty" xsi:type="object">Amasty\MultiInventory\Ui\DataProvider\Product\AddQuantityShipFilterToCollection</item>
+                <item name="available_qty" xsi:type="object">Amasty\MultiInventory\Ui\DataProvider\Product\AddQuantityAvailableFilterToCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Sales\Model\AdminOrder\Create">
+        <plugin name="aminventoryAdminSend" type="Amasty\MultiInventory\Plugin\Sales\Model\AdminOrder\Create" />
+    </type>
+    <type name="Magento\CatalogInventory\Ui\DataProvider\Product\AddQuantityFieldToCollection">
+        <plugin name="aminventoryAddField" type="Amasty\MultiInventory\Plugin\Ui\CatalogInventory\DataProvider\Product\AddQuantityFieldToCollection" />
+    </type>
+    <type name="Magento\Shipping\Controller\Adminhtml\Order\ShipmentLoader">
+        <plugin name="aminventory" type="Amasty\MultiInventory\Plugin\Shipping\ShipmentLoader" />
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Product">
+        <plugin name="amSaveBefore" type="Amasty\MultiInventory\Plugin\Catalog\Model\ResourceModel\Product" />
+    </type>
+    <type name="Magento\AdvancedPricingImportExport\Controller\Adminhtml\Export\GetFilter">
+        <plugin name="Amasty_MultiInventory::ExportFilter" type="Amasty\MultiInventory\Plugin\Export\GetFilter"  />
+    </type>
+    <type name="Magento\ImportExport\Controller\Adminhtml\Export\GetFilter">
+        <plugin name="Amasty_MultiInventory::ExportFilter" type="Amasty\MultiInventory\Plugin\Export\GetFilter" />
+    </type>
+    <type name="Magento\ImportExport\Controller\Adminhtml\Export\Export">
+        <plugin name="Amasty_MultiInventory::ExportExport" type="Amasty\MultiInventory\Plugin\Export\Export" />
+    </type>
+</config>

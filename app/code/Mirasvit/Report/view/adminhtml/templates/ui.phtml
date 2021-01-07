@@ -1,0 +1,67 @@
+<style>
+    .spinner {
+        position: fixed;
+        left: calc(50% - 5rem);
+        top: calc(50% - 5rem);
+    }
+
+    .Polaris-Spinner--colorTeal {
+        -webkit-filter: brightness(0) saturate(100%) invert(72%) sepia(8%) saturate(2838%) hue-rotate(130deg) brightness(92%) contrast(87%);
+        filter: brightness(0) saturate(100%) invert(72%) sepia(8%) saturate(2838%) hue-rotate(130deg) brightness(92%) contrast(87%);
+    }
+
+    .Polaris-Spinner--sizeLarge {
+        height: 4.4rem;
+        width: 4.4rem;
+    }
+
+    .Polaris-Spinner {
+        animation: Polaris-Spinner--loading 500ms linear infinite;
+        color: transparent;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes Polaris-Spinner--loading {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .page-main-actions {
+        display: none;
+    }
+</style>
+
+<div id="root">
+    <div class="spinner">
+        <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDQgNDQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE1LjU0MiAxLjQ4N0EyMS41MDcgMjEuNTA3IDAgMDAuNSAyMmMwIDExLjg3NCA5LjYyNiAyMS41IDIxLjUgMjEuNSA5Ljg0NyAwIDE4LjM2NC02LjY3NSAyMC44MDktMTYuMDcyYTEuNSAxLjUgMCAwMC0yLjkwNC0uNzU2QzM3LjgwMyAzNC43NTUgMzAuNDczIDQwLjUgMjIgNDAuNSAxMS43ODMgNDAuNSAzLjUgMzIuMjE3IDMuNSAyMmMwLTguMTM3IDUuMy0xNS4yNDcgMTIuOTQyLTE3LjY1YTEuNSAxLjUgMCAxMC0uOS0yLjg2M3oiIGZpbGw9IiM5MTlFQUIiLz48L3N2Zz4K" alt="" class="Polaris-Spinner Polaris-Spinner--colorTeal Polaris-Spinner--sizeLarge" draggable="false">
+    </div>
+</div>
+
+<?php if (true): ?>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= $block->getViewFileUrl('Mirasvit_Report::ui/app.min.css') ?>"/>
+    <script src="<?= $block->getViewFileUrl('Mirasvit_Report::ui/vendor.min.js') ?>" async></script>
+    <script src="<?= $block->getViewFileUrl('Mirasvit_Report::ui/app.min.js') ?>" async></script>
+<?php else: ?>
+    <script src="http://localhost:3000/app.js" async></script>
+    <script src="http://localhost:3000/vendor.js" async></script>
+<?php endif ?>
+
+<script>
+    require(['jquery'], function ($) {
+        function reportDemo() {
+            $('.notices-wrapper, .notifications-counter, #menu-mirasvit-core-menu').remove();
+            $('canvas').css('height', '200px');
+        }
+
+        window.reportDemo = reportDemo
+    });
+</script>

@@ -1,0 +1,22 @@
+{
+    "name": "amasty/module-multi-warehouse-inventory",
+    "description": "Multi Warehouse Inventory by Amasty",
+    "require": {
+        "php": "7.0.2|7.0.4|~7.0.6|^7.1.0",
+        "amasty/base": ">=1.9.5",
+        "magento/module-catalog-inventory": ">=100.0.0"
+    },
+    "type": "magento2-module",
+    "version": "1.7.3",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\MultiInventory\\": ""
+        }
+    }
+}

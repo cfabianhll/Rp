@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_multi_inventory>
+            <general>
+                <enable_log>1</enable_log>
+                <google_address>0</google_address>
+                <google_api></google_api>
+                <google_distancematrix>https://maps.googleapis.com/maps/api/distancematrix/json?</google_distancematrix>
+                <google_geocode>https://maps.google.com/maps/api/geocode/json?</google_geocode>
+            </general>
+            <stock>
+                <enabled_multi>0</enabled_multi>
+                <decrease_stock>1</decrease_stock>
+                <decrease_physical>0</decrease_physical>
+                <dispatch_order>
+                    <customer_group>
+                        <is_active>1</is_active>
+                        <priority>1</priority>
+                        <value>Customer Group assignment</value>
+                    </customer_group>
+                    <nearest>
+                        <is_active>1</is_active>
+                        <priority>2</priority>
+                        <value>Nearest warehouse</value>
+                    </nearest>
+                    <priority_warehouses>
+                        <is_active>1</is_active>
+                        <priority>3</priority>
+                        <value>Priority of the warehouses</value>
+                    </priority_warehouses>
+                    <store_view>
+                        <is_active>1</is_active>
+                        <priority>4</priority>
+                        <value>Store view of the order</value>
+                    </store_view>
+                    <stock>
+                        <is_active>0</is_active>
+                        <priority>5</priority>
+                        <value>Stock</value>
+                    </stock>
+                </dispatch_order>
+                <dispatch_order_customer_group_is_active>1</dispatch_order_customer_group_is_active>
+                <dispatch_order_customer_group_priority>1</dispatch_order_customer_group_priority>
+                <dispatch_order_nearest_is_active>1</dispatch_order_nearest_is_active>
+                <dispatch_order_nearest_priority>2</dispatch_order_nearest_priority>
+                <dispatch_order_priority_warehouses_is_active>1</dispatch_order_priority_warehouses_is_active>
+                <dispatch_order_priority_warehouses_priority>3</dispatch_order_priority_warehouses_priority>
+                <dispatch_order_store_view_is_active>1</dispatch_order_store_view_is_active>
+                <dispatch_order_store_view_priority>4</dispatch_order_store_view_priority>
+                <dispatch_order_stock_is_active>0</dispatch_order_stock_is_active>
+                <dispatch_order_stock_priority>5</dispatch_order_stock_priority>
+                <use_google_to_locate>0</use_google_to_locate>
+                <lock_on_store>0</lock_on_store>
+                <separate_orders>1</separate_orders>
+                <return_creditmemo>1</return_creditmemo>
+                <low_stock>1</low_stock>
+                <defination_warehouse>1</defination_warehouse>
+                <backorders>0</backorders>
+                <backorders_action>0</backorders_action>
+            </stock>
+            <emails>
+                <order>
+                    <template>amasty_multi_inventory_emails_order_template</template>
+                </order>
+                <low_stock>
+                    <template>amasty_multi_inventory_emails_low_stock_template</template>
+                </low_stock>
+                <sender>general</sender>
+            </emails>
+        </amasty_multi_inventory>
+    </default>
+</config>

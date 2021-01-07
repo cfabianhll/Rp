@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Store/etc/config.xsd">
+    <default>
+        <mirasvit>
+            <rma>
+                <enabled>1</enabled>
+            </rma>
+        </mirasvit>
+        <rma>
+            <general>
+                <default_status>1</default_status>
+                <is_require_shipping_confirmation>1</is_require_shipping_confirmation>
+                <shipping_confirmation_text>Do you confirm, that you have sent the package to the RMA department?</shipping_confirmation_text>
+                <is_gift_active>0</is_gift_active>
+                <is_helpdesk_active>0</is_helpdesk_active>
+                <is_offline_orders>0</is_offline_orders>
+                <shipping_label_allowed_extensions>jpg,jpeg,png,pdf</shipping_label_allowed_extensions>
+            </general>
+            <frontend>
+                <is_active>1</is_active>
+                <rma_customer_requirement>reason,condition,resolution</rma_customer_requirement>
+            </frontend>
+            <policy>
+                <return_period>360</return_period>
+                <allow_in_statuses>complete</allow_in_statuses>
+                <return_only_shipped>0</return_only_shipped>
+            </policy>
+            <number>
+                <allow_manual>1</allow_manual>
+                <format>[store][counter]</format>
+                <counter_start>1</counter_start>
+                <reset_counter>0</reset_counter>
+                <counter_step>1</counter_step>
+                <counter_length>8</counter_length>
+            </number>
+            <notification>
+                <sender_email>general</sender_email>
+                <customer_email_template>rma_notification_customer_email_template</customer_email_template>
+                <admin_email_template>rma_notification_admin_email_template</admin_email_template>
+                <rule_template>rma_notification_rule_template</rule_template>
+                <send_email_bcc_type>copy</send_email_bcc_type>
+            </notification>
+            <advanced_settings>
+                <apply_styles>0</apply_styles>
+            </advanced_settings>
+        </rma>
+        <carriers>
+            <rma_free_shipping>
+                <active>1</active>
+                <free_method>rma_free_shipping</free_method>
+                <model>Mirasvit\Rma\Model\Carrier\RmaFree</model>
+                <title>RMA Free Shipping</title>
+                <method_name>RMA Free Shipping</method_name>
+            </rma_free_shipping>
+        </carriers>
+    </default>
+</config>

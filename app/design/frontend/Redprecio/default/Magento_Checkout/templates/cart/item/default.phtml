@@ -1,0 +1,144 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Checkout\Block\Cart\Item\Renderer */
+
+$_item = $block->getItem();
+$product = $_item->getProduct();
+$isVisibleProduct = $product->isVisibleInSiteVisibility();
+/** @var \Magento\Msrp\Helper\Data $helper */
+$helper = $this->helper('Magento\Msrp\Helper\Data');
+$canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
+$swatchhelper = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Swatches\Helper\Data');
+$sizeHtml = '';
+?>
+<div class="step_one_content">
+                            <div class="edit-remove-toolbars cart_button">
+                                <div class="actions-toolbar orderid_place"><?= /* @escapeNotVerified */ $block->getActions($_item) ?></div>
+                            </div>
+                           <div class="row align-items-center">
+                              <div class="col-12 col-lg-3 col-md-4">
+                                 <div class="cart_img"><?= $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?></div>
+                              </div>
+                              <div class="col-12 col-lg-6 col-md-5">
+                                 <div class="product_details_outer">
+                                    <h4 class="product_name"><?= $block->escapeHtml($block->getProductName()) ?></h4>
+                                    <?= $sizeHtml; ?>
+                                    <?php if ($canApplyMsrp): ?>
+                                    <div class="rating_product mb-2">
+                                       <h6><?= $block->escapeHtml(__('Price :')) ?>
+                                        <span class="pricing msrp">
+                                            <span class="msrp notice"><?= /* @escapeNotVerified */ __('See price before order confirmation.') ?></span>
+                                            <?php $helpLinkId = 'cart-msrp-help-' . $_item->getId(); ?>
+                                            <a href="#" class="action help map" id="<?= /* @escapeNotVerified */ ($helpLinkId) ?>" data-mage-init='{"addToCart":{"helpLinkId": "#<?= /* @escapeNotVerified */ $helpLinkId ?>","productName": "<?= /* @escapeNotVerified */ $product->getName() ?>","showAddToCart": false}}'>
+                                                <span><?= /* @escapeNotVerified */ __("What's this?") ?></span>
+                                            </a>
+                                        </span></h6>
+                                    </div>
+                                    <?php else: ?>
+                                    <div class="rating_product mb-2">
+                                         <div class="price" data-th="<?= $block->escapeHtml(__('Price')) ?>">
+                                       <h6><?= $block->escapeHtml(__('Price :')) ?><span class="Price_p"><?= $block->getUnitPriceHtml($_item) ?></span></h6>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                            <div class="size_color_chart mt-3">
+                                         <?php if ($_options = $block->getOptionList()):?>
+                                    
+                                        <?php $first = true; foreach ($_options as $_option) : ?>
+                                            <?php $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
+                                              <?php if( $_option['label']=='Size' || $_option['label']=='Color') : ?>
+                                             <div class="size_chrt">
+                                                <dt><?= $block->escapeHtml($_option['label']) ?></dt>
+                                                <div class="size_option mb-0">
+                                                   <?php if( $_option['label']=='Size') : ?>
+                                                <dd class="size-option-cart">
+                                                  <?php else : ?>
+                                                    <dd>
+                                                  <?php endif; ?>
+                                                    <?php $optionValue = $_option['option_value']; ?>
+                                                    <?php $swatch = $swatchhelper->getSwatchesByOptionsId(array($optionValue)); ?>
+                                                    <?php if($swatch[$optionValue]['type'] != 0): ?>
+                                                        <div class="swatch-option" style="height: 41px;background: <?= $swatch[$optionValue]['value']; ?>" ></div>
+                                                    <?php else: ?>
+                                                        <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                                                            <?= /* @escapeNotVerified */ $_formatedOptionValue['full_view'] ?>
+                                                        <?php else: ?>
+                                                            <div class="size-option">
+                                                            <?= /* @escapeNotVerified */ $_formatedOptionValue['value'] ?>
+                                                          </div>
+                                                        <?php endif; ?>
+                                                        <?php endif; ?>
+                                                   
+                            </dd>
+                          </div>
+                                              </div>
+                                           <?php else: ?>
+                                          <div class="gift-card-size-option">
+                                          <dt><?= $block->escapeHtml($_option['label']) ?></dt>
+                                            <dd>
+                                <?php if (isset($_formatedOptionValue['full_view'])) :?>
+                                    <?= $block->escapeHtml($_formatedOptionValue['full_view']) ?>
+                                <?php else :?>
+                                    <?= $block->escapeHtml($_formatedOptionValue['value'], ['span']) ?>
+                                <?php endif; ?>
+                            </dd></div>
+                                           <?php endif; ?>
+                                         <?php endforeach; ?>
+                                    
+                                            <?php else : ?>
+                                                <?php 
+                                                   // $sizeHtml .= '<td>&nbsp;';
+                                                   // $sizeHtml .= '</td>'; 
+                                                ?>
+                                            <?php endif; ?>
+                               <div class="product_numbr login_form m-0">
+                                  <h6 class="mb-3"><?= $block->escapeHtml(__('Quantity :')) ?></h6>
+                                  <div class="onty_sec qty">
+                                       <input id="cart-<?= /* @escapeNotVerified */ $_item->getId() ?>-qty"
+                                       name="cart[<?= /* @escapeNotVerified */ $_item->getId() ?>][qty]"
+                                       data-cart-item-id="<?= $block->escapeHtml($_item->getSku()) ?>"
+                                       value="<?= /* @escapeNotVerified */ $block->getQty() ?>"
+                                       type="number"
+                                       size="4"
+                                       placeholder="<?= __('Select Quantity') ?>"
+                                       title="<?= $block->escapeHtml(__('Qty')) ?>"
+                                       class="form-control number_inpu input-text form-control pl-3 "
+                                       data-validate="{required:true,'validate-greater-than-zero':true}"
+                                       data-role="cart-item-qty"/>
+
+                                    </div>
+                               </div>
+
+                </div>
+
+
+
+
+
+
+
+             </div>
+          </div>
+              <div class="col-12 col-lg-3 col-md-3">
+                 <div class="totla_price">
+                        <p class="mb-2"><?= $block->escapeHtml(__('Total')) ?>
+                                <?php if ($canApplyMsrp): ?>
+                                <span class="cart msrp subtotal">--</span>
+                                    <?php else: ?>
+                                        <?= $block->getRowTotalHtml($_item) ?>
+                                    <?php endif; ?>
+                        </p>
+                 </div>
+              </div>
+       </div>
+    </div>
+
+
+    

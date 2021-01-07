@@ -1,0 +1,38 @@
+<div class="tab-content profile_tab_content" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+
+<div id="billing" class="checkout-billing-address" data-bind="visible: !isAddressSameAsShipping()">
+    <!-- ko if: !isAmazonAccountLoggedIn() -->
+    <div class="checkout_title">
+        <h4 class="wow fadeIn totle_tablr_header" data-bind="i18n: 'Billing Address'"></h4>
+    </div>
+    <!--/ko-->
+    <div id="checkout-step-billing" class="step-content" data-role="content">
+        <!-- ko if: (quoteIsVirtual) -->
+            <!-- ko foreach: getRegion('customer-email') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        <!--/ko-->
+        <!-- ko if: !isAmazonAccountLoggedIn() -->
+            <!-- ko if: (addressOptions.length > 1) -->
+                <!-- ko template: 'Magento_Checkout/billing-address/list' --><!-- /ko -->
+            <!-- /ko -->
+        <!-- ko if: isAddressFormVisible -->
+            <!-- ko template: 'Magento_Checkout/billing-address/form' --><!-- /ko -->
+        <!-- /ko -->
+
+        <div class="mp-clear"></div>
+
+            <!-- ko if: (!isCustomerLoggedIn() && quoteIsVirtual) -->
+                <!-- ko foreach: getRegion('customer-email') -->
+                    <!-- ko template: 'Mageplaza_Osc/container/address/billing/create' --><!-- /ko -->
+                <!--/ko-->
+            <!--/ko-->
+        <!--/ko-->
+
+
+        <div class="mp-clear"></div>
+    </div>
+</div>
+</div>
+</div>

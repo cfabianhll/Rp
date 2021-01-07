@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<div class="block block-customer-login col-12 col-md-6">
+	<div class="login_left">
+		<div class="pre_order_content">
+			<div class="section_title text-left">
+				<h2><?= $block->escapeHtml(__('Login')) ?></h2>
+				<span class="bottom_line"></span>
+			</div>
+		</div>
+		<div class="login_text">
+			<h5 class="mb-2"><?= $block->escapeHtml(__('Existing customers')) ?></h5>
+			<p><?= $block->escapeHtml(__('If you have already bought on Redprecio.com , you are already registered with us. To log in, place your email and password below.')) ?></p>
+		</div>
+		<div class="block-content" aria-labelledby="block-customer-login-heading">
+			<form class="form form-login"
+				  action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+				  method="post"
+				  id="login-form"
+				  data-mage-init='{"validation":{}}'>
+				<?= $block->getBlockHtml('formkey') ?>
+				<fieldset class="fieldset login login_form" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>">
+					<div class="field email required">
+						<div class="control form-group">
+							<input name="login[username]" placeholder="<?= $block->escapeHtml(__('Email')) ?>" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text form-control input_box" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
+							<span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/envelop.png'); ?>"></span>
+						</div>
+					</div>
+					<div class="field password required">
+						<div class="control form-group">
+							<input name="login[password]" placeholder="<?= $block->escapeHtml(__('Password')) ?>" type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text form-control input_box" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
+							<span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_key.png'); ?>"></span>
+						</div>
+					</div>
+					<div class="secondary form-group mb-0"><div class="forgot_password"><a class="action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span></a></div></div>
+					<div class="primary form-group"><button type="submit" class="action login primary btn theme_btn mt-3" name="send" id="send2"><span><?= $block->escapeHtml(__('LOGIN')) ?></span></button></div>
+					<?= $block->getChildHtml('form_additional_info') ?>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+

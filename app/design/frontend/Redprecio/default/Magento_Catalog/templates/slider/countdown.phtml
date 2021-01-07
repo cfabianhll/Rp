@@ -1,0 +1,87 @@
+<?php
+use Magento\Framework\App\Action\Action;
+$dailydeals = $block->getDailyDealProducts();
+$enable = $block->isEnabled();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$i = 1;
+if ($dailydeals && $dailydeals->count() && $enable):
+	$viewMode = 'grid';
+	$imageDisplayArea = 'category_page_grid';
+	$showDescription = false;
+	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;   
+?>
+	<div class="col-12">
+		<div class="pre_order_content">
+			<div class="section_title">
+				<h2><?= __('Deals Of The Day') ?></h2>
+				<p><?= __('Let’s see today’s best deal and enjoy shopping') ?></p>
+				<span class="bottom_line"></span>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div class="deal_of_day owl-carousel owl-theme">
+			<?php foreach ($dailydeals as $_product) {
+				$currentDate =  date('d-m-Y');
+				$todate      =  $_product->getSpecialToDate();
+				$fromdate    =  $_product->getSpecialFromDate();
+				if($_product->getSpecialPrice() != 0 || $_product->getSpecialPrice()) {
+					if($_product->getSpecialToDate() != null) {
+						if(strtotime($todate) >= strtotime($currentDate) && strtotime($fromdate) <= strtotime($currentDate)){
+							$postParams = $block->getAddToCartPostParams($_product);?>
+							<div class="pre_order_slider">
+								<span class="new_tag"><?= __('sale') ?></span>
+								<div class="img_container">
+									<a href="<?php echo $_product->getProductUrl(); ?>">
+										<?= $block->getImage($_product, $imageDisplayArea)->toHtml() ?>
+									</a>
+								</div>
+								
+								<div class="about_pre_product">
+								<form data-role="tocart-form" data-product-id="<?= $block->escapeHtml($_product->getId()) ?>" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+									<input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+									<input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+									<?php echo $block->getBlockHtml('formkey')?>
+									<a href="<?php echo $_product->getProductUrl(); ?>"><h5><?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h5></a>
+									<?php echo $block->getReviewsSummaryHtml($_product, $templateType, true); ?>
+									<strong><span><?php echo $block->getPriceFormat($_product->getSpecialPrice(), true, false); ?></span></strong>
+									<div id="countdowntimer" class="countdowntimer"><ul id="future_date<?php echo $i; ?>" class="time_Counter"></ul></div>
+									<script>
+										require([
+											'jquery',
+											'Emizentech_Countdown/js/jquery.countdownTimer'
+										], function ($) {
+											console.log('countdowntimer start');
+											jQuery("#future_date<?php echo $i;?>").countdowntimer({
+												startDate : "<?php echo date('Y/m/d H:i:s'); ?>",
+												dateAndTime : "<?php echo str_replace('-','/',$_product->getSpecialToDate()); ?>",
+												size : "lg",
+												regexpMatchFormat: "([1-9][0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",   
+												regexpReplaceWith: "<li>$1<span>DD</span></li><li>$2<span>HH</span></li><li>$3<span>MM</span></li><li>$4<span>SS</span></li>"
+											});    
+										});
+									</script>
+									<?php if ($_product->isSaleable()): ?>
+										<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" data-role="tocart-form" class="action tocart primary btn theme_btn img_btn hvr-wobble-vertical"><img src="<?php echo $block->getViewFileUrl('images/cart_bg.png'); ?>"></button>
+										<!--<a class="btn theme_btn img_btn bss-quickview hovercart" title="<?php //echo $block->escapeHtml(__('Quick View')); ?>"  data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><img src="<?php //echo $block->getViewFileUrl('images/eye.png'); ?>"></a>-->
+									<?php else: ?>
+										<?php if ($_product->isAvailable()): ?>
+											<div class="display_hvr"><div class="stock available btn btn_red"><span><?= /* @escapeNotVerified */ __('In stock') ?></span></div></div>
+										<?php else: ?>
+											<div class="display_hvr"><div class="stock unavailable btn btn_red"><span><?= /* @escapeNotVerified */ __('Out of stock') ?></span></div></div>
+										<?php endif; ?>
+									<?php endif; ?>
+								</form>
+								</div>
+							</div>
+					   <?php
+					   }   
+					}
+				}
+			$i++;
+				
+			}
+			?>
+		</div>
+	</div>
+<?php endif; ?>

@@ -1,0 +1,484 @@
+"Request RMA",請求RMA
+"My Returns",我的退貨
+Grid,格
+List,名單
+All,所有
+"Create RMA",創建RMA
+"Request New Return",申請新的回報
+"Max file size: %1Mb",最大文件大小：%1Mb
+"New Return for Order #%1",新訂單#%1的退貨
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1  -  %2"
+"Wrong Order #, Email or Last Name",錯誤的訂單號，電子郵件或姓氏
+Items,項目
+"To apply changes you should fill in required ""%1"" field",要應用更改，請填寫必填“%1”字段
+"Please, add order items to the RMA (set 'Qty to Return')",請將訂單商品添加到RMA（設置“退貨數量”）
+"Please, set correct order items Quantity to return",請設置正確的訂單項數量返回
+"RMA was successfully created",RMA成功創建
+"Shipping is confirmed. Thank you!",運輸已確認。謝謝！
+"Your message was successfully added",您的消息已成功添加
+"Allowed extensions:",允許的擴展名
+"Maximum size:",最大尺寸：
+"-- Please Select --","-  請選擇  -"
+" at %1 (%2)",在12__）
+"Mark as unresolved",標記為未解決
+"Mark as resolved",標記為已解決
+"not set",沒有設置
+Pattern,模式
+"Attribute Value",屬性值
+Default,默認
+Integer,整數
+Price,價錢
+"Strip Tags",帶標籤
+"Primary Attributes",主要屬性
+"Stock Attributes",股票屬性
+"Prices & Taxes",價格和稅收
+Images,圖片
+"Custom Attributes",自定義屬性
+Mapping,製圖
+Category,類別
+"Amasty Meta Tags","Amasty Meta標籤"
+"Others Attributes",其他屬性
+Text,文本
+"Multi-line text",多行文字
+Date,日期
+Checkbox,複選框
+"Drop-down list",下拉列表
+Reason,原因
+Condition,條件
+Resolution,解析度
+"RMA #",RMA＃
+"Order #",訂單＃
+"Customer Email",客戶電郵
+"Customer Name",顧客姓名
+Owner,所有者
+"Last Replier",上次文件夾
+Status,狀態
+Store,商店
+"Created At",創建於
+"Last Activity",上次活動
+"View link",查看鏈接
+"New RMA has been created",新的RMA已經創建
+"RMA has been changed",RMA已更改
+"New reply from customer",客戶的新答复
+"New reply from staff",工作人員的新答复
+"-- Default Address --","-  默認地址  -"
+"Update the Product",更新產品
+"Conditions Combination",條件組合
+"RMA Attribute",RMA屬性
+"Last 7-days Clicks",最近7天的點擊次數
+"Last 7-days Orders",最近7天的訂單
+"Last 7-days Revenue",最近7天的收入
+"Last 7-days Conversation Rate (%)",最近7天對話率（％）
+"Attribute Set",屬性集
+Quantity,數量
+"Product Type",產品類別
+"Base Image",基本圖像
+Thumbnail,縮略圖
+"Small Image",小圖片
+"Base Image Size (bytes)",基本圖像大小（字節）
+"Thumbnail Size (bytes)",縮略圖大小（字節）
+"Small Image Size (bytes)",小圖像大小（字節）
+"PHP Condition",PHP條件
+"Open Chooser",打開選擇器
+"Last message body",最後的郵件正文
+"Updated At",更新於
+"Status (before change)",狀態（更改前）
+"Owner (before change)",所有者（變更前）
+"Last Reply By",最後回复者
+"Hours since Created",創建後的小時數
+"Hours since Updated",已更新的小時數
+"Hours since Last reply",自上次回復後的小時數
+"Items have reason",物品有理由
+"Items have condition",物品有條件
+"Items have resolution",項目有解決方案
+"%1 (before change)",%1（更改前）
+Customer,顧客
+Staff,員工
+"- Disable these emails -","- 禁用這些電子郵件 -"
+Yes,是
+No,沒有
+Save,保存
+"Save & Continue Edit",保存並繼續編輯
+"Save & Close",保存並關閉
+Edit,編輯
+Delete,刪除
+"Delete ""${ $.$data.name }""","刪除"${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","你確定你不想刪除""${ $.$data.name }""記錄嗎？"
+"Are you sure you want to do this?",你確定你要這麼做嗎？
+"Convert To Ticket",轉換成票
+"View order #${ $.$data.order_id }","查看訂單＃${ $.$data.order_id }"
+"View exchange order %1",查看交換訂單%1
+"RMA: Report by Attribute",RMA：按屬性報告
+"RMA: Report by Status",RMA：狀態報告
+"RMA: Report by Product",RMA：按產品報告
+"RMA: Report by Reasons",RMA：按原因報告
+"Cannot delete return address with id %1","無法使用ID %1刪除返回地址"
+"Cannot delete item with id %1",無法刪除ID為%1的項目
+"Cannot delete condition with id %1",無法刪除id為%1的條件
+"Cannot delete field with id %1",無法刪除ID為%1的字段
+"Cannot delete message with id %1",無法刪除ID為%1的訊息
+"Cannot delete history with id %1",無法刪除id為%1的歷史記錄
+"Cannot delete Quick Response with id %1","無法使用ID %1刪除快速響應"
+"Cannot delete reason with id %1","無法使用ID %1刪除原因"
+"Cannot delete resolution with id %1","無法使用ID %1刪除分辨率"
+"Cannot delete rma with id %1",無法刪除id為%1的rma
+"Cannot delete rule with id %1",無法刪除ID為%1的規則
+"Cannot delete status with id %1",無法刪除id為%1的狀態
+"Please, enter a message",請輸入消息
+"Product Name",產品名稱
+SKU,SKU
+Qty,數量
+"This was a gift, please do not notify purchaser",這是禮物，請不要通知購買者
+"Enter your contact information",輸入您的聯繫信息
+"First Name",名字
+"Last Name",姓
+Email,電子郵件
+Telephone,電話
+"To request a new RMA or check the status of current RMA, please, fill the form:",要請求新的RMA或檢查當前RMA的狀態，請填寫以下表格：
+"* Required Fields",*必填字段
+"Order Information",訂單信息
+"Email or Last Name",電子郵件或姓氏
+Next,下一個
+RMA,RMA
+Actions,操作
+"View Return",查看退貨
+"There are no Returns",沒有退貨
+"Items %1 to %2 of %3 total",共%3個項目%1至%2
+"%1 Item(s)",%1項目
+Show,顯示
+"per page",每頁
+"View as",查看為
+"Sort by",排序方式
+"Set Ascending Direction",設置升序
+"Set Descending Direction",設置降序
+"Please, select an order",請選擇一個訂單
+Order,訂購
+"-- Select an Order --","- 選擇一個訂單 -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.",您沒有完成的訂單來申請RMA，或者您的訂單在%1天前發貨。請聯繫客服。
+"Submit Request",提交請求
+"Please, select RMA items which you would like to return.",請選擇您想要返回的RMA項目。
+"Additional Information",附加信息
+"Attach files",附加文件
+"Request Information",請求信息
+"Email Address",電子郵件地址
+"Order Shipping Address",訂單送貨地址
+"Items in this order",項目按此順序
+"There are no items for this product that can be returned.",此產品沒有可退貨的物品。
+"Another RMA for this product: %1",此產品的另一個RMA：%1
+"This product can not be returned due to RMA Policy",由於RMA政策，此產品無法退貨
+"This is a non-returnable item per our return policy.",根據我們的退貨政策，這是不可退貨的商品。
+"Quantity to return",數量返回
+"-- Select a Reason --","- 選擇一個原因 -"
+"-- Select a Condition --","- 選擇一個條件 -"
+"-- Select a Resolution --","- 選擇一個分辨率 -"
+"I agree",我同意
+"Date: %1",日期：%1
+"Original order: #%1",原始順序：#%1
+"Return Address",退貨地址
+"Customer Information",客戶信息
+"RMA History",RMA歷史
+"RMA Items",RMA項目
+Weight,重量
+"Print RMA Packing Slip",打印RMA包裝清單
+"Print RMA Shipping Label",打印RMA運輸標籤
+"Confirm Shipping",確認發貨
+"(This was a gift)",（這是一份禮物）
+"Date Requested",要求的日期
+"Contact Information",聯繫信息
+"Items RMA Requested for",RMA要求的項目
+QTY,QTY
+"Add Message",添加消息
+Submit,提交
+%name,％名稱
+"The quantity is incorrect.",數量不正確。
+"New Return for Offline Order",離線訂單的新回報
+" at %1",在%1
+Select,選擇
+"If you do not have account on this store please fill the form below.",如果您在這家商店沒有賬戶，請填寫下面的表格。
+"-- Create Offline Order --","- 創建離線訂單 -"
+"Returned Item",退回物品
+"Remove Item",除去項目
+"Order or Receipt #",訂單或收據＃
+"Add Item",新增項目
+"Add at least one item to this RMA",至少向此RMA添加一個項目
+"Return Addresses",返回地址
+"Add New Return Address",添加新的退貨地址
+"General Information",一般信息
+Title,標題
+"Sort Order",排序
+"Is Active",活躍
+ID,ID
+Active,活性
+Disabled,殘
+Enabled,啟用
+"Change status",改變狀態
+"Are you sure?",你確定嗎？
+Conditions,條件
+"Add New Condition",添加新條件
+"[STORE VIEW]",[商店視圖]
+"Create RMA for this customer",為該客戶創建RMA
+Fields,字段
+"Add New Field",添加新字段
+Code,碼
+Type,類型
+Description,描述
+"Options list",選項列表
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","僅用於下拉列表。 <br>使用以下格式輸入新行中的每個值： <br> value1 | LABEL1 <br> value2 | LABEL2"
+"Sort order",排序
+"Is required for staff",工作人員需要
+"Is required for customers",客戶需要
+"Visible for customers in statuses",狀態可見的客戶
+"Is show in confirm shipping dialog",在確認裝運對話框中顯示
+"Is editable for customers",可以為客戶編輯
+Statuses,狀態
+Reasons,原因
+Resolutions,決議
+"Custom Fields",自定義字段
+"Quick Responses",快速回复
+"Workflow Rules",工作流程規則
+Reports,報告
+Settings,設置
+"Add New Reason",添加新原因
+"Add New Resolution",添加新分辨率
+"Add New RMA",添加新RMA
+"Create New RMA",創建新的RMA
+"Purchased From (Store)",從（商店）購買
+"Purchased On",購買了
+"Bill to Name",比爾命名
+"Ship to Name",運送到名稱
+"G.T. (Base)",GT（基地）
+"G.T. (Purchased)",GT（已購買）
+Print,打印
+"Credit Memo",信用備忘錄
+"Exchange Order",交換訂單
+"Delete File",刪除文件
+"RMA Owner",RMA所有者
+"Upload Return Label",上傳退貨標籤
+"External Link",外部鏈接
+open,打開
+"(received a gift)",（收到禮物）
+"Exchage Order",交易訂單
+Company,公司
+"Street Address",街道地址
+City,市
+Zip/Postcode,郵編/郵編
+Rules,規則
+"Add New Rule",添加新規則
+"Set Status",設置狀態
+"Set Owner",設置所有者
+Event,事件
+Filters,過濾器
+"Rule Name",規則名稱
+Priority,優先
+"Arranged in the ascending order. 0 is the highest.","按升序排列。 0是最高的。"
+"Stop Further Rules Processing",停止進一步規則處理
+Notifications,通知
+"Send email to RMA owner",發送電子郵件給RMA所有者
+"Send email to customer",發送電子郵件給客戶
+"Send email to other email addresses",發送電子郵件到其他電子郵箱
+"Email subject",電子郵件主題
+"Email body",郵件正文
+"Attach files which were attached to the last message",附加附加到最後一條消息的文件
+"Is Stop Processing",停止處理
+"Create RMA for this order",為此訂單創建RMA
+"Order meets RMA policy",訂單符合RMA政策
+"Order doesn't meet RMA policy",訂單不符合RMA政策
+"Add New Status",添加新狀態
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account",在客戶帳戶中顯示按鈕&#39;打印RMA裝箱單&#39;，&#39;打印RMA裝運標籤&#39;和&#39;確認裝運&#39;
+"Email Notification for customer",客戶的電子郵件通知
+"leave blank to not send",留空不發送
+"Message for RMA history",RMA歷史消息
+"Email Notification for administrator",管理員的電子郵件通知
+Templates,模板
+"Add New Template",添加新模板
+"Internal Title",內部標題
+Template,模板
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]",您可以使用變量：[rma_increment_id]，[rma_firstname]，[rma_lastname]，[rma_email]，[store_name]，[store_phone]，[store_address]，[user_firstname]，[user_lastname]，[user_email]
+Stores,商店
+"RMA Return Address",RMA退貨地址
+"New Return Address",新的回郵地址
+"Return Address Manager",返回地址管理器
+"Add Return Address ",添加退貨地址
+"Add Return Address",添加退貨地址
+"Return Address was successfully deleted",退貨地址已成功刪除
+"Edit Return Address '%1'",修改退貨地址&#39;%1&#39;
+"Edit Return Address ",編輯寄信人地址
+"The Return Address does not exist.",退貨地址不存在。
+"Please select Return Address(es)",請選擇返回地址
+"Total of %d record(s) were successfully updated",已成功更新％d條記錄的總數
+"Total of %1 record(s) were successfully deleted",已成功刪除%1條記錄的總數
+"return Address was successfully saved",return地址已成功保存
+"Unable to find Return Address to save",無法找到要保存的退貨地址
+"New Condition",新條件
+"Condition  Manager",條件管理員
+"Condition Manager",條件管理員
+"Add Condition ",添加條件
+"Add Condition",添加條件
+"Condition was successfully deleted",條件已成功刪除
+"Edit Condition '%1'",編輯條件&#39;%1&#39;
+"Edit Condition ",編輯條件
+"The Condition does not exist.",條件不存在。
+"Please select Condition(s)",請選擇條件
+"Total of %d record(s) were successfully deleted",已成功刪除％d條記錄的總數
+"Condition was successfully saved",條件已成功保存
+"Unable to find Condition to save",無法找到要保存的條件
+"New Field",新領域
+"Field  Manager",現場經理
+"Field Manager",現場經理
+"Add Field ",添加字段
+"Add Field",添加字段
+"Field was successfully deleted",Field已成功刪除
+"Edit Field '%1'",編輯字段&#39;%1&#39;
+"Edit Field ",編輯字段
+"The Field does not exist.",該字段不存在。
+"Please select Field(s)",請選擇字段
+"Field was successfully saved",Field已成功保存
+"Unable to find Field to save",無法找到要保存的字段
+"New Reason",新理由
+"Reason  Manager",理由經理
+"Reason Manager",理由經理
+"Add Reason ",添加原因
+"Add Reason",添加原因
+"Reason was successfully deleted",原因已成功刪除
+"Edit Reason '%1'",修改原因&#39;%1&#39;
+"Edit Reason ",編輯原因
+"The Reason does not exist.",原因不存在。
+"Please select Reason(s)",請選擇原因
+"Reason was successfully saved",原因已成功保存
+"Unable to find Reason to save",無法找到保存原因
+"Statistics was successfully updated",統計數據已成功更新
+"RMA by Brand","RMA by Brand"
+"RMA Report",RMA報告
+"RMA by Product",RMA按產品分類
+Rma,RMA
+"New Resolution",新決議
+"Resolution  Manager",決議經理
+"Resolution Manager",決議經理
+"Add Resolution ",添加分辨率
+"Add Resolution",添加分辨率
+"Resolution was successfully deleted",決議已成功刪除
+"Edit Resolution '%1'",修改決議&#39;%1&#39;
+"Edit Resolution ",編輯分辨率
+"The Resolution does not exist.",該決議不存在。
+"Please select Resolution(s)",請選擇分辨率
+"Resolution was successfully saved",分辨率已成功保存
+"Unable to find Resolution to save",無法找到要保存的分辨率
+"New RMA",新RMA
+"RMA was successfully deleted",
+"The rma does not exist.",Rma不存在。
+"Marked as read",標記為已閱讀
+"Marked as unread",標記為未讀
+"Please select rma(s)",請選擇rma（s）
+"A total of %1 record(s) have been deleted.",共刪除了%1條記錄。
+"RMA was successfully saved",RMA成功保存
+"Unable to find rma to save",無法找到要保存的rma
+"New Rule",新規則
+"Rule  Manager",規則經理
+"Rule Manager",規則經理
+"Add Rule ",添加規則
+"Add Rule",添加規則
+"Rule was successfully deleted",規則已成功刪除
+"Edit Rule '%1'",修改規則&#39;%1&#39;
+"Edit Rule ",編輯規則
+"The Rule does not exist.",該規則不存在。
+"Please select Rule(s)",請選擇規則
+"Rule was successfully saved",規則已成功保存
+"Unable to find Rule to save",無法找到要保存的規則
+"New Status",新狀態
+"Status  Manager",狀態管理器
+"Status Manager",狀態管理器
+"Add Status ",添加狀態
+"Add Status",添加狀態
+"Status was successfully deleted",狀態已成功刪除
+"Edit Status '%1'",修改狀態&#39;%1&#39;
+"Edit Status ",編輯狀態
+"The Status does not exist.",狀態不存在。
+"Please select Status(s)",請選擇狀態
+"Status was successfully saved",狀態已成功保存
+"Unable to find Status to save",無法找到要保存的狀態
+"New Template",新模板
+"Template  Manager",模板管理器
+"Template Manager",模板管理器
+"Add Template ",添加模板
+"Add Template",添加模板
+"Template was successfully deleted",模板已成功刪除
+"Edit Template '%1'",修改模板&#39;%1&#39;
+"Edit Template ",編輯模板
+"The Template does not exist.",模板不存在。
+"Please select Template(s)",請選擇模板
+"Template was successfully saved",模板已成功保存
+"Unable to find Template to save",無法找到要保存的模板
+"Created Date",創建日期
+Action,行動
+View,視圖
+RMAs,RMA的
+"Select Order",選擇訂單
+"Exchange/Credit Balance",兌換/信貸餘額
+"Customer credit balance:",客戶貸方餘額：
+"Total price of new products:",新產品總價：
+"Total price of exchanged/credit products:",交換/信貸產品的總價格：
+"Price difference:",差價：
+Resolution:,解析度：
+"Get %1 from customer credit balance",從客戶貸方餘額中獲取%1
+"Put %1 to customer credit balance",將%1放入客戶貸方餘額
+"Resolve manually",手動解決
+"Message Type",消息類型
+"Message to Customer",給客戶的消息
+"Internal Note",內部註釋
+"mark as unread",標記為未讀
+"mark as read",標記為已讀
+"You can not return more, than available. Please, try again.",你不能返回比現有更多的東西。請再試一次。
+"show all order items",顯示所有訂單商品
+"Qty to Return",返回的數量
+"Reason to Return",回歸的原因
+"Item Condition",項目情況
+"(Bundled Product)",（捆綁產品）
+Stock,股票
+Ordered,有序
+Available,可得到
+--,-
+"Insert Quick Response",插入快速回复
+"Default status for new RMA",新RMA的默認狀態
+"Default owner for new RMA",新RMA的默認所有者
+"Ask customer to confirm shipping",要求客戶確認發貨
+"Shipping confirmation text",送貨確認文本
+"Enable option ""This was a gift""",啟用選項“這是禮物”
+"Enable integration with Help Desk",啟用與幫助台的集成
+"Code of ""Brand"" attribute",代碼“品牌”屬性
+"Allow upload only attachments with extensions",僅允許上傳帶擴展名的附件
+"Limit of attachments size, Mb",附件限制大小，Mb
+"Show Columns in RMA Grid",在RMA網格中顯示列
+"Show RMA section in Customer Account",在客戶帳戶中顯示RMA部分
+"Customers are required to select:",客戶需要選擇：
+"Allow to request RMA after order completion, days",允許在訂單完成後請求RMA，天數
+"Allow to request RMA if order has status",如果訂單具有狀態，則允許請求RMA
+"Ask to agree with RMA policy text",要求同意RMA政策文本
+"CMS block with RMA policy text",具有RMA策略文本的CMS塊
+"Number Format",數字格式
+"Start Counter From",啟動計數器
+"Counter Increment Step",計數器增量步驟
+"Counter Length",計數器長度
+"Email Sender",電子郵件發件人
+"Template of Notification Email for Customer",客戶通知電子郵件模板
+"Template of Notification Email for RMA Owner",RMA所有者的通知電子郵件模板
+"Template of Rule Notification",規則通知模板
+" Send blind carbon copy (BCC) of all emails to",發送所有電子郵件的密件抄送（BCC）
+"At least one RMA item should have resolution ""Exchange"".",至少有一個RMA項目應具有“Exchange”分辨率。
+"Add another order",添加另一個訂單
+"Offline Order",離線訂單
+OR,要么
+"Select Offline Order",選擇脫機訂單

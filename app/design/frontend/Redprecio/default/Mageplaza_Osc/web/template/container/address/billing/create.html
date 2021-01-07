@@ -1,0 +1,47 @@
+<div class="row create-account-block" data-bind="fadeVisible: isPasswordVisible() == false">
+    <div class="col-12 col-md-12 col-lg-12 form-group create-account-checkbox field choice" data-bind="visible: isCheckboxRegisterVisible">
+        <label class="container_checkbox" data-bind="attr: {for: 'create-account-checkbox'}">
+            <span data-bind="i18n: 'Create account'"></span>
+            <input type="checkbox" name="create-account-checkbox" data-bind="checked: isRegisterVisible, attr: {id: 'create-account-checkbox'}"/>       
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div class="col-12 col-md-12 col-lg-12 hidden-fields mp-clear" data-bind="fadeVisible: isRegisterVisible">
+        <form class="form row form-create-account" id="create-account-form">
+            <div class="col-12 col-md-6 col-lg-6 form-group field osc-password required">
+                <!-- ko ifnot: window.checkoutConfig.oscConfig.isUsedMaterialDesign -->
+                <label for="osc-password" class="label"><!-- ko i18n: 'Password'--><!-- /ko --><span class="require">*</span></label>
+                <!-- /ko -->
+                <input type="password" name="password" id="osc-password"
+                       class="form-control input-text"
+                       data-bind="
+                           attr: {
+                                'data-password-min-length': dataPasswordMinLength,
+                                'data-password-min-character-sets': dataPasswordMinCharacterSets
+                           },
+                           event: {change: function(){validate('password')}}"
+                       data-validate="{required:true, 'validate-customer-password':true}"
+                       autocomplete="off" required/>
+                <!-- ko if: window.checkoutConfig.oscConfig.isUsedMaterialDesign -->
+                    <label for="osc-password" class="label"><span data-bind="i18n: 'Password'"></span><i class="required-entry">*</i></label>
+                    <div for="osc-password" generated="true" class="mage-error" id="osc-password-error"></div>
+                <!-- /ko -->
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 form-group field confirmation required">
+                <!-- ko ifnot: window.checkoutConfig.oscConfig.isUsedMaterialDesign -->
+                <label for="osc-password-confirmation" class="label"><!-- ko i18n: 'Confirm Password'--><!-- /ko --><span class="require">*</span></label>
+                <!-- /ko -->
+                <input type="password" name="password_confirmation" id="osc-password-confirmation"
+                       class="form-control input-text"
+                       data-bind="event: {change: function(){validate('password-confirmation')}}"
+                       data-validate="{required:true, equalTo:'#osc-password'}"
+                       autocomplete="off" required/>
+                <!-- ko if: window.checkoutConfig.oscConfig.isUsedMaterialDesign -->
+                <label for="osc-password-confirmation" class="label"><span data-bind="i18n: 'Confirm Password'"></span><i class="required-entry">*</i></label>
+                <div for="osc-password-confirmation" generated="true" class="mage-error" id="osc-password-confirmation-error"></div>
+                <!-- /ko -->
+            </div>
+            <div class="mp-clear"></div>
+        </form>
+    </div>
+</div>

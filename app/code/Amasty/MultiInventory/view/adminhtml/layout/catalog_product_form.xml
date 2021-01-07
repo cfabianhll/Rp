@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <referenceContainer name="content">
+        <block class="Amasty\MultiInventory\Block\Adminhtml\Catalog\Product\AfterRenderer"
+               as="sales_product_multiinventory"
+               template="Amasty_MultiInventory::product/after_renderer.phtml"
+               after="product_form"
+        />
+    </referenceContainer>
+</layout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Mview/etc/mview.xsd">
+    <view id="multiinventory_warehouse" class="Amasty\MultiInventory\Model\Indexer\Warehouse" group="indexer">
+        <subscriptions>
+            <table name="amasty_multiinventory_warehouse_item" entity_column="product_id" />
+        </subscriptions>
+    </view>
+</config>

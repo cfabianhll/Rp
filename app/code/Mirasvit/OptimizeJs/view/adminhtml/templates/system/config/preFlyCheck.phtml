@@ -1,0 +1,8 @@
+<?php
+/** @var \Mirasvit\OptimizeJs\Block\Adminhtml\System\Config\PreFlyCheckButton $block */
+?>
+<button class="scalable" type="button" id="<?= $block->getHtmlId() ?>" data-mage-init='{"Mirasvit_OptimizeJs/js/preFlyCheck":{
+    "callbackUrl": "<?= $block->escapeUrl($block->getCallbackUrl()) ?>",
+    "elementId": "<?= $block->getHtmlId() ?>"}, "validation": {}}'>
+    <span id="<?= $block->getHtmlId() ?>_result"><?= $block->escapeHtml($block->getButtonLabel()) ?></span>
+</button>

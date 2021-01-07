@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Form\Login\Info $block */
+?>
+<?php if ($block->getRegistration()->isAllowed()) : ?>
+<div class="block block-new-customer col-12 col-md-6">
+	<div class="login_right">
+		<div class="login_text">
+			<h5 class="mb-2"><?= $block->escapeHtml(__('New customers')) ?></h5>
+			<p><?= $block->escapeHtml(__('Is it your first purchase with us? Sign up completely FREE . Just click on the "Continue" button to register')) ?></p>
+		</div>
+		<div class="block-content" aria-labelledby="block-new-customer-heading">    
+			<div class="primary">
+				<a href="<?= $block->escapeUrl($block->getCreateAccountUrl()) ?>" class="action create primary btn theme_btn mt-3"><span><?= $block->escapeHtml(__('REGISTER')) ?></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+<?php endif; ?>

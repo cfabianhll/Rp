@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\MultiInventory\Api\WarehouseRepositoryInterface" type="Amasty\MultiInventory\Model\WarehouseRepository" />
+    <preference for="Amasty\MultiInventory\Api\WarehouseCustomerGroupRepositoryInterface" type="Amasty\MultiInventory\Model\Warehouse\CustomerGroupRepository" />
+    <preference for="Amasty\MultiInventory\Api\WarehouseStoreRepositoryInterface" type="Amasty\MultiInventory\Model\Warehouse\StoreRepository" />
+    <preference for="Amasty\MultiInventory\Api\WarehouseShippingRepositoryInterface" type="Amasty\MultiInventory\Model\Warehouse\ShippingRepository" />
+    <preference for="Amasty\MultiInventory\Api\WarehouseItemRepositoryInterface" type="Amasty\MultiInventory\Model\Warehouse\ItemRepository" />
+    <preference for="Amasty\MultiInventory\Api\WarehouseOrderItemRepositoryInterface" type="Amasty\MultiInventory\Model\Warehouse\OrderItemRepository" />
+    <preference for="Amasty\MultiInventory\Api\WarehouseQuoteItemRepositoryInterface" type="Amasty\MultiInventory\Model\Warehouse\QuoteItemRepository" />
+    <preference for="Amasty\MultiInventory\Api\WarehouseImportRepositoryInterface" type="Amasty\MultiInventory\Model\Warehouse\ImportRepository" />
+    <preference for="Amasty\MultiInventory\Api\ExportRepositoryInterface" type="Amasty\MultiInventory\Model\ExportRepository" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseInterface" type="Amasty\MultiInventory\Model\Warehouse" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseCustomerGroupInterface" type="Amasty\MultiInventory\Model\Warehouse\CustomerGroup" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseStoreInterface" type="Amasty\MultiInventory\Model\Warehouse\Store" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseShippingInterface" type="Amasty\MultiInventory\Model\Warehouse\Shipping" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseItemInterface" type="Amasty\MultiInventory\Model\Warehouse\Item" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseItemApiInterface" type="Amasty\MultiInventory\Model\Warehouse\Item\Api" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseOrderItemInterface" type="Amasty\MultiInventory\Model\Warehouse\Order\Item" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseQuoteItemInterface" type="Amasty\MultiInventory\Model\Warehouse\Quote\Item" />
+    <preference for="Amasty\MultiInventory\Api\Data\WarehouseImportInterface" type="Amasty\MultiInventory\Model\Warehouse\Import" />
+    <preference for="Amasty\MultiInventory\Api\Data\ExportInterface" type="Amasty\MultiInventory\Model\Export" />
+    <type name="Amasty\MultiInventory\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\MultiInventory\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">inventoryLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="info" xsi:type="object">Amasty\MultiInventory\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\CatalogInventory\Api\StockStateInterface">
+        <plugin name="amastyMultiInventoryStockStateInterface" type="Amasty\MultiInventory\Plugin\Inventory\Api\StockStateInterfacePlugin"/>
+    </type>
+    <virtualType name="WarehouseRelationsComposite" type="Magento\Framework\Model\ResourceModel\Db\VersionControl\RelationComposite">
+        <arguments>
+            <argument name="relationProcessors" xsi:type="array">
+                <item name="default" xsi:type="object">Amasty\MultiInventory\Model\ResourceModel\Warehouse\Relation</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\MultiInventory\Model\ResourceModel\Warehouse">
+        <arguments>
+            <argument name="entityRelationComposite" xsi:type="object">WarehouseRelationsComposite</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amasty_multi_inventory_warehouse_listing_data_source" xsi:type="string">Amasty\MultiInventory\Model\ResourceModel\Warehouse\Grid\Collection</item>
+                <item name="amasty_multi_inventory_export_grid_data_source" xsi:type="string">Amasty\MultiInventory\Model\ResourceModel\Export\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\MultiInventory\Model\ResourceModel\Warehouse\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_multiinventory_warehouse</argument>
+            <argument name="eventPrefix" xsi:type="string">amasty_multiinventory_warehouse_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">warehouse_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\MultiInventory\Model\ResourceModel\Warehouse</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\MultiInventory\Model\ResourceModel\Export\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_multiinventory_export</argument>
+            <argument name="eventPrefix" xsi:type="string">amasty_multiinventory_export_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">export_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\MultiInventory\Model\ResourceModel\Export</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_warehouse</item>
+                    <item name="identifierField" xsi:type="string">warehouse_id</item>
+                </item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseCustomerGroupInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_customer_group</item>
+                    <item name="identifierField" xsi:type="string">id</item>
+                </item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseStoreInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_store</item>
+                    <item name="identifierField" xsi:type="string">id</item>
+                </item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseShippingInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_warehouse_shipping</item>
+                    <item name="identifierField" xsi:type="string">id</item>
+                </item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseItemInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_warehouse_item</item>
+                    <item name="identifierField" xsi:type="string">item_id</item>
+                </item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseOrderItemInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_warehouse_order_item</item>
+                    <item name="identifierField" xsi:type="string">item_id</item>
+                </item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseQuoteItemInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_warehouse_quote_item</item>
+                    <item name="identifierField" xsi:type="string">item_id</item>
+                </item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseImportInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_warehouse_import</item>
+                    <item name="identifierField" xsi:type="string">item_id</item>
+                </item>
+                <item name="Amasty\MultiInventory\Api\Data\ExportInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">amasty_multiinventory_export</item>
+                    <item name="identifierField" xsi:type="string">export_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseCustomerGroupInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseStoreInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseShippingInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseItemInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseOrderItemInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseQuoteItemInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Amasty\MultiInventory\Api\Data\WarehouseImportInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Amasty\MultiInventory\Api\Data\ExportInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Ui\Component\Listing\Columns">
+        <plugin name="aminventoryColumns" type="Amasty\MultiInventory\Plugin\Ui\Catalog\Component\Listing\Columns" />
+    </type>
+    <type name="Magento\Quote\Observer\Webapi\SubmitObserver">
+        <plugin name="aminventorySend" type="Amasty\MultiInventory\Plugin\Quote\Observer\Webapi\SubmitObserver" />
+    </type>
+    <type name="Magento\Shipping\Model\Shipping">
+        <plugin name="aminventoryRecalcShippingMethods" type="Amasty\MultiInventory\Plugin\Shipping\Model\Shipping" />
+    </type>
+    <type name="Magento\Quote\Model\QuoteManagement">
+        <plugin name="aminventoryOrderPlacing" type="Amasty\MultiInventory\Plugin\Quote\Model\QuoteManagement" />
+    </type>
+    <type name="Magento\Bundle\Model\ResourceModel\Option\Collection">
+        <plugin name="aminventoryBundleReload" type="Amasty\MultiInventory\Plugin\Bundle\Model\ResourceModel\Option\Collection" />
+    </type>
+    <type name ="Magento\Bundle\Model\Product\Type">
+        <plugin name="aminventoryBundleStoreLock" type="Amasty\MultiInventory\Plugin\Bundle\Model\Product\Type" />
+    </type>
+    <type name="Magento\Checkout\Block\Onepage\Success">
+        <plugin sortOrder="1" name="amastyMultiInventorySuccess" type="Amasty\MultiInventory\Plugin\Checkout\Block\Onepage\SuccessPlugin"/>
+    </type>
+    <type name="Magento\CatalogInventory\Model\ResourceModel\Product\StockStatusBaseSelectProcessor">
+        <plugin name="amastyMultiInventoryStockStatusBaseSelectProcessor" type="Amasty\MultiInventory\Plugin\Inventory\Model\ResourceModel\Product\StockStatusBaseSelectProcessorPlugin"/>
+    </type>
+    <type name="Magento\ConfigurableProduct\Model\ResourceModel\Product\StockStatusBaseSelectProcessor">
+        <plugin name="amastyMultiInventoryStockStatusBaseSelectProcessor" type="Amasty\MultiInventory\Plugin\Inventory\Model\ResourceModel\Product\StockStatusBaseSelectProcessorPlugin"/>
+    </type>
+    <type name="Magento\CatalogInventory\Api\Data\StockStatusInterface">
+        <plugin name="amastyMultiInventoryStockStatusInterface" type="Amasty\MultiInventory\Plugin\Inventory\Api\Data\StockStatusInterfacePlugin"/>
+    </type>
+    <!-- Compatibility with magento 2.3. It doesnt use StockStatusInterface anymore to check product stock status-->
+    <type name="Magento\InventorySalesApi\Api\IsProductSalableInterface">
+        <plugin name="amastyMultiInventoryIsProductSalableInterface" type="Amasty\MultiInventory\Plugin\InventorySalesApi\IsProductSalableInterfacePlugin" />
+    </type>
+    <type name="Magento\CatalogInventory\Model\ResourceModel\Stock\Status">
+        <plugin name="amMultiinventoryStockStatus" type="Amasty\MultiInventory\Plugin\CatalogInventory\Stock\StatusPlugin" sortOrder="-1"/>
+    </type>
+</config>

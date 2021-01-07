@@ -1,0 +1,9 @@
+.dispatch_orders-table td.col-default {
+    width:50%;
+}
+
+#amasty_multi_inventory_stock .value.with-tooltip .tooltip-content {
+    max-width:539px;
+    width:539px;
+    opacity: 1;
+}

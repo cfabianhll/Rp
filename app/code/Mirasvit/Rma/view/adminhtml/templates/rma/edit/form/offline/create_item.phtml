@@ -1,0 +1,141 @@
+<?php
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Rma\Block\Adminhtml\Rma\Edit\Form\Items $block */
+$rma = $block->getRma();
+$orderId = '%%order_id%%';
+$itemId = '%%item_id%%';
+?>
+
+<div data-bind="scope:'rma-create-order-form'">
+    <div class="add-order-button-container">
+        <button type="button" class="action primary">
+            <span><?=('Add Order') ?></span>
+        </button>
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "rma-create-order-form": {
+                            "component": "Mirasvit_Rma/js/form/order-new"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+<div id="offline-order-main">
+    <script id="order_name" type="text/x-custom-template">
+        <div class="offline-order-container order<?= $orderId ?>" data-order-number="<?= $orderId ?>" style="border: 3px dashed #efefef; padding: 5px;">
+            <fieldset class="fieldset admin__fieldset rma-edit__orders rma-create-order-form">
+                <legend class="admin__legend legend">
+                    <span><?= __('Offline Order') ?></span>
+                </legend>
+
+                <table class="admin__control-table" data-role="order-table">
+                    <tbody class="order-container">
+                        <tr>
+                            <td>
+                                <label for="orders[<?= $orderId ?>][order_name]"><?= __('Order or Receipt #') ?></label>
+                                <input type="text" name="orders[<?= $orderId ?>][order_name]" value="" title="Order or Receipt #" maxlength="255"
+                                       class="input-text ordername required-entry">
+                            </td>
+                            <td>
+                                <div class="primary">
+                                    <button type="button" class="action primary" data-bind="removeOrder" data-role="order-remove">
+                                        <span><?= __('Remove Order') ?></span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </script>
+    <script id="item_container" type="text/x-custom-template">
+        <fieldset class="fieldset admin__fieldset rma-edit__items create-item-container">
+            <legend class="admin__legend legend">
+                <span><?= __('Items') ?></span>
+            </legend>
+            <div class="add-item-button-container">
+                <button type="button" class="action primary">
+                    <span><?= __('Add Item') ?></span>
+                </button>
+            </div>
+            <table class="admin__control-table" data-role="items-table">
+                <thead>
+                <tr>
+                    <th><?= __('Product Name') ?></th>
+                    <th><?= __('Qty to Return') ?></th>
+                    <th><?= __('Reason to Return') ?></th>
+                    <th><?= __('Item Condition') ?></th>
+                    <th><?= __('Resolution') ?></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody class="item-container">
+                </tbody>
+            </table>
+        </fieldset>
+    </script>
+    <script id="item_returnreasons" type="text/x-custom-template">
+        <tr>
+            <td>
+                <input type='hidden' name="items[<?= $itemId ?>][order_number]" value='<?= $orderId ?>'>
+                <input type='hidden' name="items[<?= $itemId ?>][is_offline]" value='1'>
+                <input type='hidden' name="items[<?= $itemId ?>][is_return]" value='1'>
+                <input type="text" name="items[<?= $itemId ?>][name]" value="" title="Item Name" maxlength="255"
+                       class="input-text itemname required-entry">
+            </td>
+            <td>
+                <div class="">
+                    <input name='items[<?= $itemId ?>][qty_requested]'
+                           type="number"
+                           maxlength="3"
+                           class="admin__control-text required-entry"
+                           value="0">
+                </div>
+            </td>
+            <td>
+                <select name="items[<?= $itemId ?>][reason_id]" class="admin__control-select">
+                    <option value=""><?= __('--') ?></option>
+                    <?php foreach ($block->getReasonList() as $reason): ?>
+                        <option value="<?= $reason->getId() ?>">
+                            <?= $block->escapeHtml($reason->getName()) ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+            </td>
+            <td>
+                <select name="items[<?= $itemId ?>][condition_id]" class="admin__control-select">
+                    <option value=""><?= __('--') ?></option>
+                    <?php foreach ($block->getConditionList() as $condition): ?>
+                        <option value="<?= $condition->getId() ?>">
+                            <?= $block->escapeHtml($condition->getName()) ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+            </td>
+            <td>
+                <select name="items[<?= $itemId ?>][resolution_id]" class="admin__control-select">
+                    <option value=""><?= __('--') ?></option>
+                    <?php foreach ($block->getResolutionList() as $resolution): ?>
+                        <option value="<?= $resolution->getId() ?>">
+                            <?= $block->escapeHtml($resolution->getName()) ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+            </td>
+            <td>
+                <div class="primary">
+                    <button type="button" class="action primary" data-bind="removeItem" data-role="item-remove">
+                        <span><?= __('Remove Item') ?></span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    </script>
+</div>

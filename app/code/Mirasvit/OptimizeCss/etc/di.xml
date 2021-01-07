@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Mirasvit\Optimize\Processor\OutputProcessor">
+        <arguments>
+            <argument name="pool" xsi:type="array">
+                <item name="css" xsi:type="object">Mirasvit\OptimizeCss\Processor\MoveToBottomProcessor</item>
+                <item name="deferGoogleFont" xsi:type="object">Mirasvit\OptimizeCss\Processor\DeferGoogleFontProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\App\View\Asset\Publisher">
+        <plugin name="Mirasvit_OptimizeCss::fontDisplay" type="Mirasvit\OptimizeCss\Plugin\Framework\App\View\Asset\Publisher\FontDisplayPlugin" />
+    </type>
+</config>

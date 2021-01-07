@@ -1,0 +1,592 @@
+<?php
+
+namespace Mirasvit\Rma\Model\Rule\Condition;
+
+use Magento\Eav\Model\ResourceModel\Entity\Attribute;
+
+/**
+ * @method string getAttribute()
+ * @method $this setAttribute(string $param)
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ * @SuppressWarnings(ExcessiveClassComplexity)
+ * @SuppressWarnings(PHPMD.ExcessiveParameterList)
+ */
+class Product extends \Magento\Rule\Model\Condition\AbstractCondition
+{
+    /**
+     * @var \Magento\Framework\Filesystem
+     */
+    private $filesystem;
+    /**
+     * @var \Mirasvit\Rma\Api\Service\Item\ItemManagement\QuantityInterface
+     */
+    private $itemQuantityManagement;
+    /**
+     * @var \Magento\Framework\Locale\FormatInterface
+     */
+    private $localeFormat;
+    /**
+     * @var \Magento\Backend\Model\Url
+     */
+    private $backendUrlManager;
+    /**
+     * @var \Magento\Framework\View\Asset\Repository
+     */
+    private $assetRepo;
+    /**
+     * @var \Magento\Catalog\Model\Product\Type
+     */
+    private $productType;
+    /**
+     * @var Attribute\Set\CollectionFactory
+     */
+    private $entityAttributeSetCollectionFactory;
+    /**
+     * @var \Magento\Eav\Model\Config
+     */
+    private $config;
+    /**
+     * @var \Magento\Catalog\Model\ProductFactory
+     */
+    private $productFactory;
+    /**
+     * @var \Magento\Rule\Model\Condition\Context
+     */
+    private $context;
+
+    /**
+     * Product constructor.
+     * @param \Mirasvit\Rma\Api\Service\Item\ItemManagement\QuantityInterface $itemQuantityManagement
+     * @param Attribute\Set\CollectionFactory $entityAttributeSetCollectionFactory
+     * @param \Magento\Catalog\Model\ProductFactory $productFactory
+     * @param \Magento\Eav\Model\Config $config
+     * @param \Magento\Catalog\Model\Product\Type $productType
+     * @param \Magento\Backend\Model\Url $backendUrlManager
+     * @param \Magento\Framework\Locale\FormatInterface $localeFormat
+     * @param \Magento\Framework\Filesystem $filesystem
+     * @param \Magento\Rule\Model\Condition\Context $context
+     * @param array $data
+     */
+    public function __construct(
+        \Mirasvit\Rma\Api\Service\Item\ItemManagement\QuantityInterface $itemQuantityManagement,
+        Attribute\Set\CollectionFactory $entityAttributeSetCollectionFactory,
+        \Magento\Catalog\Model\ProductFactory $productFactory,
+        \Magento\Eav\Model\Config $config,
+        \Magento\Catalog\Model\Product\Type $productType,
+        \Magento\Backend\Model\Url $backendUrlManager,
+        \Magento\Framework\Locale\FormatInterface $localeFormat,
+        \Magento\Framework\Filesystem $filesystem,
+        \Magento\Rule\Model\Condition\Context $context,
+        array $data = []
+    ) {
+        $this->itemQuantityManagement              = $itemQuantityManagement;
+        $this->entityAttributeSetCollectionFactory = $entityAttributeSetCollectionFactory;
+        $this->productFactory                      = $productFactory;
+        $this->config                              = $config;
+        $this->productType                         = $productType;
+        $this->backendUrlManager                   = $backendUrlManager;
+        $this->localeFormat                        = $localeFormat;
+        $this->assetRepo                           = $context->getAssetRepository();
+        $this->filesystem                          = $filesystem;
+        $this->context                             = $context;
+
+        parent::__construct($context, $data);
+    }
+
+    /**
+     * @var null
+     */
+    protected $entityAttributeValues = null;
+
+    /**
+     * @return false|\Magento\Eav\Model\Entity\Attribute\AbstractAttribute|\Magento\Framework\DataObject
+     */
+    public function getAttributeObject()
+    {
+        try {
+            /* @noinspection PhpUndefinedMethodInspection */
+            $obj = $this->config
+                ->getAttribute('catalog_product', $this->getAttribute());
+        } catch (\Exception $e) {
+            $obj = new \Magento\Framework\DataObject();
+            /* @noinspection PhpUndefinedMethodInspection */
+            $obj->setEntity($this->productFactory->create())
+                ->setFrontendInput('text');
+        }
+
+        return $obj;
+    }
+
+    /**
+     * @param array $attributes
+     * @return void
+     */
+    protected function _addSpecialAttributes(array &$attributes)
+    {
+        $attributes = array_merge($attributes, [
+            'attribute_set_id' => __('Attribute Set'),
+            'category_ids'     => __('Category'),
+            'qty'              => __('Quantity'),
+            'type_id'          => __('Product Type'),
+            'image'            => __('Base Image'),
+            'thumbnail'        => __('Thumbnail'),
+            'small_image'      => __('Small Image'),
+            'image_size'       => __('Base Image Size (bytes)'),
+            'thumbnail_size'   => __('Thumbnail Size (bytes)'),
+            'small_image_size' => __('Small Image Size (bytes)'),
+            'php'              => __('PHP Condition'),
+        ]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function loadAttributeOptions()
+    {
+        $productAttributes = $this->productFactory->create()->loadAllAttributes();
+        $productAttributes->getAttributesByCode();
+
+        $attributes = [];
+        /** @var \Magento\Catalog\Model\ResourceModel\Eav\Attribute $attribute */
+        foreach ($productAttributes as $attribute) {
+            if (!$attribute->isAllowedForRuleCondition()) {
+                continue;
+            }
+            $attributes[$attribute->getAttributeCode()] = $attribute->getFrontendLabel();
+        }
+
+        $this->_addSpecialAttributes($attributes);
+
+        asort($attributes);
+        $this->setAttributeOption($attributes);
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     *
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     */
+    protected function _prepareValueOptions()
+    {
+        // Check that both keys exist. Maybe somehow only one was set not in this routine, but externally.
+        $selectReady = $this->getData('value_select_options');
+        $hashedReady = $this->getData('value_option');
+        if ($selectReady && $hashedReady) {
+            return $this;
+        }
+
+        // Get array of select options. It will be used as source for hashed options
+        $selectOptions = null;
+        if ($this->getAttribute() === 'attribute_set_id') {
+            $entityTypeId = $this->config
+                ->getEntityType('catalog_product')->getId();
+            $selectOptions = $this->entityAttributeSetCollectionFactory->create()
+                ->setEntityTypeFilter($entityTypeId)
+                ->load()
+                ->toOptionArray();
+        } elseif ($this->getAttribute() === 'type_id') {
+            $selectOptions = $this->productType->getOptionArray();
+        } elseif (is_object($this->getAttributeObject())) {
+            $attributeObject = $this->getAttributeObject();
+            if ($attributeObject->usesSource()) {
+                /* @noinspection PhpUndefinedMethodInspection */
+                if ($attributeObject->getFrontendInput() == 'multiselect') {
+                    $addEmptyOption = false;
+                } else {
+                    $addEmptyOption = true;
+                }
+                $selectOptions = $attributeObject->getSource()->getAllOptions($addEmptyOption);
+            }
+        }
+
+        // Set new values only if we really got them
+        if ($selectOptions !== null) {
+            // Overwrite only not already existing values
+            if (!$selectReady) {
+                $this->setData('value_select_options', $selectOptions);
+            }
+            if (!$hashedReady) {
+                $hashedOptions = [];
+                foreach ($selectOptions as $o) {
+                    if (is_array($o['value'])) {
+                        continue; // We cannot use array as index
+                    }
+                    $hashedOptions[$o['value']] = $o['label'];
+                }
+                $this->setData('value_option', $hashedOptions);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Retrieve value by option.
+     *
+     * @param string $option
+     *
+     * @return string
+     */
+    public function getValueOption($option = null)
+    {
+        $this->_prepareValueOptions();
+
+        return $this->getData('value_option' . ($option !== null ? '/' . $option : ''));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValueSelectOptions()
+    {
+        $this->_prepareValueOptions();
+
+        return $this->getData('value_select_options');
+    }
+
+    /**
+     * Retrieve after element HTML.
+     *
+     * @return string
+     */
+    public function getValueAfterElementHtml()
+    {
+        $html = '';
+
+        switch ($this->getAttribute()) {
+            case 'sku':
+            case 'category_ids':
+                $image = $this->assetRepo->getUrl('images/rule_chooser_trigger.gif');
+                break;
+        }
+
+        if (!empty($image)) {
+            $html = '<a href="javascript:void(0)" class="rule-chooser-trigger">
+                <img src="' . $image . '" alt="" class="v-middle rule-chooser-trigger" title="'
+                . __('Open Chooser') . '" /></a>';
+        }
+
+        return $html;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAttributeElement()
+    {
+        $element = parent::getAttributeElement();
+        /* @noinspection PhpUndefinedMethodInspection */
+        $element->setShowAsText(true);
+
+        return $element;
+    }
+
+    /**
+     * @param string $productCollection
+     *
+     * @return $this
+     */
+    public function collectValidatedAttributes($productCollection)
+    {
+        $attribute = $this->getAttribute();
+
+        if (!in_array($attribute, ['category_ids', 'qty', 'php'])) {
+            if ($attribute == 'image_size'
+                || $attribute == 'small_image_size'
+                || $attribute == 'thumbnail_size'
+            ) {
+                $attribute = str_replace('_size', '', $attribute);
+            }
+
+            $attributes = $this->getRule()->getCollectedAttributes();
+            $attributes[$attribute] = true;
+            $this->getRule()->setCollectedAttributes($attributes);
+            $productCollection->addAttributeToSelect($attribute, 'left');
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getInputType()
+    {
+        if ($this->getAttribute() === 'attribute_set_id'
+            || $this->getAttribute() === 'type_id'
+        ) {
+            return 'select';
+        }
+        if (!is_object($this->getAttributeObject())) {
+            return 'string';
+        }
+        switch ($this->getAttributeObject()->getFrontendInput()) {
+            case 'select':
+                return 'select';
+
+            case 'multiselect':
+                return 'multiselect';
+
+            case 'date':
+                return 'date';
+
+            case 'boolean':
+                return 'boolean';
+
+            default:
+                return 'string';
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValueElementType()
+    {
+        if ($this->getAttribute() === 'attribute_set_id'
+            || $this->getAttribute() === 'type_id'
+        ) {
+            return 'select';
+        }
+        if (!is_object($this->getAttributeObject())) {
+            return 'text';
+        }
+        switch ($this->getAttributeObject()->getFrontendInput()) {
+            case 'select':
+            case 'boolean':
+                return 'select';
+
+            case 'multiselect':
+                return 'multiselect';
+
+            case 'date':
+                return 'date';
+
+            default:
+                return 'text';
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getValueElement()
+    {
+        $element = parent::getValueElement();
+        if (is_object($this->getAttributeObject())) {
+            switch ($this->getAttributeObject()->getFrontendInput()) {
+                case 'date':
+                    $element->setImage($this->assetRepo->getUrl('images/grid-cal.gif'));
+                    break;
+            }
+        }
+
+        return $element;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValueElementChooserUrl()
+    {
+        $url = false;
+        switch ($this->getAttribute()) {
+            case 'sku':
+            case 'category_ids':
+                $url = 'adminhtml/promo_widget/chooser'
+                    . '/attribute/' . $this->getAttribute();
+                if ($this->getJsFormObject()) {
+                    $url .= '/form/' . $this->getJsFormObject();
+                }
+                break;
+        }
+
+        return $url !== false ? $this->backendUrlManager->getUrl($url) : '';
+    }
+
+    /**
+     * {@inheritdoc}
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     */
+    public function loadArray($arr)
+    {
+        $this->setAttribute(isset($arr['attribute']) ? $arr['attribute'] : false);
+        $attribute = $this->getAttributeObject();
+
+        if ($attribute && $attribute->getBackendType() == 'decimal') {
+            if (isset($arr['value'])) {
+                if (!empty($arr['operator'])
+                    && in_array($arr['operator'], ['!()', '()'])
+                    && false !== strpos($arr['value'], ',')
+                ) {
+                    $tmp = [];
+                    foreach (explode(',', $arr['value']) as $value) {
+                        $tmp[] = $this->localeFormat->getNumber($value);
+                    }
+                    $arr['value'] = implode(',', $tmp);
+                } else {
+                    $arr['value'] = $this->localeFormat->getNumber($arr['value']);
+                }
+            } else {
+                $arr['value'] = false;
+            }
+            $arr['is_value_parsed'] = isset($arr['is_value_parsed'])
+                ? $this->localeFormat->getNumber($arr['is_value_parsed']) : false;
+        }
+
+        return parent::loadArray($arr);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function validate(\Magento\Framework\Model\AbstractModel $object)
+    {
+        $attrCode = $this->getAttribute();
+
+        switch ($attrCode) {
+            case 'category_ids':
+                return $this->validateAttribute($object->getAvailableInCategories());
+                break;
+
+            case 'qty':
+                return $this->validateAttribute($this->itemQuantityManagement->getQtyStock($object->getId()));
+                break;
+
+            case 'image_size':
+            case 'small_image_size':
+            case 'thumbnail_size':
+                return $this->validatePicture($attrCode, $object);
+                break;
+
+            case 'php':
+                return $this->validatePhp($object);
+                break;
+
+            default:
+                if (!isset($this->entityAttributeValues[$object->getId()])) {
+                    return $this->_validateAttribute($attrCode, $object);
+                } else {
+                    return $this->_validateEntityAttribute($attrCode, $object);
+                }
+                break;
+        }
+    }
+
+    /**
+     * @param string                                 $attrCode
+     * @param \Magento\Framework\Model\AbstractModel $object
+     * @return bool
+     * @SuppressWarnings(PHPMD.EvalExpression)
+     */
+    private function _validateAttribute($attrCode, \Magento\Framework\Model\AbstractModel $object)
+    {
+        $attr = $object->getResource()->getAttribute($attrCode);
+
+        if ($attr && $attr->getBackendType() == 'datetime' && !is_int($this->getValue())) {
+            $this->setValue(strtotime($this->getValue()));
+            $value = strtotime($object->getData($attrCode));
+
+            return $this->validateAttribute($value);
+        }
+
+        if ($attr && $attr->getFrontendInput() == 'multiselect') {
+            $value = $object->getData($attrCode);
+            $value = strlen($value) ? explode(',', $value) : [];
+
+            return $this->validateAttribute($value);
+        }
+
+        return parent::validate($object);
+    }
+
+    /**
+     * @param string                                 $attrCode
+     * @param \Magento\Framework\Model\AbstractModel $object
+     * @return bool
+     * @SuppressWarnings(PHPMD.EvalExpression)
+     */
+    private function _validateEntityAttribute($attrCode, \Magento\Framework\Model\AbstractModel $object)
+    {
+        $result = false; // any valid value will set it to TRUE
+        $oldAttrValue = $object->hasData($attrCode) ? $object->getData($attrCode) : null;
+        foreach ($this->entityAttributeValues[$object->getId()] as $value) {
+            $attr = $object->getResource()->getAttribute($attrCode);
+            if ($attr) {
+                if ($attr->getBackendType() == 'datetime') {
+                    $value = strtotime($value);
+                } elseif ($attr->getFrontendInput() == 'multiselect') {
+                    $value = strlen($value) ? explode(',', $value) : [];
+                }
+            }
+
+            $object->setData($attrCode, $value);
+            $result |= parent::validate($object);
+
+            if ($result) {
+                break;
+            }
+        }
+
+        if ($oldAttrValue !== null) {
+            $object->unsetData($attrCode);
+        } else {
+            $object->setData($attrCode, $oldAttrValue);
+        }
+
+        return (bool)$result;
+    }
+
+    /**
+     * @param \Magento\Framework\Model\AbstractModel $object
+     * @return bool
+     * @SuppressWarnings(PHPMD.EvalExpression)
+     */
+    private function validatePhp(\Magento\Framework\Model\AbstractModel $object)
+    {
+        $object = $object->load($object->getId());
+        extract($object->getData());
+        $expr = 'return ' . $this->getValue() . ';';
+        $function = 'eval'; // eqp tests
+        $value = $function($expr);
+
+        if ($this->getOperator() == '==') {
+            return $value;
+        } else {
+            return !$value;
+        }
+    }
+
+    /**
+     * @param string                                 $attrCode
+     * @param \Magento\Framework\Model\AbstractModel $object
+     * @return bool
+     */
+    private function validatePicture($attrCode, \Magento\Framework\Model\AbstractModel $object)
+    {
+        $imageCode = str_replace('_size', '', $attrCode);
+
+        $imagePath = $object->getData($imageCode);
+        $path = $this->filesystem->getDirectoryRead(
+                \Magento\Framework\App\Filesystem\DirectoryList::MEDIA
+            )->getAbsolutePath() . '/catalog/product' . $imagePath;
+
+        $size = 0;
+        if (file_exists($path) && is_file($path)) {
+            $size = filesize($path);
+        }
+
+        return $this->validateAttribute($size);
+    }
+
+    /**
+     * @return string
+     */
+    public function getJsFormObject()
+    {
+        return 'rule_conditions_fieldset';
+    }
+}

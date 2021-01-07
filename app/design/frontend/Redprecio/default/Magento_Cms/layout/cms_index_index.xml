@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceBlock name="page.main.title" remove="true" />
+		<referenceBlock name="default_home_page" remove="true" />
+		<referenceContainer name="columns" htmlClass="columns" />
+		<referenceContainer name="right_bar" htmlClass="right_bar" />
+		<referenceContainer name="right_bar.search_menu.row.search" htmlClass="col-12 col-lg-6 col-md-4" />
+		<referenceContainer name="right_bar.search_menu.row.col-12" htmlClass="col-12 col-lg-6 col-md-8" />		
+		<referenceContainer name="gw-sidebar.left_menu_bar" remove="false"/>
+		<referenceContainer name="right_bar.search_menu.logo" remove="true"/>
+		<referenceContainer name="home.pre_order_section" remove="true"/>
+		
+		<referenceContainer name="main.content">
+			<container name="home.slider_section" htmlClass="slider_section" htmlTag="section" before="home.service_Section">
+				<block class="Magento\Cms\Block\Block" name="home_slider">
+					<arguments>
+						<argument name="block_id" xsi:type="string">home_slider</argument>
+					</arguments>
+                </block>
+			</container>
+			<container name="home.service_Section" htmlClass="service_Section wow fadeIn" htmlTag="section" after="home.slider_section">
+				<container name="home.service_Section.row" htmlClass="row" htmlTag="div" before="-">
+					<block class="Magento\Cms\Block\Block" name="home_service">
+						<arguments>
+							<argument name="block_id" xsi:type="string">home_service</argument>
+						</arguments>
+					</block>
+				</container>
+			</container>
+			<container name="home.advertise_section" htmlClass="advertise_section wow fadeIn" htmlTag="section" after="home.service_Section">
+				<container name="home.advertise_section.row" htmlClass="row" htmlTag="div" before="-">
+					<block class="Magento\Cms\Block\Block" name="home_after_service">
+						<arguments>
+							<argument name="block_id" xsi:type="string">home_after_service</argument>
+						</arguments>
+					</block>
+				</container>
+			</container>
+			<container name="home.pre_order_section" htmlClass="pre_order_section wow fadeIn" htmlTag="section" after="home.advertise_section">
+				<container name="home.pre_order_section.row" htmlClass="row align-items-center" htmlTag="div" before="-">
+					<block class="Trootech\General\Block\Slider" name="preorder.slider" template="Magento_Catalog::slider/preorder_slider.phtml"/>
+				</container>
+			</container>
+			<container name="home.daily_deal" htmlClass="back_white back_white_titlw wow fadeIn" htmlTag="section" after="home.pre_order_section">
+				<container name="home.daily_deal.row" htmlClass="row align-items-center" htmlTag="div" before="-">
+					<block class="Emizentech\Countdown\Block\Countdown" name="product.info.timer" as="productInfoCountdown" template="Magento_Catalog::slider/countdown.phtml" after="alert.urls"/> 
+				</container>
+			</container>
+			<container name="home.shop_category" htmlClass="shop_category wow fadeIn" htmlTag="section" after="home.daily_deal">
+				<container name="home.shop_category.row" htmlClass="row" htmlTag="div" before="-">
+					<container name="home.shop_category.col-12" htmlClass="col-12" htmlTag="div" before="-">
+						<block class="Trootech\General\Block\Slider" name="category.slider" template="Magento_Catalog::slider/category_slider.phtml"/>
+					</container>
+				</container>
+			</container>
+			<container name="home.special.products" htmlClass="back_white_titlw product_section wow fadeIn special" htmlTag="section" after="home.shop_category">
+				<block class="Trootech\General\Block\Slider" name="special.slider" before="-" template="Magento_Catalog::slider/special_slider.phtml"/>
+			</container>		
+			<container name="home.popular.products" htmlClass="back_white_titlw product_section new_product wow fadeIn popular" htmlTag="section" after="home.special.products">
+				<block class="Trootech\General\Block\Slider" name="popular.slider" before="-" template="Magento_Catalog::slider/popular_slider.phtml"/>
+			</container>
+			<container name="home.new.products" htmlClass="back_white_titlw product_section new_product wow fadeIn new" htmlTag="section" after="home.popular.products">
+				<block class="Trootech\General\Block\Slider" name="new.slider" before="-" template="Magento_Catalog::slider/new_slider.phtml"/>
+			</container>
+			<container name="home.shop.brands" htmlClass="back_white_titlw brands_design wow fadeIn" htmlTag="section" after="home.new.products">
+				<block class="Emizentech\ShopByBrand\Block\Index" name="brand.shop" before="-" template="Magento_Catalog::slider/shop_brand.phtml"/>
+			</container>
+			<container name="home.subscribe_newslater" htmlClass="news_letter wow fadeIn" htmlTag="section" after="home.shop.brands">
+				<container name="home.subscribe_newslater.row" htmlClass="row align-items-center" htmlTag="div" after="-">
+				</container>
+			</container>
+		</referenceContainer>
+		
+		<move element="catalog.topnav" destination="nano-content" after="logo" />
+		<move element="logo" destination="nano-content" before="-" />
+    </body>
+</page>

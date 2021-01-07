@@ -1,0 +1,66 @@
+<?php
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_Quickview
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2019-2020 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+?>
+<?php
+$helper = $this->helper('Bss\Quickview\Helper\Data');
+$btnTextColor = $helper->getBtnTextColor();
+$baseUrl = $helper->getBaseUrl();
+$buttonText = $helper->getButtonText();
+$btnBackground = $helper->getBtnBackground();
+list($r, $g, $b) = sscanf($btnBackground, "%02x%02x%02x");
+$productUrl = $helper->getUrl();
+$buttonText = $helper->getButtonText();
+$isEnabled = $helper->enabled();
+$productItemInfo = $helper->getProductItemInfo();
+$productImageWrapper = $helper->getProductImageWrapper();
+?>
+
+
+<div class="modal fade theme_popup show" id="product_quickview" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-modal="true" style="display: none;">
+		<div class="modal-dialog modal-dialog-centered  modal-xl" id="search-pop" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="padding: 0;">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">
+						&times;
+					</button>
+				</div>
+				<div class="modal-body">
+					<div data-role="loader" class="loading-mask">
+                        <div class="loader">
+                            <img src="<?= $this->getViewFileUrl('images/loader-1.gif') ?>" alt="Loading..." title="Loading..." style="position: absolute;">
+                        </div>
+                    </div>
+					<iframe id="product-quickview" style="max-height:780px;" onload="productQuickView()" src="" class="mfp-iframe"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Bss_Quickview/js/bss_config": {
+                "productUrl": "<?php echo $productUrl; ?>",
+                "buttonText": "<?php echo $buttonText; ?>",
+                "isEnabled": "<?php echo $isEnabled; ?>",
+                "baseUrl": "<?php echo $baseUrl; ?>",
+                "productItemInfo": "<?php echo $productItemInfo; ?>",
+                "productImageWrapper": "<?php echo $productImageWrapper; ?>"
+            }
+        }
+    }
+</script>

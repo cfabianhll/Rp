@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <remove src="Mageplaza_Osc::css/style.css"/>
+        <remove src="Mageplaza_Core::css/grid-mageplaza.css"/>
+        <remove src="Mageplaza_Core::css/font-awesome.min.css"/>
+        <remove src="Mageplaza_DeliveryTime::css/style.css"/>
+    </head>
+    <body>        
+        <referenceBlock name="page.main.description" remove="true" />
+        <referenceBlock name="osc.design" remove='true' />        
+    </body>
+</page>

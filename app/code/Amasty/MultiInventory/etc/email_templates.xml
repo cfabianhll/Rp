@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="amasty_multi_inventory_emails_order_template" label="New Order from Warehouse" file="order_new.html" type="html" module="Amasty_MultiInventory" area="frontend"/>
+    <template id="amasty_multi_inventory_emails_low_stock_template" label="Low Stock from Warehouse" file="low_stock.html" type="html" module="Amasty_MultiInventory" area="frontend"/>
+</config>

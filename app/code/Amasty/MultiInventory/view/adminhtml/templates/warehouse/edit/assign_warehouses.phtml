@@ -1,0 +1,33 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+?>
+<?php
+
+/** @var \Amasty\MultiInventory\Block\Adminhtml\Warehouse\AssignWarehouses $block */
+
+/** @var \Amasty\MultiInventory\Block\Adminhtml\Warehouse\Tab\Warehouse $blockGrid */
+$blockGrid = $block->getBlockGrid();
+$gridJsObjectName = $blockGrid->getJsObjectName();
+?>
+<?= $block->getGridHtml(); ?>
+<input type="hidden" name="product[warehouses]" id="in_warehouses" data-form-part="product_form" value="" />
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Amasty_MultiInventory/js/warehouse/product/assign-warehouses": {
+                "selectedWarehouses": <?= /** @noEscape */ $block->getProductsJson(); ?>,
+                "gridJsObjectName": <?= '"' . $gridJsObjectName . '"' ?: '{}'; ?>,
+                   "disableId": <?= /** @noEscape */ $block->helper->getDefaultId() ?>,
+                   "available" : <?= /** @noEscape */ $block->isAvailable() ?>
+            }
+        }
+    }
+</script>
+<!-- @todo remove when "UI components" will support such initialization -->
+<script>
+    require('mage/apply/main').apply();
+</script>

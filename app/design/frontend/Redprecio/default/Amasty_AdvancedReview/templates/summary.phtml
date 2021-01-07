@@ -1,0 +1,71 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+/** @var \Amasty\AdvancedReview\Block\Summary $block */
+// phpcs:ignoreFile
+?>
+<?php $rating = $block->getRatingSummary(); ?>
+<?php $count = $block->getReviewsCount(); ?>
+<?php if($count > 0) : ?>
+<div class="amreview-summary-info">
+    <div class="amreview-rating-wrapper">
+        <div class="amstars-rating-container"
+            <?php $stars = $block->getRatingSummaryValue(); ?>
+             title="<?= $block->escapeHtml($stars > 1 ? __('%1 stars', $stars) : __('%1 star', $stars)) ?>">
+            <p class="amstars-stars" style="width:<?= $block->escapeHtml($rating); ?>%">
+                <span class="hidden"><?= $block->escapeHtml($rating); ?>%</span>
+            </p>
+        </div>
+        <span class="pl-2"><?= $block->escapeHtml($block->getRatingSummaryValue().'/5') ?>
+        <?= $block->escapeHtml(__('|'));?>
+        <?= /* @noEscape */ $count; ?> <?= $block->escapeHtml(__('reviews'));?></span>
+
+        <p class="amreview-showmore" data-amreview-js="show-more"><?= $block->escapeHtml(__('More info'));?></p>
+    </div>
+    <?php if ($block->shouldShowRecommended()): ?>
+    <p class="amreview-percent-block" data-amreview-js="percent">
+        <span class="amreview-value"><?= $block->escapeHtml($block->getRecomendedPercent());?>%</span>
+        <span class="amreview-desc"><?= $block->escapeHtml(__('of customers recommend this product'));?></span>
+    </p>
+    <?php endif; ?>
+</div>
+<div class="amreview-summary-details pages" data-amreview-js="summary-details">
+    <div class="star_line mb-3">
+        <h6><?= $block->escapeHtml(__('select a note to see the comments'));?></h6>
+    <?php foreach ($block->getDetailedSummary() as $key => $detail) : ?>
+        <a class="amreview-label" rel="nofollow" href="<?= $block->escapeUrl($block->getProductReviewUrl($key)) ?>">
+                <span class="amreview-stars"><?= /* @noEscape */ $key ?><p class="product-star stars"><i class="fas fa-star"></i></p></span>
+                <div class="amreview-bar">
+                    <div class="amreview-bar -active"
+                         style="width:<?= /* @noEscape */ $count ? round($detail / $count * 100) : 0 ?>%"></div>
+                </div>
+            <p class="amreview-text"><?= /* @noEscape */ $count ? round($detail / $count * 100) : 0 ?>% (<?= /* @noEscape */ $detail?>)</p>
+        </a>
+    <?php endforeach; ?>
+    </div>
+</div>
+<?php else: ?>
+    <div class="amreview-summary-info no-review">
+    <div class="amreview-rating-wrapper">
+        <div class="amstars-rating-container"
+            <?php $stars = $block->getRatingSummaryValue(); ?>
+             title="<?= $block->escapeHtml($stars > 1 ? __('%1 stars', $stars) : __('%1 star', $stars)) ?>">
+            <p class="amstars-stars" style="width:<?= $block->escapeHtml($rating); ?>%">
+                <span class="hidden"><?= $block->escapeHtml($rating); ?>%</span>
+            </p>
+        </div>     
+    </div>
+   
+</div>
+<div class="amreview-summary-details pages no-review-data" data-amreview-js="summary-details">
+    <div class="star_line mb-3">
+        <h6><?= $block->escapeHtml(__('No Reviews'));?></h6>
+   
+    </div>
+</div>
+<?php endif; ?>

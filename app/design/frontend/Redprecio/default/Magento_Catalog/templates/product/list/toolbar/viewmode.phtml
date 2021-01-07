@@ -1,0 +1,53 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+?>
+<div class="custom-mode-switcher">
+<?php if ($block->isEnabledViewSwitcher()) :?>
+        <?php $_modes = $block->getModes(); ?>
+        <?php if ($_modes && count($_modes) > 1) :?>
+            <?php foreach ($block->getModes() as $_code => $_label) :?>
+                <?php if ($block->isModeActive($_code)) :?>
+
+				<a class="selected_mode grid_icon grid_active modes-mode mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>"
+                       title="<?= $block->escapeHtmlAttr($_label) ?>"
+                       data-role="mode-switcher"
+                       data-value="<?= $block->escapeHtmlAttr(strtolower($_code)) ?>"
+                       id="mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>"
+                       aria-labelledby="modes-label mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>">
+                       
+						<?php if($block->escapeHtmlAttr(strtolower($_code)) == "list"):?>
+						<i class="far fa-list-alt"></i>
+						<?php else:?>
+						<i class="fas fa-th"></i>
+                        <?php endif; ?>
+                    </a>
+                <?php else :?>
+                    <a class="grid_icon grid_active modes-mode mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>"
+                       title="<?= $block->escapeHtmlAttr($_label) ?>"
+                       href="#"
+                       data-role="mode-switcher"
+                       data-value="<?= $block->escapeHtmlAttr(strtolower($_code)) ?>"
+                       id="mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>"
+                       aria-labelledby="modes-label mode-<?= $block->escapeHtmlAttr(strtolower($_code)) ?>">
+                       
+						<?php if($block->escapeHtmlAttr(strtolower($_code)) == "list"):?>
+						<i class="far fa-list-alt"></i>
+						<?php else:?>
+						<i class="fas fa-th"></i>
+                        <?php endif; ?>
+                    </a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+<?php endif; ?>
+</div>

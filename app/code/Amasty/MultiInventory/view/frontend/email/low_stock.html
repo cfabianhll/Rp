@@ -1,0 +1,35 @@
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<!--@subject {{trans "Low stock for %product_name notification" product_name=$product.getName() |raw}} @-->
+
+<!--@vars {
+"var warehouse.getTitle()":"Warehouse Name",
+"var product.getName()":"Product Name",
+"var product.getSku()":"product Sku",
+"var qty":"Warehouse Qty",
+"var available_qty":"Available Qty",
+"var ship_qty":"Ship to Qty"
+} @-->
+{{template config_path="design/email/header_template"}}
+<table>
+    <tr class="email-intro">
+        <td>
+{{trans "Hello," }}<br/>
+{{trans "This is an automatic notification about the low stock of the %product_name." product_name=$product.getName() |raw}}
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+Warehouse: {{var warehouse.getTitle()}}<br/>
+Product details: {{var product.getName()}}, {{var product.getSku()}}<br/>
+Physical quantity: {{var qty}}<br/>
+Quantity available: {{var available_qty}}<br/>
+Quantity to ship: {{var ship_qty}}<br/>
+{{trans "Thank you!" }}
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer_template"}}

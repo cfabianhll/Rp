@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="DeleteAllWarehouses">
+        <amOnPage url="{{AmastyMWIManageWarehousesPage.url}}" stepKey="openManageWarehousesPage"/>
+        <waitForPageLoad stepKey="waitForPageLoad1" time="30"/>
+        <click stepKey="clickAllWhCheckboxes" selector="{{AmastyMWIManageWarehousesGridSection.allWhCheckboxes}}"/>
+        <click stepKey="clickSelectAll" selector="{{AmastyMWIManageWarehousesGridSection.selectAll}}"/>
+        <click stepKey="clickMassAction" selector="{{AmastyMWIManageWarehousesGridSection.massAction}}"/>
+        <click stepKey="clickDelete" selector="{{AmastyMWIManageWarehousesGridSection.delete}}"/>
+        <waitForElementVisible stepKey="waitForModal" selector="{{AmastyMWIManageWarehousesGridSection.modalForm}}"/>
+        <wait stepKey="waitTime1" time="3"/>
+        <click stepKey="clickOkInModalMsg" selector="{{AmastyMWIManageWarehousesGridSection.okDelete}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad2" time="40"/>
+        <see stepKey="seeOneWarehouse" userInput="1 records found" selector="{{AmastyMWIManageWarehousesGridSection.warehouseQty}}"/>
+    </actionGroup>
+</actionGroups>

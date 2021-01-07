@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AmastyStorefrontCustomerData">
+        <arguments>
+            <argument name="customer"/>
+        </arguments>
+        <amOnPage stepKey="amOnCustomerAddressPage"  url="/customer/address/new/"/>
+        <fillField stepKey="fillTelephone" userInput="{{AmastyCustomerEntityOne.telephone}}" selector="{{AmastyStorefrontCustomerAddressFormSection.telephone}}"/>
+        <fillField stepKey="fillStreet" userInput="{{AmastyCustomerEntityOne.street}}" selector="{{AmastyStorefrontCustomerAddressFormSection.street}}"/>
+        <fillField stepKey="fillCity" userInput="{{AmastyCustomerEntityOne.city}}" selector="{{AmastyStorefrontCustomerAddressFormSection.city}}"/>
+        <selectOption stepKey="selectState" selector="{{AmastyStorefrontCustomerAddressFormSection.state}}" userInput="{{AmastyCustomerEntityOne.state}}"/>
+        <fillField stepKey="fillZip" userInput="{{AmastyCustomerEntityOne.zip}}" selector="{{AmastyStorefrontCustomerAddressFormSection.zip}}"/>
+        <click stepKey="saveAddress" selector="{{AmastyStorefrontCustomerAddressFormSection.saveAddress}}"/>
+        <waitForPageLoad stepKey="waitForPageLoad1" time="30"/>
+        <see stepKey="seeYouSavedMessage" userInput="You saved the address."/>
+        <see stepKey="seeTelephone" userInput="{{AmastyCustomerEntityOne.telephone}}" selector="{{AmastyStorefrontCustomerDashboardAccountInformationSection.AddressInformation}}" />
+        <see stepKey="seeStreet" userInput="{{AmastyCustomerEntityOne.street}}" selector="{{AmastyStorefrontCustomerDashboardAccountInformationSection.AddressInformation}}" />
+        <see stepKey="seeCity" userInput="{{AmastyCustomerEntityOne.city}}" selector="{{AmastyStorefrontCustomerDashboardAccountInformationSection.AddressInformation}}" />
+        <see stepKey="seeState" userInput="New York" selector="{{AmastyStorefrontCustomerDashboardAccountInformationSection.AddressInformation}}" />
+        <see stepKey="seeZip" userInput="{{AmastyCustomerEntityOne.zip}}" selector="{{AmastyStorefrontCustomerDashboardAccountInformationSection.AddressInformation}}" />
+    </actionGroup>
+</actionGroups>

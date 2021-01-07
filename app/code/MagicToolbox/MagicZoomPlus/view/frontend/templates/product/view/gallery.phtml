@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @var $block \MagicToolbox\MagicZoomPlus\Block\Product\View\Gallery
+ */
+
+$_product = $this->getProduct();
+ $manufacturerName = $_product->getAttributeText('manufacturer');
+ $manufacturerId = $_product->getManufacturer(); 
+ $manufacturerName = strtolower($manufacturerName);
+
+
+			$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+			$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+			$connection = $resource->getConnection();
+			$tableName = $resource->getTableName('emizentech_shopbybrand_items'); //gives table name with prefix
+
+			//Select Data from table
+			$sql = "Select name, logo FROM " . $tableName;
+			$result = $connection->fetchAll($sql); // gives associated array, table fields as key in array.
+
+			$img = '';
+			foreach($result as $res) {
+				$brname = strtolower($res['name']);
+				if($brname == $manufacturerName) {
+					$img = $res['logo'];
+				}
+			}
+
+
+ if($manufacturerName) {
+ ?>
+ <div class="custom-brand-name">
+ 	<?php if($img) { ?>
+ <img class="img-responsive" src="<?php echo  $this->getUrl().'pub/media/'.$img ?>" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
+<?php } else { ?>
+	<span class="br_name"><?php echo $manufacturerName; ?></span>
+<?php } ?>
+</div>
+ <?php
+}
+echo $block->getRenderedHtml();

@@ -1,0 +1,39 @@
+<?php
+/* @var $block \Mirasvit\Rma\Block\Rma\View\Items */
+?>
+<?php
+$orders = $block->getOrders();
+?>
+<table  class="email-items" width="100%">
+        <thead>
+            <tr>
+                <th width="20%" style="font-size:12px"><?= __("Product Name") ?></th>
+                <th width="10%" style="font-size:12px"><?= __("SKU") ?></th>
+                <th width="10%" style="font-size:12px;text-align: center;"><?= __("Qty") ?></th>
+                <th width="20%" style="font-size:12px;text-align: center;"><?= __("Reason") ?></th>
+                <th width="20%" style="font-size:12px;text-align: center;"><?= __("Condition") ?></th>
+                <th width="20%" style="font-size:12px;text-align: center;"><?= __("Resolution") ?></th>
+            </tr>
+        </thead>
+        <tbody>
+<?php
+if ($block->getRma()): //when we preview template, rma is not set
+    foreach ($orders as $order) {
+        $block->setOrder($order);
+        /** @var \Mirasvit\Rma\Api\Data\ItemInterface $item */
+        foreach ($block->getItems() as $item): ?>
+            <tr>
+                <td valign="top" style="font-size:12px"><?= $block->getOrderItemLabel($item) ?></td>
+                <td valign="top" style="font-size:12px" nowrap="true"><?= $block->getOrderItemSku($item) ?></td>
+                <td valign="top" style="font-size:12px;text-align: center;"><?= $item->getQtyRequested() ?></td>
+                <td valign="top" style="font-size:12px;text-align: center;"><?= $block->getReasonName($item) ?></td>
+                <td valign="top" style="font-size:12px;text-align: center;"><?= $block->getConditionName($item) ?></td>
+                <td valign="top" style="font-size:12px;text-align: center;"><?= $block->getResolutionName($item) ?></td>
+            </tr>
+            <?php
+        endforeach;
+    }
+endif;
+?>
+		</tbody>
+</table>

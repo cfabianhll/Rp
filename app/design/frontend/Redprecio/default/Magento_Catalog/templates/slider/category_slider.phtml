@@ -1,0 +1,31 @@
+<?php
+$categories = $block->getCategoryCollection();
+if ($categories && $categories->count()):   
+?>
+
+<div class="shop_header">
+	<h2><?= __('Shop by Category') ?></h2>
+</div>
+ 
+ <div class="category_slider owl-carousel owl-theme">
+<?php foreach ($categories as $category) {
+?>
+	<?php if($category->getData('include_in_home')=='1') : ?>
+		<div class="categories_outer">
+			<a href="<?php echo $category->getUrl(); ?>">
+				<div class="categories">
+					<?php if($category->getImageUrl()) : ?>
+					<img src="<?php echo $category->getImageUrl(); ?>">
+					<?php else : ?>
+					<?php echo $category->getName(); ?>
+					<?php endif; ?>
+				</div>
+				<span><?php echo $category->getName(); ?></span>
+			</a>
+		</div>
+	<?php endif; ?>
+<?php
+}
+?>
+</div>
+<?php endif; ?>

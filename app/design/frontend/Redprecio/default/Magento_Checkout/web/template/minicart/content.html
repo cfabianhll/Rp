@@ -1,0 +1,41 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<if args="getCartParam('summary_count')">
+	<div class="shopping-cart-header">	
+		<span class="my_text float-left text" translate="'My Cart'"/>
+		<each args="getRegion('subtotalContainer')" render=""/>	
+	</div>
+</if>
+
+<div class="scroller">
+	
+		<ol id="mini-cart" class="minicart-items" data-bind="foreach: { data: getCartItems(), as: 'item' }">
+			<each args="$parent.getRegion($parent.getItemRenderer(item.product_type))"
+				  render="{name: getTemplate(), data: item, afterRender: function() {$parents[1].initSidebar()}}"
+			/>
+		</ol>
+
+	<ifnot args="getCartParam('summary_count')">
+        <strong class="subtitle empty" data-bind="visible: closeSidebar()" translate="'You have no items in your shopping cart.'"/>
+    </ifnot>
+</div>
+
+<if args="getCartParam('summary_count')">
+<div class="bottom_btns_con">
+	<a class="action viewcart btn btn_red white_btn" data-bind="attr: {href: shoppingCartUrl}">
+        <span translate="'View Cart'"/>
+    </a>
+	<if args="getCartParam('possible_onepage_checkout')">
+		<button id="top-cart-btn-checkout" type="button" class="btn theme_btn action primary checkout" data-action="close" data-bind="attr: { title: $t('Proceed to Checkout') }, click: closeMinicart()" translate="'Check out'"/>
+	</if>
+	<each args="getRegion('extraInfo')" render=""/>
+	<div id="minicart-widgets" class="minicart-widgets" if="getRegion('promotion').length">
+        <each args="getRegion('promotion')" render=""/>
+    </div>
+</div>
+</if>
+<each args="getRegion('sign-in-popup')" render=""/>

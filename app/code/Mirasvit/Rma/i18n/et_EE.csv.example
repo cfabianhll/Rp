@@ -1,0 +1,484 @@
+"Request RMA","Taotle RMA"
+"My Returns","Minu tagasitulek"
+Grid,Võrk
+List,Nimekiri
+All,Kõik
+"Create RMA","Loo RMA"
+"Request New Return","Uue tagastamise taotlus"
+"Max file size: %1Mb","Maksimaalne faili suurus: %1Mb"
+"New Return for Order #%1","Uue tagastamise järjekord #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Vale järjekorranumber, e-posti aadress või perekonnanimi"
+Items,Kirjed
+"To apply changes you should fill in required ""%1"" field","Muudatuste tegemiseks peaksite täitma nõutava väljendi &quot;%1&quot;"
+"Please, add order items to the RMA (set 'Qty to Return')","Palun lisage tellimuse elemendid RMA-le (seadke number tagastamiseks)"
+"Please, set correct order items Quantity to return","Palun määrake korrektsed järjekorranumbrid tagasi tagastamiseks"
+"RMA was successfully created","RMA oli edukalt loodud"
+"Shipping is confirmed. Thank you!","Laevandus on kinnitatud. Aitäh!"
+"Your message was successfully added","Teie sõnum oli edukalt lisatud"
+"Allowed extensions:","Lubatud laiendid:"
+"Maximum size:","Maksimaalne suurus:"
+"-- Please Select --","-- Palun vali --"
+" at %1 (%2)","kell %1 (%2)"
+"Mark as unresolved","Märgi lahendamata"
+"Mark as resolved","Märgi lahendusena"
+"not set","pole seadistatud"
+Pattern,Muster
+"Attribute Value","Atribuudi väärtus"
+Default,Vaikimisi
+Integer,Täisarv
+Price,Hind
+"Strip Tags","Stripsi sildid"
+"Primary Attributes","Peamised atribuudid"
+"Stock Attributes","Varude omadused"
+"Prices & Taxes","Hinnad ja maksud"
+Images,Pildid
+"Custom Attributes","Kohandatud atribuudid"
+Mapping,Kaardistamine
+Category,Kategooria
+"Amasty Meta Tags","Amasia meta sildid"
+"Others Attributes","Muud atribuudid"
+Text,Tekst
+"Multi-line text","Mitmelehekülaline tekst"
+Date,Kuupäev
+Checkbox,Märkeruut
+"Drop-down list",Rippmenüü
+Reason,Põhjus
+Condition,Seisund
+Resolution,Resolutsioon
+"RMA #","RMA #"
+"Order #","Telli #"
+"Customer Email","Kliendi meiliaadress"
+"Customer Name","Kliendi nimi"
+Owner,Omanik
+"Last Replier","Viimane kaust"
+Status,Olek
+Store,Pood
+"Created At","Loodud at"
+"Last Activity","Viimane tegevus"
+"View link","Vaata linki"
+"New RMA has been created","Uus RMA on loodud"
+"RMA has been changed","RMA-d on muudetud"
+"New reply from customer","Uus vastus kliendilt"
+"New reply from staff","Uus vastus töötajatelt"
+"-- Default Address --","- Vaikimisi aadress -"
+"Update the Product","Toote värskendamine"
+"Conditions Combination","Tingimused Kombinatsioon"
+"RMA Attribute","RMA atribuudid"
+"Last 7-days Clicks","Viimased 7-päevased klikid"
+"Last 7-days Orders","Viimase 7-päevase tellimused"
+"Last 7-days Revenue","Viimased 7-päevased tulud"
+"Last 7-days Conversation Rate (%)","Viimane 7-päevane vestlusmäär (%)"
+"Attribute Set","Atribuutide komplekt"
+Quantity,Kogus
+"Product Type","Toote tüüp"
+"Base Image",Baaskujutis
+Thumbnail,Pisipilt
+"Small Image","Väike pilt"
+"Base Image Size (bytes)","Baaskuju suurus (baitid)"
+"Thumbnail Size (bytes)","Pisipildi suurus (baiti)"
+"Small Image Size (bytes)","Väike kujutise suurus (baiti)"
+"PHP Condition","PHP tingimus"
+"Open Chooser","Avatud valija"
+"Last message body","Viimase sõnumi keha"
+"Updated At","Uuendatud At"
+"Status (before change)","Staatus (enne muudatust)"
+"Owner (before change)","Omanik (enne muudatust)"
+"Last Reply By","Viimane vastus poolt"
+"Hours since Created","Tundi alates loomisest"
+"Hours since Updated","Tundi pärast uuendatud"
+"Hours since Last reply","Tundi alates Viimane vastus"
+"Items have reason","Kirjel on põhjus"
+"Items have condition","Kirjed on seisukorras"
+"Items have resolution","Kirjed on resolutsiooniga"
+"%1 (before change)","%1 (enne muudatust)"
+Customer,Klient
+Staff,Töötajad
+"- Disable these emails -","- Keela need meilid -"
+Yes,Jah
+No,Ei
+Save,Salvesta
+"Save & Continue Edit","Salvesta ja jätkake redigeerimist"
+"Save & Close","Salvesta ja sulgeda"
+Edit,Muuda
+Delete,Kustuta
+"Delete ""${ $.$data.name }""","Kustuta "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Kas olete kindel, et te ei saa kustutada "${ $.$data.name }" rekordi?"
+"Are you sure you want to do this?","Kas olete kindel, et soovite seda teha?"
+"Convert To Ticket","Pileti teisendamine"
+"View order #${ $.$data.order_id }","Kuva järjekorda #${ $.$data.order_id }"
+"View exchange order %1","Vaata vahetuskäsu %1"
+"RMA: Report by Attribute","RMA: aruanne atribuudi järgi"
+"RMA: Report by Status","RMA: aruandes olek"
+"RMA: Report by Product","RMA: tooteartikkel"
+"RMA: Report by Reasons","RMA: aruanne põhjustel"
+"Cannot delete return address with id %1","Tagasi ei saa kustutada aadressiga id %1"
+"Cannot delete item with id %1","Ei saa kustutada elemendi idiga %1"
+"Cannot delete condition with id %1","Tingimust ei saa kustutada id %1-ga"
+"Cannot delete field with id %1","Välja ei saa kustutada idiga %1"
+"Cannot delete message with id %1","Ei saa kustutada sõnumi idiga %1"
+"Cannot delete history with id %1","Ajalugu ei saa kustutada id %1"
+"Cannot delete Quick Response with id %1","Kiire vastuse ID-ga ei saa kustutada %1-ga"
+"Cannot delete reason with id %1","Põhjendust ei saa kustutada idiga %1"
+"Cannot delete resolution with id %1","Ei saa resolutsiooni kustutada id %1-ga"
+"Cannot delete rma with id %1","Ei saa kustutada rma idiga %1"
+"Cannot delete rule with id %1","Ei saa kustutada reegli id ​​%1"
+"Cannot delete status with id %1","Ei saa kustutada oleku %1-ga"
+"Please, enter a message","Palun sisestage sõnum"
+"Product Name",Tootenimi
+SKU,SKU
+Qty,Kogus
+"This was a gift, please do not notify purchaser","See oli kingitus, palun ärge teatage ostjalt"
+"Enter your contact information","Sisestage kontaktandmed"
+"First Name",Eesnimi
+"Last Name",Perekonnanimi
+Email,E-post
+Telephone,Telefon
+"To request a new RMA or check the status of current RMA, please, fill the form:","Uue RMA taotlemiseks või praeguse RMA staatuse kontrollimiseks palun täitke vorm:"
+"* Required Fields","* Nõutud väljad"
+"Order Information","Telli informatsioon"
+"Email or Last Name","E-post või perekonnanimi"
+Next,Järgmine
+RMA,RMA
+Actions,Toimingud
+"View Return","Vaata tagastamist"
+"There are no Returns","Tagasi ei tule"
+"Items %1 to %2 of %3 total","Kirjed %1 kuni %2 %3 kokku"
+"%1 Item(s)","__1 punkti (de)"
+Show,Kuva
+"per page","lehekülje kohta"
+"View as","Vaata kui"
+"Sort by",Sorteerima
+"Set Ascending Direction","Määra langev suund"
+"Set Descending Direction","Määra langev suund"
+"Please, select an order","Palun valige tellimus"
+Order,Telli
+"-- Select an Order --","- Valige tellimus -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","Teil pole RMA-le taotletud täidetud tellimusi või tellimusi paigutati rohkem kui %1 päeva tagasi. Palun võtke ühendust klienditeenindusega."
+"Submit Request","Esita päring"
+"Please, select RMA items which you would like to return.","Palun valige RMA esemed, mida soovite tagasi saata."
+"Additional Information",Lisainformatsioon
+"Attach files","Lisage faile"
+"Request Information","Taotle informatsiooni"
+"Email Address","E-posti aadress"
+"Order Shipping Address","Telli kohaletoimetamise aadress"
+"Items in this order","Selle järjekorranumbrid"
+"There are no items for this product that can be returned.","Selle toote jaoks pole ühtegi toodet, mida saaks tagastada."
+"Another RMA for this product: %1","Teine RMA selle toote jaoks: %1"
+"This product can not be returned due to RMA Policy","RMA-poliisi tõttu ei saa seda toodet tagastada"
+"This is a non-returnable item per our return policy.","See on meie tagasipöördumispoliitikale mittevastav üksus."
+"Quantity to return","Tagastatav kogus"
+"-- Select a Reason --","- Vali põhjus -"
+"-- Select a Condition --","- Valige seade -"
+"-- Select a Resolution --","- Valige resolutsioon -"
+"I agree","Ma nõustun"
+"Date: %1","Kuupäev: %1"
+"Original order: #%1","Algne tellimus: #%1"
+"Return Address","Saatja aadress"
+"Customer Information","Kliendi info"
+"RMA History","RMA ajalugu"
+"RMA Items","RMA esemed"
+Weight,Kaal
+"Print RMA Packing Slip","Prindi RMA pakendilifikaator"
+"Print RMA Shipping Label","Prindi RMA postikulu"
+"Confirm Shipping","Kinnitage kohaletoimetamine"
+"(This was a gift)","(See oli kingitus)"
+"Date Requested","Taotletud kuupäev"
+"Contact Information",Kontaktinfo
+"Items RMA Requested for","RMA taotletud esemed"
+QTY,QTY
+"Add Message","Lisa sõnum"
+Submit,Esita
+%name,"% nimi"
+"The quantity is incorrect.","Kogus on vale."
+"New Return for Offline Order","Uue tagastamise võrguühenduseta tellimus"
+" at %1","kell %1"
+Select,Vali
+"If you do not have account on this store please fill the form below.","Kui teil pole selles poes kontot, täitke allolev vorm."
+"-- Create Offline Order --","- Loo võrguühenduseta tellimus -"
+"Returned Item","Tagastatud element"
+"Remove Item","Eemalda üksus"
+"Order or Receipt #","Tellimus või kviitung #"
+"Add Item","Lisa üksus"
+"Add at least one item to this RMA","Lisage sellele RMA-le vähemalt üks üksus"
+"Return Addresses","Tagasi aadressid"
+"Add New Return Address","Lisa uus tagastamise aadress"
+"General Information","Üldine informatsioon"
+Title,Pealkiri
+"Sort Order",Sortimisjärjestus
+"Is Active","On aktiivne"
+ID,ID
+Active,Aktiivne
+Disabled,Keelatud
+Enabled,Lubatud
+"Change status","Muuda olekut"
+"Are you sure?","Oled sa kindel?"
+Conditions,Tingimused
+"Add New Condition","Lisa uus tingimus"
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer","Looge selle kliendi jaoks RMA"
+Fields,Väljad
+"Add New Field","Lisage uus väli"
+Code,Kood
+Type,Tüüp
+Description,Kirjeldus
+"Options list","Valikute loend"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Ainult rippmenüüst. <br> Sisestage uus väärtus uuel real, kasutades vormingut: <br> väärtus1 | etikett1 <br> väärtus2 | silt2"
+"Sort order",Sortimisjärjestus
+"Is required for staff","Vajalik personali jaoks"
+"Is required for customers","Nõutav klientidele"
+"Visible for customers in statuses","Nähtav klientidele olekutes"
+"Is show in confirm shipping dialog","Kuvatakse kinnituse saatmise dialoogis"
+"Is editable for customers","On klientidele redigeeritav"
+Statuses,Olekud
+Reasons,Põhjused
+Resolutions,Resolutsioonid
+"Custom Fields","Kohandatud väljad"
+"Quick Responses","Kiire vastus"
+"Workflow Rules","Töövoo reeglid"
+Reports,Aruanded
+Settings,Seaded
+"Add New Reason","Lisage uus põhjus"
+"Add New Resolution","Lisage uus resolutsioon"
+"Add New RMA","Lisa uus RMA"
+"Create New RMA","Loo uus RMA"
+"Purchased From (Store)","Ostetud (pood)"
+"Purchased On",Ostetud
+"Bill to Name","Arve nimele"
+"Ship to Name","Laeva nimi"
+"G.T. (Base)","GT (baas)"
+"G.T. (Purchased)","GT (ostetud)"
+Print,Prindi
+"Credit Memo",Krediidimärkus
+"Exchange Order","Exchange&#39;i tellimus"
+"Delete File","Kustuta fail"
+"RMA Owner","RMA omanik"
+"Upload Return Label","Laadi tagastamise silt"
+"External Link","Väline link"
+open,avatud
+"(received a gift)","(sai kingituse)"
+"Exchage Order","Exchage Order"
+Company,Ettevõte
+"Street Address","Tänava aadress"
+City,Linn
+Zip/Postcode,Postiindeks
+Rules,Reeglid
+"Add New Rule","Lisage uus reegel"
+"Set Status","Määra olek"
+"Set Owner","Määra omanik"
+Event,Sündmus
+Filters,Filtrid
+"Rule Name","Reegli nimi"
+Priority,Prioriteet
+"Arranged in the ascending order. 0 is the highest.","Korraldatud kasvavas järjekorras. 0 on kõrgeim."
+"Stop Further Rules Processing","Lõpetage edasiste reeglite töötlemine"
+Notifications,Teated
+"Send email to RMA owner","Saada e-kiri RMA omanikule"
+"Send email to customer","Saada e-kiri kliendile"
+"Send email to other email addresses","Saada e-kiri teistele e-posti aadressidele"
+"Email subject","E-kirja teema"
+"Email body","E-posti asutus"
+"Attach files which were attached to the last message","Lisage viimasele sõnumile lisatud failid"
+"Is Stop Processing","Kas peatus töötlemine"
+"Create RMA for this order","Looge selle tellimuse jaoks RMA"
+"Order meets RMA policy","Tellimus vastab RMA poliitikale"
+"Order doesn't meet RMA policy","Tellimus ei vasta RMA poliitikale"
+"Add New Status","Lisa uus olek"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Näita kliendi kontol nuppe „Prindi RMA pakendiklipp”, „RMA-saatmise märgistuse printimine” ja „Kinnita saatmine”"
+"Email Notification for customer","E-posti teatis kliendile"
+"leave blank to not send","jäta tühjaks, et mitte saata"
+"Message for RMA history","Teade RMA ajaloo kohta"
+"Email Notification for administrator","E-posti teade administraatorile"
+Templates,Mallid
+"Add New Template","Lisa uus mall"
+"Internal Title","Sisemine pealkiri"
+Template,Mall
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Võite kasutada muutujaid: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Kauplused
+"RMA Return Address","RMA tagastamise aadress"
+"New Return Address","Uus tagastamise aadress"
+"Return Address Manager","Tagasi aadressihaldur"
+"Add Return Address ","Lisa tagastamise aadress"
+"Add Return Address","Lisa tagastamise aadress"
+"Return Address was successfully deleted","Tagasiside aadress on edukalt kustutatud"
+"Edit Return Address '%1'","Redigeeri tagastamise aadressi &#39;%1&#39;"
+"Edit Return Address ","Redigeeri tagastamisaadress"
+"The Return Address does not exist.","Tagasi aadressi pole olemas."
+"Please select Return Address(es)","Palun valige Tagasi aadress (id)"
+"Total of %d record(s) were successfully updated","Uuendati edukalt% d kirjeid"
+"Total of %1 record(s) were successfully deleted","%1 kirjet (ed) kustutati edukalt"
+"return Address was successfully saved","Aadress tagastati edukalt"
+"Unable to find Return Address to save","Tagasi aadressi ei õnnestunud salvestada"
+"New Condition","Uus seisund"
+"Condition  Manager","Tingimuste haldur"
+"Condition Manager","Tingimuste haldur"
+"Add Condition ","Lisa tingimus"
+"Add Condition","Lisa tingimus"
+"Condition was successfully deleted","Tingimus kustutati edukalt"
+"Edit Condition '%1'","Muuda tingimust &#39;%1&#39;"
+"Edit Condition ","Tingimuste muutmine"
+"The Condition does not exist.","Tingimust ei eksisteeri."
+"Please select Condition(s)","Palun valige tingimus (id)"
+"Total of %d record(s) were successfully deleted","% D kirje (d) kustutati edukalt"
+"Condition was successfully saved","Tingimus salvestati edukalt"
+"Unable to find Condition to save","Salvestatava tingimuse leidmine nurjus"
+"New Field","Uus väli"
+"Field  Manager",Välihaldur
+"Field Manager",Välihaldur
+"Add Field ","Lisa väli"
+"Add Field","Lisa väli"
+"Field was successfully deleted","Väli kustutati edukalt"
+"Edit Field '%1'","Muuda välja &#39;%1&#39;"
+"Edit Field ","Redigeeri väli"
+"The Field does not exist.","Välja ei ole."
+"Please select Field(s)","Palun valige väli (d)"
+"Field was successfully saved","Väli salvestati edukalt"
+"Unable to find Field to save","Välja salvestamine ei õnnestunud"
+"New Reason","Uus põhjus"
+"Reason  Manager",Põhjusjuht
+"Reason Manager",Põhjusjuht
+"Add Reason ","Lisage põhjus"
+"Add Reason","Lisage põhjus"
+"Reason was successfully deleted","Põhjus on edukalt kustutatud"
+"Edit Reason '%1'","Redigeeri põhjus &#39;%1&#39;"
+"Edit Reason ","Muuda põhjust"
+"The Reason does not exist.","Põhjus puudub."
+"Please select Reason(s)","Palun valige põhjus (id)"
+"Reason was successfully saved","Põhjus salvestati edukalt"
+"Unable to find Reason to save","Salvestamise põhjust ei leitud"
+"Statistics was successfully updated","Statistika värskendati edukalt"
+"RMA by Brand","RMA brändi järgi"
+"RMA Report","RMA aruanne"
+"RMA by Product","RMA toote järgi"
+Rma,RMA
+"New Resolution","Uus resolutsioon"
+"Resolution  Manager",Resolutsioonihaldur
+"Resolution Manager",
+"Add Resolution ","Lisage resolutsioon"
+"Add Resolution","Lisage resolutsioon"
+"Resolution was successfully deleted","Lahendus kustutati edukalt"
+"Edit Resolution '%1'","Muuda resolutsiooni &#39;%1&#39;"
+"Edit Resolution ","Muuda resolutsiooni"
+"The Resolution does not exist.","Resolutsioon ei ole olemas."
+"Please select Resolution(s)","Palun valige resolutsioon (id)"
+"Resolution was successfully saved","Lahendus salvestati edukalt"
+"Unable to find Resolution to save","Salvestamiseks pole resolutsiooni võimalik leida"
+"New RMA","Uus RMA"
+"RMA was successfully deleted","RMA kustutati edukalt"
+"The rma does not exist.","Rma ei eksisteeri."
+"Marked as read","Märgitud loetuks"
+"Marked as unread","Märgitud lugemata"
+"Please select rma(s)","Palun valige rma (d)"
+"A total of %1 record(s) have been deleted.","Kokku on %1 kirje (d) kustutatud."
+"RMA was successfully saved","RMA salvestati edukalt"
+"Unable to find rma to save","Salvestamiseks ei saa rmat leida"
+"New Rule","Uus reegel"
+"Rule  Manager","Reeglite haldur"
+"Rule Manager","Reeglite haldur"
+"Add Rule ","Lisage reegel"
+"Add Rule","Lisage reegel"
+"Rule was successfully deleted","Reegel kustutati edukalt"
+"Edit Rule '%1'","Reegli &#39;%1&#39; redigeerimine"
+"Edit Rule ","Reegli muutmine"
+"The Rule does not exist.","Reeglit ei eksisteeri."
+"Please select Rule(s)","Palun vali reegel (id)"
+"Rule was successfully saved","Reegel salvestati edukalt"
+"Unable to find Rule to save","Salvestamiseks pole reeglit võimalik leida"
+"New Status","Uus olek"
+"Status  Manager",Olekuhaldur
+"Status Manager",Olekuhaldur
+"Add Status ","Lisa olek"
+"Add Status","Lisa olek"
+"Status was successfully deleted","Olek kustutati edukalt"
+"Edit Status '%1'","Muuda olekut &#39;%1&#39;"
+"Edit Status ","Muuda olekut"
+"The Status does not exist.","Olekut ei eksisteeri."
+"Please select Status(s)","Palun valige olek (d)"
+"Status was successfully saved","Olek salvestati edukalt"
+"Unable to find Status to save","Salvestamiseks ei leitud olekut"
+"New Template","Uus mall"
+"Template  Manager","Mallide haldur"
+"Template Manager","Mallide haldur"
+"Add Template ","Lisa mall"
+"Add Template","Lisa mall"
+"Template was successfully deleted","Mall kustutati edukalt"
+"Edit Template '%1'","Muuda malli &#39;%1&#39;"
+"Edit Template ","Muuda malli"
+"The Template does not exist.","Mall ei ole olemas."
+"Please select Template(s)","Palun valige mall (id)"
+"Template was successfully saved","Mall salvestati edukalt"
+"Unable to find Template to save","Salvestatav mall pole võimalik"
+"Created Date","Loodud kuupäev"
+Action,Meede
+View,Vaade
+RMAs,RMAd
+"Select Order","Valige Tellimus"
+"Exchange/Credit Balance","Börsi / krediidi saldo"
+"Customer credit balance:","Kliendi krediidi saldo:"
+"Total price of new products:","Uute toodete koguhind:"
+"Total price of exchanged/credit products:","Vahetatud / krediidi toodete koguhind:"
+"Price difference:",Hinnavahe:
+Resolution:,Lahendus:
+"Get %1 from customer credit balance","Saage %1 kliendi krediidi saldost"
+"Put %1 to customer credit balance","Pange %1 kliendi krediidi saldole"
+"Resolve manually","Lahenda käsitsi"
+"Message Type","Sõnumi tüüp"
+"Message to Customer","Sõnum Kliendile"
+"Internal Note","Sisemine märkus"
+"mark as unread","märgi mitteloetuks"
+"mark as read","Märgi loetuks"
+"You can not return more, than available. Please, try again.","Sa ei saa enam saada, kui see on saadaval. Palun proovi uuesti."
+"show all order items","näita kõiki tellimuse elemente"
+"Qty to Return","Tagastatav kogus"
+"Reason to Return","Tagasipöördumise põhjus"
+"Item Condition","Üksuse tingimus"
+"(Bundled Product)","(Komplekteeritud toode)"
+Stock,Varud
+Ordered,Tellitud
+Available,Saadaval
+--,-
+"Insert Quick Response","Sisestage kiirreageerimine"
+"Default status for new RMA","Uue RMA vaikimisi olek"
+"Default owner for new RMA","Uue RMA omanik"
+"Ask customer to confirm shipping","Paluge kliendil laevandus kinnitada"
+"Shipping confirmation text","Saadetise kinnituse tekst"
+"Enable option ""This was a gift""","Luba valik &quot;See oli kingitus&quot;"
+"Enable integration with Help Desk","Luba integreerimine Help Deskiga"
+"Code of ""Brand"" attribute","&quot;Brand&quot; atribuudi kood"
+"Allow upload only attachments with extensions","Luba ainult laiendustega manuste üleslaadimine"
+"Limit of attachments size, Mb","Manuste suuruse piir, Mb"
+"Show Columns in RMA Grid","Näita veerusid RMA võrgus"
+"Show RMA section in Customer Account","Kuva kliendikonto RMA osa"
+"Customers are required to select:","Kliendid peavad valima:"
+"Allow to request RMA after order completion, days","Laske RMA-l nõuda pärast tellimuse lõpetamist, päeva"
+"Allow to request RMA if order has status","Luba nõuda RMA-l, kui tellimusel on staatus"
+"Ask to agree with RMA policy text","Palu nõustuda RMA poliitika tekstiga"
+"CMS block with RMA policy text","CMS-i plokk RMA-poliitikaga"
+"Number Format","Number Format"
+"Start Counter From","Alusta loendurit"
+"Counter Increment Step","Loenduri juurdekasvu samm"
+"Counter Length","Loenduri pikkus"
+"Email Sender","Saada saatja"
+"Template of Notification Email for Customer","Kliendi teavitamise e-posti mall"
+"Template of Notification Email for RMA Owner","RMA omaniku teavituskasti mall"
+"Template of Rule Notification","Reeglite teatamise mall"
+" Send blind carbon copy (BCC) of all emails to","Saada kõigi e-kirjade pimekoopia (BCC) aadressile"
+"At least one RMA item should have resolution ""Exchange"".","Vähemalt ühel RMA objektil peaks olema eraldusvõime &quot;Exchange&quot;."
+"Add another order","Lisage teine tellimus"
+"Offline Order","Offline Order"
+OR,VÕI
+"Select Offline Order","Valige Offline Order"

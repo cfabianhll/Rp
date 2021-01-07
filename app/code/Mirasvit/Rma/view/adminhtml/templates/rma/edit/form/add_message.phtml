@@ -1,0 +1,45 @@
+<?php
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Rma\Block\Adminhtml\Rma\Edit\Form\Message $block */
+?>
+
+<?php
+if (!$block->getOrder()) {
+    return;
+}
+?>
+<fieldset class="fieldset admin__fieldset rma-edit__add-message">
+    <legend class="admin__legend legend">
+        <span><?= __('Add Message') ?></span>
+    </legend>
+
+    <div class="field admin__field">
+        <label class="label admin__field-label" for="reply_type">
+            <?= __('Message Type') ?>
+        </label>
+
+        <div class="control admin__field-control">
+            <select name="reply_type" class="admin__control-select" data-role="reply-type">
+                <option value="public" selected="selected"><?= __('Message to Customer') ?></option>
+                <option value="internal"><?= __('Internal Note') ?></option>
+            </select>
+
+            <div data-role="reply-note"></div>
+        </div>
+    </div>
+
+    <?= $block->getTemplateFormHtml() ?>
+
+    <div class="field admin__field rma-add-message__reply-area">
+        <div class="control admin__field-control">
+                <textarea name="reply" rows="2" cols="30" class="admin__control-textarea"
+                          style="width:100%" data-role="reply-area"></textarea>
+        </div>
+    </div>
+
+    <div class="field admin__field rma-add-message__attachments">
+        <div class="control admin__field-control" data-mage-init='{"jqueryMultiFile": {}}'>
+            <input id="attachment" name="attachment[]" value="" class="multi" type="file"/>
+        </div>
+    </div>
+</fieldset>

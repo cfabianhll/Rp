@@ -1,0 +1,247 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+?>
+<?php
+/** @var $block \Amasty\MultiInventory\Block\Adminhtml\Warehouse\Lowstock\Grid */
+
+$numColumns = count($block->getColumns());
+?>
+<?php if ($block->getCollection()) : ?>
+    <?php if ($block->canDisplayContainer()) : ?>
+    <div id="<?= /* @noEscape */ $block->getId() ?>">
+    <?php else : ?>
+            <?= /* @noEscape */ $block->getLayout()->getMessagesBlock()->getGroupedHtml() ?>
+    <?php endif; ?>
+
+            <div class="admin__data-grid-header admin__data-grid-toolbar">
+                <div class="admin__data-grid-header-row">
+                    <?php $massActionAvailable = $block->getChildBlock('grid.massaction')
+                        && $block->getChildBlock('grid.massaction')->isAvailable() ?>
+                        <div
+                                class="admin__filter-actions"
+                                data-role="filter-form"
+                                id="<?= /* @noEscape */ $block->getSuffixId('warehouses')?>"
+                        >
+                            <span class="field-row">
+                                <label
+                                        for="<?= /* @noEscape */ $block->getSuffixId('report_warehouse') ?>"
+                                        class="admin__control-support-text"
+                                >
+                                    <span><?= $block->escapeHtml(__('Select Warehouse')); ?>:</span>
+                                </label>
+                              <select
+                                      name="report_warehouse"
+                                      id="<?= /* @noEscape */ $block->getSuffixId('report_warehouse')?>"
+                                      class="admin__control-select"
+                              >
+                                    <?php foreach ($block->getWarehouses() as $_value => $_label) : ?>
+                                        <option
+                                                value="<?= $block->escapeHtml($_value); ?>"
+                                            <?php if (is_array($block->getFilter('report_warehouse'))
+                                                && in_array($_value, $block->getFilter('report_warehouse'))) : ?>
+                                                selected
+                                            <?php endif; ?>
+                                        >
+                                            <?= $block->escapeHtml($_label); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </span>
+                        </div>
+                    <?php if ($block->getChildBlock('grid.export')) : ?>
+                        <?= $block->getChildHtml('grid.export');?>
+                    <?php endif; ?>
+                </div>
+                <div class="<?php if ($massActionAvailable) :
+                                echo '_massaction ';
+                            endif; ?>
+                admin__data-grid-header-row"
+                >
+                    <?php if ($massActionAvailable) : ?>
+                        <?= $block->getChildHtml('grid.massaction') ?>
+                    <?php else : ?>
+                        <?= $block->getMainButtonsHtml()
+                            ? '<div class="admin__filter-actions">' . $block->getMainButtonsHtml() . '</div>'
+                            : '';
+                        ?>
+                    <?php endif; ?>
+                    <?php $countRecords = $block->getCollection()->getSize(); ?>
+                    <div class="admin__control-support-text">
+                        <span
+                                id="<?= $block->escapeHtml($block->getHtmlId()) ?>-total-count"
+                                <?= /* @noEscape */ $block->getUiId('total-count') ?>>
+                                <?= /* @noEscape */ $countRecords ?>
+                        </span>
+                        <?= $block->escapeHtml(__('records found')); ?>
+                        <span
+                                id="<?= $block->escapeHtml($block->getHtmlId()) ?>_massaction-count"
+                                class="mass-select-info _empty"
+                        >
+                            <strong data-role="counter">0</strong>
+                            <span><?= $block->escapeHtml(__('selected')); ?></span>
+                        </span>
+                    </div>
+                    <?php if ($block->getPagerVisibility()) : ?>
+                        <div class="admin__data-grid-pager-wrap">
+                            <select name="<?= $block->escapeHtml($block->getVarNameLimit()); ?>"
+                                    id="<?= $block->escapeHtml($block->getHtmlId())?>_page-limit"
+                                    onchange="<?= $block->escapeHtml($block->getJsObjectName()); ?>
+                                            .loadByElement(this)"
+                                <?= /* @noEscape */ $block->getUiId('per-page') ?>
+                                    class="admin__control-select"
+                            >
+                                <option value="20"
+                                    <?php if ($block->getCollection()->getPageSize() == 20) : ?>
+                                        selected="selected" <?php endif; // @codingStandardsIgnoreLine?>
+                                >
+                                    20
+                                </option>
+                                <option value="30"<?php if ($block->getCollection()->getPageSize() == 30) : ?>
+                                    selected="selected" <?php endif; // @codingStandardsIgnoreLine?>
+                                >
+                                    30
+                                </option>
+                                <option value="50"<?php if ($block->getCollection()->getPageSize() == 50) : ?>
+                                    selected="selected" <?php endif; // @codingStandardsIgnoreLine?>
+                                >
+                                    50
+                                </option>
+                                <option value="100"<?php if ($block->getCollection()->getPageSize() == 100) : ?>
+                                    selected="selected" <?php endif; // @codingStandardsIgnoreLine?>
+                                >
+                                    100
+                                </option>
+                                <option value="200"<?php if ($block->getCollection()->getPageSize() == 200) : ?>
+                                    selected="selected" <?php endif; // @codingStandardsIgnoreLine?>
+                                >
+                                    200
+                                </option>
+                            </select>
+                            <label for="<?= $block->escapeHtml($block->getHtmlId())?>_page-limit"
+                                   class="admin__control-support-text"
+                            >
+                                <?= $block->escapeHtml(__('per page')); ?>
+                            </label>
+                            <div class="admin__data-grid-pager">
+                                <?php $_curPage = $block->getCollection()->getCurPage() ?>
+                                <?php $_lastPage = $block->getCollection()->getLastPageNumber() ?>
+
+                                <?php if ($_curPage > 1) : ?>
+                                    <button class="action-previous"
+                                            type="button"
+                                            onclick="<?= $block->escapeHtml($block->getJsObjectName()); ?>
+                                                    .setPage('<?= /* @noEscape */ ($_curPage - 1) ?>');
+                                                    return false;"
+                                    >
+                                        <span><?= $block->escapeHtml(__('Previous page')); ?></span>
+                                    </button>
+                                <?php else : ?>
+                                    <button type="button" class="action-previous disabled">
+                                        <span><?= $block->escapeHtml(__('Previous page')); ?></span>
+                                    </button>
+                                <?php endif; ?>
+
+                                <input type="text"
+                                       id="<?= $block->escapeHtml($block->getHtmlId())?>_page-current"
+                                       name="<?= $block->escapeHtml($block->getVarNamePage()); ?>"
+                                       value="<?= /* @noEscape */ $_curPage ?>"
+                                       class="admin__control-text"
+                                       onkeypress="<?= $block->escapeHtml($block->getJsObjectName()); ?>
+                                               .inputPage(event, '<?= /* @noEscape */ $_lastPage ?>')"
+                                       <?= /* @noEscape */ $block->getUiId('current-page') ?>
+                                />
+
+                                <label class="admin__control-support-text"
+                                       for="<?= $block->escapeHtml($block->getHtmlId()) ?>_page-current"
+                                >
+                                    <?= /* @noEscape */
+                                        __('of %1', '<span>' . $block->getCollection()->getLastPageNumber() . '</span>');
+                                        ?>
+                                </label>
+                                <?php if ($_curPage < $_lastPage) : ?>
+                                    <button title="<?= $block->escapeHtml(__('Next page')); ?>"
+                                            class="action-next"
+                                            onclick="<?= $block->escapeHtml($block->getJsObjectName()); ?>
+                                                    .setPage('<?= /* @noEscape */($_curPage + 1) ?>');
+                                                    return false;"
+                                    >
+                                        <span><?= $block->escapeHtml(__('Next page')); ?></span>
+                                    </button>
+                                <?php else : ?>
+                                    <button type="button"
+                                            class="action-next disabled"
+                                    >
+                                        <span><?= $block->escapeHtml(__('Next page')); ?></span>
+                                    </button>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endif ?>
+                </div>
+            </div>
+        <div class="admin__data-grid-wrap admin__data-grid-wrap-static">
+            <table class="data-grid" id="<?= /* @noEscape */ $block->getId() ?>_table">
+                <?= $block->getChildHtml('grid.columnSet'); ?>
+            </table>
+        </div>
+    </div>
+    <script>
+        require([
+            "jquery",
+            "uiRegistry",
+            "validation",
+            "mage/mage",
+            "mage/adminhtml/grid"
+        ], function(jQuery, registry){
+
+            <?php if ($block->getDependencyJsObject()) : ?>
+            registry.get('<?= $block->escapeHtml($block->getDependencyJsObject()); ?>',
+                function (<?= $block->escapeHtml($block->getDependencyJsObject()); ?>) {
+            <?php endif; ?>
+
+            //<![CDATA[
+            <?= $block->escapeHtml($block->getJsObjectName()); ?>
+                    = new varienGrid(
+                        '<?= /* @noEscape */ $block->getId() ?>',
+                        '<?= $block->escapeHtml($block->getGridUrl()); ?>',
+                        '<?= $block->escapeHtml($block->getVarNamePage()); ?>',
+                        '<?= $block->escapeHtml($block->getVarNameSort()); ?>',
+                        '<?= $block->escapeHtml($block->getVarNameDir()); ?>',
+                        '<?= $block->escapeHtml($block->getVarNameFilter()); ?>');
+            <?= $block->escapeHtml($block->getJsObjectName()); ?>
+                .useAjax = '<?php if ($block->getUseAjax()) :
+                                /* @noEscape */ echo $block->getUseAjax();
+                            endif; ?>';
+                <?php if ($block->getRowClickCallback()) : ?>
+                    <?= $block->escapeHtml($block->getJsObjectName()); ?>
+                .rowClickCallback = <?= /* @noEscape */ $block->getRowClickCallback() ?>;
+                <?php endif; ?>
+                <?php if ($block->getCheckboxCheckCallback()) : ?>
+                    <?= $block->escapeHtml($block->getJsObjectName()); ?>
+                .checkboxCheckCallback = <?= /* @noEscape */ $block->getCheckboxCheckCallback() ?>;
+                <?php endif; ?>
+                <?php if ($block->getSortableUpdateCallback()) : ?>
+                    <?= $block->escapeHtml($block->getJsObjectName()); ?>
+                .sortableUpdateCallback = <?= /* @noEscape */ $block->getSortableUpdateCallback()?>;
+                <?php endif; ?>
+                    <?= $block->escapeHtml($block->getJsObjectName()); ?>
+                .bindSortable();
+                <?php if ($block->getRowInitCallback()) : ?>
+                    <?= $block->escapeHtml($block->getJsObjectName()); ?>
+                .initRowCallback = <?= /* @noEscape */ $block->getRowInitCallback() ?>;
+                    <?= $block->escapeHtml($block->getJsObjectName()); ?>
+                .initGridRows();
+                <?php endif; ?>
+                <?php if ($block->getChildBlock('grid.massaction')
+                && $block->getChildBlock('grid.massaction')->isAvailable()) : ?>
+                    <?= /* @noEscape */ $block->getChildBlock('grid.massaction')->getJavaScript() ?>
+                <?php endif ?>
+                <?= /* @noEscape */ $block->getAdditionalJavaScript(); ?>
+            //]]>
+        });
+    </script>
+<?php endif; ?>

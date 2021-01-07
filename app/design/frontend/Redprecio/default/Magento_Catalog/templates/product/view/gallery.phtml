@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+?>
+<?php
+$_product = $this->getProduct();
+ $manufacturerName = $_product->getAttributeText('manufacturer');
+ $manufacturerId = $_product->getManufacturer(); 
+ $manufacturerName= strtolower($manufacturerName);
+ 
+ $manufacturerName=str_replace(' ', '_',$manufacturerName);
+ $imgPath=$this->getViewFileUrl("images/{$manufacturerName}" );
+ if($manufacturerName) {
+ ?>
+ <div class="custom-brand-name">
+ <img class="img-responsive" src="<?php echo  $imgPath ?>.png" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" /></div>
+ <?php
+ }
+    $GalleryImages =  $block->getGalleryImages();
+ ?>
+            
+        <?php  if(count($GalleryImages)>1) : ?>
+            <div id="sync1" class="owl-carousel owl-theme">
+            <?php    
+               foreach($GalleryImages as $image){ ?>
+                            <div class="item">
+                                <img src="<?php echo $image->getUrl(); ?>">
+                            </div>   
+            <?php   } ?>
+             </div>
+                <div id="sync2" class="owl-carousel owl-theme">
+                 <?php    
+                     foreach($GalleryImages as $image){  ?>
+                            <div class="item">
+                                <img src="<?php echo $image->getUrl(); ?>">
+                            </div>  
+                            
+                 <?php   } ?>
+                </div>
+            <?php else : ?>
+            <div id="sync112" class="custom-image">
+                 <?php    
+                     foreach($GalleryImages as $image){  ?>
+                            <div class="itemm">
+                                <img src="<?php echo $image->getUrl(); ?>">
+                            </div>  
+                      
+                 <?php   } ?>
+            </div>
+        <?php endif; ?>
+
+        
+
+
+

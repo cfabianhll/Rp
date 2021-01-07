@@ -1,0 +1,56 @@
+
+<!-- ko foreach: getRegion('amazon-button-region') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+
+
+<!-- ko ifnot: isCustomerLoggedIn() -->
+<div class="row">
+    <div class="col-12 col-lg-12 col-md-12">
+        <!-- ko foreach: getRegion('before-login-form') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+        <form class="form form-login" data-role="email-with-possible-login"
+              data-bind="submit:login"
+              method="post" data-bind="blockLoader: isLoading">
+            <div class="form-group field required col-mp mp-12">
+                <label class="label" for="customer-email"><!-- ko i18n: 'Email Address'--><!-- /ko --><span class="require">*</span></label>
+                <input class="form-control input-text"
+                       type="email"
+                       data-bind="
+                            textInput: email,
+                            hasFocus: emailFocused,
+                            css: hasValue() ,
+                            event: {change: emailHasChanged,blur: hasValue}"
+                       name="username"
+                       data-validate="{required:true, 'validate-email':true}"
+                       id="customer-email"  required/>
+            </div>
+            <div class="form-group required field" data-bind="fadeVisible: isPasswordVisible">
+                <label class="label" for="customer-password"><!-- ko i18n: 'Password'--><!-- /ko --><span class="require">*</span>
+                </label>
+                    <input class="form-control input-text"
+                           placeholder=""
+                           type="password"
+                           name="password"
+                           id="customer-password"
+                           data-validate="{required:true}" autocomplete="off"/>
+                    <span class="note" data-bind="i18n: 'You already have an account with us. Sign in or continue as guest.'"></span>
+            </div>
+            <!-- ko foreach: getRegion('additional-login-form-fields') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+            <div class="form-group actions-toolbar" data-bind="fadeVisible: isPasswordVisible">
+                <input name="context" type="hidden" value="checkout" />
+                <div class="primary bottom_login">
+                    <button type="submit" class="btn btn_red width120 action login primary" data-action="checkout-method-login" data-bind="i18n: 'Login'"></button>
+                    <p>
+                        <a class="main_colr pl-1 action remind" data-bind="attr: { href: forgotPasswordUrl },i18n: 'Forgot Your Password?'">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /ko -->

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mst_optimize" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="label">
+            <group id="optimize_insight" showInDefault="1" sortOrder="0">
+                <frontend_model>Mirasvit\OptimizeInsight\Block\Adminhtml\System\Config\InsightGroup</frontend_model>
+
+                <group id="config" showInDefault="1" sortOrder="0">
+                    <label>Configuration</label>
+
+                    <field id="URLs" translate="label" type="textarea" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>URLs for monitoring</label>
+                        <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                        <attribute type="description">
+                            Each URL from new line. The base URL will be monitored by default.
+                        </attribute>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AmastyMWIWarehouseSection">
+        <element name="qtyToShip" type="td" selector="//*[@id='amasty_multi_inventory_warehouse_table']/tbody/tr/td[7]"/>
+        <element name="availableQty" type="td" selector="//*[@id='amasty_multi_inventory_warehouse_table']/tbody/tr/td[8]"/>
+        <element name="totalQty" type="span" selector="//*[@id='amasty_multi_inventory_warehouse_table']/tbody/tr/td[6]/div/span"/>
+    </section>
+</sections>

@@ -1,0 +1,46 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Framework\View\Element\AbstractBlock $block
+ */
+?>
+<div class="promo_box">
+        <h4 class="totle_tablr_header"><?= /* @escapeNotVerified */ __('Apply Promo Code') ?></h4>
+        <div class="promocode_div">
+          <p><?= $block->escapeHtml(__('Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
+                           when an took a galley of type and scrambled it to make a type specimen book.')) ?></p>
+
+        <form id="discount-coupon-form"
+              action="<?= /* @escapeNotVerified */ $block->getUrl('checkout/cart/couponPost') ?>"
+              method="post"
+              data-mage-init='{"discountCode":{"couponCodeSelector": "#coupon_code",
+                                               "removeCouponSelector": "#remove-coupon",
+                                               "applyButton": "button.action.apply",
+                                               "cancelButton": "button.action.cancel"}}'>
+                                               
+            <div class="login_form apply_code_box mt-3 promo_form coupon<?= strlen($block->getCouponCode()) ? ' applied' : '' ?>">
+                <input type="hidden" name="remove" id="remove-coupon" value="0" />
+                <!-- <div class="form-group field  login_form apply_code_box mt-3"> -->
+                    <input type="text" class="form-control mr-4 input-text" id="coupon_code" name="coupon_code" value="<?= $block->escapeHtml($block->getCouponCode()) ?>" placeholder="<?= $block->escapeHtml(__('Enter discount code')) ?>" <?php if (strlen($block->getCouponCode())): ?> disabled="disabled" <?php endif; ?> />
+                <!-- </div> -->
+            </div>
+                <?php if (!strlen($block->getCouponCode())): ?>
+                    <button class="btn btn_red action apply primary btn theme_btn" type="button" value="<?= /* @escapeNotVerified */ __('Apply Discount') ?>">
+                        <?= /* @escapeNotVerified */ __('Apply Now') ?>
+                    </button>
+                <?php else: ?>
+                        <button  type="button" class="btn btn_red action cancel primary btn theme_btn" value="<?= /* @escapeNotVerified */ __('Cancel Coupon') ?>"><?= /* @escapeNotVerified */ __('Cancel Coupon') ?></button>
+                <?php endif; ?>
+            <?php if (!strlen($block->getCouponCode())): ?>
+            <?= /* @noEscape */ $block->getChildHtml('captcha') ?>
+            <?php endif; ?>
+        </form>
+      </div>
+</div>
+

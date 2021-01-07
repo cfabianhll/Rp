@@ -1,0 +1,27 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="billing-address-form">
+    <!-- ko foreach: getRegion('before-fields') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+    <form data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+        <div class="row address" data-form="billing-new-address">
+            <!-- ko foreach: getRegion('additional-fieldsets') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+            <!-- ko if: (isCustomerLoggedIn && customerHasAddresses) -->
+            <div class="col-12 col-md-12 col-lg-12 form-group choice field">
+                <label class="container_checkbox label" data-bind="attr: {for: 'billing-save-in-address-book-' + getCode($parent)}" >
+                    <span data-bind="i18n: 'Save in address book'"></span>
+                    <input type="checkbox" class="checkbox"  data-bind="checked: saveInAddressBook, attr: {id: 'billing-save-in-address-book-' + getCode($parent)}" />
+                    <span class="checkmark"></span>                    
+                </label>
+            </div>
+            <!-- /ko -->
+        </div>
+    </form>
+</div>

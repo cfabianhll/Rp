@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.registration" remove="true" />
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="checkout.success.print.button" remove="true" />        
+        <referenceContainer name="columns" htmlClass="product_Details mb-5" htmlTag="section" />
+        <!-- <referenceContainer name="main" htmlClass="container" /> -->
+
+        <referenceContainer name="main.content">
+             <block class="Magento\Framework\View\Element\Template" name="cart-checkout-breadcum" template="Magento_Checkout::cart/checkoutbreadcum.phtml" before="columns"/>
+                <container name="product.details.cart.view" htmlClass="product_Details pb-0" htmlTag="section" after="cart-checkout-breadcum">
+                         <container name="product.details.container.view" htmlClass="container" htmlTag="div" after="-">
+                            <block name="shopping_cart_step" as="with-items" class="Magento\Framework\View\Element\Template" template="Magento_Checkout::success/steps.phtml" before="-"/>    
+                         </container>
+                </container>              
+        </referenceContainer>
+
+      <!--   <referenceBlock name="page.main.title">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Theme::html/title_with_banner.phtml</argument>
+            </action>
+            <arguments>
+                <argument name="css_class" xsi:type="string">shopping_cart_bg</argument>
+                <argument name="banner_page" xsi:type="string">success</argument>
+            </arguments>
+        </referenceBlock> -->
+
+        <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Home</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Go to Homepage</item>
+                    <item name="label" xsi:type="string">Home</item>
+                    <item name="link" xsi:type="string">/burroteka</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">Checkout Success</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string">Checkout Success</item>
+                    <item name="label" xsi:type="string">Checkout Success</item>
+                    <item name="link" xsi:type="string"></item>
+                </argument>
+            </action>
+        </referenceBlock>
+        <move element="breadcrumbs" destination="success.breadcum.row.view" before="columns" />
+    </body>
+</page>

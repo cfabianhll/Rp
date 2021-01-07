@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">amasty_multi_inventory_import_grid.amasty_multi_inventory_import_grid_data_source</item>
+            <item name="deps" xsi:type="string">amasty_multi_inventory_import_grid.amasty_multi_inventory_import_grid_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">amasty_multi_inventory_import_columns</item>
+    </argument>
+    <dataSource name="amasty_multi_inventory_import_grid_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Amasty\MultiInventory\Ui\DataProvider\ImportDataProvider</argument>
+            <argument name="name" xsi:type="string">amasty_multi_inventory_import_grid_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">item_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">item_id</item>
+                    </item>
+                    <item name="params" xsi:type="array">
+                        <item name="import_number" xsi:type="string">0</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+   <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </filters>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_MultiInventory/js/grid/massactions</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                </item>
+            </argument>
+            <action name="complete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">complete</item>
+                        <item name="label" xsi:type="string" translate="true">Complete Import</item>
+                        <item name="url" xsi:type="url" path="amasty_multi_inventory/import/massComplete"/>
+                    </item>
+                </argument>
+            </action>
+            <action name="backup_complete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">backup_complete</item>
+                        <item name="label" xsi:type="string" translate="true">Back up &amp; Complete Import</item>
+                        <item name="url" xsi:type="url" path="amasty_multi_inventory/import/massBackup"/>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="amasty_multi_inventory_import_columns">
+       <argument name="data" xsi:type="array">
+     </argument>
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_MultiInventory/js/grid/columns/multiselect</item>
+                    <item name="indexField" xsi:type="string">item_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </column>
+        <column name="sku">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">SKU</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+        </column>
+        <column name="warehouse_id" class="Amasty\MultiInventory\Ui\Component\Listing\Column\Import\Warehouse">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Warehouse</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+        </column>
+        <column name="qty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                <item name="label" xsi:type="string" translate="true">Qty</item>
+                <item name="sortOrder" xsi:type="number">40</item>
+            </item>
+            </argument>
+        </column>
+        <column name="new_qty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="label" xsi:type="string" translate="true">New Qty</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

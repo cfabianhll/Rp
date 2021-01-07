@@ -1,0 +1,33 @@
+<?php
+/** @var \Clerk\Clerk\Block\Adminhtml\System\Config\Field\FacetTitles $block */
+$element = $block->getElement();
+$values = [];
+$values = json_decode($element->getValue(), true);
+?>
+<div class="admin__control-table-wrapper">
+    <table class="admin__control-table" id="attribute-labels-table">
+        <thead>
+        <tr>
+            <th class="col-store-view"><?php echo __('Default'); ?></th>
+            <th class="col-store-view"><?php echo $block->getScopeLabel(); ?></th>
+            <th class="col-store-view"><?php echo __('Sort Order'); ?></th>
+        </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($block->getConfiguredAttributes() as $attribute) : ?>
+            <?php $value = isset($values[$attribute]) ? $values[$attribute] : $attribute; ?>
+            <tr>
+                <td class="col-store-view">
+                    <input class="input-text" id="_orig" value="<?php echo $attribute; ?>" type="text" readonly>
+                </td>
+                <td class="col-store-view">
+                    <input class="input-text" id="" name="<?php echo $element->getName(); ?>[<?php echo $attribute; ?>][label]" value="<?php echo isset($value['label']) ? $value['label'] : ''; ?>" type="text">
+                </td>
+                <td class="col-store-view">
+                    <input class="input-text" id="" name="<?php echo $element->getName(); ?>[<?php echo $attribute; ?>][sort_order]" value="<?php echo isset($value['sort_order']) ? $value['sort_order'] : 0; ?>" type="text">
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

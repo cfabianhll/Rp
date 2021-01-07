@@ -1,0 +1,42 @@
+<?php
+$currenturl=$this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
+$cart=$this->getUrl('checkout/cart/index');
+$success=$this->getUrl('checkout/onepage/success');
+?>
+      <section class="banner_Section gift_card_bg">
+            <div class="row">
+               <div class="col-12">
+                  <div class="pre_order_content">
+                     <div class="section_title text-center mb-0">
+                        <?php if ($currenturl==$cart) :?>
+                           <h2><?php echo $block->escapeHtml(__('Shopping Cart ')); ?></h2>
+                           <?php elseif($currenturl==$success): ?>
+                            <h2><?php echo $block->escapeHtml(__('Order Completed')); ?></h2>
+                        <?php else :?>
+                           <h2><?php echo $block->escapeHtml(__('Checkout ')); ?></h2>
+                        <?php endif; ?>
+                     </div>
+                  </div>
+               </div>
+            </div>                 
+      </section>
+      <section class="showing_result">
+               <div class="row align-items-center">
+                  <div class="col-12 col-md-6">
+                    <ul class="breadcum_links">
+                     <li><a href="<?php echo $this->getUrl() ?>"><?php echo $block->escapeHtml(__('Home')); ?></a></li>
+                     <li>></li>
+                     <?php if ($currenturl==$cart) :?>
+                      <li><?php echo $block->escapeHtml(__('Shopping Cart')); ?></li>
+                      <li></li>
+                      <?php elseif($currenturl==$success): ?>
+                      <li><?php echo $block->escapeHtml(__('Order Completed')); ?></li>
+                      <li></li>
+                     <?php else :?>
+                      <li><?php echo $block->escapeHtml(__('Checkout')); ?></li>
+                      <li></li>
+                     <?php endif; ?>
+                  </ul> 
+               </div>
+            </div>
+      </section>

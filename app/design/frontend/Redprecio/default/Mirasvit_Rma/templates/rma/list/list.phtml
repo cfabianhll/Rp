@@ -1,0 +1,79 @@
+<?php
+//@codingStandardsIgnoreFile
+
+/* @var $block \Mirasvit\Rma\Block\Rma\Listing\Listing */
+$list       = $block->getRmaList();
+$itemsBlock = $block->getItemsBlock();
+?>
+<?php if (count($list)): ?>
+	<div class="tab-content profile_tab_content" id="v-pills-tabContent">
+		<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+			<?php foreach ($list as $rma): ?>
+				<div class="my_orders_list">
+					<div class="account_tile">
+						<div class="order_wraper" data-oder-id="<?= $block->escapeHtml($rma->getIncrementId()) ?>">
+							<div class="order_dtils rma_dtils">
+                                <div class="row">
+                                   <div class="col-12 col-md-9">
+                                      <div class="orderid_place rma_place">
+                                         <span class="pro_id"><?= $block->escapeHtml(__('RMA ID: ')) ?><b>#<?= $block->escapeHtml($rma->getIncrementId()) ?></b></span>
+										  <span class="pro_id"><?= $block->escapeHtml(__('ORDER ID: ')) ?><b>#<?php foreach ($block->getOrders($rma) as $order): ?>
+                            
+                            <?php if ($order->getIsOffline()): ?>
+                                <?= $block->escapeHtml($block->getOrderIncrementId($order)) ?>
+                            <?php else: ?>
+                                <a href="<?= $this->getUrl('sales/order/view', ['order_id' => $order->getId()]) ?>"><?= $block->getOrderIncrementId($order) ?></a>
+                            <?php endif ?>
+                            
+                        <?php endforeach ?></b></span>
+                                         <span><?= $block->escapeHtml(__('Date Requested :')) ?> <b> <?= $block->formatDate($rma->getCreatedAt(), \IntlDateFormatter::MEDIUM) ?></b></span>
+                                      </div>
+                                   </div>
+									<div class="col-12 col-md-3 text-md-right">
+										<div class="orderid_place">
+											<span class="status"><span class="rma_title"><?= $block->escapeHtml(__('RMA Status: ')) ?></span> <b><span class="rma_status"><?= $block->escapeHtml($block->getStatus($rma)->getName()) ?></span></b></span>
+										</div>										
+									</div>
+                                </div>
+							</div>
+							<?php $items = $block->getItems($rma) ?>
+							
+									<div class="step_one_content">
+										<div class="row align-items-center">
+										<?php if (count($items)): ?>
+								<?php foreach ($items as $item): ?>
+											<div class="col-12 col-lg-3 col-md-4">
+												<div class="cart_img1">
+												<img src="<?= $itemsBlock->initImage($item, 'product_page_image_small')->getUrl() ?>"/>
+												</div>
+											</div>
+											<div class="col-12 col-lg-6 col-md-8">
+												<div class="product_details_outer">
+													<h4 class="product_name"><?= $itemsBlock->getOrderItemLabel($item) ?></h4>
+												</div>
+											</div>
+											<?php endforeach; ?>
+											<?php endif ?>
+											<div class="col-12 col-lg-3 col-md-12">
+												<div class="totla_price rma_view">
+													<p class="mb-2"><?= $block->escapeHtml(__('Action ')) ?><span><?php if ($block->isLastMessageUnread($rma)): ?><span class="mst-rma-list__unread"></span><?php endif ?>
+
+                        <a class="view_return" href="<?= $block->getRmaUrl($rma) ?>"><strong><?= __('View Return') ?></strong></a></span></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+						</div>
+					</div>
+				</div>
+			 <?php endforeach; ?>
+			  <?= $block->getChildHtml('rma.toolbar') ?>
+		</div>
+	</div>
+    
+<?php else: ?>
+    <div class="message info empty">
+        <span><?= __('There are no returns') ?></span>
+    </div>
+<?php endif ?>

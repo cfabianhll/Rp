@@ -1,0 +1,33 @@
+<?php
+$gridHtml = $block->getGridHtml();
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td style="<?php echo $block->getHeaderWidth() ?>"><?php echo $block->getHeaderHtml() ?></td>
+            <td class="form-buttons"><?php echo $block->getButtonsHtml() ?></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <?php echo $block->getChildHtml('store.switcher') ?>
+</div>
+<div>
+    <?php echo $block->getChildHtml('grid.filter.form') ?>
+</div>
+<div>
+    <?php echo $gridHtml ?>
+</div>
+<script type="text/javascript">
+    function filterFormSubmit() {
+        var filters = $$('#filter_form input', '#filter_form select');
+        var elements = [];
+        for(var i in filters){
+            if(filters[i].value && filters[i].value.length && !filters[i].disabled) elements.push(filters[i]);
+        }
+        var validator  = new Validation('filter_form');
+        if (validator.validate()) {
+            setLocation('<?php echo $block->getFilterUrl(); ?>filter/'+encode_base64(Form.serializeElements(elements))+'/');
+        }
+    }
+</script>

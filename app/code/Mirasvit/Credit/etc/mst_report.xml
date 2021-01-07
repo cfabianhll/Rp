@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="../../../../module-report-api/src/ReportApi/etc/mst_report.xsd">
+    <table name="mst_credit_balance" label="Credit Balance">
+        <pk name="balance_id"/>
+
+        <fk name="customer_id" label="Customer" table="customer_entity"/>
+
+        <column name="amount" label="Balance" type="money" />
+    </table>
+
+    <table name="mst_credit_transaction" label="Credit Transaction">
+        <pk name="transaction_id"/>
+
+        <fk name="balance_id" label="Balance" table="mst_credit_balance"/>
+
+        <column name="created_at" label="Placed On" type="date"/>
+
+        <column name="quantity" label="Number of transactions" fields="transaction_id" type="qty"
+                expr="COUNT(DISTINCT(%1))"/>
+
+        <column name="balance_delta" label="Delta" type="money"/>
+
+        <column name="positive_balance_delta" label="Received" fields="balance_delta" type="money"
+                expr="IF(%1 > 0, %1, 0)"/>
+
+        <column name="negative_balance_delta" label="Spent" fields="balance_delta" type="money"
+                expr="IF(%1 >= 0, 0, %1)"/>
+    </table>
+</config>

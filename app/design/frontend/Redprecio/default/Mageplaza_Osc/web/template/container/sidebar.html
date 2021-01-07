@@ -1,0 +1,24 @@
+<div id="opc-sidebar">
+    <!-- ko foreach: getRegion('summary') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+    <div class="opc-block-shipping-information">
+        <!-- ko foreach: getRegion('shipping-information') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+    </div>
+
+    <div id="co-place-order-area">
+        <div class="osc-addition-content-wrapper">
+            <!-- ko foreach: getRegion('place-order-information-left') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="d-none osc-place-order-wrapper">
+            <!-- ko foreach: getRegion('place-order-information-right') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="mp-clear"></div>
+    </div>
+</div>

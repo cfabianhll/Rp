@@ -1,0 +1,95 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Pager template
+ *
+ * @see \Magento\Theme\Block\Html\Pager
+ */
+?>
+<?php if ($block->getCollection()->getSize()): ?>
+
+    <?php /* if ($block->getUseContainer()): ?>
+    <div class="pager">
+    <?php endif */ ?>
+
+        <?php  if ($block->getShowAmounts()): ?>
+        <p class="toolbar-amount">
+            <span class="toolbar-number">
+            <?php if ($block->getLastPageNum()>1): ?>
+                <?= __('Items %1 to %2 of %3 total', $block->getFirstNum(), $block->getLastNum(), $block->getTotalNum()) ?>
+            <?php elseif ($block->getTotalNum() == 1): ?>
+                <?= __('%1 Item', $block->getTotalNum()) ?>
+            <?php else: ?>
+                <?= __('%1 Item(s)', $block->getTotalNum()) ?>
+            <?php endif; ?>
+            
+        </p>
+        <?php endif  ?>
+
+        <?php if ($block->getLastPageNum()>1): ?>
+        <div class="paginations">
+				<div aria-label="pagination" class="page_pagination">
+                <?php /* <strong class="label pages-label" id="paging-label"><?= __('Page') ?></strong> */ ?>
+                <div class="page_no">
+                <?php if (!$block->isFirstPage()): ?>
+                <?php echo "page".'&nbsp'.$this->getRequest()->getParam('p')."/". $block->getLastPageNum() ?>
+                <?php else: ?>
+                <?php echo "page 1"."/". $block->getLastPageNum() ?>
+               <?php endif; ?>
+                </div>
+                <ul class="pagination paginations_icon" aria-labelledby="paging-label">
+                <?php if (!$block->isFirstPage()): ?>
+                   
+                        <a class="nav_arrow page-link previous" href="<?= $block->getPreviousPageUrl() ?>" title="<?= __('Previous') ?>"><i class="fas fa-caret-left"></i></a>
+                  
+				<?php else: ?>
+					
+                        <a class="nav_arrow page-link previous" title="<?= __('Previous') ?>"><i class="fas fa-caret-left"></i></a>
+                
+                <?php endif;?>
+
+                
+
+                <?php if (!$block->isLastPage()): ?>
+                   
+                      
+                        <a class="nav_arrow page-link next" href="<?= $block->getNextPageUrl() ?>" title="<?= __('Next') ?>"><i class="fas fa-caret-right"></i></i></a>
+            
+				<?php else: ?>
+					
+                        <a class="nav_arrow page-link next" title="<?= __('Next') ?>"><i class="fas fa-caret-right"></i></i></a>
+               
+                <?php endif;?>
+                </ul>
+				</div>
+        </div>
+        <?php endif; ?>
+
+    <?php /* if ($block->isShowPerPage()): ?>
+        <div class="limiter">
+            <strong class="limiter-label"><?= __('Show') ?></strong>
+            <select id="limiter" data-mage-init='{"redirectUrl": {"event":"change"}}' class="limiter-options">
+                <?php foreach ($block->getAvailableLimit() as $_key => $_limit): ?>
+                    <option value="<?= $block->getLimitUrl($_key) ?>"<?php if ($block->isLimitCurrent($_key)): ?>
+                        selected="selected"<?php endif ?>>
+                        <?= $_limit ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <span class="limiter-text"><?= __('per page') ?>
+        </div>
+    <?php endif */ ?>
+
+    <?php /* if ($block->getUseContainer()): ?>
+    </div>
+    <?php endif */ ?>
+
+<?php endif ?>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+    <!--GoogleAPI-->
+    <entity name="AmastyMWIConfigurationGeneralSettingsData" type="googleAPI">
+        <data key="googleApi">AIzaSyD9KG5eaSmyRBFmTi20MFk1sQzZUf-rrpI</data>
+    </entity>
+    <!--enable/disable Google Address Suggestion-->
+    <entity name="enable" type="enableDisableGoogleAddressSuggestion">
+        <data key="status">1</data>
+    </entity>
+    <entity name="disable" type="enableDisableGoogleAddressSuggestion">
+        <data key="status">0</data>
+    </entity>
+</entities>

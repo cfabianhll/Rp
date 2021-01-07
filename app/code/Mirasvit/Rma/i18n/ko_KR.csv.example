@@ -1,0 +1,484 @@
+"Request RMA","RMA 요청"
+"My Returns","내 반품"
+Grid,그리드
+List,명부
+All,모든
+"Create RMA","RMA 생성"
+"Request New Return","새로운 반환 요청"
+"Max file size: %1Mb","최대 파일 크기 : %1Mb"
+"New Return for Order #%1","주문 ______에 대한 새로운 반품"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","잘못된 주문 번호, 이메일 또는 성"
+Items,항목
+"To apply changes you should fill in required ""%1"" field","변경 사항을 적용하려면 필수 &quot;%1&quot;필드를 채워야합니다."
+"Please, add order items to the RMA (set 'Qty to Return')","RMA에 주문 항목을 추가하십시오 ( &#39;Qty to Return&#39;을 설정하십시오)."
+"Please, set correct order items Quantity to return","올바른 주문 항목을 설정하십시오. 반환 할 수량"
+"RMA was successfully created","RMA가 성공적으로 생성되었습니다."
+"Shipping is confirmed. Thank you!","배송 확인. 고맙습니다!"
+"Your message was successfully added","귀하의 메시지가 성공적으로 추가되었습니다."
+"Allowed extensions:","허용 된 확장자 :"
+"Maximum size:","최대 크기 :"
+"-- Please Select --","-- 선택 해주세요 --"
+" at %1 (%2)","%1에서 (%2)"
+"Mark as unresolved","미해결로 표시"
+"Mark as resolved","해결 된 것으로 표시"
+"not set","설정되지 않은"
+Pattern,무늬
+"Attribute Value","속성 값"
+Default,태만
+Integer,정수
+Price,가격
+"Strip Tags","스트립 태그"
+"Primary Attributes","주요 속성"
+"Stock Attributes","재고 속성"
+"Prices & Taxes","가격 및 세금"
+Images,이미지
+"Custom Attributes","사용자 지정 특성"
+Mapping,매핑
+Category,범주
+"Amasty Meta Tags","Amasty Meta Tags"
+"Others Attributes","기타 속성"
+Text,본문
+"Multi-line text","여러 줄 텍스트"
+Date,날짜
+Checkbox,"체크 박스"
+"Drop-down list","드롭 다운 목록"
+Reason,이유
+Condition,조건
+Resolution,해결
+"RMA #","RMA #"
+"Order #","주문 번호"
+"Customer Email","고객 이메일"
+"Customer Name","고객 이름"
+Owner,소유자
+"Last Replier","마지막 폴더"
+Status,지위
+Store,저장
+"Created At","작성 시간"
+"Last Activity","마지막 활동"
+"View link",링크보기
+"New RMA has been created","새로운 RMA가 생성되었습니다."
+"RMA has been changed","RMA가 변경되었습니다."
+"New reply from customer","고객의 새로운 답변"
+"New reply from staff","직원의 새로운 답변"
+"-- Default Address --","- 기본 주소 -"
+"Update the Product","제품 업데이트"
+"Conditions Combination","조건 조합"
+"RMA Attribute","RMA 속성"
+"Last 7-days Clicks","지난 7 일간의 클릭 수"
+"Last 7-days Orders","지난 7 일 주문"
+"Last 7-days Revenue","최근 7 일 수익"
+"Last 7-days Conversation Rate (%)","지난 7 일 대화 (%)"
+"Attribute Set","속성 집합"
+Quantity,수량
+"Product Type","상품 유형"
+"Base Image","기본 이미지"
+Thumbnail,"미리보기 이미지"
+"Small Image","작은 이미지"
+"Base Image Size (bytes)","기본 이미지 크기 (바이트)"
+"Thumbnail Size (bytes)","미리보기 이미지 크기 (바이트)"
+"Small Image Size (bytes)","작은 이미지 크기 (바이트)"
+"PHP Condition","PHP 조건"
+"Open Chooser","열린 선택자"
+"Last message body","마지막 메시지 본문"
+"Updated At","에서 업데이트 됨"
+"Status (before change)","상태 (변경 전)"
+"Owner (before change)","소유자 (변경 전)"
+"Last Reply By","최근 답글 작성자"
+"Hours since Created","생성 된 이후의 시간"
+"Hours since Updated","업데이트 이후 시간"
+"Hours since Last reply","마지막 답장 이후 시간"
+"Items have reason","아이템에 이유가있다."
+"Items have condition","항목에 조건이 있음"
+"Items have resolution","항목에 해결 방법이 있습니다."
+"%1 (before change)","%1 (변경 전)"
+Customer,고객
+Staff,직원
+"- Disable these emails -","-이 이메일을 사용 중지합니다."
+Yes,예
+No,아니
+Save,구하다
+"Save & Continue Edit","저장하고 계속하기 편집"
+"Save & Close","저장하고 닫기"
+Edit,편집하다
+Delete,지우다
+"Delete ""${ $.$data.name }""",""${ $.$data.name }"삭제"
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?",""${ $.$data.name }"레코드를 삭제하지 않으시겠습니까?"
+"Are you sure you want to do this?","이 작업을 수행 하시겠습니까?"
+"Convert To Ticket","티켓으로 변환"
+"View order #${ $.$data.order_id }","주문 #${ $.$data.order_id }보기"
+"View exchange order %1","교환 주문보기 %1"
+"RMA: Report by Attribute","RMA : 속성 별 보고서"
+"RMA: Report by Status","RMA : 상태 별 보고서"
+"RMA: Report by Product","RMA : 제품 별 신고"
+"RMA: Report by Reasons","RMA : 이유 별 보고서"
+"Cannot delete return address with id %1","ID가 %1 인 반송 주소를 삭제할 수 없습니다."
+"Cannot delete item with id %1","ID가 %1 인 항목을 삭제할 수 없습니다."
+"Cannot delete condition with id %1","ID가 %1 인 조건을 삭제할 수 없습니다."
+"Cannot delete field with id %1","ID가 %1 인 필드를 삭제할 수 없습니다."
+"Cannot delete message with id %1","ID가 %1 인 메시지를 삭제할 수 없습니다."
+"Cannot delete history with id %1","ID가 %1 인 기록을 삭제할 수 없습니다."
+"Cannot delete Quick Response with id %1","ID가 %1 인 빠른 응답을 삭제할 수 없습니다."
+"Cannot delete reason with id %1","%1 ID의 이유를 삭제할 수 없습니다."
+"Cannot delete resolution with id %1","ID가 %1 인 해상도를 삭제할 수 없습니다."
+"Cannot delete rma with id %1","ID가 %1 인 rma를 삭제할 수 없습니다."
+"Cannot delete rule with id %1","%1 ID의 규칙을 삭제할 수 없습니다."
+"Cannot delete status with id %1","ID가 %1 인 상태를 삭제할 수 없습니다."
+"Please, enter a message","메시지를 입력하십시오."
+"Product Name",상품명
+SKU,SKU
+Qty,수량
+"This was a gift, please do not notify purchaser","이것은 선물이었습니다. 구매자에게 알려주지 마십시오."
+"Enter your contact information","연락처 정보 입력"
+"First Name",이름
+"Last Name",성
+Email,이메일
+Telephone,전화
+"To request a new RMA or check the status of current RMA, please, fill the form:","새 RMA를 요청하거나 현재 RMA의 상태를 확인하려면 다음 양식을 작성하십시오."
+"* Required Fields","* 필수 입력 사항"
+"Order Information","주문 정보"
+"Email or Last Name","이메일 또는 성"
+Next,"다음 것"
+RMA,RMA
+Actions,행위
+"View Return","돌아 가기보기"
+"There are no Returns","반품은 없습니다."
+"Items %1 to %2 of %3 total","총 %3 중 __1 ~ %2 항목"
+"%1 Item(s)","%1 개 항목"
+Show,"보여 주다"
+"per page","페이지 당"
+"View as","다음으로보기 :"
+"Sort by","정렬 기준"
+"Set Ascending Direction","오름차순 설정"
+"Set Descending Direction","내림차순 설정"
+"Please, select an order","주문을 선택하십시오."
+Order,주문
+"-- Select an Order --","- 주문 선택 -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","RMA를 요청한 주문이 완료되지 않았거나 주문이 __1 일 전부터 접수되었습니다. 고객 서비스에 문의하십시오."
+"Submit Request","요청 제출"
+"Please, select RMA items which you would like to return.","반환하려는 RMA 항목을 선택하십시오."
+"Additional Information","추가 정보"
+"Attach files","파일 첨부"
+"Request Information","정보를 요청하다"
+"Email Address","이메일 주소"
+"Order Shipping Address","주문 배송 주소"
+"Items in this order","이 순서의 항목"
+"There are no items for this product that can be returned.","이 제품에 대해 반품 할 수있는 항목이 없습니다."
+"Another RMA for this product: %1","이 제품에 대한 다른 RMA : %1"
+"This product can not be returned due to RMA Policy","이 제품은 RMA 정책으로 인해 반품 할 수 없습니다."
+"This is a non-returnable item per our return policy.","이는 반품 정책에 따라 반품 할 수없는 품목입니다."
+"Quantity to return","반환 할 수량"
+"-- Select a Reason --","- 이유 선택 -"
+"-- Select a Condition --","- 조건 선택 -"
+"-- Select a Resolution --","- 해상도 선택 -"
+"I agree","나는 동의한다"
+"Date: %1","날짜 : %1"
+"Original order: #%1","원래 주문 : #%1"
+"Return Address","반송 주소"
+"Customer Information","고객 정보"
+"RMA History","RMA 기록"
+"RMA Items","RMA 항목"
+Weight,무게
+"Print RMA Packing Slip","RMA 포장 명세서 인쇄"
+"Print RMA Shipping Label","RMA 배송 라벨 인쇄"
+"Confirm Shipping","배송 확인"
+"(This was a gift)","(이것은 선물이었다)"
+"Date Requested","요청 날짜"
+"Contact Information","연락처 정보"
+"Items RMA Requested for","요청 된 항목 RMA"
+QTY,수량
+"Add Message","메시지 추가"
+Submit,제출
+%name,%이름
+"The quantity is incorrect.","수량이 잘못되었습니다."
+"New Return for Offline Order","오프라인 주문에 대한 새로운 반품"
+" at %1",%1에서
+Select,고르다
+"If you do not have account on this store please fill the form below.","이 상점에 계좌가없는 경우 아래 양식을 작성하십시오."
+"-- Create Offline Order --","- 오프라인 주문 만들기 -"
+"Returned Item","반품 된 상품"
+"Remove Item","항목 제거"
+"Order or Receipt #","주문 또는 영수증 #"
+"Add Item","아이템 추가"
+"Add at least one item to this RMA","이 RMA에 하나 이상의 항목 추가"
+"Return Addresses","반송 주소"
+"Add New Return Address","새 반송 주소 추가"
+"General Information","일반 정보"
+Title,표제
+"Sort Order","정렬 순서"
+"Is Active",활성
+ID,신분증
+Active,유효한
+Disabled,장애인
+Enabled,사용
+"Change status","상태 변경"
+"Are you sure?",확실해?
+Conditions,정황
+"Add New Condition","새 조건 추가"
+"[STORE VIEW]",[매장보기]
+"Create RMA for this customer","이 고객에 대한 RMA 생성"
+Fields,전지
+"Add New Field","새 필드 추가"
+Code,암호
+Type,유형
+Description,기술
+"Options list","옵션 목록"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","드롭 다운 목록에만 해당됩니다. <br> 형식을 사용하여 새 줄의 각 값을 입력하십시오. <br> 가치 1 | 라벨 1 <br> 값 2 | label2"
+"Sort order","정렬 순서"
+"Is required for staff","직원이 필요합니다."
+"Is required for customers","고객에게 필요합니다."
+"Visible for customers in statuses","상태가있는 고객에게 공개"
+"Is show in confirm shipping dialog","확인 배송 대화 상자에 표시됩니다."
+"Is editable for customers","고객을 위해 편집 가능"
+Statuses,상태
+Reasons,원인
+Resolutions,결의안
+"Custom Fields","사용자 정의 필드"
+"Quick Responses","빠른 응답"
+"Workflow Rules","워크 플로 규칙"
+Reports,보고서
+Settings,설정
+"Add New Reason","새로운 이유 추가"
+"Add New Resolution","새 해상도 추가"
+"Add New RMA","새 RMA 추가"
+"Create New RMA","새 RMA 생성"
+"Purchased From (Store)","구매 (스토어)"
+"Purchased On",구입일
+"Bill to Name","Bill to Name"
+"Ship to Name","Ship to Name"
+"G.T. (Base)","GT (기본)"
+"G.T. (Purchased)","GT (구입)"
+Print,인쇄
+"Credit Memo","신용 메모"
+"Exchange Order","교환 주문"
+"Delete File","파일 삭제"
+"RMA Owner","RMA 소유자"
+"Upload Return Label","Return Label 업로드"
+"External Link","외부 링크"
+open,열다
+"(received a gift)","(선물을 받았다)"
+"Exchage Order","Exchage Order"
+Company,회사
+"Street Address",주소
+City,시티
+Zip/Postcode,"우편 번호 / 우편 번호"
+Rules,규칙
+"Add New Rule","새 규칙 추가"
+"Set Status","상태 설정"
+"Set Owner","소유자 설정"
+Event,행사
+Filters,필터
+"Rule Name","규칙 이름"
+Priority,"우선 순위"
+"Arranged in the ascending order. 0 is the highest.","오름차순으로 정렬됩니다. 0이 가장 높습니다."
+"Stop Further Rules Processing","추가 규칙 처리 중지"
+Notifications,알림
+"Send email to RMA owner","RMA 소유자에게 이메일 보내기"
+"Send email to customer","고객에게 이메일 보내기"
+"Send email to other email addresses","다른 이메일 주소로 이메일 보내기"
+"Email subject","메일 제목"
+"Email body","이메일 본문"
+"Attach files which were attached to the last message","마지막 메시지에 첨부 된 파일 첨부"
+"Is Stop Processing","처리 중지 중"
+"Create RMA for this order","이 주문에 대한 RMA 생성"
+"Order meets RMA policy","주문이 RMA 정책을 충족합니다."
+"Order doesn't meet RMA policy","주문이 RMA 정책을 충족하지 않습니다."
+"Add New Status","새 상태 추가"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","고객 계정에서 &#39;RMA 포장 명세서 인쇄&#39;, &#39;RMA 발송 라벨 인쇄&#39;및 &#39;배송 확인&#39;버튼 표시"
+"Email Notification for customer","고객을위한 전자 메일 알림"
+"leave blank to not send","공란으로 보내지 마라."
+"Message for RMA history","RMA 기록 메시지"
+"Email Notification for administrator","관리자를위한 전자 메일 알림"
+Templates,템플릿
+"Add New Template","새 템플릿 추가"
+"Internal Title","내부 제목"
+Template,주형
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","[rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,백화점
+"RMA Return Address","RMA 반송 주소"
+"New Return Address","새 반송 주소"
+"Return Address Manager","반송 관리자"
+"Add Return Address ","반송 주소 추가"
+"Add Return Address","반송 주소 추가"
+"Return Address was successfully deleted","반송 주소가 성공적으로 삭제되었습니다."
+"Edit Return Address '%1'","반송 주소 &#39;%1&#39;수정"
+"Edit Return Address ","반송 주소 수정"
+"The Return Address does not exist.","반송 주소가 없습니다."
+"Please select Return Address(es)","반송 주소를 선택하십시오."
+"Total of %d record(s) were successfully updated","총 % d 개의 레코드가 성공적으로 업데이트되었습니다."
+"Total of %1 record(s) were successfully deleted","총 %1 개의 레코드가 성공적으로 삭제되었습니다."
+"return Address was successfully saved","반송 주소가 성공적으로 저장되었습니다."
+"Unable to find Return Address to save","저장하려면 반송 주소를 찾을 수 없습니다."
+"New Condition","새로운 조건"
+"Condition  Manager","조건 관리자"
+"Condition Manager","조건 관리자"
+"Add Condition ","조건 추가"
+"Add Condition","조건 추가"
+"Condition was successfully deleted","조건이 성공적으로 삭제되었습니다."
+"Edit Condition '%1'","조건 편집 &#39;%1&#39;"
+"Edit Condition ","조건 편집"
+"The Condition does not exist.","조건이 존재하지 않습니다."
+"Please select Condition(s)","조건을 선택하십시오."
+"Total of %d record(s) were successfully deleted","총 % d 개의 레코드가 성공적으로 삭제되었습니다."
+"Condition was successfully saved","조건이 성공적으로 저장되었습니다."
+"Unable to find Condition to save","저장할 조건을 찾을 수 없습니다."
+"New Field","새 필드"
+"Field  Manager","필드 관리자"
+"Field Manager","필드 관리자"
+"Add Field ","필드 추가"
+"Add Field","필드 추가"
+"Field was successfully deleted","필드가 성공적으로 삭제되었습니다."
+"Edit Field '%1'","편집 필드 &#39;%1&#39;"
+"Edit Field ","입력란 수정"
+"The Field does not exist.","필드가 존재하지 않습니다."
+"Please select Field(s)","필드를 선택하십시오."
+"Field was successfully saved","필드가 성공적으로 저장되었습니다."
+"Unable to find Field to save","저장할 필드를 찾을 수 없습니다."
+"New Reason","새로운 이유"
+"Reason  Manager","원인 관리자"
+"Reason Manager","원인 관리자"
+"Add Reason ","이유 추가"
+"Add Reason","이유 추가"
+"Reason was successfully deleted","이유가 성공적으로 삭제되었습니다."
+"Edit Reason '%1'","이유 편집 &#39;%1&#39;"
+"Edit Reason ","이유 편집"
+"The Reason does not exist.","그 이성은 존재하지 않는다."
+"Please select Reason(s)","이유를 선택하십시오."
+"Reason was successfully saved","이유가 성공적으로 저장되었습니다."
+"Unable to find Reason to save","저장 이유를 찾을 수 없습니다."
+"Statistics was successfully updated","통계가 성공적으로 업데이트되었습니다."
+"RMA by Brand","브랜드 별 RMA"
+"RMA Report","RMA 보고서"
+"RMA by Product","제품 별 RMA"
+Rma,RMA
+"New Resolution","새 해상도"
+"Resolution  Manager","해결 관리자"
+"Resolution Manager","해결 관리자"
+"Add Resolution ","해상도 추가"
+"Add Resolution","해상도 추가"
+"Resolution was successfully deleted","해결 방법이 성공적으로 삭제되었습니다."
+"Edit Resolution '%1'","해상도 &#39;%1&#39;수정"
+"Edit Resolution ","해상도 편집"
+"The Resolution does not exist.","해결 방법이 존재하지 않습니다."
+"Please select Resolution(s)","해상도를 선택하십시오."
+"Resolution was successfully saved","해상도가 성공적으로 저장되었습니다."
+"Unable to find Resolution to save","저장할 해상도를 찾을 수 없습니다."
+"New RMA","새로운 RMA"
+"RMA was successfully deleted","RMA가 삭제되었습니다."
+"The rma does not exist.","Rma는 존재하지 않습니다."
+"Marked as read","읽음으로 표시"
+"Marked as unread","읽지 않은 상태로 표시됨"
+"Please select rma(s)","Rma (s)를 선택하십시오."
+"A total of %1 record(s) have been deleted.","총 %1 개의 레코드가 삭제되었습니다."
+"RMA was successfully saved","RMA가 저장되었습니다."
+"Unable to find rma to save","저장할 rma를 찾을 수 없습니다."
+"New Rule","새로운 규칙"
+"Rule  Manager","규칙 관리자"
+"Rule Manager","규칙 관리자"
+"Add Rule ","규칙 추가"
+"Add Rule","규칙 추가"
+"Rule was successfully deleted","규칙이 삭제되었습니다."
+"Edit Rule '%1'","규칙 &#39;%1&#39;수정"
+"Edit Rule ","규칙 편집"
+"The Rule does not exist.","규칙은 존재하지 않습니다."
+"Please select Rule(s)","규칙을 선택하십시오."
+"Rule was successfully saved","규칙이 저장되었습니다."
+"Unable to find Rule to save","저장할 규칙을 찾을 수 없습니다."
+"New Status","새로운 상태"
+"Status  Manager","상태 관리자"
+"Status Manager","상태 관리자"
+"Add Status ","상태 추가"
+"Add Status","상태 추가"
+"Status was successfully deleted","상태가 성공적으로 삭제되었습니다."
+"Edit Status '%1'","상태 &#39;%1&#39;수정"
+"Edit Status ","상태 편집"
+"The Status does not exist.","상태가 존재하지 않습니다."
+"Please select Status(s)","상태를 선택하십시오."
+"Status was successfully saved","상태가 저장되었습니다."
+"Unable to find Status to save","저장할 상태를 찾을 수 없습니다."
+"New Template","새 템플릿"
+"Template  Manager","템플릿 관리자"
+"Template Manager","템플릿 관리자"
+"Add Template ","템플릿 추가"
+"Add Template","템플릿 추가"
+"Template was successfully deleted","템플릿이 삭제되었습니다."
+"Edit Template '%1'","템플릿 편집 &#39;%1&#39;"
+"Edit Template ","템플릿 편집"
+"The Template does not exist.","템플릿이 존재하지 않습니다."
+"Please select Template(s)","템플릿을 선택하십시오."
+"Template was successfully saved","템플릿이 저장되었습니다."
+"Unable to find Template to save","저장할 템플릿을 찾을 수 없습니다."
+"Created Date","만든 날짜"
+Action,동작
+View,전망
+RMAs,RMA
+"Select Order","주문 선택"
+"Exchange/Credit Balance","교환 / 신용 잔액"
+"Customer credit balance:","고객 신용 잔액 :"
+"Total price of new products:","신제품 총 가격 :"
+"Total price of exchanged/credit products:","교환 / 신용 상품의 총 가격 :"
+"Price difference:","가격 차이:"
+Resolution:,해결:
+"Get %1 from customer credit balance","고객 신용 잔액에서 %1 가져 오기"
+"Put %1 to customer credit balance","고객 신용 잔액에 %1 넣기"
+"Resolve manually","수동으로 해결"
+"Message Type","메시지 유형"
+"Message to Customer","고객에게 보내는 메시지"
+"Internal Note","내부 메모"
+"mark as unread","읽지 않은 상태로 표시"
+"mark as read","읽은 상태로 표시"
+"You can not return more, than available. Please, try again.","더 이상 반환 할 수 없습니다. 다시 시도하십시오."
+"show all order items","모든 주문 항목 표시"
+"Qty to Return","돌아 오는 수량"
+"Reason to Return","반환 사유"
+"Item Condition","제품 상태"
+"(Bundled Product)","(번들 제품)"
+Stock,스톡
+Ordered,"주문 됨"
+Available,유효한
+--,-
+"Insert Quick Response","빠른 응답 삽입"
+"Default status for new RMA","새 RMA의 기본 상태"
+"Default owner for new RMA","새로운 RMA의 기본 소유자"
+"Ask customer to confirm shipping","고객에게 배송 확인을 요청합니다."
+"Shipping confirmation text","배송 확인 텍스트"
+"Enable option ""This was a gift""","&#39;선물이었습니다&#39;옵션 사용"
+"Enable integration with Help Desk","헬프 데스크와의 통합 사용"
+"Code of ""Brand"" attribute","&quot;브랜드&quot;속성 코드"
+"Allow upload only attachments with extensions","확장자가있는 첨부 파일 만 업로드 허용"
+"Limit of attachments size, Mb","첨부 파일 크기 제한, Mb"
+"Show Columns in RMA Grid","RMA 그리드에 열 표시"
+"Show RMA section in Customer Account","고객 계정에 RMA 섹션 표시"
+"Customers are required to select:","고객은 다음을 선택해야합니다."
+"Allow to request RMA after order completion, days","주문 완료 후 RMA를 요청할 수 있습니다."
+"Allow to request RMA if order has status","주문 상태가있는 경우 RMA를 요청할 수 있습니다."
+"Ask to agree with RMA policy text","RMA 정책 텍스트 동의 여부 확인"
+"CMS block with RMA policy text","RMA 정책 텍스트가있는 CMS 블록"
+"Number Format","숫자 형식"
+"Start Counter From","카운터 시작 시간"
+"Counter Increment Step","카운터 증가 단계"
+"Counter Length","카운터 길이"
+"Email Sender","이메일 발신자"
+"Template of Notification Email for Customer","고객을위한 알림 이메일 템플리트"
+"Template of Notification Email for RMA Owner","RMA 소유자를위한 알림 이메일 템플리트"
+"Template of Rule Notification","규칙 알림 템플릿"
+" Send blind carbon copy (BCC) of all emails to","모든 이메일의 숨은 참조 (BCC)를"
+"At least one RMA item should have resolution ""Exchange"".","하나 이상의 RMA 항목에 &quot;Exchange&quot;라는 해결 방법이 있어야합니다."
+"Add another order","다른 주문 추가"
+"Offline Order","오프라인 주문"
+OR,또는
+"Select Offline Order","오프라인 주문 선택"

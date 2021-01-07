@@ -1,0 +1,61 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2\Items\Item $block */
+/** @var \Mirasvit\Rma\Api\Data\ItemInterface $item */
+?>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$item = $objectManager->create('Mirasvit\Rma\Api\Data\ItemInterface');
+$itemId = '%%item_id%%';
+$orderId = '%%order_id%%';
+$item->setId($itemId)->setOrderItemId($itemId);
+?>
+
+<script id="item_returnreasons" type="text/x-custom-template">
+    <div class="rma-one-item">
+        <div class="item-description">
+            <fieldset class="fieldset">
+                <div class="field required">
+                    <input type='hidden' name="items[<?= $itemId ?>][order_id]" value='<?= $orderId ?>'>
+                    <input type='hidden' name="items[<?= $itemId ?>][is_offline]" value='1'>
+                    <input type='hidden' name="items[<?= $itemId ?>][is_return]" value='1'>
+
+                    <label class="label">
+                        <span><?= __('Returned Item') ?></span>
+                    </label>
+                    <input type="text" name="items[<?= $itemId ?>][name]" value="" title="Item Name" maxlength="255" class="input-text itemname required-entry UI-ITEMNAME">
+                </div>
+            </fieldset>
+            <fieldset class="fieldset">
+                <div class="field required">
+                    <label class="label">
+                        <span><?= __('Quantity to return') ?></span>
+                    </label>
+
+                    <div class="control">
+                        <input name="items[<?= $itemId ?>][qty_requested]"
+                               class="input-text"
+                               type="number"
+                               min="1"
+                               value=""
+                               data-validate="{'required-number':'true'}"
+                            >
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="item-options">
+            <fieldset class="fieldset">
+                <?php echo $block->getChildBlock('rma.new.offline.step2.items.item.returnreasons')->setItem($item)->toHtml() ?>
+            </fieldset>
+        </div>
+
+        <div class="actions-toolbar secondary ui-remove-item-button-container">
+            <div class="primary">
+                <button type="button" class="action primary" data-role="item-remove">
+                    <span><?= __('Remove Item') ?></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</script>

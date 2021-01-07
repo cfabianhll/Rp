@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/** @var $block \Magento\Checkout\Block\Cart */
+?>
+<?php if (!$block->hasError()): ?>
+<?php $methods = $block->getMethods('methods') ?: $block->getMethods('top_methods') ?>
+<div class="text-right checkout methods items checkout-methods-items">
+<?php foreach ($methods as $method): ?>
+    <?php $methodHtml = $block->getMethodHtml($method); ?>
+    <?php if (trim($methodHtml) !== ''): ?>
+    <?= /* @escapeNotVerified */ $methodHtml ?>
+    <?php endif; ?>
+<?php endforeach; ?>
+</div>
+<?php endif; ?>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AmastyMWIAddNewWarehouseSection">
+        <element name="warehouseName" type="input" selector="input[name='title']"/>
+        <element name="warehouseCode" type="input" selector="input[name='code']"/>
+        <element name="warehouseAddress" type="input" selector="input[name='address']"/>
+        <element name="warehouseCity" type="input" selector="input[name='city']"/>
+        <element name="warehouseCountry" type="select" selector="select[name='country']"/>
+        <element name="warehouseState" type="select" selector="select[name='state_id']"/>
+        <element name="warehouseZip" type="input" selector="input[name='zip']"/>
+        <element name="warehousePhone" type="input" selector="input[name='phone']"/>
+        <element name="warehouseEmail" type="input" selector="input[name='email']"/>
+        <element name="warehouseDescription" type="input" selector="#amasty_multi_inventory_warehouse_form_description"/>
+        <element name="SettingsTab" type="div" selector="#container > div > div.entry-edit.form-inline > div:nth-child(2) > div.fieldset-wrapper-title"/>
+        <element name="warehouseStoreView" type="select" selector="select[name='storeviews']"/>
+        <element name="warehouseCustomerGroups" type="select" selector="select[name='customer_groups']"/>
+        <element name="ProductsInWarehouseTab" type="div" selector="#container > div > div.entry-edit.form-inline > div:nth-child(3) > div.fieldset-wrapper-title"/>
+        <element name="resetFilterButton" type="button" selector="button[title='Reset Filter']"/>
+        <element name="columnId" type="th" selector="//*[@id='amasty_multi_inventory_warehouse_table']/thead/tr[1]/th[2]"/>
+        <element name="checkedProductTotalQty1" type="input" selector="//*[@id='amasty_multi_inventory_warehouse_table']/tbody/tr[5]/td[6]/div/input"/>
+        <element name="checkedProductTotalQty2" type="input" selector="//*[@id='amasty_multi_inventory_warehouse_table']/tbody/tr[6]/td[6]/div/input"/>
+        <element name="saveNewWarehouse" type="button" selector="#save"/>
+        <element name="saveContinueNewWarehouse" type="button" selector="#save_and_continue"/>
+        <element name="checkProductId6FusionBackpack" type="input" selector="#id_6"/>
+    </section>
+</sections>

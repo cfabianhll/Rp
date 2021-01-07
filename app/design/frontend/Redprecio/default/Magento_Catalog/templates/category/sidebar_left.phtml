@@ -1,0 +1,65 @@
+<?php
+//print_r($block->getStoreCategories());
+//$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+//$categoryHelper = $objectManager->get('\Magento\Catalog\Helper\Category');
+//$categoryFactory = $objectManager->get('\Magento\Catalog\Model\CategoryFactory');
+//$_categories = $block->getCategories();
+$_currentcategory = $block->getCurrentCategoryId();
+$category = $block->getCategory($_currentcategory);
+
+?>
+
+<?php if($category->getChildrenCount() > 0) { ?> 
+<?php if($category->getLevel() > 2){
+	$categoryy = $block->getCategory($category->getParentId()); ?>
+			<div class="cellphonee">
+				
+				<a href="<?php echo  $categoryy->getUrl(); ?>" class="back_button" style="color: #000;">
+					<i class="fa fa-arrow-left" aria-hidden="true" style="color: #000;"></i><span><?php echo $categoryy->getName(); ?></span>
+				</a>
+			</div>
+<?php } ?>
+<div class="cellphone"><?php echo $category->getName(); ?></div>
+<ul class="gw-nav gw-nav-list custom_category">
+	<?php $childrenCategories = $category->getChildrenCategories();
+	foreach ($childrenCategories as $_category): ?>
+		<?php $_category = $_category->load($_category->getId()); ?>
+		<?php if($_category->getChildrenCount() > 0 ) { ?>		
+			<li class="init-arrow-down">
+				<a href="<?php echo $_category->getUrl() ?>" class="gw-menu-text"><?= $block->escapeHtml($_category->getName()) ?></a><a href="javascript:void(0)" class="icon_expand"> <b class="gw-arrow"></b> </a>
+				<?php $category = $block->getCategory($_category->getId()); ?>
+				<?php $childrenCategories = $category->getChildrenCategories();?>
+				<ul class="gw-submenu">
+					<?php foreach ($childrenCategories as $_category): ?>
+						<?php $_category = $_category->load($_category->getId()); ?>
+							<li>
+								<a href="<?php echo $_category->getUrl() ?>"><?= $block->escapeHtml($_category->getName()) ?></a>
+							</li>
+					<?php endforeach; ?>
+				</ul>
+			</li>
+		<?php } else { ?>
+			<li>
+				<a href="<?php echo $_category->getUrl() ?>"> <span class="gw-menu-text"><?= $block->escapeHtml($_category->getName()) ?></span></a>
+			</li>
+		<?php } ?>
+	<?php endforeach; ?>
+</ul>
+<?php } elseif($category->getLevel() == 2 && $category->getChildrenCount() == 0) { ?>
+			<div class="cellphonee">
+				<span>
+				<a href="<?php echo  $this->getUrl(); ?>" style="color: #000;">
+				<i class="fa fa-arrow-left" aria-hidden="true" style="color: #000;"></i>
+					<span><?php echo "Home"; ?></span>
+				</a>
+			</div>
+<?php } else { 
+			$category = $block->getCategory($category->getParentId()); ?>
+			<div class="cellphonee">
+				<span>
+				<a href="<?php echo  $category->getUrl(); ?>" class="back_button" style="color: #000;">
+					<i class="fa fa-arrow-left" aria-hidden="true" style="color: #000;"></i>
+					<span><?php echo $category->getName(); ?></span>
+				</a>
+			</div>
+<?php } ?>

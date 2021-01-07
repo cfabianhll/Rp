@@ -1,0 +1,38 @@
+<p>
+    <?= __('If you do not have account on this store please fill the form below.')?>
+</p>
+<?php  ?>
+<form action="<?= $block->getStep1PostUrl()?>" method="POST" data-hasrequired="<?= __('* Required Fields') ?>" data-mage-init='{"validation":{}}' class="form rma-guest-new">
+    <fieldset class='fieldset'>
+        <div class="field">
+            <label class="label" for="customer_firstname">
+                <span><?= __('First Name') ?></span>
+            </label>
+            <div class="control">
+                <input type='text' name="customer_firstname" id='customer_firstname' value="<?= $block->stripTags($block->getFirstname())?>" class="input-text"  autocomplete="off" aria-required="true"/>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="customer_lastname">
+                <span><?= __('Last Name') ?></span>
+            </label>
+            <div class="control">
+                <input type='text' name="customer_lastname" id='customer_lastname' value="<?= $block->stripTags($block->getLastname())?>" class="input-text"  autocomplete="off" aria-required="true"/>
+            </div>
+        </div>
+        <div class="field required">
+            <label class="label" for="email">
+                <span><?= __('Email') ?></span>
+            </label>
+
+            <div class="control">
+                <input type='text' name="email" id='email' value="<?= $block->stripTags($block->getEmail())?>"  class="input-text required-entry" data-validate="{required:true}" autocomplete="off" aria-required="true"/>
+            </div>
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action save primary" title="<?= __('Next') ?>"><span><?= __('Next') ?></span></button>
+            </div>
+        </div>
+    </fieldset>
+</form>

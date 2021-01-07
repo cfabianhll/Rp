@@ -1,0 +1,87 @@
+& when (@media-common = true) {
+    body.rma-rma-list {
+        .column.main {
+            .page-title-wrapper {
+                float: left;
+            }
+        }
+
+        .mst-rma-list {
+            &__new-request {
+                margin: 1rem 0 2rem 0;
+                float: right;
+            }
+
+            &__actions {
+                text-align: right;
+                white-space: nowrap;
+            }
+
+            &__unread {
+                display: block;
+                width: 2rem;
+                height: 2rem;
+                margin-right: 1rem;
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='84px' height='67px' viewBox='0 0 84 67' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch --%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cdefs%3E%3C/defs%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Artboard' transform='translate(-15.000000, -4.000000)'%3E%3Cg id='Group' transform='translate(15.000000, 17.000000)'%3E%3Crect id='Rectangle-Copy' fill='%23DFE3E8' x='0' y='0' width='77' height='54' rx='6'%3E%3C/rect%3E%3Cpath d='M71.4654705,0.0177879283 C74.5616559,0.255350981 77,2.8429226 77,6 L77,48 L77,48 C77,51.3137085 74.3137085,54 71,54 L6,54 L6,54 C2.6862915,54 -4.82366169e-16,51.3137085 -8.8817842e-16,48 L0,6 L-8.8817842e-16,6 C-1.27480889e-15,2.8429226 2.4383441,0.255350981 5.53452951,0.0177879283 L38.5,17 L71.4654705,0.0177879283 Z M7.33333333,10 L7.33333333,54 L69.6666667,54 L69.6666667,10 L38.5,27 L7.33333333,10 Z' id='Rectangle' fill='%23858B92'%3E%3C/path%3E%3C/g%3E%3Cpolygon id='Rectangle-2' fill='%23000000' opacity='0.0722373188' points='84.6999969 27 84.6600037 71 53.5 44'%3E%3C/polygon%3E%3Cg id='Group-2' transform='translate(61.000000, 4.000000)' fill='%23F43734'%3E%3Ccircle id='Oval' cx='19' cy='19' r='19'%3E%3C/circle%3E%3C/g%3E%3Cpath d='M82.8497362,35.5733926 L77.9976866,35.5733926 L77.9976866,17.2875543 C76.2249241,18.9452023 74.1356282,20.1711528 71.7297363,20.9654424 L71.7297363,16.5623369 C72.9959952,16.1479249 74.3715922,15.3622806 75.8565686,14.2053804 C77.3415449,13.0484802 78.3602925,11.6987836 78.9128418,10.15625 L82.8497362,10.15625 L82.8497362,35.5733926 Z' id='1' fill='%23FFFFFF'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-size: contain;
+                float: left;
+            }
+        }
+
+        .mst-rma-list {
+            tr {
+                td {
+                    //vertical-align: middle;
+                }
+            }
+            tr + .mst-rma-list__items {
+                td {
+                    border-top: 0;
+                }
+            }
+
+            .mst-rma-list__items {
+                td {
+                    > div {
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    display: flex;
+                    margin-bottom: 0;
+                    padding: 0;
+                    margin-top: 1rem;
+
+                    li {
+                        text-align: center;
+                        margin-bottom: 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        box-shadow: 0 0 2px 0 rgba(0, 0, 0, .2);
+
+                        img {
+                            max-width: 6rem;
+                        }
+
+                        strong {
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                            color: #999;
+                            line-height: 1.5rem;
+                            display: none;
+                        }
+
+                        + li {
+                            margin-left: -.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

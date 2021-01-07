@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+        <remove src="Prince_Faq::css/faq.css"/>
+        <link src="Prince_Faq/js/faq.js"/>
+    </head>
+    <body>
+        <referenceContainer name="columns" htmlTag="section" htmlClass="faq_tab main" />
+        <referenceContainer name="main.content" htmlClass="coffee_shop" />
+        
+        <referenceContainer name="main" htmlClass="container">
+             <container name="main.content.faq.section" htmlTag="div" htmlClass="row">
+                <block class="Prince\Faq\Block\Index\Index" name="index.index" template="Prince_Faq::index/index.phtml" cacheable="true"/>
+             </container>
+        </referenceContainer>
+
+		<referenceBlock name="page.main.title" remove="true" />
+	</body>
+</page>

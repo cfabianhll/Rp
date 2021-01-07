@@ -1,0 +1,236 @@
+.mst-rma-edit-form {
+    .fieldset {
+        //border: 2px solid #e8e8e8;
+        //padding: 1.5rem 2rem 2rem 2rem;
+        //margin-bottom: 2rem;
+
+        .legend {
+            border: 0;
+
+            span {
+                font-size: 1.4rem;
+                padding: 0;
+            }
+        }
+
+        .field {
+            margin-bottom: 1rem;
+
+            select {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .rma-edit__row {
+        #mix-grid .row();
+    }
+
+    .rma-edit__general,
+    .rma__custom-form,
+    .rma-shipping-address-form,
+    .rma-return-address,
+    .fieldset.rma-edit__history,
+    .fieldset.rma-edit__add-message {
+        float: left;
+        #mix-grid .column(6, 12);
+    }
+
+    .rma-return-address,
+    .rma-edit__add-message,
+    .rma__custom-form {
+        margin-left: 30px;
+    }
+}
+
+.rma-rma-add {
+    .add-item-button-container {
+        float: right;
+        margin-bottom: 18px;
+    }
+}
+
+.rma-rma-edit {
+    .admin__legend {
+        .actions {
+            a {
+                font-size: 1.4rem;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .admin__field-control {
+        a {
+            line-height: 32px;
+            display: inline-block;
+        }
+
+        input[type="file"] {
+            font-size: 12px;
+            padding: 0.5rem;
+            overflow: hidden;
+        }
+    }
+}
+
+.rma-edit__items {
+    tr {
+        th {
+            white-space: nowrap;
+        }
+    }
+    .qty-table {
+        width: 100%;
+
+        th, td {
+            padding: 0.5rem 0.5rem 0.5rem 0;
+            font-weight: normal;
+            vertical-align: middle;
+            border: 0;
+        }
+    }
+
+    img {
+        padding: 1px;
+        border: 1px solid #fff;
+    }
+}
+
+.rma-edit__add-message {
+    [data-role=reply-note] {
+        color: #adadad;
+        font-size: 0.8em;
+        margin-top: 7px;
+    }
+
+    .rma-add-message__reply-area {
+        margin-bottom: 0 !important;
+
+        .admin__field-control {
+            width: 100%;
+            margin-left: 0;
+
+            textarea {
+                width: 100%;
+                border-left: 3px solid #4B8DCB;
+
+                &.internal {
+                    border-left-color: #CB4B4B;
+                }
+            }
+        }
+    }
+
+    .rma-add-message__attachments {
+        float: right;
+        font-size: 12px;
+        background: #F5F5F5;
+        padding: 0.5rem;
+        border-radius: 1px;
+        width: 250px;
+        overflow: hidden;
+    }
+}
+
+.rma-edit__history {
+    .rma-message {
+        @message-internal-background: #FDEEEE;
+        @message-internal-color: #FDEEEE;
+
+        @message-customer-background: #D6F1FF;
+        @message-customer-color: #D6F1FF;
+
+        @message-staff-background: #E4F2CA;
+        @message-staff-color: #E4F2CA;
+
+        @message-system-background: #F5DDD0;
+
+        @hint-color: #adadad;
+
+        margin-bottom: 3rem;
+
+        &.staff {
+            margin-left: 3rem;
+        }
+
+        &.customer {
+            margin-right: 3rem;
+        }
+
+        .rma-message__header {
+            .lib-clearfix();
+            margin: 0 0 8px 3px;
+
+            strong {
+                font-weight: @font-weight__semibold;
+            }
+
+            span {
+                color: @hint-color;
+                margin-left: 1.5rem;
+                float: right;
+            }
+        }
+
+        .rma-message__body {
+            background: @message-customer-background;
+            padding: 1.5rem 2rem;
+            border-radius: 5px;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                content: "";
+                top: -.5rem;
+                left: 2rem;
+                width: 0;
+                height: 0;
+                border-left: .5rem solid transparent;
+                border-right: .5rem solid transparent;
+                border-bottom: .5rem solid @message-customer-background;
+            }
+
+            &.staff {
+                background: @message-staff-background;
+
+                &:before {
+                    border-bottom-color: @message-staff-background;
+                }
+            }
+
+            &.system {
+                background: @message-system-background;
+
+                &:before {
+                    display: none;
+                }
+            }
+
+            &.internal {
+                background: @message-internal-background;
+
+                &:before {
+                    border-bottom-color: @message-internal-background;
+                }
+            }
+        }
+
+        .rma-message__attachments {
+            margin-top: 2rem;
+
+            a {
+                font-size: 13px;
+                margin-right: 2rem;
+            }
+        }
+    }
+}
+
+.rma-edit__general {
+    .download-file {
+        margin-right: 2rem;
+    }
+}

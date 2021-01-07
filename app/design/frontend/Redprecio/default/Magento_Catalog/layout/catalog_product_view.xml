@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+    <update handle="catalog_product_opengraph" />
+    <update handle="page_calendar"/>
+    <body>
+        
+            <referenceBlock name="view.addto.compare" remove="true" />
+            <referenceBlock name="product.info.overview" remove="true" />
+            <!-- <referenceBlock name="breadcrumbs" remove="true" /> -->
+        <referenceContainer name="main.content" htmlId="content">
+            <!-- <block class="Magento\Framework\View\Element\Template" name="custom-product-banner" template="Magento_Catalog::productbanner.phtml" before="breadcum.section.view"/> -->
+
+            <container name="breadcum.section.view" htmlClass="breadcum_section" htmlTag="section" before="product.section.view">
+                    <container name="breadcum.container.view" htmlClass="container-fluid" htmlTag="div" after="-">
+                         <container name="breadcum.row.view" htmlClass="row" htmlTag="div" after="-">
+                         </container>
+                    </container>
+                </container>
+            <container name="product.section.view" htmlClass="product_Details" htmlTag="section" before="-">
+                <!-- <container name="product.container.view" htmlClass="container" htmlTag="div" before="-"> -->
+                    <container name="product.row.view" htmlClass="row" htmlTag="div" before="-">
+                        <container name="product.image" htmlClass="col-12 col-md-6" htmlTag="div" before="-">         
+                        </container>
+                        <container name="product.details" htmlClass="col-12 col-md-6" htmlTag="div" after="-">
+                            <container name="product.details.outer" htmlClass="product_details_outer new_details" htmlTag="div" after="-">
+                                    <block class="Magento\Catalog\Block\Product\View\Description"
+                                       name="product.info.model"
+                                       template="Magento_Catalog::product/view/attribute.phtml">
+                                    <arguments>
+                                        <argument name="at_call" xsi:type="string">getModel</argument>
+                                        <argument name="at_code" xsi:type="string">model</argument>
+                                        <argument name="at_label" xsi:type="string">Model</argument>
+                                        <argument name="add_attribute" xsi:type="string">itemprop="model"
+                                        </argument>
+                                    </arguments>
+                                    </block>
+
+                                    <container name="product.details.outer.rating" htmlClass="rating_product mb-2" htmlTag="div" after="-">
+                                    </container>
+                                    <container name="custom.product.details.outer.attribute" htmlClass="product_codes mb-3 product" htmlTag="div" after="-">
+                                    </container>
+
+                            </container>
+                        </container>
+                    </container>
+                    <container name="product.view.review" htmlClass="product_review" htmlTag="div" after="product.row.view">
+                        <container name="product.view.review.row" htmlClass="row" htmlTag="div" before="-">
+                            <container name="product.view.review.tab" htmlClass="col-12" htmlTag="div" before="-">
+                                
+                            </container>
+                        </container>
+                    </container>
+                <!-- </container> -->
+            </container>
+        </referenceContainer>
+        <referenceBlock name="page.main.title">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Catalog::product/view/product-title.phtml</argument>
+            </action>    
+        </referenceBlock>
+        <referenceBlock name="product.info.details">
+                <block class="Magento\Catalog\Block\Product\View" name="specifications.tab" template="Magento_Catalog::specifications.phtml" group="detailed_info" >
+                <arguments>
+                <argument translate="true" name="title" xsi:type="string">Specifications</argument>
+                <argument name="sort_order" xsi:type="string">15</argument>
+                </arguments>
+                </block>
+        </referenceBlock>
+
+        <move element="page.main.title" destination="product.details.outer" before="product.details.outer.rating"/>
+        <move element="product.info.sku" destination="custom.product.details.outer.attribute" after="product.details.outer.rating"/>
+        <move element="product.info.review" destination="product.details.outer.rating" after="-"/>
+        <move element="product.info.overview" destination="product.details.outer" before="product.info.main"/>
+        <!-- <move element="product.info.price" destination="product.details.outer" before="product.info"/> -->
+        <move element="product.info.media.image" destination="product.image" after="-"/>
+        <!-- <move element="product.info" destination="product.details.outer" after="product.info.price"/> -->
+        <move element="view.addto.wishlist" destination="product.details.outer" after="-"/>
+        <move element="product.info.details" destination="product.view.review.tab" after="-"/>
+        <!-- <move element="reviews.tab" destination="product.info.details" after="-"/>    -->
+        <move element="breadcrumbs" destination="breadcum.row.view" before="product.section.view"/>
+        <move element="product.info.main" destination="product.details.outer" after="product.info.overview"/>
+        <move element="reviews.tab" destination="content" after="product.info.upsell" />
+        <move element="product.info.upsell" destination="content" before="reviews.tab" />
+        <move element="product.info.model" destination="custom.product.details.outer.attribute" after="-"/>
+    </body>
+</page>

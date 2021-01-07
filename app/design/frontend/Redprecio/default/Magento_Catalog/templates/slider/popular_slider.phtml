@@ -1,0 +1,158 @@
+<?php
+use Magento\Framework\App\Action\Action;
+$populars = $block->getPopularCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+if ($populars && $populars->count()):
+	$viewMode = 'grid';
+	$imageDisplayArea = 'category_page_grid';
+	$showDescription = false;
+	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;   
+?>
+<div class="bestseller_home">
+<div class="row">
+	<div class="col-12">
+		<div class="pre_order_content">
+			<div class="section_title">
+				<h2><?= __('Best Sellers'); ?></h2>
+				<p></p>
+				<span class="bottom_line"></span>
+			</div>
+		</div>
+	</div>	
+</div>
+ 
+<div class="product_listing new_product_slider bestseller owl-carousel owl-them popular">
+<?php foreach ($populars as $_product) {
+	$postParams = $block->getAddToCartPostParams($_product);
+?>
+	<div class="product_div">
+	<?php $orgprice = $_product->getPrice();
+								$specialprice = $_product->getSpecialPrice();
+								$specialfromdate = $_product->getSpecialFromDate();
+								$specialtodate = $_product->getSpecialToDate();
+								$today = time();
+								if (!$specialprice)
+								  $specialprice = $orgprice;
+								if ($specialprice< $orgprice) {
+									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
+										<div class="offer">         
+											<span class="offer_title"><font style="vertical-align: inherit;">Offer </font></span>
+										</div>
+									<?php } 
+								} ?>
+								<?php if($_product->getNewProduct())
+								{ ?>
+									<div class="new_products">          
+										<span class="new_title"><font style="vertical-align: inherit;">New </font></span>
+									</div>
+								<?php } ?>
+		<div class="product_img">
+			<a href="<?php echo $_product->getProductUrl(); ?>">
+				<?= $block->getImage($_product, $imageDisplayArea)->toHtml() ?>
+			</a>
+		</div>
+		<form data-role="tocart-form" data-product-id="<?= $block->escapeHtml($_product->getId()) ?>" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+			<input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+			<input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+			<?php echo $block->getBlockHtml('formkey')?>
+			<div class="about_pre_product">
+				<a href="<?php echo $_product->getProductUrl(); ?>"><h5><?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h5></a>
+				
+				<div class ="custom-merge-div">
+					<?php if ($_product->getAttributeText('manufacturer')) { ?>
+								<div class="custom-brand-name">
+								<?php
+
+
+									$manufacturerName = $_product->getAttributeText('manufacturer');
+									$manufacturerName = strtolower($manufacturerName);
+
+
+									$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+									$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+									$connection = $resource->getConnection();
+									$tableName = $resource->getTableName('emizentech_shopbybrand_items'); //gives table name with prefix
+
+									//Select Data from table
+									$sql = "Select name, logo FROM " . $tableName;
+									$result = $connection->fetchAll($sql); // gives associated array, table fields as key in array.
+
+									$img = '';
+									foreach($result as $res) {
+										$brname = strtolower($res['name']);
+										if($brname == $manufacturerName) {
+											$img = $res['logo'];
+										}
+									}
+
+									if($img) {
+								?>
+									<img class="img-responsive" src="<?php echo  $this->getUrl().'pub/media/'.$img ?>" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
+								<?php } else { ?>
+									<span class="br_name"><?php echo $manufacturerName; ?></span>
+								<?php } ?>
+								</div>
+								<?php } ?>
+								<div class="custom_rating_category" style="display: block!important;">
+				<?php echo $block->getReviewsSummaryHtml($_product, $templateType, true); ?>
+								</div>
+				</div>
+				<?php if ($_product->isAvailable()) :?>
+										<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+								<?php endif; ?>
+				<div class="butt_price_section">
+					<?= $this->getProductPrice($_product); ?>
+					<?php $orgprice = $_product->getPrice();
+								$specialprice = $_product->getSpecialPrice();
+								$specialfromdate = $_product->getSpecialFromDate();
+								$specialtodate = $_product->getSpecialToDate();
+								$today = time();
+								if (!$specialprice)
+								  $specialprice = $orgprice;
+								if ($specialprice< $orgprice) {
+									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) {
+										$savingpct = number_format((float)(100*(($orgprice - $specialprice)/$orgprice)), 0);?>
+										<div class="money_saved">
+											<span class="price-save-label">Ahorra </span>
+											<span class="price-save-percent"><?php echo " ".$savingpct." %"?></span>
+										</div>
+									<?php }
+								}?>
+					<?php //if($_product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE){
+						//$swatchBlock = $this->getLayout()->createBlock("Magento\Swatches\Block\Product\Renderer\Listing\Configurable")->setTemplate("Magento_Swatches::product/listing/renderer.phtml");
+						//echo $swatchBlock->setProduct($_product)->toHtml();                           
+					//} ?>
+					<?php if ($_product->isSaleable()): ?>
+						<div class="display_hvr">
+							<!-- <a class="btn theme_btn img_btn bss-quickview hovercart" title="<?php //echo $block->escapeHtml(__('Quick View')); ?>"  data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><i class="fas fa-eye"></i><?php //echo $block->escapeHtml(__('Quick View')); ?></a>-->
+							<?php /* <a href="javascript:void(0)" onClick="productaddtocart(jQuery(this))"><img src="<?php echo $block->getViewFileUrl('images/cart_white.png'); ?>"></a>
+							<a class="bss-quickview hovercart" data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><img src="<?php echo $block->getViewFileUrl('images/search_white.png'); ?>"></a> */ ?>
+						<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" data-role="tocart-form" class="action tocart primary btn theme_btn img_btn"><span><?php echo $block->escapeHtml(__('Add to Cart')); ?></span></button>
+
+						</div>
+						<?php else: ?>
+								<?php if ($_product->isAvailable()): ?>
+									<div class="display_hvr"><div class="stock available btn btn_red"><span><?= /* @escapeNotVerified */ __('In stock') ?></span></div></div>
+								<?php else: ?>
+									<div class="display_hvr"><div class="stock unavailable btn btn_red"><span><?= /* @escapeNotVerified */ __('Out of stock') ?></span></div></div>
+								<?php endif; ?>
+					<?php endif; ?>
+				</div>
+			</div>
+		</form>
+	</div>
+<?php
+}
+?>
+</div>
+</div>
+<script type="text/x-magento-init">
+	{
+		"[data-role=tocart-form], .form.map.checkout": {
+			"catalogAddToCart": {
+				"product_sku": "<?= /* @NoEscape */ $_product->getSku() ?>"
+			}
+		}
+	}
+</script>
+<?php endif; ?>

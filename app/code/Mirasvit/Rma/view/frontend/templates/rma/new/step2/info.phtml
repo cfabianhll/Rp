@@ -1,0 +1,38 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2\Info $block */
+$order = $block->getOrder();
+?>
+<input name="order_ids[]" type="hidden" value="<?= $order->getId() ?>">
+<input name="store_id" type="hidden" value="<?= $block->getStoreId() ?>">
+<?php if ($order->getIsOffline()): ?>
+    <input name="is_offline" type="hidden" value="<?= $order->getIsOffline() ?>">
+<?php endif; ?>
+
+<div class="block">
+    <div class="block-content">
+        <div class="box box-rma-information">
+            <strong class="box-title"><?= __('Request Information') ?>:</strong>
+            <div class="box-content">
+                <table>
+                    <tr>
+                        <th><?= __('Customer Name') ?>:</th>
+                        <td><?= $block->escapeHtml($order->getCustomerName()) ?></td>
+                    </tr>
+                    <tr>
+                        <th><?= __('Email Address') ?>:</th>
+                        <td><?= $block->escapeHtml($order->getCustomerEmail()) ?></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <?php if ($order->getShippingAddress()): ?>
+            <div class="box box-rma-shipping-information">
+                <strong class="box-title"><?= __('Order Shipping Address') ?>:</strong>
+
+                <div class="box-content">
+                    <?= $block->getFormattedAddress($order->getShippingAddress()) ?>
+                </div>
+            </div>
+        <?php endif ?>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+.mst-rma-status-graph {
+    @node-width: 100px;
+    @node-height: 40px;
+    @node-offset-y: 10px;
+    @node-offset-x: 10px;
+    @depth: 10;
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    .node {
+        width: @node-width;
+        height: @node-height;
+        padding: 10px;
+        border-radius: 0 4px 0 4px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        white-space: normal;
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .line {
+        margin-top: @node-offset-y;
+        position: relative;
+
+        > .line {
+            margin-left: (@node-width + @node-offset-x);
+        }
+    }
+
+    .edge {
+        position: absolute;
+        height: 2px;
+        background: #999;
+        left: 100px;
+
+        &:before {
+            content: '';
+            width: 2px;
+            background: #999;
+            position: absolute;
+        }
+
+        &:after {
+            content: "";
+            border: solid #999;
+            border-width: 0 2px 2px 0;
+            position: absolute;
+            padding: 2px;
+        }
+
+        .w-loop (@i) when (@i > 0) {
+            &.w@{i} {
+                @local-y: @node-height - 2px - (@i - 1) * 5;
+                @local-x: 0px + (@i - 1) * 10;
+                top: @local-y;
+                right: 0;
+                width: (@node-width + @node-offset-x) * @i - @node-width / 1.5 + @local-x;
+
+                &:before {
+                    right: 0;
+                    height: (@node-height + @node-offset-y) * @i - @local-y - 2px;
+                    background: inherit;
+                }
+
+                &:after {
+                    transform: rotate(45deg);
+                    right: 0;
+                    margin-right: -2px;
+                    top: (@node-height + @node-offset-y) * @i - @local-y - 7px;
+                    border-color: inherit;
+                }
+
+                &:hover {
+                    z-index: 10000;
+                    background: #f00 !important;
+                    &:after {
+                        border-color: #f00 !important;
+                    }
+                }
+            }
+            .w-loop(@i - 1);
+        }
+        .w-loop (@depth);
+
+        .w-back-loop (@i) when (@i > 0) {
+            &.w-@{i} {
+                @local-y: 0px + (@i - 1) * 5;
+                @local-x: 0px + (@i - 1) * 10;
+
+                top: @local-y;
+                right: 0;
+                width: (@node-width + @node-offset-x) * @i - @node-width / 2 + @local-x;
+                left: -1 * ((@node-width + @node-offset-x) * @i - @node-width / 2 + @local-x);
+
+                &:before {
+                    top: -1 * (@node-height * (@i - 1) + @node-offset-y * @i + @local-y - 2px);
+                    height: @node-height * (@i - 1) + @node-offset-y * @i + @local-y - 2px;
+                    background: inherit;
+                }
+
+                &:after {
+                    transform: rotate(-135deg);
+                    right: auto;
+                    margin-left: -2px;
+                    top: -1 * (@node-height * (@i - 1) + @node-offset-y * @i + @local-y - 1px);
+                    border-color: inherit;
+                }
+
+                &:hover {
+                    z-index: 10000;
+                    background: #f00 !important;
+                    &:after {
+                        border-color: #f00 !important;
+                    }
+                }
+            }
+            .w-back-loop(@i - 1);
+        }
+        .w-back-loop (@depth);
+
+        &.w0 {
+            display: none;
+        }
+    }
+}

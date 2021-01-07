@@ -1,0 +1,40 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Widget\Gender $block */
+?>
+
+                <div class="field gender<?php if ($block->isRequired()) echo ' required' ?>">
+                            <div class="row">
+                                    <div class="col-12">
+
+                                       <label class="label" for="<?php /* @escapeNotVerified */ echo $block->getFieldId('gender')?>"><span><?php /* @escapeNotVerified */ echo __('Gender') ?></span></label>
+                                    </div>
+                                    
+                                            <?php $options = $block->getGenderOptions(); ?>
+                                            <?php $value = $block->getGender(); ?>
+                                            <?php foreach ($options as $option): ?>
+                                                <?php if(!$option->getValue()) continue; ?>
+                                         <div class="control col-12 col-md-2">
+                                       <div class="field choice radio mb-3">
+                                          <input type="radio"
+                                                       class="radio"
+                                                       id="gender-option-<?php /* @escapeNotVerified */ echo $option->getValue() ?>"
+                                                    <?php if ($block->isRequired()) echo 'data-validate="{\'validate-one-required-by-name\':true}"'?>
+                                                       name="<?php /* @escapeNotVerified */ echo $block->getFieldName('gender')?>"
+                                                       data-selector="<?php /* @escapeNotVerified */ echo $block->getFieldName('gender')?>"
+                                                    <?php if ($option->getValue() == $value) echo ' checked="checked"' ?>
+                                                       value="<?php /* @escapeNotVerified */ echo $option->getValue() ?>"/>
+                                                    <label class="label"
+                                                       for="gender-option-<?php /* @escapeNotVerified */ echo $option->getValue() ?>">
+                                                    <span><?php /* @escapeNotVerified */ echo $option->getLabel() ?></span>
+                                                </label>
+                                       </div>
+                                       </div>
+                                       <?php endforeach;?>
+                                    
+                                 </div>
+                    </div>

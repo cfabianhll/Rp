@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="MultiInventory07DecreaseAvailableStockWhenOrderIsPlacedYes">
+        <annotations>
+            <features value="Decrease Available Stock When Order is Placed Yes"/>
+            <stories value="Decrease Available Stock When Order is Placed Yes"/>
+            <title value="Available Stock is decreased When Order is Placed"/>
+            <description value="Available Stock is decreased When Order is Placed"/>
+            <severity value="CRITICAL"/>
+            <testCaseId value="MWI-MFTF-7"/>
+            <group value="Amasty"/>
+            <group value="AmastyMultiInventory"/>
+            <group value="AmastyMultiInventoryStockSettings"/>
+            <group value="AmastyMultiInventoryDecreaseAvailableStockWhenOrderIsPlacedYes"/>
+        </annotations>
+        <before>
+            <actionGroup stepKey="loginAsAdmin1" ref="LoginAsAdmin"/>
+            <amOnPage stepKey="openMWIConfigurationPage1" url="{{AmastyMWIConfigurationPage.url}}"/>
+            <waitForPageLoad stepKey="waitForPageLoad1" time="30"/>
+            <actionGroup stepKey="YesDecreaseAvailableStockWhenOrderIsPlaced" ref="AmastyMWIConfigurationYesNoDecreaseAvailableStockWhenOrderIsPlaced">
+                <argument name="YesNoDecreaseAvailableStockWhenOrderIsPlaced" value="yes"/>
+            </actionGroup>
+            <click stepKey="saveConfig1" selector="{{AmastyMWIConfigurationSection.saveconfig}}"/>
+            <waitForPageLoad stepKey="waitForPageLoad2" time="30"/>
+            <magentoCLI stepKey="flushCache1" command="cache:clean"/>
+        </before>
+        <after>
+            <!--delete Warehouses-->
+            <actionGroup stepKey="deleteAllWarehouses" ref="DeleteAllWarehouses"/>
+            <amOnPage url="{{_ENV.MAGENTO_BACKEND_NAME}}/admin/auth/logout/" stepKey="amOnLogoutPage1"/>
+        </after>
+
+        <actionGroup stepKey="addWH1" ref="AddNewWarehouse">
+            <argument name="amastyWarehouse" value="_NY"/>
+        </actionGroup>
+        <!--grab url from WH1-->
+        <grabFromCurrentUrl regex="~.*/amasty_multi_inventory/warehouse/edit/warehouse_id/(\d+)/.*~" stepKey="grabFromCurrentUrlWh1"/>
+        <magentoCLI command="indexer:reindex" stepKey="reindex"/>
+        <amOnPage url="{{_ENV.MAGENTO_BACKEND_NAME}}/admin/auth/logout/" stepKey="amOnLogoutPage2"/>
+        <actionGroup stepKey="loginAsCustomer" ref="CustomerLoginOnStorefront">
+            <argument name="customer" value="AmastyCustomerEntityOne"/>
+        </actionGroup>
+        <!--Place order with Fusion Backpack Qty=1-->
+        <actionGroup stepKey="AddFusionBackpackQtyIsOne" ref="AmastyAddSimpleProductToCart">
+            <argument name="amastyProduct" value="_fusionBackpack"/>
+        </actionGroup>
+        <actionGroup stepKey="PlaceOrder" ref="AmastyPlaceOrderSimpleProduct"/>
+        <actionGroup stepKey="loginAsAdmin2" ref="LoginAsAdmin"/>
+        <!--check product qty at WH1-->
+        <amOnPage stepKey="openManageWarehouse1Page" url="admin/amasty_multi_inventory/warehouse/edit/warehouse_id/$grabFromCurrentUrlWh1"/>
+        <wait stepKey="waitTime4" time="3"/>
+        <click stepKey="openProductsInWarehouse1Tab" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <wait stepKey="waitTime5" time="2"/>
+        <scrollTo stepKey="scroll2" selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}"/>
+        <see stepKey="seeQtyToShip1" selector="{{AmastyMWIWarehouseSection.qtyToShip}}" userInput="1"/>
+        <see stepKey="seeAvailableQty1" selector="{{AmastyMWIWarehouseSection.availableQty}}" userInput="9"/>
+        <wait stepKey="waitTime6" time="2"/>
+    </test>
+  </tests>

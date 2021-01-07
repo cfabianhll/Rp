@@ -1,0 +1,11 @@
+<?php
+$baseImageUrl = '';
+$product = $block->getProduct();
+$_helper = $this->helper('Magento\Catalog\Helper\Image');
+$baseImageUrl = $_helper->init($product, 'product_page_image_medium_giftcard')->setImageFile($product->getImage())->getUrl();
+?>
+<div id="sync112" class="custom-image">
+<div class="itemm">
+    <img src="<?= $baseImageUrl;?>" class="img-fluid">
+</div>                
+ </div>

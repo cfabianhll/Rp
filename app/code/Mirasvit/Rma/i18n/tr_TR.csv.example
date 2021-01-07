@@ -1,0 +1,484 @@
+"Request RMA","RMA İsteği"
+"My Returns","Benim İadelerim"
+Grid,Kafes
+List,Liste
+All,Herşey
+"Create RMA","RMA oluştur"
+"Request New Return","Yeni İade İste"
+"Max file size: %1Mb","Maksimum dosya boyutu: %1Mb"
+"New Return for Order #%1","Yeni Sipariş için İade Sayısı #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Yanlış Sipariş Numarası, E-posta veya Soyadı"
+Items,Öğeler
+"To apply changes you should fill in required ""%1"" field","Değişiklikleri uygulamak için gerekli &quot;%1&quot; alanını doldurmalısınız"
+"Please, add order items to the RMA (set 'Qty to Return')","Lütfen, RMA&#39;ya sipariş kalemleri ekleyin (&#39;Qty to Return&#39;)"
+"Please, set correct order items Quantity to return","Lütfen, doğru sipariş öğeleri ayarlayın miktar iade"
+"RMA was successfully created","RMA başarıyla oluşturuldu"
+"Shipping is confirmed. Thank you!","Nakliye onaylandı. Teşekkür ederim!"
+"Your message was successfully added","Mesajınız başarıyla eklendi"
+"Allowed extensions:","İzin verilen uzantılar:"
+"Maximum size:","En büyük boy:"
+"-- Please Select --","-- Lütfen seçin --"
+" at %1 (%2)","%1 (%2)"
+"Mark as unresolved","Çözümlenmemiş olarak işaretle"
+"Mark as resolved","Çözüldü olarak işaretle"
+"not set",ayarlanmadı
+Pattern,Desen
+"Attribute Value","Özellik Değeri"
+Default,Varsayılan
+Integer,Tamsayı
+Price,Fiyat
+"Strip Tags","Şerit Etiketleri"
+"Primary Attributes","Birincil Özellikler"
+"Stock Attributes","Stok Özellikleri"
+"Prices & Taxes","Fiyatlar ve Vergiler"
+Images,Görüntüler
+"Custom Attributes","Özel Öznitelikler"
+Mapping,Haritalama
+Category,Kategori
+"Amasty Meta Tags","Amasty Meta Etiketleri"
+"Others Attributes","Diğerleri Öznitelikleri"
+Text,Metin
+"Multi-line text","Çok satırlı metin"
+Date,Tarih
+Checkbox,"Onay Kutusu"
+"Drop-down list","Açılır liste"
+Reason,Neden
+Condition,Şart
+Resolution,Çözüm
+"RMA #","RMA #"
+"Order #","Sipariş #"
+"Customer Email","Müşteri e-postası"
+"Customer Name","Müşteri adı"
+Owner,Sahip
+"Last Replier","Son Klasör"
+Status,Durum
+Store,Mağaza
+"Created At","At düzenlendi"
+"Last Activity","Son Aktivite"
+"View link","Görüntüle bağlantısı"
+"New RMA has been created","Yeni RMA oluşturuldu"
+"RMA has been changed","RMA değiştirildi"
+"New reply from customer","Müşteriden yeni cevap"
+"New reply from staff","Personelden yeni cevap"
+"-- Default Address --","-- Varsayılan adres --"
+"Update the Product","Ürünü Güncelle"
+"Conditions Combination","Koşullar Kombinasyonu"
+"RMA Attribute","RMA özellikleri"
+"Last 7-days Clicks","Son 7 Günlük Tıklamalar"
+"Last 7-days Orders","Son 7 Günlük Siparişler"
+"Last 7-days Revenue","Son 7 Gün Geliri"
+"Last 7-days Conversation Rate (%)","Son 7 Günlük Konuşma Oranı (%)"
+"Attribute Set","Özellik Kümesi"
+Quantity,Miktar
+"Product Type","Ürün tipi"
+"Base Image","Temel Görüntü"
+Thumbnail,"Başparmak tırnağı"
+"Small Image","Küçük resim"
+"Base Image Size (bytes)","Temel Görüntü Boyutu (bayt)"
+"Thumbnail Size (bytes)","Küçük Resim Boyutu (bayt)"
+"Small Image Size (bytes)","Küçük Resim Boyutu (bayt)"
+"PHP Condition","PHP Durumu"
+"Open Chooser","Seçici&#39;yi Aç"
+"Last message body","Son mesaj gövdesi"
+"Updated At",Güncelleme
+"Status (before change)","Durum (değişmeden önce)"
+"Owner (before change)","Mal Sahibi (değişimden önce)"
+"Last Reply By","Son Yanıtla"
+"Hours since Created","Oluşturulduğu günden beri saatler"
+"Hours since Updated","Güncellenen Saatler"
+"Hours since Last reply","Son cevaptan bu yana geçen saatler"
+"Items have reason","Ürün neden"
+"Items have condition","Ürün durumu"
+"Items have resolution","Ürün çözünürlüğü"
+"%1 (before change)","%1 (değişiklikten önce)"
+Customer,Müşteri
+Staff,Personel
+"- Disable these emails -","- Bu e-postaları devre dışı bırak -"
+Yes,Evet
+No,"Yok hayır"
+Save,"Kayıt etmek"
+"Save & Continue Edit","Kaydet ve Devam Et Düzenle"
+"Save & Close","Kaydet kapat"
+Edit,Düzenle
+Delete,Silmek
+"Delete ""${ $.$data.name }""",""${ $.$data.name }" mesajını sil"
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?",""${ $.$data.name }" kaydını silmediğinizden emin misiniz?"
+"Are you sure you want to do this?","Bunu yapmak istediğine emin misin?"
+"Convert To Ticket","Bilete Dönüştür"
+"View order #${ $.$data.order_id }","Siparişi görüntüle #${ $.$data.order_id }"
+"View exchange order %1","Döviz siparişini görüntüle %1"
+"RMA: Report by Attribute","RMA: Özelliğe Göre Rapor"
+"RMA: Report by Status","RMA: Durumuna Göre Rapor"
+"RMA: Report by Product","RMA: Ürüne Göre Rapor"
+"RMA: Report by Reasons","RMA: Sebeplere Göre Rapor"
+"Cannot delete return address with id %1","%1 kimliğiyle dönüş adresi silinemiyor"
+"Cannot delete item with id %1","Öğe, %1 kimliğiyle silinemiyor"
+"Cannot delete condition with id %1","Id %1 ile koşul silinemiyor"
+"Cannot delete field with id %1","Id %1 ile alan silinemiyor"
+"Cannot delete message with id %1","İleti, %1 kimliğiyle silinemiyor"
+"Cannot delete history with id %1","Geçmiş, %1 kimliğiyle silinemiyor"
+"Cannot delete Quick Response with id %1","Hızlı Yanıt, id %1 ile silinemiyor"
+"Cannot delete reason with id %1","Id %1 ile ilgili sebep silinemiyor"
+"Cannot delete resolution with id %1","Id %1 ile özünürlük silinemiyor"
+"Cannot delete rma with id %1","Rma, id %1 ile silinemiyor"
+"Cannot delete rule with id %1","Kural %1 ile kural silinemiyor"
+"Cannot delete status with id %1","%1 kimliğiyle durum silinemiyor"
+"Please, enter a message","Lütfen bir mesaj giriniz"
+"Product Name","Ürün adı"
+SKU,SKU
+Qty,Adet
+"This was a gift, please do not notify purchaser","Bu bir hediye oldu, lütfen alıcıya bildirmeyin"
+"Enter your contact information","İletişim bilgilerinizi giriniz"
+"First Name",İsim
+"Last Name",Soyadı
+Email,E-posta
+Telephone,Telefon
+"To request a new RMA or check the status of current RMA, please, fill the form:","Yeni bir RMA talep etmek veya mevcut RMA&#39;nın durumunu kontrol etmek için lütfen aşağıdaki formu doldurun:"
+"* Required Fields","* Zorunlu Alanlar"
+"Order Information","Sipariş Bilgisi"
+"Email or Last Name","E-posta veya soyadı"
+Next,Sonraki
+RMA,RMA
+Actions,Eylemler
+"View Return","Dönüşü Görüntüle"
+"There are no Returns","İade yok"
+"Items %1 to %2 of %3 total","%1 - %2 %3 arası öğeler"
+"%1 Item(s)","%1 Öğe (ler)"
+Show,Göstermek
+"per page","sayfa başına"
+"View as","Olarak görüntüle"
+"Sort by","Göre sırala"
+"Set Ascending Direction","Artan Yönü Ayarla"
+"Set Descending Direction","Azalan Yönü Ayarla"
+"Please, select an order","Lütfen bir sipariş seçin"
+Order,Sipariş
+"-- Select an Order --","- Bir Sipariş Seçin -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","RMA talep etmek için tamamlanmış siparişleriniz yoksa veya siparişleriniz %1 gün önce daha fazla yerleştirildi. Lütfen müşteri hizmetlerine başvurun."
+"Submit Request","İstek gönderin"
+"Please, select RMA items which you would like to return.","Lütfen geri dönmek istediğiniz RMA ürünlerini seçin."
+"Additional Information","Ek bilgi"
+"Attach files","Dosyaları ekle"
+"Request Information","Bilgi isteme"
+"Email Address",E
+"Order Shipping Address","Sipariş Gönderim Adresi"
+"Items in this order","Bu sıradaki öğeler"
+"There are no items for this product that can be returned.","Bu ürün için iade edilebilecek ürün bulunmamaktadır."
+"Another RMA for this product: %1","Bu ürün için başka bir RMA: %1"
+"This product can not be returned due to RMA Policy","Bu ürün RMA Politikası nedeniyle iade edilemez"
+"This is a non-returnable item per our return policy.","Bu, iade politikamıza göre iade edilemez bir kalemdir."
+"Quantity to return","Geri dönüş miktarı"
+"-- Select a Reason --","-- Bir sebep seçin --"
+"-- Select a Condition --","- Bir Durum Seçiniz -"
+"-- Select a Resolution --","- Bir Çözünürlük seçin -"
+"I agree",Katılıyorum
+"Date: %1","Tarih: %1"
+"Original order: #%1","Orijinal sipariş: #%1"
+"Return Address","İade adresi"
+"Customer Information","Müşteri Bilgileri"
+"RMA History","RMA Geçmişi"
+"RMA Items","RMA Ürünleri"
+Weight,Ağırlık
+"Print RMA Packing Slip","Baskı RMA Ambalaj Kayma"
+"Print RMA Shipping Label","RMA Kargo Etiketini Yazdır"
+"Confirm Shipping","Gönderiyi Onaylayın"
+"(This was a gift)","(Bu bir hediyeydi)"
+"Date Requested","İstenen tarih"
+"Contact Information","İletişim bilgileri"
+"Items RMA Requested for","RMA için istenen ürünler"
+QTY,Miktar
+"Add Message","Mesaj ekle"
+Submit,Gönder
+%name,"% adı"
+"The quantity is incorrect.","Miktar yanlış."
+"New Return for Offline Order","Çevrimdışı Sipariş için Yeni İade"
+" at %1",1&#39;de__
+Select,Seçmek
+"If you do not have account on this store please fill the form below.","Bu mağazada hesabınız yoksa lütfen aşağıdaki formu doldurunuz."
+"-- Create Offline Order --","- Çevrimdışı Sipariş Yarat -"
+"Returned Item","Iade madde"
+"Remove Item","Öğeyi kaldırmak"
+"Order or Receipt #","Sipariş veya Makbuz #"
+"Add Item","Öğe eklemek"
+"Add at least one item to this RMA","Bu RMA&#39;ya en az bir öğe ekle"
+"Return Addresses","İade Adresleri"
+"Add New Return Address","Yeni İade Adresi Ekleyin"
+"General Information","Genel bilgi"
+Title,Başlık
+"Sort Order","Sıralama düzeni"
+"Is Active",Aktif
+ID,İD
+Active,Aktif
+Disabled,Engelli
+Enabled,Etkin
+"Change status","Durum değiştirmek"
+"Are you sure?","Emin misiniz?"
+Conditions,Koşullar
+"Add New Condition","Yeni Koşul Ekle"
+"[STORE VIEW]","[MAĞAZA GÖRÜNÜM]"
+"Create RMA for this customer","Bu müşteri için RMA oluştur"
+Fields,Alanlar
+"Add New Field","Yeni Alan Ekle"
+Code,Kod
+Type,Tip
+Description,Açıklama
+"Options list","Seçenekler listesi"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Sadece açılır liste için. <br> Biçim kullanarak yeni satırdaki her bir değeri girin: <br> değer1 | label1 <br> değer2 | label2"
+"Sort order","Sıralama düzeni"
+"Is required for staff","Personel için gerekli mi"
+"Is required for customers","Müşteriler için gerekli"
+"Visible for customers in statuses","Durumlardaki müşteriler için görülebilir"
+"Is show in confirm shipping dialog","Gönderi onayla iletişim kutusunda gösteriliyor"
+"Is editable for customers","Müşteriler için düzenlenebilir"
+Statuses,Durumlar
+Reasons,Nedenleri
+Resolutions,Kararlar
+"Custom Fields","Özel Alanlar"
+"Quick Responses","Hızlı cevaplar"
+"Workflow Rules","İş Akışı Kuralları"
+Reports,Raporlar
+Settings,Ayarlar
+"Add New Reason","Yeni Sebep Ekle"
+"Add New Resolution","Yeni Çözünürlük Ekleyin"
+"Add New RMA","Yeni RMA Ekle"
+"Create New RMA","Yeni RMA Oluştur"
+"Purchased From (Store)","Satın Alınan (Mağaza)"
+"Purchased On","Tarihinde satın alındı"
+"Bill to Name","Adına Faturalandır"
+"Ship to Name","İsmine postalama"
+"G.T. (Base)","GT (Baz)"
+"G.T. (Purchased)","GT (Satın Alındı)"
+Print,Baskı
+"Credit Memo","Alacak Dekontu"
+"Exchange Order","Değişim Emri"
+"Delete File","Dosyayı sil"
+"RMA Owner","RMA Sahibi"
+"Upload Return Label","İade Etiketi Yükle"
+"External Link","Dış bağlantı"
+open,açık
+"(received a gift)","(hediye aldı)"
+"Exchage Order","Exchage Order"
+Company,Şirket
+"Street Address","Açık adres"
+City,Kent
+Zip/Postcode,"Zip / posta kodu"
+Rules,Kurallar
+"Add New Rule","Yeni Kural Ekle"
+"Set Status","Durumu Ayarla"
+"Set Owner","Sahibini Ayarla"
+Event,Etkinlik
+Filters,Filtreler
+"Rule Name","Kural ismi"
+Priority,Öncelik
+"Arranged in the ascending order. 0 is the highest.","Yükselen sırada düzenlenmiştir. 0 en yüksektir."
+"Stop Further Rules Processing","Daha Fazla Kural İşlemeyi Durdurma"
+Notifications,Bildirimler
+"Send email to RMA owner","RMA sahibine e-posta gönder"
+"Send email to customer","Müşteriye e-posta gönder"
+"Send email to other email addresses","Diğer e-posta adreslerine e-posta gönder"
+"Email subject","E-posta konu"
+"Email body","E-posta gövdesi"
+"Attach files which were attached to the last message","Son mesaja eklenen dosyaları ekle"
+"Is Stop Processing","İşlemi Durduruyor"
+"Create RMA for this order","Bu sipariş için RMA oluştur"
+"Order meets RMA policy","Sipariş, RMA politikasını karşılar"
+"Order doesn't meet RMA policy","Sipariş, RMA politikasını karşılamıyor"
+"Add New Status","Yeni Durum Ekle"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Müşteri hesabındaki &#39;RMA Ambalaj Fişini Yazdır&#39;, &#39;RMA Gönderim Etiketi Yazdır&#39; ve &#39;Gönderimi Onayla&#39; düğmelerini göster"
+"Email Notification for customer","Müşteri için e-posta bildirimi"
+"leave blank to not send","gönderilmemek için boş bırakın"
+"Message for RMA history","RMA geçmişi için mesaj"
+"Email Notification for administrator","Yönetici için E-posta Bildirimi"
+Templates,Şablonlar
+"Add New Template","Yeni Şablon Ekle"
+"Internal Title","Dahili Başlık"
+Template,Şablon
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Değişkenleri kullanabilirsiniz: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Mağazalar
+"RMA Return Address","RMA İade Adresi"
+"New Return Address","Yeni dönüş adresi"
+"Return Address Manager","İade Adres Yöneticisi"
+"Add Return Address ","İade Adresi Ekleyin"
+"Add Return Address","İade Adresi Ekleyin"
+"Return Address was successfully deleted","İade Adresi başarıyla silindi"
+"Edit Return Address '%1'","Dönüş Adresini Düzenle &#39;%1&#39;"
+"Edit Return Address ","İade Adresini Düzenle"
+"The Return Address does not exist.","İade Adresi mevcut değil."
+"Please select Return Address(es)","Lütfen İade Adres (ler) i seçiniz."
+"Total of %d record(s) were successfully updated","Toplam% d kayıt başarıyla güncellendi"
+"Total of %1 record(s) were successfully deleted","Toplam %1 kayıt başarıyla başarıyla silindi."
+"return Address was successfully saved","return Adres başarıyla kaydedildi"
+"Unable to find Return Address to save","Tasarruf edilecek İade Adresi bulunamıyor"
+"New Condition","Yeni durum"
+"Condition  Manager","Durum Yöneticisi"
+"Condition Manager","Durum Yöneticisi"
+"Add Condition ","Koşul ekle"
+"Add Condition","Koşul ekle"
+"Condition was successfully deleted","Koşul başarıyla silindi"
+"Edit Condition '%1'","&#39;%1&#39; Koşulu Düzenle"
+"Edit Condition ","Koşul Düzenle"
+"The Condition does not exist.","Koşul mevcut değil."
+"Please select Condition(s)","Lütfen Koşulları seçin"
+"Total of %d record(s) were successfully deleted","Toplam% d kayıt başarıyla silindi"
+"Condition was successfully saved","Durum başarıyla kaydedildi"
+"Unable to find Condition to save","Tasarruf koşulu bulunamıyor"
+"New Field","Yeni alan"
+"Field  Manager","Alan müdürü"
+"Field Manager","Alan müdürü"
+"Add Field ","Alan ekle"
+"Add Field","Alan ekle"
+"Field was successfully deleted","Alan başarıyla silindi"
+"Edit Field '%1'","&#39;%1&#39; Alanını Düzenle"
+"Edit Field ","Alanı Düzenle"
+"The Field does not exist.","Alan mevcut değil."
+"Please select Field(s)","Lütfen Alan (lar) ı seçin"
+"Field was successfully saved","Alan başarıyla kaydedildi"
+"Unable to find Field to save","Kaydedilecek alan bulunamadı"
+"New Reason","Yeni Sebep"
+"Reason  Manager","Sebep Yöneticisi"
+"Reason Manager","Sebep Yöneticisi"
+"Add Reason ","Sebep ekle"
+"Add Reason","Sebep ekle"
+"Reason was successfully deleted","Sebep başarıyla silindi"
+"Edit Reason '%1'","Sebep Düzenle &#39;%1&#39;"
+"Edit Reason ","Sebep Düzenle"
+"The Reason does not exist.","Sebep mevcut değil."
+"Please select Reason(s)","Lütfen Sebep (ler) i seçin"
+"Reason was successfully saved","Sebep başarıyla kaydedildi"
+"Unable to find Reason to save","Tasarruf nedeni bulunamadı"
+"Statistics was successfully updated","İstatistikler başarıyla güncellendi"
+"RMA by Brand","Markaya göre RMA"
+"RMA Report","RMA Raporu"
+"RMA by Product","Ürüne Göre RMA"
+Rma,Rma
+"New Resolution","Yeni çözünürlük"
+"Resolution  Manager","Çözünürlük Yöneticisi"
+"Resolution Manager","Çözünürlük Yöneticisi"
+"Add Resolution ","Çözünürlük ekle"
+"Add Resolution","Çözünürlük ekle"
+"Resolution was successfully deleted","Çözünürlük başarıyla silindi"
+"Edit Resolution '%1'","&#39;%1&#39; Çözünürlüğünü Düzenle"
+"Edit Resolution ","Çözünürlüğü Düzenle"
+"The Resolution does not exist.","Çözünürlük mevcut değil."
+"Please select Resolution(s)","Lütfen Çözünürlük seçiniz"
+"Resolution was successfully saved","Çözünürlük başarıyla kaydedildi"
+"Unable to find Resolution to save","Tasarruf edilecek çözünürlük bulunamadı"
+"New RMA","Yeni RMA"
+"RMA was successfully deleted","RMA başarıyla silindi"
+"The rma does not exist.","RMA mevcut değil."
+"Marked as read","Okundu olarak işaretlendi"
+"Marked as unread","Okunmadı olarak işaretlendi"
+"Please select rma(s)","Lütfen rma seçiniz"
+"A total of %1 record(s) have been deleted.","Toplam %1 kayıt silindi."
+"RMA was successfully saved","RMA başarıyla kaydedildi"
+"Unable to find rma to save","Kaydedilecek rma bulunamadı"
+"New Rule","Yeni kural"
+"Rule  Manager","Kural Yöneticisi"
+"Rule Manager","Kural Yöneticisi"
+"Add Rule ","Kural ekle"
+"Add Rule","Kural ekle"
+"Rule was successfully deleted","Kural başarıyla silindi"
+"Edit Rule '%1'","&#39;%1&#39; Kuralını Düzenle"
+"Edit Rule ","Kuralı Düzenle"
+"The Rule does not exist.","Kural mevcut değil."
+"Please select Rule(s)","Lütfen Kural Seçin"
+"Rule was successfully saved","Kural başarıyla kaydedildi"
+"Unable to find Rule to save","Kaydedilecek kural bulunamadı"
+"New Status","Yeni statü"
+"Status  Manager","Durum yöneticisi"
+"Status Manager","Durum yöneticisi"
+"Add Status ","Durum ekle"
+"Add Status","Durum ekle"
+"Status was successfully deleted","Durum başarıyla silindi"
+"Edit Status '%1'","&#39;%1&#39; Durumunu Düzenle"
+"Edit Status ","Durumu Düzenle"
+"The Status does not exist.","Durum mevcut değil."
+"Please select Status(s)","Lütfen Durum seçiniz"
+"Status was successfully saved","Durum başarıyla kaydedildi"
+"Unable to find Status to save","Kaydedilecek Durum bulunamadı"
+"New Template","Yeni şablon"
+"Template  Manager","Şablon Yöneticisi"
+"Template Manager","Şablon Yöneticisi"
+"Add Template ","Şablon ekle"
+"Add Template","Şablon ekle"
+"Template was successfully deleted","Şablon başarıyla silindi"
+"Edit Template '%1'","Şablonu &#39;%1&#39;"
+"Edit Template ","Şablonu Düzenle"
+"The Template does not exist.","Şablon mevcut değil."
+"Please select Template(s)","Lütfen Şablon Seçin"
+"Template was successfully saved","Şablon başarıyla kaydedildi"
+"Unable to find Template to save","Kaydedilecek şablon bulunamadı."
+"Created Date","Oluşturma Tarihi"
+Action,Aksiyon
+View,Görünüm
+RMAs,RMA&#39;lar
+"Select Order","Sipariş seç"
+"Exchange/Credit Balance","Döviz / Kredi Bakiyesi"
+"Customer credit balance:","Müşteri kredi bakiyesi:"
+"Total price of new products:","Yeni ürünlerin toplam fiyatı:"
+"Total price of exchanged/credit products:","Takas / kredi ürünlerinin toplam fiyatı:"
+"Price difference:","Fiyat farkı:"
+Resolution:,Çözüm:
+"Get %1 from customer credit balance","Müşteri kredi bakiyesinden %1 al"
+"Put %1 to customer credit balance","%1 ürününü müşteri kredi bakiyesine koyun"
+"Resolve manually","Manuel olarak çöz"
+"Message Type","Mesaj tipi"
+"Message to Customer","Müşteriye Mesaj"
+"Internal Note","Dahili Not"
+"mark as unread","okunmamış olarak işaretle"
+"mark as read","Okundu olarak işaretle"
+"You can not return more, than available. Please, try again.","Uygun olandan daha fazla geri dönemezsiniz. Lütfen tekrar deneyin."
+"show all order items","tüm sipariş öğelerini göster"
+"Qty to Return","İade Adet"
+"Reason to Return","İade Nedeni"
+"Item Condition","Ürün durumu"
+"(Bundled Product)","(Birlikte ürün)"
+Stock,Stok
+Ordered,Düzenli
+Available,Mevcut
+--,-
+"Insert Quick Response","Hızlı Yanıt Ekle"
+"Default status for new RMA","Yeni RMA için varsayılan durum"
+"Default owner for new RMA","Yeni RMA için varsayılan sahip"
+"Ask customer to confirm shipping","Müşteriden gönderimi onaylamasını isteyin"
+"Shipping confirmation text","Kargo onay metni"
+"Enable option ""This was a gift""","&quot;Bu bir hediyedi&quot; seçeneğini etkinleştir"
+"Enable integration with Help Desk","Yardım Masası ile entegrasyonu etkinleştir"
+"Code of ""Brand"" attribute","&quot;Marka&quot; niteliğinin kodu"
+"Allow upload only attachments with extensions","Yalnızca uzantılı eklerin yüklenmesine izin ver"
+"Limit of attachments size, Mb","Eklerin boyutu, Mb"
+"Show Columns in RMA Grid","RMA Grid&#39;deki Sütunları Göster"
+"Show RMA section in Customer Account","Müşteri Hesabındaki RMA bölümünü göster"
+"Customers are required to select:","Müşterilerin şunları seçmesi gerekir:"
+"Allow to request RMA after order completion, days","Sipariş tamamlandıktan sonra günlerce RMA istemesine izin ver"
+"Allow to request RMA if order has status","Siparişin durumu varsa, RMA istemesine izin ver"
+"Ask to agree with RMA policy text","RMA politika metnine katılmayı isteyin"
+"CMS block with RMA policy text","RMA ilke metni içeren CMS bloğu"
+"Number Format","Sayı biçimi"
+"Start Counter From","Sayaç Başlat"
+"Counter Increment Step","Sayaç Artışı Adım"
+"Counter Length","Sayaç uzunluğu"
+"Email Sender","E-posta Gönderen"
+"Template of Notification Email for Customer","Müşteri için Bildirim E-postası"
+"Template of Notification Email for RMA Owner","RMA Sahibi için Bildirim E-postası"
+"Template of Rule Notification","Kural Bildirimi Şablonu"
+" Send blind carbon copy (BCC) of all emails to","Tüm e-postaların kör karbon kopyalarını (BCC) gönder"
+"At least one RMA item should have resolution ""Exchange"".","En az bir RMA öğesi &quot;Exchange&quot; çözünürlüğüne sahip olmalıdır."
+"Add another order","Başka bir sipariş ekle"
+"Offline Order","Çevrimdışı Sipariş"
+OR,VEYA
+"Select Offline Order","Çevrimdışı Siparişi Seçin"

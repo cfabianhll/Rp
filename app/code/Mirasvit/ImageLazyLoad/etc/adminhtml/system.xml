@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mst_optimize" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="label">
+            <group id="optimize_image" showInDefault="1" sortOrder="25">
+                <label>Image Optimization</label>
+                <group id="image_lazy_load" showInDefault="1" sortOrder="10">
+                    <label>Image Lazy Load</label>
+
+                    <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable Lazy Load</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                        <attribute type="description">
+                            Lazy loading defers the loading of images on the page until are actually needed. Instead of loading these resources as soon as the page loads, which is what normally happens, the loading of these resources is put off till the moment the user actually needs to view them.
+                        </attribute>
+                        <attribute type="onChange">
+                            Please clear magento cache after save configuration
+                        </attribute>
+                    </field>
+
+                    <field id="skip_number" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Preload first N images</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                        <validate>validate-digits validate-not-negative-number</validate>
+                        <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                        <attribute type="description">
+                            In common case, the number of images in the header
+                        </attribute>
+                    </field>
+
+                    <field id="exception" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Do not use lazy load for images</label>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                        <frontend_model>Mirasvit\Optimize\Block\Adminhtml\System\Config\YesNoField</frontend_model>
+                        <attribute type="description">
+                            The list of image file names (or parts of image file names) for which lazy load shouldn't be used.
+                            &lt;/br&gt;Each name in the new line.
+                        </attribute>
+                    </field>
+                </group>
+
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,192 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php 
+$prodid = $_product->getId();
+$attribute = $_product->getResource()->getAttribute('free_shipping');
+$attribute_value = $attribute ->getFrontend()->getValue($_product);
+if ($attribute_value == "Yes")
+  {?>
+    <div class="two"><p class="three"><?php echo "Free Shipping";?></p><?php 
+  } ?>
+  <?php $buttonTitle = __('Add to Cart'); ?>
+  <?php if ($_product->isSaleable()) :?>
+    <div class="box-tocart product_numbr login_form mt-0">
+      <div class="fieldset ">
+        <div class="actions button_Section mt-5">
+          <h6 class="mb-3"><b><?= __('Choose a delivery method') ?></b></h6>
+          <div class="bottom_del_sec">
+            <div class="deleviery_section">
+             <div class="select_icon_title">
+              <img src="<?php echo $this->getViewFileUrl('images/truck.png');?>"><span><?= __('Choose at home') ?></span>
+            </div>
+            <a href="" class="tst_link"><?= __('I recieve on Monday June 1st') ?></a>
+            <div class="details_btns_container">
+             <button type="submit"
+             title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+             class="action primary tocart btn details_btn"
+             id="product-addtocart-button" disabled>
+             <img src="<?php echo $this->getViewFileUrl('images/cart.svg');?>" class="mr-2">
+             <span><?= $block->escapeHtml($buttonTitle) ?></span>
+           </button>
+           <?= $block->getChildHtml('', true) ?>
+         </div>
+       </div>
+       <div class="deleviery_section">
+         <div class="select_icon_title">
+          <img src="<?php echo $this->getViewFileUrl('images/home.png');?>"><span><?= __('Pick up in store') ?></span>
+        </div>
+        <a class="tst_link"><?= __('Units Available: 10+') ?></a>
+        <div class="details_btns_container">
+          <a href="<?php echo $this->getUrl(); ?>amlocator" class="btn details_btn btn_black_bg"><img src="<?php echo $this->getViewFileUrl('images/btn_home.png');?>"  class="mr-2"><?= __('Free withdrawal in store') ?></a>
+          <a class="btn qty-list border_btn mt-3"><img src="<?php echo $this->getViewFileUrl('images/cart_bg.png');?>"  class="mr-2"><?= __('See Available') ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+  {
+    "#product_addtocart_form": {
+    "Magento_Catalog/js/validate-product": {}
+  }
+}
+</script>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+$connection = $resource->getConnection();
+$store = $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore();
+$imageUrl = $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'catalog/product' . $_product->getImage();
+?>
+<div id="modal-form" class="callfor-popup1">
+  <?php    if($_product->getTypeId() == "simple") {
+    ?>
+    <div class="about_product_img">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h6><?php echo $_product->getName(); ?></h6>
+          <div class="product_img_left">
+            <img src="<?php echo $imageUrl; ?>">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="product_right_img mb-3">
+            <h5><?= __('Search in store') ?></h5>
+          </div>
+
+          <div class="tabs_color">
+            <div class="tabs_header">
+             <?= __('Store') ?><span><?= __('Stock') ?></span>
+           </div>
+           <div class="tabs_body">
+             <?php
+             $sql = "SELECT available_qty, warehouse_id FROM `amasty_multiinventory_warehouse_item` WHERE product_id = $prodid";
+             $result = $connection->fetchAll($sql);
+           // print_r($result);
+             foreach($result as $data){
+                //print_r($data['available_qty']);
+              $demo = $data['warehouse_id'];
+              $sql1 = "SELECT title FROM `amasty_multiinventory_warehouse` WHERE warehouse_id = $demo";
+              $resultt = $connection->fetchAll($sql1);
+               //print_r($reultt);
+              foreach($resultt as $store){?>
+                <span class="store_name"><?php echo $store['title'] ?></span>
+                <span class="store_qty"><?php echo floor($data['available_qty']) ?></span>
+                <?php
+              }
+            } ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php } else { ?>
+ <?php  
+ $_children = $_product->getTypeInstance()->getUsedProducts($_product);
+ foreach ($_children as $child){
+   $childid = $child->getId();
+   break;
+ }?>
+ <div class="about_product_img">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <h6><?php echo $_product->getName(); ?></h6>
+      <div class="product_img_left">
+        <img src="<?php echo $imageUrl; ?>">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="product_right_img mb-3">
+        <h5><?= __('Search in store') ?></h5>
+      </div>
+
+      <div class="tabs_color">
+        <div class="tabs_header">
+          <?= __('Store') ?><span><?= __('Stock') ?></span>
+        </div>
+        <div class="tabs_body">
+         <?php
+         $sql = "SELECT available_qty, warehouse_id FROM `amasty_multiinventory_warehouse_item` WHERE product_id = $childid";
+            //print_r($sql);
+         $result = $connection->fetchAll($sql);
+           // print_r($result);
+         foreach($result as $data){
+                //print_r($data['available_qty']);
+          $demo = $data['warehouse_id'];
+          $sql1 = "SELECT title FROM `amasty_multiinventory_warehouse` WHERE warehouse_id = $demo";
+          $resultt = $connection->fetchAll($sql1);
+               //print_r($reultt);
+          foreach($resultt as $store){?>
+            <span class="store_name"><?php echo $store['title'] ?></span>
+            <span class="store_qty"><?php echo floor($data['available_qty']) ?></span>
+            <?php
+          }
+        } ?>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<?php } ?>
+</div><div class="overlay2">1</div>
+<script>
+ require(
+   [
+   'jquery',
+   'Magento_Ui/js/modal/modal'
+   ],
+   function (
+     $,
+     modal
+     ) {
+     var modaloptionn = {
+       type: 'popup',
+       modalClass: 'modal-popup custom-stock',
+       responsive: true,
+       innerScroll: true,
+       clickableOverlay: true,
+     };
+     jQuery(document).ready(function(){
+      var callforoptionn = modal(modaloptionn, $('.callfor-popup1'));
+      jQuery("a.qty-list").on('click',function(){ 
+           console.log("fsdfdsf");
+           jQuery.noConflict();
+           jQuery('.callfor-popup1').modal('openModal');
+           jQuery('.overlay2').addClass("show");
+         });
+      jQuery(".custom-stock button.action-close.close span").on('click',function(){ 
+        jQuery('.overlay2').removeClass("show");
+      });
+      });
+   }
+   );
+ </script>

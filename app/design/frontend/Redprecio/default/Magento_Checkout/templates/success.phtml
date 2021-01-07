@@ -1,0 +1,37 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<div class="order_completed_div">
+        <div class="row">
+            <div class="col-12 col-md-6 m-auto text-center">
+                    <div class="icon_s">
+                        <img src="<?= $this->getViewFileUrl('images/order_completed.png') ?>" class="mb-3">
+                    </div>
+                    <div class="s_text">
+                        <p><?= __('Thank you for shipping with us,your order is complete') ?></p>
+						<?php if (!$block->getCanViewOrder()) :?>
+							<p><a href="<?php echo $this->getBaseUrl(); ?>customer/account/create"><strong><?= __('Sign Up') ?></strong></a><?= __(' to view your order') ?></p>
+						<?php endif; ?>
+                        <?php if ($block->getOrderId()):?>
+							<?php if ($block->getCanViewOrder()) :?>
+								<p><?= $block->escapeHtml(__('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeUrl($block->getViewOrderUrl()), $block->getOrderId())), ['a', 'strong']) ?></p>
+								<?php  else :?>
+								<p><?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+							<?php endif;?>                           
+                            <p><?= /* @escapeNotVerified */ __('We\'ll email you an order confirmation with details and tracking info.') ?></p>
+                        <?php endif;?>
+                        <?= $block->getAdditionalInfoHtml() ?>
+                        <button class="btn place_holder btn theme_btn" type="button" onclick='location.href="<?= /* @escapeNotVerified */ $block->getContinueUrl() ?>"'><?= /* @escapeNotVerified */ __('Continue Shopping') ?></button>
+                    </div>
+            </div>
+        </div>
+</div>
+
+

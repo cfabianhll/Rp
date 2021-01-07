@@ -1,0 +1,195 @@
+<?php
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Rma\Block\Adminhtml\Rma\Edit\Form\Items $block */
+$rma = $block->getRma();
+$orders = $block->getOrders();
+?>
+<script type="text/javascript">
+    require([
+        "jquery"
+    ], function ($) {
+        'use strict';
+
+        function isNumeric(obj) {
+            return !jQuery.isArray(obj) && (obj - parseFloat(obj) + 1) >= 0;
+        }
+
+        function checkQtyOrdered(currentQty) {
+            var ordered = parseInt($(currentQty.name.substring(0, 8) + '[qtyAvailable]').innerHTML.trim());
+            var defaultQty = 0;
+            if ($('rma_id').value != '') {
+                ordered += parseInt($(currentQty.name.substring(0, 8) + '[rma_item_qty]').value);
+                defaultQty = ordered;
+            }
+            if (isNumeric(currentQty.value) && isNumeric(ordered)) {
+                if (currentQty.value > ordered) {
+                    currentQty.value = defaultQty;
+                    alert("<?php echo __('You can not return more, than available. Please, try again.') ?>");
+                }
+            }
+        }
+
+        $('[data-role=show-all-items]').on('click', function (e) {
+            e.preventDefault();
+            $(e.currentTarget).hide();
+
+            var parent = $(e.currentTarget).parents('.fieldset.admin__fieldset.rma-edit__items');
+            $('[data-role=items-table] tr', parent).show();
+        })
+    });
+</script>
+
+<?php $i = $block->getIncrement() ?>
+
+<?php if (!count($orders)): ?>
+<?= __('Removed Order') ?>
+<?php endif; ?>
+<?php foreach ($orders as $order): ?>
+    <?php
+    if ($order->getIsOffline()) {
+        continue;
+    }
+    ?>
+    <?php $block->setOrder($order); ?>
+    <fieldset class="fieldset admin__fieldset rma-edit__items">
+        <legend class="admin__legend legend">
+            <span><?= __('Items for order #%1', $order->getIncrementId()) ?></span>
+
+            <?php if ($rma->getId() > 0) : ?>
+                <div class="actions _primary">
+                    <a href="#" data-role="show-all-items"><?= __('show all order items') ?></a>
+                </div>
+            <?php endif ?>
+        </legend>
+        <table class="admin__control-table" data-role="items-table">
+            <thead>
+            <tr>
+                <th></th>
+                <th><?= __('Product Name') ?></th>
+                <th><?= __('SKU') ?></th>
+                <th><?= __('Order ID') ?></th>
+                <th><?= __('Price') ?></th>
+                <th><?= __('Qty') ?></th>
+                <th><?= __('Qty to Return') ?></th>
+                <th><?= __('Reason to Return') ?></th>
+                <th><?= __('Item Condition') ?></th>
+                <th><?= __('Resolution') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($block->getRmaItems() as $item): ?>
+                <?php
+                $orderIncrement = $block->getOrderItemOrderIncrement($item);
+                if ($orderIncrement != $order->getIncrementId()) {
+                    continue;
+                }
+
+                $product = $block->getProduct($item);
+                $i++;
+                ?>
+
+                <?php if ($product && ($product->getTypeId() == 'bundle' || $item->getProductType() == 'bundle')): ?>
+                    <tr class="even">
+                        <td></td>
+                        <td><?= $block->getOrderItemLabel($item) ?><?= __('(Bundled Product)') ?></td>
+                        <td><?= $product && $product->getSku() ? $product->getSku() : $item->getProductSku() ?></td>
+                        <td><?= $orderIncrement ?></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <?php continue; endif; ?>
+
+                <tr <?= $rma->getId() > 0 && $item->getQtyRequested() == 0 ? "style='display:none;'" : '' ?>>
+                    <td>
+                        <img src="<?php echo $block->initImage($item, 'image', 'catalog/product')->resize(130) ?>"
+                             width="65px"/>
+                    </td>
+                    <td>
+                        <?php if ($block->getIsBundleItem($item)): ?> &nbsp;&nbsp;&nbsp; <?php endif ?>
+                        <?= $block->getOrderItemLabel($item) ?>
+                    </td>
+                    <td><?= $product && $product->getSku() ? $product->getSku() : $item->getProductSku() ?></td>
+                    <td><?= $orderIncrement ?></td>
+                    <td><?= $block->getOrderItemPrice($item); ?></td>
+                    <td>
+                        <table class="qty-table">
+                            <tr>
+                                <th><?= __('Stock') ?></th>
+                                <td><?= $product ? $block->getQtyStock($item) : 0 ?></td>
+                            </tr>
+
+                            <tr>
+                                <th><?= __('Ordered') ?></th>
+                                <td><?= $block->getQtyOrdered($item) ?></td>
+                            </tr>
+
+                            <tr>
+                                <th><?= __('Available') ?></th>
+                                <td><?= $block->getQtyAvailable($item) ?></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <input name="items[<?= $i ?>][item_id]" value="<?= $item->getId() ?>" type="hidden">
+                        <input name="items[<?= $i ?>][order_id]" value="<?= $order->getId() ?>" type="hidden">
+                        <input name="items[<?= $i ?>][product_sku]" value="<?= $item->getProductSku() ?>" type="hidden">
+                        <input name="items[<?= $i ?>][order_item_id]"
+                               value="<?= $item->getOrderItemId() ?>" type="hidden">
+                        <input id="items[<?= $i ?>][rma_item_qty]"
+                               value="<?= $item->getQtyRequested() ? $item->getQtyRequested() : 0 ?>"
+                               type="hidden">
+
+                        <div class="a-center">
+                            <input name='items[<?= $i ?>][qty_requested]'
+                                   type="number"
+                                   maxlength="3"
+                                   min="0"
+                                   max="<?= $block->getMaxAllowed($item) ?>"
+                                   class="admin__control-text required-entry"
+                                   value='<?= $item->getQtyRequested() ? $item->getQtyRequested() : 0 ?>'
+                                   onKeyUp="checkQtyOrdered(this)">
+                        </div>
+                    </td>
+                    <td>
+                        <select name="items[<?= $i ?>][reason_id]" class="admin__control-select">
+                            <option value=""><?= __('--') ?></option>
+                            <?php foreach ($block->getReasonList() as $reason): ?>
+                                <option value="<?= $block->escapeHtml($reason->getId()) ?>"
+                                    <?= $reason->getId() == $item->getReasonId() ? 'selected' : '' ?>>
+                                    <?= $block->escapeHtml($reason->getName()) ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="items[<?= $i ?>][condition_id]" class="admin__control-select">
+                            <option value=""><?= __('--') ?></option>
+                            <?php foreach ($block->getConditionList() as $condition): ?>
+                                <option value="<?= $block->escapeHtml($condition->getId()) ?>"
+                                    <?= $condition->getId() == $item->getConditionId() ? 'selected' : '' ?>>
+                                    <?= $block->escapeHtml($condition->getName()) ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="items[<?= $i ?>][resolution_id]" class="admin__control-select">
+                            <option value=""><?= __('--') ?></option>
+                            <?php foreach ($block->getResolutionList() as $resolution): ?>
+                                <option value="<?= $block->escapeHtml($resolution->getId()) ?>"
+                                    <?= $resolution->getId() == $item->getResolutionId() ? 'selected' : '' ?>>
+                                    <?= $block->escapeHtml($resolution->getName()) ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </fieldset>
+<?php endforeach; ?>

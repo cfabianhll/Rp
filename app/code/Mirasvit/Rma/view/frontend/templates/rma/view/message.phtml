@@ -1,0 +1,43 @@
+<?php
+/* @var $block \Mirasvit\Rma\Block\Rma\View\Message */
+?>
+<?php
+if (!$block->getOrder()) {
+    return;
+}
+?>
+<div class="mst-rma-box _half mst-rma__message">
+    <div class="mst-rma-box__title"><?= __('Add Message') ?></div>
+    <div class="mst-rma-box__content">
+        <form action="<?= $block->getMessagePostUrl() ?>" method="POST" enctype="multipart/form-data"
+              data-hasrequired="<?= __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
+            <input name="id" type="hidden" value="<?= $block->getRmaId() ?>">
+
+            <fieldset class="fieldset">
+                <div class="field">
+                    <div class="control">
+                        <textarea name="message" id="message" class="input-text"></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">
+                        <span><?= __('Attach files') ?></span>
+                    </label>
+
+                    <div class="control" data-mage-init='{"jqueryMultiFile": {}}'>
+                        <?= $block->getFileInputHtml() ?>
+                    </div>
+                    <?= $block->getAttachmentLimits() ?>
+                </div>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action primary">
+                        <span><?= __('Submit') ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

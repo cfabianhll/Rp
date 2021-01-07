@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Magento\Theme\Block\Html\Title
+ */
+$cssClass = $block->getCssClass() ? ' ' . $block->getCssClass() : '';
+$titleHtml = '';
+if (trim($block->getPageHeading())){
+
+       $titleHtml= $block->escapeHtml($block->getPageHeading());
+}
+?>
+<?php if ($titleHtml) : ?>
+
+    <h4 class="product_name"><?= /* @noEscape */ $titleHtml ?></h4>
+    
+    <?= $block->getChildHtml() ?>
+<?php endif; ?>

@@ -1,0 +1,31 @@
+<?php
+/** @var \Mirasvit\OptimizeImage\Block\Adminhtml\System\Config\StatisticGroup $block */
+
+?>
+<table class="form-list">
+    <tr>
+        <td class="value"><strong>Total Files</strong></td>
+        <td class="value"><?= $block->getTotalFiles() ?></td>
+    </tr>
+    <tr>
+        <td class="value"><strong>Optimized Files</strong></td>
+        <td class="value"><?= $block->getProcessedFiles() ?></td>
+    </tr>
+    <tr>
+        <td class="value"><strong>Webp Files</strong></td>
+        <td class="value"><?= $block->getWebpFiles() ?></td>
+    </tr>
+    <tr>
+        <td class="value"><strong>Processed Size</strong></td>
+        <td class="value"><?= $block->getProcessedSize() ?></td>
+    </tr>
+    <tr>
+        <td class="value"><strong>Saved Size</strong></td>
+        <td class="value"><?= $block->getSavedSize() ?></td>
+    </tr>
+</table>
+<br>
+<div class="message info" style="font-size:12px;">
+    <p>The extension used set of tools for optimizing/convert images.</p>
+    <p>To check the status of tools, please run the command: <pre>bin/magento mirasvit:optimize-image:validate</pre></p>
+</div>

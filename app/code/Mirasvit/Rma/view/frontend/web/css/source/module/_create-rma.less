@@ -1,0 +1,64 @@
+.mst-rma-create__add-order {
+    display: flex;
+    justify-content: center;
+
+    button {
+        margin: 1rem;
+    }
+}
+
+.mst-rma-create__order-selector {
+    .field {
+        display: flex;
+        flex-wrap: wrap;
+
+        select {
+            max-width: 40rem;
+        }
+
+        button {
+            margin-left: 1rem;
+        }
+    }
+
+    .mst-rma-buttons-delimiter-text {
+        line-height: 32px;
+        margin-left: 1rem;
+    }
+}
+
+.mst-rma-create__order {
+    border: 2px solid #e8e8e8;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+
+    .mst-rma-create__order-header {
+        display: flex;
+        margin-bottom: 2rem;
+
+        .increment-id {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+        .remove {
+            color: #1879c2;
+            margin-left: auto;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+#rma-new-form .actions-toolbar {
+    margin-top: 10px;
+
+    &.secondary.ui-remove-item-button-container {
+        float: left;
+    }
+}

@@ -1,0 +1,54 @@
+<?php
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Credit\Block\Customer\Account $block */
+
+$balance = $block->getBalance();
+$transactions = $block->getTransactionCollection();
+?>
+
+<div class="block">
+    <div class="block-title">
+        <strong><?= __('Transactions History') ?></strong>
+    </div>
+    <div class="block-content">
+        <?php if ($transactions->count()): ?>
+            <div class="table-wrapper orders-recent">
+                <table class="data table table-order-items">
+                    <thead>
+                    <tr>
+                        <th><?= __('Date') ?></th>
+                        <th><?= __('Comment') ?></th>
+                        <th><?= __('Action') ?></th>
+                        <th><?= __('Amount') ?></th>
+                        <th><?= __('Balance') ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php $odd = 0 ?>
+                    <?php foreach ($transactions as $transaction): ?>
+                        <tr>
+                            <td data-th="<?= __('Date') ?>" nowrap>
+                                <?= $block->escapeHtml($block->formatDate($transaction->getCreatedAt())) ?>
+                            </td>
+                            <td data-th="<?= __('Comment') ?>"><?= $transaction->getFrontendMessage() ?></td>
+                            <td data-th="<?= __('Action') ?>"><?= ucfirst($transaction->getAction()) ?></td>
+                            <td data-th="<?= __('Amount') ?>">
+                                <span style="color: <?= $transaction->getBalanceDelta() > 0 ? '#0a0' : '#f00' ?>">
+                                    <?= $block->formatPrice($transaction->getBalanceDelta(), $transaction->getCurrencyCode()) ?>
+                                </span>
+                            </td>
+                            <td class="last" data-th="<?= __('Balance') ?>">
+                                <?= $block->formatPrice($transaction->getBalanceAmount(), $block->getStoreCurrencyCode(), $balance->getCurrencyCode()); ?>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <div class="message info empty">
+                <span><?= __('There are no transactions yet.') ?></span>
+            </div>
+        <?php endif ?>
+    </div>
+</div>

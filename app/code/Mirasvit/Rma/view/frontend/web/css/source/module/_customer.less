@@ -1,0 +1,87 @@
+& when (@media-common = true) {
+    form.rma-customer-new {
+        width: 50%;
+        min-width: 400px;
+    }
+
+    .order-info-hide {
+        display: none;
+    }
+
+    .order-info-show {
+        display: block;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .rma-view, .rma-new-step2 {
+        .box-rma-information {
+            table {
+                width: auto;
+
+                th, td {
+                    padding: .5rem 1rem;
+                }
+
+                th {
+                    padding-left: 0;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .mst-rma-view {
+        .rma-control-buttons {
+            margin-bottom: 10px;
+        }
+    }
+
+    .rma-new-step2 {
+        .rma-one-item {
+            .clearfix();
+            margin-bottom: 1rem;
+            border: 2px dashed #e8e8e8;
+            padding: 1rem;
+
+            .item-description {
+                .clearfix();
+                position: relative;
+                float: left;
+                width: 50%;
+
+                .image {
+                    float: left;
+                    margin: 0 1.5rem;
+                }
+
+                input[type=checkbox] {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            .item-options {
+                float: left;
+                width: 40%;
+                padding-left: 10%;
+            }
+        }
+
+        .form-list {
+            list-style: none;
+        }
+    }
+
+    .ui-widget-overlay {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100000px;
+        height: 100000px;
+        background: rgba(0, 0, 0, 0.1);
+    }
+}

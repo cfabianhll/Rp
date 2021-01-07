@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <clerk>
+            <general>
+                <public_key backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <private_key backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <include_pages>1</include_pages>
+            </general>
+            <product_synchronization>
+                <use_realtime_updates>1</use_realtime_updates>
+                <collect_emails>1</collect_emails>
+                <additional_fields></additional_fields>
+                <saleable_only>1</saleable_only>
+                <visibility>4</visibility>
+                <disable_order_synchronization>0</disable_order_synchronization>
+            </product_synchronization>
+            <search>
+                <enabled>0</enabled>
+                <template>search-page</template>
+                <load_more_text>Load More Results</load_more_text>
+                <no_results_text>No products found</no_results_text>
+            </search>
+            <live_search>
+                <enabled>0</enabled>
+                <include_categories>1</include_categories>
+                <template>live-search</template>
+            </live_search>
+            <powerstep>
+                <enabled>0</enabled>
+                <type>1</type>
+                <template>power-step-others-also-bought,power-step-visitor-complementary,power-step-popular,power-step-popular-on-sale</template>
+            </powerstep>
+            <exit_intent>
+                <enabled>0</enabled>
+                <template>exit-intent</template>
+            </exit_intent>
+            <category>
+                <enabled>0</enabled>
+                <content>category-page-popular</content>
+            </category>
+            <product>
+                <enabled>0</enabled>
+                <content>product-page-alternatives,product-page-others-also-bought</content>
+            </product>
+            <cart>
+                <enabled>0</enabled>
+                <content>cart-others-also-bought</content>
+            </cart>
+            <log>
+                <enabled>1</enabled>
+                <level>warn</level>
+                <to>collect</to>
+            </log>
+        </clerk>
+    </default>
+</config>

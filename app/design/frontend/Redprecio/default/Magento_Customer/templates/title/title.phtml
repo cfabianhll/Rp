@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Magento\Theme\Block\Html\Title
+ */
+$cssClass = $block->getCssClass() ? ' ' . $block->getCssClass() : '';
+$titleHtml = '';
+if (trim($block->getPageHeading())){
+
+       $titleHtml= $block->escapeHtml($block->getPageHeading());
+}
+
+?>
+<?php if ($titleHtml) : ?>
+ <div class="row">         
+<div class="col-12">
+    <div class="my_profile_title"<?php if ($block->getId()) : ?> id="<?= $block->escapeHtmlAttr($block->getId()) ?>" <?php endif; ?>
+        <?php if ($block->getAddBaseAttributeAria()) : ?>
+            aria-labelledby="<?= $block->escapeHtmlAttr($block->getAddBaseAttributeAria()) ?>"
+        <?php endif; ?>>
+        	<h4 class=""><?php if($titleHtml=='My Gift Cards'): ?><?php /* @escapeNotVerified */ echo __('Gift Code') ?></h4>
+        	<?php else : ?>
+        	<?= /* @noEscape */ $titleHtml ?></h4><?php endif; ?>
+			<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->get('Magento\Customer\Model\Session');
+if($customerSession->isLoggedIn()) { ?>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+<?php } ?></div>
+    <?= $block->getChildHtml() ?>
+</div>
+</div>
+<?php endif; ?>

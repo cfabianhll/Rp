@@ -1,0 +1,91 @@
+<?php
+/** @var \Mirasvit\Rma\Block\Rma\NewRma\Step2\Items\Item $block */
+/** @var \Mirasvit\Rma\Api\Data\ItemInterface $item */
+?>
+<?php if ($item = $block->getItem()): ?>
+    <?php $product = $block->getProductByItem($item) ?>
+    <?php if ($product->getTypeId() != 'bundle'): ?>
+        <?php $another = $block->getRmasByItem($item) ?>
+        <div class="rma-one-item">
+            <div class="item-description">
+                <input type='hidden' name="items[<?= $item->getOrderItemId() ?>][order_id]" value="<?= $block->getOrder()->getId()?>">
+                <input type='checkbox' name="items[<?= $item->getOrderItemId() ?>][is_return]"
+                       data-item-id="<?= $item->getOrderItemId() ?>"
+                       class="ui-rma-item-checkbox"
+                       value='1' <?= ($block->getQtyAvailable($item) == 0 || $product->getRmaAllowed() == '0') ? 'disabled' : '' ?>
+                    <?= $item->getIsRmaAllowed() ? '' : 'style="visibility:hidden"' ?>>
+
+                <img class="image"
+                     src="<?= $block->initImage($item, 'product_page_image_small')->resize(300)->getUrl() ?>"
+                     width="150px"/>
+
+                <b><?= $block->getOrderItemLabel($item) ?></b>
+            </div>
+
+            <?php if ($block->getQtyAvailable($item) == 0): ?>
+                <div class="item-options">
+                    <div class="message info">
+                        <span>
+                            <p><?= __('There are no items for this product that can be returned.') ?></p>
+                            <?php if ($another): ?>
+                                <p><?= __('Another RMA for this product: %1', $another) ?></p>
+                            <?php endif; ?>
+                        </span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($product->getRmaAllowed() == '0'): ?>
+                <div class="item-options">
+                    <div class="message info">
+                        <span>
+                            <p><?= __('This product can not be returned due to RMA Policy') ?></p>
+                        </span>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!$item->getIsRmaAllowed()): ?>
+                <div class="item-options">
+                    <div class="message info">
+                        <span><?= __('This is a non-returnable item per our return policy.') ?></span>
+                    </div>
+                </div>
+            <?php endif ?>
+
+            <div id="item<?= $item->getOrderItemId() ?>" class="item-options" style="display:none">
+                <fieldset class="fieldset">
+                    <div class="field required">
+                        <label class="label">
+                            <span><?= __('Quantity to return') ?></span>
+                        </label>
+
+                        <div class="control">
+                            <input name="items[<?= $item->getOrderItemId() ?>][qty_requested]"
+                                   id="qty_requested<?= $item->getOrderItemId() ?>"
+                                   class="input-text"
+                                   type="number"
+                                   min="0"
+                                   max="<?= $block->getQtyAvailable($item) ?>"
+                                   style="width:60px;text-align: center;"
+                                   value="<?= $block->getQtyAvailable($item) == 1 ? 1 : '' ?>"
+                                   data-validate="{'required-number':'true', 'validate-rma-quantity':'<?= $block->getQtyAvailable($item) ?>'}"
+                            >
+                            <span class="total-qty"
+                                  id="total-qty"> / <?= $block->getQtyAvailable($item) ?></span>
+                        </div>
+                    </div>
+
+                    <?php echo $block->getChildBlock('rma.new.step2.items.item.returnreasons')->setItem($item)->toHtml() ?>
+
+                </fieldset>
+
+                <?php if ($another): ?>
+                    <div class="message info">
+                        <span><?= __('Another RMA for this product: %1', $another) ?></span>
+                    </div>
+                <?php endif ?>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

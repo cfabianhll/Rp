@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="head"/>
+        <referenceContainer name="content">
+            <block name="rma.rma.create" class="Mirasvit\Rma\Block\Rma\Guest\Create" template="rma/new/step2.phtml"  cacheable="false">
+                <block name="rma.new.gift" class="Mirasvit\Rma\Block\Rma\Guest\NewGuest" template="rma/guest/gift.phtml"  cacheable="false"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

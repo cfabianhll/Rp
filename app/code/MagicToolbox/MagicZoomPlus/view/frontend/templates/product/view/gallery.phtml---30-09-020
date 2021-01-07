@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @var $block \MagicToolbox\MagicZoomPlus\Block\Product\View\Gallery
+ */
+
+$_product = $this->getProduct();
+ $manufacturerName = $_product->getAttributeText('manufacturer');
+ $manufacturerId = $_product->getManufacturer(); 
+ $manufacturerName= strtolower($manufacturerName);
+ 
+ $manufacturerName=str_replace(' ', '_',$manufacturerName);
+ $imgPath=$this->getViewFileUrl("images/{$manufacturerName}" );
+ if($manufacturerName) {
+ ?>
+ <div class="custom-brand-name">
+ <img class="img-responsive" src="<?php echo  $imgPath ?>.png" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
+</div>
+ <?php
+}
+echo $block->getRenderedHtml();

@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+$storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt()
+
+?>
+<?php
+/* <span data-action="toggle-nav" class="action nav-toggle"><span><?= $block->escapeHtml(__('Toggle Nav')) ?></span></span> */ 
+$url = $block->getUrl('');
+if($block->isHomePage()) :
+	$url = 'javascrip:void(0)';
+endif;
+?>
+<div class="filter_m hide_inmo" style="cursor: pointer;" onclick="nav2()"><i class="fa fa-bars" style="font-size: 22px;"></i><span class="newmenu">Menú</span></div>
+<a class="logo logo_section" href="<?= $block->getUrl('') ?>" title="<?= /* @escapeNotVerified */ $storeName ?>" aria-label="store logo">
+	<span class="gw-menu-text">
+		<img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
+             title="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             alt="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+             <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+        />
+	</span>
+</a>
+

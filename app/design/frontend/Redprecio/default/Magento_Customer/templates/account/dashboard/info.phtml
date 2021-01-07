@@ -1,0 +1,64 @@
+
+                  <div class="tab-content profile_tab_content" id="v-pills-tabContent">
+                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+                        <form action="<?= $block->escapeUrl($block->getUrl('customer/account/edit')) ?>">
+                           <div class="row">
+                              <div class="col-lg-8">
+                                 <div class="form-group">
+                                    <label><?php echo $block->escapeHtml(__('First Name')); ?></label>
+                                    <p class="form-control"><?= $block->escapeHtml($block->getCustomer()->getFirstName()) ?></p>
+                                 </div>
+                              </div>
+                           </div>
+
+                           <div class="row">
+                              <div class="col-lg-8">
+                                 <div class="form-group">
+                                    <label><?php echo $block->escapeHtml(__('Last Name')); ?></label>
+                                    <p class="form-control"><?= $block->escapeHtml($block->getCustomer()->getLastName()) ?></p>
+                                 </div>
+                              </div>
+                           </div>
+
+                           <div class="row">
+                              <div class="col-lg-8">
+                                 <div class="form-group">
+                                    <label><?php echo $block->escapeHtml(__('Email')); ?></label>
+                                    <p class="form-control"><?= $block->escapeHtml($block->getCustomer()->getEmail()) ?></p>
+                                 </div>
+                              </div>
+                           </div>
+                           
+                              <?php   
+                                 if($myCustomAttribute = ($block->getCustomer()->getCustomAttribute('contact'))) { ?>  
+                           <div class="row">
+                              <div class="col-lg-8">
+                                 <div class="form-group">
+                                  <label><?php echo $block->escapeHtml(__('Contact Number')); ?></label>
+                                  <p class="form-control"><?php echo $myCustomAttribute->getValue(); ?>
+                                    </p> 
+                                 </div>
+                              </div>
+                           </div>
+                              <?php  } ?>
+                              
+                           <?php $_gender = $block->getLayout()->createBlock(\Magento\Customer\Block\Widget\Gender::class) ?>
+                           <?php if ($block->getCustomer()->getGender()) : ?>
+                                          <?php if ($_gender->isEnabled()) : ?>
+                                           <?= $_gender->setGender($block->getCustomer()->getGender())->toHtml() ?>
+                                          <?php endif ?>
+                           <?php endif ?>
+
+
+                           <div class="row">
+                              <div class="col-12">
+                                 <button class="btn theme_btn mt-3"><i class="fas fa-pencil-alt pr-2"></i><?php echo $block->escapeHtml(__('Edit Profile')); ?></button>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+                   
+            
+          

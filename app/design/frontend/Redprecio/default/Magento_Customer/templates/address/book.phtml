@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Address\Book $block */
+?>
+                           <div class="tab-content profile_tab_content" id="v-pills-tabContent">
+                           <!-- address book-->
+                           <div class="tab-pane fade show active" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                      <form >
+                                         <div class="row">
+                                            <?php if ($_pAddsses = $block->getDefaultBilling()) : ?>
+                                            <div class="col-12 col-md-4">
+                                               <div class="address_place">
+                                                  <h6><?= $block->escapeHtml(__('Billing Address')) ?></h6>
+                                                  <div class ="address_book">
+                                                  <p><?= $block->getAddressHtml($block->getAddressById($_pAddsses)) ?></p></div>
+                                                  <p class="orderid_place"><u><a class="action edit red" href="<?= $block->escapeUrl($block->getAddressEditUrl($_pAddsses)) ?>"><?= $block->escapeHtml(__('Change Billing Address')) ?></a></u></p>
+                                               </div>
+
+                                            </div>
+                                             <?php else : ?>
+
+                                             <div class="col-12 col-md-4">
+                                               <div class="address_place">
+                                                  <h6><?= $block->escapeHtml(__('Billing Address')) ?></h6>
+                                                  <div class ="address_book">
+                                                  <p><?= $block->escapeHtml(__('You have no default billing address in your address book.')) ?></p></div>
+                                               </div>
+                                            </div>
+                                           <?php endif ?>
+
+                                           <?php if ($_pAddsses = $block->getDefaultShipping()) : ?>
+                                           <div class="col-12 col-md-4">
+                                               <div class="address_place">
+                                                  <h6><?= $block->escapeHtml(__('Shipping Address')) ?></h6>
+                                                  <div class ="address_book">
+                                                  <p><?= $block->getAddressHtml($block->getAddressById($_pAddsses)) ?></p></div>
+                                                  <p class="orderid_place"><u><a class="action edit chage " href="<?= $block->escapeUrl($block->getAddressEditUrl($_pAddsses)) ?>"><?= $block->escapeHtml(__('Change Shipping Address')) ?></a></u></p>
+                                               </div>
+                                            </div>
+                                            <?php else : ?>
+                                                <div class="col-12 col-md-4">
+                                               <div class="address_place">
+                                                  <h6><?= $block->escapeHtml(__('Shipping Address')) ?></h6>
+                                                  <p><?= $block->escapeHtml(__('You have no default shipping address in your address book.')) ?></p>   
+                                               </div>
+                                            </div>
+                                            <?php endif ?>
+                                         </div>
+                                      </form>
+                                  </div>
+                                </div>
+                                
+
+

@@ -1,0 +1,144 @@
+<?php
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Rma\Block\Adminhtml\Rma\Edit\Form $block */
+
+$rma = $block->getRma();
+/** @var \Magento\Framework\Data\Form $fieldForm */
+$fieldForm = $block->getFieldForm();
+?>
+
+<div class="mst-rma-edit-form">
+    <form id="edit_form" action="<?php echo $block->getUrl('*/*/save') ?>" method="post" enctype="multipart/form-data"
+          data-mage-init='{"rmaEdit": {}}' class="admin__scope-old">
+        <input name="form_key" value="<?= $block->getFormKey() ?>" type="hidden"/>
+        <input name="rma_id" id="rma_id" value="<?= $rma->getId() ?>" type="hidden">
+        <input name="order_id" value="<?= $rma->getOrderId() ?>" type="hidden">
+
+        <div class="mst-rma-block">
+            <div class="mst-rma-box _half">
+                <ul class="mst-rma-box__tabs">
+                    <li data-rel="general" class="_active"><?= __('General Information') ?></li>
+
+                    <?php if ($fieldForm): ?>
+                        <li data-rel="additional"><?= __('Additional Information') ?></li>
+                    <?php endif ?>
+                </ul>
+
+
+                <ul class="mst-rma-box__tabs-content">
+                    <div class="mst-rma-box__content _active" data-tab="general">
+                        <?= $block->getGeneralInfoFormHtml() ?>
+                    </div>
+
+                    <?php if ($fieldForm): ?>
+                        <div class="mst-rma-box__content" data-tab="additional">
+                            <?= $fieldForm->toHtml() ?>
+                        </div>
+                    <?php endif ?>
+                </ul>
+
+                <div data-bind="scope: 'returnAddress'">
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                    <script type="text/x-magento-init">
+                    {
+                        "*": {
+                            "Magento_Ui/js/core/app": {
+                                "components": {
+                                    "returnAddress": {
+                                        "component": "Mirasvit_Rma/js/return-address"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    </script>
+                </div>
+            </div>
+
+            <div class="mst-rma-box _half">
+                <div class="mst-rma-box__title"><?= __('Contact Information') ?></div>
+                <div class="mst-rma-box__content">
+                    <?= $block->getShippingAddressFormHtml() ?>
+                </div>
+            </div>
+        </div>
+
+        <?= $block->getItemsHtml() ?>
+
+        <?php if ($block->getExchangeNewAmount()): ?>
+            <div class="box-right">
+                <div class="entry-edit">
+                    <div class="entry-edit-head">
+                        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo __('Exchange/Credit Balance') ?></h4>
+
+                        <div class="form-buttons"></div>
+                    </div>
+                    <div class="fieldset " id="field_fieldset">
+                        <div class="hor-scroll">
+                            <table cellspacing="0" class="form-list">
+                                <tbody>
+                                <?php if ($block->getIsCreditEnabled()): ?>
+                                    <tr>
+                                        <td class="label"><label><?php echo __('Customer credit balance:') ?></label>
+                                        </td>
+                                        <td class="value">
+                                            <b><?php echo $block->getPricingHelper()->currency($block->getCreditAmount($rma), true, false); ?></b>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+                                <tr>
+                                    <td class="label"><label><?php echo __('Total price of new products:') ?></label>
+                                    </td>
+                                    <td class="value">
+                                        <b><?php echo $block->getPricingHelper()->currency($block->getExchangeNewAmount(), true, false); ?></b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">
+                                        <label><?php echo __('Total price of exchanged/credit products:') ?></label>
+                                    </td>
+                                    <td class="value">
+                                        <b><?php echo $block->getPricingHelper()->currency($block->getExchangeOldAmount(), true, false); ?></b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label"><label><?php echo __('Price difference:') ?></label></td>
+                                    <td class="value">
+                                        <b><?php echo $block->getPricingHelper()->currency($block->getExchangeDiffAmount(), true, false); ?></b>
+                                    </td>
+                                </tr>
+                                <?php if ($block->getExchangeDiffAmount() != 0 && $block->getIsCreditEnabled()): ?>
+                                    <tr>
+                                        <td class="label"><label><?php echo __('Resolution:') ?></label></td>
+                                        <td class="value">
+                                            <select name="exchange_credit">
+                                                <?php if ($block->getExchangeDiffAmount() > 0 && $block->getExchangeDiffAmount() < $block->getCreditAmount($rma)): ?>
+                                                    <option
+                                                            value="0"><?php echo __('Get %1 from customer credit balance', $block->getPricingHelper()->currency($block->getExchangeDiffAmount(), true, false)) ?></option>
+                                                <?php endif;
+                                                if ($block->getExchangeDiffAmount() < 0): ?>
+                                                    <option
+                                                            value="1"><?php echo __('Put %1 to customer credit balance', $block->getPricingHelper()->currency(abs($block->getExchangeDiffAmount()), true, false)) ?></option>
+                                                <?php endif; ?>
+                                                <option value="3"><?php echo __('Resolve manually') ?></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif ?>
+
+        <?php if ($rma->getId()) : ?>
+            <div class="rma-edit__row">
+                <?= $block->getHistoryHtml() ?>
+                <?= $block->getAddMessageHtml() ?>
+            </div>
+        <?php endif ?>
+</div>
+</form>
+</div>

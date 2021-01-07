@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AddNewWarehouse">
+        <arguments>
+            <argument name="amastyWarehouse"/>
+        </arguments>
+        <amOnPage url="{{AmastyMWIManageWarehousesPage.url}}" stepKey="openManageWarehousesPage"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+        <click selector="{{AmastyMWIManageWarehousesGridSection.addNewWarehouse}}" stepKey="clickAddNewWarehouse"/>
+        <waitForPageLoad time="40" stepKey="waitForPageLoad2"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.warehouseName}}" userInput="{{amastyWarehouse.title}}" stepKey="fillWarehouseName"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.warehouseCode}}" userInput="{{amastyWarehouse.code}}" stepKey="fillWarehouseCode"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.warehouseAddress}}" userInput="{{amastyWarehouse.address}}" stepKey="fillWarehouseAddress"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.warehouseCity}}" userInput="{{amastyWarehouse.city}}" stepKey="fillWarehouseCity"/>
+        <selectOption selector="{{AmastyMWIAddNewWarehouseSection.warehouseCountry}}" userInput="{{amastyWarehouse.country}}" stepKey="selectWarehouseCountry"/>
+        <selectOption selector="{{AmastyMWIAddNewWarehouseSection.warehouseState}}" userInput="{{amastyWarehouse.state}}" stepKey="selectWarehouseState"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.warehouseZip}}" userInput="{{amastyWarehouse.zip}}" stepKey="fillWarehouseZip"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.warehousePhone}}" userInput="{{amastyWarehouse.phone}}" stepKey="fillWarehousePhone"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.warehouseEmail}}" userInput="{{amastyWarehouse.email}}" stepKey="fillWarehouseEmail"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.warehouseDescription}}" userInput="{{amastyWarehouse.description}}" stepKey="fillWarehouseDescription"/>
+        <click selector="{{AmastyMWIAddNewWarehouseSection.SettingsTab}}" stepKey="openSettingsTab"/>
+        <selectOption selector="{{AmastyMWIAddNewWarehouseSection.warehouseStoreView}}" userInput="{{amastyWarehouse.storeView}}" stepKey="selectWarehouseStoreView"/>
+        <waitForPageLoad time="40" stepKey="waitForPageLoad3"/>
+        <click selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}" stepKey="openProductsInWarehouseTab"/>
+        <waitForPageLoad time="40" stepKey="waitForPageLoad4"/>
+        <scrollTo selector="{{AmastyMWIAddNewWarehouseSection.ProductsInWarehouseTab}}" stepKey="scroll"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad5"/>
+        <click selector="{{AmastyMWIAddNewWarehouseSection.resetFilterButton}}" stepKey="clickResetFilterButton"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad6"/>
+        <click selector="{{AmastyMWIAddNewWarehouseSection.columnId}}" stepKey="clickColumnId"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad7"/>
+        <checkOption selector="{{AmastyMWIAddNewWarehouseSection.checkProductId6FusionBackpack}}" stepKey="checkProductCheckbox"/>
+        <fillField selector="{{AmastyMWIAddNewWarehouseSection.checkedProductTotalQty2}}" userInput="{{amastyWarehouse.checkedProductTotalQty}}" stepKey="fillCheckedProductTotalQty2"/>
+        <click selector="{{AmastyMWIAddNewWarehouseSection.saveContinueNewWarehouse}}" stepKey="saveContinueNewWarehouse"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad8"/>
+        <see userInput="You saved the warehouse."  stepKey="SeeConfirmMessage"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad9"/>
+    </actionGroup>
+</actionGroups>

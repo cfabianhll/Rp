@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+       <add id="Amasty_MultiInventory::multi_inventory" title="Inventory" translate="title" module="Amasty_MultiInventory" sortOrder="30" parent="Magento_Catalog::catalog" dependsOnModule="Amasty_MultiInventory" resource="Amasty_MultiInventory::multi_inventory"/>
+        <add id="Amasty_MultiInventory::warehouses" title="Warehouses" dependsOnConfig="amasty_multi_inventory/stock/enabled_multi" translate="title" module="Amasty_MultiInventory" sortOrder="100" parent="Amasty_MultiInventory::multi_inventory" action="amasty_multi_inventory/warehouse" resource="Amasty_MultiInventory::warehouses"/>
+        <add id="Amasty_MultiInventory::stocks" title="Manage Stock" dependsOnConfig="amasty_multi_inventory/stock/enabled_multi" translate="title" module="Amasty_MultiInventory" sortOrder="110" parent="Amasty_MultiInventory::multi_inventory" action="amasty_multi_inventory/stock" resource="Amasty_MultiInventory::stocks"/>
+        <add id="Amasty_MultiInventory::import_stocks" title="Import Stock" dependsOnConfig="amasty_multi_inventory/stock/enabled_multi" translate="title" module="Amasty_MultiInventory" sortOrder="120" parent="Amasty_MultiInventory::multi_inventory" action="amasty_multi_inventory/import" resource="Amasty_MultiInventory::import_stocks"/>
+        <add id="Amasty_MultiInventory::export_stocks" title="Export History" translate="title" module="Amasty_MultiInventory" sortOrder="130" parent="Amasty_MultiInventory::multi_inventory" action="amasty_multi_inventory/export" resource="Amasty_MultiInventory::export_stocks"/>
+        <add id="Amasty_MultiInventory::report_warehouse_lowstock" title="Warehouses Low Stock" dependsOnConfig="amasty_multi_inventory/stock/enabled_multi" translate="title" module="Amasty_MultiInventory" sortOrder="31" parent="Magento_Reports::report_products" action="amasty_multi_inventory/report/lowstock" resource="Amasty_MultiInventory::lowstock"/>
+    </menu>
+</config>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+
+    <!--view2 MainWebsite-->
+    <entity name="storeView2" type="customStore">
+        <data key="name">view2</data>
+        <data key="code">view2</data>
+        <data key="is_active">1</data>
+        <data key="store_id">1</data>
+        <data key="store_action">add</data>
+        <data key="store_type">store</data>
+        <requiredEntity type="storeGroup">customStoreGroup</requiredEntity>
+    </entity>
+    <!--view3 Website2-->
+    <entity name="storeView3" type="customStore">
+        <data key="name">view3</data>
+        <data key="code">view3</data>
+        <data key="is_active">1</data>
+        <data key="store_id">2</data>
+        <data key="store_action">add</data>
+        <data key="store_type">store</data>
+    </entity>
+</entities>

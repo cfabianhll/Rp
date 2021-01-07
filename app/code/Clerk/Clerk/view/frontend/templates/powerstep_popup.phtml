@@ -1,0 +1,66 @@
+<?php
+/** @var \Clerk\Clerk\Block\PowerstepPopup $block */
+$categoryIds = $block->getProduct() ? $block->getProduct()->getCategoryIds() : [];
+?>
+<?php if ($block->shouldShow()) : ?>
+<div id="clerk_powerstep" class="clerk-popup">
+    <div class="clerk_powerstep_header">
+        <h2><?php echo $block->getHeaderText(); ?></h2>
+    </div>
+    <div class="clerk_powerstep_image">
+        <img src="<?php echo $block->getImageUrl(); ?>" alt="<?php echo $block->getHeaderText(); ?>">
+    </div>
+    <div class="clerk_powerstep_clear actions">
+        <button class="action primary clerk_powerstep_button clerk_powerstep_continue" onClick="location.href='<?php echo $block->getCartUrl(); ?>';"><?php echo __('Continue to Checkout'); ?></button>
+        <button class="action clerk_powerstep_button clerk_powerstep_close"><?php echo __('Continue Shopping'); ?></button>
+    </div>
+    <div class="clerk_powerstep_templates">
+    <?php
+    $Issetdataexclude = false;
+    $dataexcludestring = '';
+    $count = 0;
+    foreach ($block->getTemplates() as $template) :
+        $count++;
+        $id = 'clerk_'.$block->generateRandomString();
+    ?>
+        <span class="clerk"
+              id="<?php echo $id ?>"
+              <?php if($Issetdataexclude) {
+
+                  echo 'data-exclude-from="'.$dataexcludestring.'"';
+
+              } ?>
+              data-template="@<?php echo $block->escapeHtmlAttr($template); ?>"
+              data-products="[<?php echo $block->escapeHtmlAttr($block->getProduct()->getId()); ?>]"
+              data-category="<?php echo $block->escapeHtmlAttr(reset($categoryIds)); ?>"
+        ></span>
+    <?php
+
+        if ($count == 1) {
+
+            $dataexcludestring .= '#'.$id.':limit(4)';
+
+        }else {
+
+            $dataexcludestring .= ',#'.$id.':limit(4)';
+
+        }
+        $Issetdataexclude = true;
+
+    endforeach; ?>
+    </div>
+</div>
+<script>
+require(['jquery', 'clerk'], function($, Clerk) {
+    var popup = $("#clerk_powerstep");
+
+    $(".clerk_powerstep_close").on("click", function() {
+        popup.hide();
+    });
+
+    <?php if ($block->isAjax()) : ?>
+    popup.show();
+    <?php endif; ?>
+});
+</script>
+<?php endif; ?>

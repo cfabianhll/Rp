@@ -1,0 +1,13 @@
+th.col-available_qty, th.col-ship_qty {
+    width:5%;
+}
+
+th.col-in_warehouse {
+    width:8%;
+}
+td.col-in_warehouse .data-grid-checkbox-cell-inner {
+    text-align:center;
+}
+#amasty_multi_inventory_warehouse_grid .admin__data-grid-wrap {
+    overflow-x: inherit;
+}

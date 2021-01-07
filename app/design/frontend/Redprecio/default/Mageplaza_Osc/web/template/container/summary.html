@@ -1,0 +1,17 @@
+<div class="order-summary hoverable">
+	<div class="checkout_title">
+        <h4 class="wow fadeIn totle_tablr_header" data-bind="i18n: 'Your Order Summary'"></h4>
+    </div>    
+	<div class="opc-block-summary summry_section step-content promocode_div" data-bind="blockLoader: isLoading">
+		<!-- ko foreach: elems() -->
+			<!-- ko template: getTemplate() --><!-- /ko -->
+		<!-- /ko -->
+
+		<p class="d-none col-wide forgot-item" data-bind="style:{textAlign: 'right'}, visible: false">
+			<span>
+				<!-- ko i18n: 'Forgot an item?'--><!-- /ko -->
+				<a data-bind="attr: {href: window.checkout.shoppingCartUrl}, i18n: 'Edit your cart'"></a>
+			</span>
+		</p>
+	</div>
+</div>

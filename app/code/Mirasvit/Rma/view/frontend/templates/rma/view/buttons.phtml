@@ -1,0 +1,81 @@
+<?php
+/* @var $block \Mirasvit\Rma\Block\Rma\View\Buttons */
+$rma = $block->getRma();
+$rmaAdapter = $block->getRmaAdapter();
+?>
+
+<script>
+    require([
+        'jquery',
+        'jquery/ui'
+    ], function ($) {
+        'use strict';
+
+        $('[data-role=confirm-shipping]').on('click', function (e) {
+            e.preventDefault();
+
+            $('#rma-confirmation-form').dialog({
+                modal: true,
+                dialogClass: 'rma-confirm-shipping',
+                resizable: false
+            });
+        });
+    });
+</script>
+<div class="rma-control-buttons">
+    <?php if ($block->isShowShippingBlock()): ?>
+        <button onclick="var win = window.open('<?= $rmaAdapter->getGuestPrintUrl() ?>', '_blank');win.focus();">
+            <span><?= __('Print RMA Packing Slip') ?></span></button>
+        <?php if ($rmaAdapter->getReturnLabel()): ?>
+            <button onclick="var win = window.open('<?= $rmaAdapter->getGuestPrintLabelUrl() ?>', '_blank');win.focus();">
+                <span><?= __('Print RMA Shipping Label') ?></span>
+            </button>
+        <?php endif ?>
+        <?php if ($block->isRequireShippingConfirmation()): ?>
+            <button data-role="confirm-shipping" class="action primary">
+                <span><?= __('Confirm Shipping') ?></span></button>
+        <?php endif ?>
+    <?php endif ?>
+</div>
+
+<?php if ($block->isRequireShippingConfirmation()): ?>
+    <div id="rma-confirmation-form" style="display:none" class="rma-dialog"
+         title="<?php echo __("Confirm Shipping")?>">
+        <form action="<?= $rmaAdapter->getConfirmationUrl() ?>" method="POST" enctype="multipart/form-data"
+              id="rma-confirmation-form-validate">
+            <fieldset class="fieldset">
+                <div class="field">
+                    <div class="control">
+                        <p><?= $block->getShippingConfirmation() ?></p>
+                    </div>
+                </div>
+            </fieldset>
+            <?php $fields = $block->getShippingConfirmationFields(); ?>
+            <?php if (count($fields)): ?>
+                <fieldset class="fieldset">
+                    <?php foreach ($fields as $field): ?>
+                        <div class="field">
+                            <label for="<?= $field->getCode() ?>" class="label
+                                       <?php if ($field->getIsRequiredCustomer()): ?> required<?php endif ?>">
+                                <span><?= __($block->escapeHtml($field->getName())) ?></span>
+                            </label>
+
+                            <div class="control">
+                                <?= $block->getFieldInputHtml($field) ?>
+                                <p class="small"><?= $block->escapeHtml($field->getDescription()) ?></p>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </fieldset>
+            <?php endif; ?>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action primary" title="<?= __('Confirm Shipping') ?>">
+                        <span><?= __('Confirm Shipping') ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+<?php endif ?>
+<div class="rma-confirmation-form-overlay" id="rma-confirmation-form-overlay" style="display:none;">&nbsp;</div>
+

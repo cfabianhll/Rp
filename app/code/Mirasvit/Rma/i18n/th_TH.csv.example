@@ -1,0 +1,484 @@
+"Request RMA","ขอ RMA"
+"My Returns",ผลตอบแทนของฉัน
+Grid,ตะแกรง
+List,รายการ
+All,ทั้งหมด
+"Create RMA","สร้าง RMA"
+"Request New Return",ขอคืนใหม่
+"Max file size: %1Mb","ขนาดไฟล์สูงสุด: %1Mb"
+"New Return for Order #%1","การกลับมาใหม่สำหรับคำสั่งซื้อ #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","คำสั่งซื้อที่ไม่ถูกต้อง # อีเมลหรือนามสกุล"
+Items,รายการ
+"To apply changes you should fill in required ""%1"" field","หากต้องการใช้การเปลี่ยนแปลงคุณควรกรอกข้อมูลในช่อง &quot;%1&quot; ที่ต้องการ"
+"Please, add order items to the RMA (set 'Qty to Return')","โปรดเพิ่มรายการสั่งซื้อลงใน RMA (ชุด &#39;จำนวนที่จะส่งคืน&#39;)"
+"Please, set correct order items Quantity to return",โปรดตั้งค่ารายการสั่งซื้อที่ถูกต้องจำนวนที่จะส่งคืน
+"RMA was successfully created","RMA สร้างสำเร็จแล้ว"
+"Shipping is confirmed. Thank you!","การจัดส่งสินค้าได้รับการยืนยันแล้ว ขอขอบคุณ!"
+"Your message was successfully added",เพิ่มข้อความของคุณสำเร็จแล้ว
+"Allowed extensions:",ส่วนขยายที่อนุญาต:
+"Maximum size:",ขนาดสูงสุด:
+"-- Please Select --","-- โปรดเลือก --"
+" at %1 (%2)","ที่ %1 (%2)"
+"Mark as unresolved",ทำเครื่องหมายว่ายังไม่ได้แก้ไข
+"Mark as resolved",ทำเครื่องหมายว่าได้แก้ไขแล้ว
+"not set",ไม่ได้ตั้งค่า
+Pattern,แบบแผน
+"Attribute Value",ค่าแอตทริบิวต์
+Default,ค่าเริ่มต้น
+Integer,จำนวนเต็ม
+Price,ราคา
+"Strip Tags","แท็ก Strip"
+"Primary Attributes",แอตทริบิวต์หลัก
+"Stock Attributes",แอตทริบิวต์สต็อก
+"Prices & Taxes",ราคาและภาษี
+Images,ภาพ
+"Custom Attributes",แอตทริบิวต์ที่กำหนดเอง
+Mapping,การทำแผนที่
+Category,ประเภท
+"Amasty Meta Tags","แท็ก Amasty Meta"
+"Others Attributes","แอตทริบิวต์อื่น ๆ"
+Text,ข้อความ
+"Multi-line text",ข้อความหลายบรรทัด
+Date,วันที่
+Checkbox,ช่องทำเครื่องหมาย
+"Drop-down list",รายการแบบหล่นลง
+Reason,เหตุผล
+Condition,เงื่อนไข
+Resolution,มติ
+"RMA #","RMA #"
+"Order #","ใบสั่งซื้อ #"
+"Customer Email",อีเมลลูกค้า
+"Customer Name",ชื่อลูกค้า
+Owner,เจ้าของ
+"Last Replier",โฟลเดอร์สุดท้าย
+Status,สถานะ
+Store,เก็บ
+"Created At",สร้างที่
+"Last Activity",กิจกรรมล่าสุด
+"View link",ดูลิงก์
+"New RMA has been created","สร้าง RMA ใหม่แล้ว"
+"RMA has been changed","มีการเปลี่ยนแปลง RMA แล้ว"
+"New reply from customer",คำตอบใหม่จากลูกค้า
+"New reply from staff",คำตอบใหม่จากพนักงาน
+"-- Default Address --","- ที่อยู่เริ่มต้น -"
+"Update the Product",อัพเดตผลิตภัณฑ์
+"Conditions Combination",เงื่อนไขการรวมกัน
+"RMA Attribute","แอตทริบิวต์ RMA"
+"Last 7-days Clicks","คลิกล่าสุด 7 วัน"
+"Last 7-days Orders","คำสั่งซื้อ 7 วันล่าสุด"
+"Last 7-days Revenue","รายได้ล่าสุด 7 วัน"
+"Last 7-days Conversation Rate (%)","อัตราการสนทนา 7 วันล่าสุด (%)"
+"Attribute Set",ชุดแอตทริบิวต์
+Quantity,ปริมาณ
+"Product Type",ประเภทผลิตภัณฑ์
+"Base Image",ภาพฐาน
+Thumbnail,รูปขนาดย่อ
+"Small Image",รูปภาพขนาดเล็ก
+"Base Image Size (bytes)","ขนาดภาพฐาน (ไบต์)"
+"Thumbnail Size (bytes)","ขนาดย่อ (ไบต์)"
+"Small Image Size (bytes)","ขนาดรูปภาพขนาดเล็ก (ไบต์)"
+"PHP Condition","สภาพ PHP"
+"Open Chooser","เปิด Chooser"
+"Last message body",เนื้อหาข้อความล่าสุด
+"Updated At",อัปเดตที่
+"Status (before change)","สถานะ (ก่อนเปลี่ยน)"
+"Owner (before change)","เจ้าของ (ก่อนเปลี่ยน)"
+"Last Reply By",ตอบล่าสุดโดย
+"Hours since Created",ชั่วโมงนับตั้งแต่สร้าง
+"Hours since Updated",ชั่วโมงนับตั้งแต่อัปเดต
+"Hours since Last reply",จำนวนชั่วโมงนับตั้งแต่ตอบครั้งล่าสุด
+"Items have reason",รายการมีเหตุผล
+"Items have condition",รายการมีเงื่อนไข
+"Items have resolution",รายการมีความละเอียด
+"%1 (before change)","%1 (ก่อนเปลี่ยน)"
+Customer,ลูกค้า
+Staff,บุคลากร
+"- Disable these emails -","- ปิดใช้อีเมลเหล่านี้ -"
+Yes,ใช่
+No,ไม่
+Save,บันทึก
+"Save & Continue Edit",บันทึกและดำเนินการแก้ไขต่อ
+"Save & Close",บันทึกและปิด
+Edit,แก้ไข
+Delete,ลบ
+"Delete ""${ $.$data.name }""","ลบ "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","คุณแน่ใจหรือไม่ว่าจะไม่ลบระเบียน "${ $.$data.name }"?"
+"Are you sure you want to do this?",คุณแน่ใจหรือไม่ว่าต้องการทำเช่นนี้?
+"Convert To Ticket",แปลงเป็นตั๋ว
+"View order #${ $.$data.order_id }","ดูคำสั่งซื้อ #${ $.$data.order_id }"
+"View exchange order %1","ดูใบสั่งซื้อแบบแลกเปลี่ยน %1"
+"RMA: Report by Attribute","RMA: รายงานตามแอตทริบิวต์"
+"RMA: Report by Status","RMA: รายงานตามสถานะ"
+"RMA: Report by Product","RMA: รายงานตามผลิตภัณฑ์"
+"RMA: Report by Reasons","RMA: รายงานตามเหตุผล"
+"Cannot delete return address with id %1","ไม่สามารถลบที่อยู่ที่ส่งกลับได้ด้วยรหัส %1"
+"Cannot delete item with id %1","ไม่สามารถลบรายการที่มี ID %1"
+"Cannot delete condition with id %1","ไม่สามารถลบเงื่อนไขด้วย id %1"
+"Cannot delete field with id %1","ไม่สามารถลบฟิลด์ที่มี ID %1"
+"Cannot delete message with id %1","ไม่สามารถลบข้อความที่มี ID %1"
+"Cannot delete history with id %1","ไม่สามารถลบประวัติที่มี ID %1"
+"Cannot delete Quick Response with id %1","ไม่สามารถลบการตอบกลับด่วนด้วย ID %1"
+"Cannot delete reason with id %1","ไม่สามารถลบเหตุผลด้วย id %1"
+"Cannot delete resolution with id %1","ไม่สามารถลบความละเอียดด้วย id %1"
+"Cannot delete rma with id %1","ไม่สามารถลบ rma ด้วย id %1"
+"Cannot delete rule with id %1","ไม่สามารถลบกฎที่มี ID %1"
+"Cannot delete status with id %1","ไม่สามารถลบสถานะด้วย id %1"
+"Please, enter a message",โปรดป้อนข้อความ
+"Product Name",ชื่อผลิตภัณฑ์
+SKU,SKU
+Qty,จำนวน
+"This was a gift, please do not notify purchaser",นี่เป็นของขวัญโปรดอย่าแจ้งผู้ซื้อ
+"Enter your contact information",ป้อนข้อมูลติดต่อของคุณ
+"First Name",ชื่อจริง
+"Last Name",นามสกุล
+Email,อีเมล์
+Telephone,โทรศัพท์
+"To request a new RMA or check the status of current RMA, please, fill the form:","หากต้องการขอ RMA ใหม่หรือตรวจสอบสถานะของ RMA ปัจจุบันโปรดกรอกแบบฟอร์ม:"
+"* Required Fields","* ช่องที่ต้องเติม"
+"Order Information",ข้อมูลการสั่งซื้อ
+"Email or Last Name",อีเมลหรือนามสกุล
+Next,ต่อไป
+RMA,RMA
+Actions,การปฏิบัติ
+"View Return","ดู Return"
+"There are no Returns",ไม่มีการส่งคืน
+"Items %1 to %2 of %3 total","รายการ %1 ถึง %2 จากทั้งหมด %3"
+"%1 Item(s)","%1 รายการ"
+Show,แสดง
+"per page",ต่อหน้า
+"View as",ดูเป็น
+"Sort by",จัดเรียงตาม
+"Set Ascending Direction",ตั้งค่าตามลำดับมากไปน้อย
+"Set Descending Direction",ตั้งค่าตามลำดับมากขึ้น
+"Please, select an order",โปรดเลือกคำสั่งซื้อ
+Order,ใบสั่ง
+"-- Select an Order --","- เลือกคำสั่งซื้อ -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","คุณไม่มีคำสั่งซื้อที่สมบูรณ์เพื่อขอ RMA หรือคำสั่งซื้อของคุณถูกวางไว้มากกว่า %1 วันก่อน กรุณาติดต่อฝ่ายบริการลูกค้า"
+"Submit Request",ส่งคำขอ
+"Please, select RMA items which you would like to return.","โปรดเลือกรายการ RMA ที่คุณต้องการส่งคืน"
+"Additional Information",ข้อมูลเพิ่มเติม
+"Attach files",แนบไฟล์
+"Request Information",ขอข้อมูล
+"Email Address",ที่อยู่อีเมล
+"Order Shipping Address",สั่งซื้อที่อยู่จัดส่ง
+"Items in this order",รายการในใบสั่งซื้อนี้
+"There are no items for this product that can be returned.",ไม่มีสินค้าสำหรับสินค้านี้ที่สามารถส่งคืนได้
+"Another RMA for this product: %1","RMA อื่นสำหรับผลิตภัณฑ์นี้: %1"
+"This product can not be returned due to RMA Policy","ผลิตภัณฑ์นี้ไม่สามารถส่งคืนได้เนื่องจากนโยบาย RMA"
+"This is a non-returnable item per our return policy.",นี่เป็นรายการที่ไม่สามารถคืนได้ตามนโยบายการคืนสินค้าของเรา
+"Quantity to return",จำนวนที่จะส่งคืน
+"-- Select a Reason --","- เลือกเหตุผล -"
+"-- Select a Condition --","- เลือกเงื่อนไข -"
+"-- Select a Resolution --","- เลือกความละเอียด -"
+"I agree",ฉันเห็นด้วย
+"Date: %1","วันที่: %1"
+"Original order: #%1","ใบสั่งซื้อเดิม: #%1"
+"Return Address",ที่อยู่กลับ
+"Customer Information",ข้อมูลลูกค้า
+"RMA History","ประวัติ RMA"
+"RMA Items","รายการ RMA"
+Weight,น้ำหนัก
+"Print RMA Packing Slip","พิมพ์ใบปะหน้า RMA"
+"Print RMA Shipping Label","พิมพ์ฉลากการจัดส่ง RMA"
+"Confirm Shipping",ยืนยันการจัดส่ง
+"(This was a gift)",(นี่เป็นของขวัญ)
+"Date Requested",วันที่ที่ร้องขอ
+"Contact Information",ข้อมูลติดต่อ
+"Items RMA Requested for","รายการ RMA ที่ขอ"
+QTY,QTY
+"Add Message",เพิ่มข้อความ
+Submit,เสนอ
+%name,%ชื่อ
+"The quantity is incorrect.",ปริมาณไม่ถูกต้อง
+"New Return for Offline Order",การกลับมาใหม่สำหรับคำสั่งซื้อแบบออฟไลน์
+" at %1","ที่ %1"
+Select,เลือก
+"If you do not have account on this store please fill the form below.",หากคุณยังไม่มีบัญชีในร้านค้ากรุณากรอกแบบฟอร์มด้านล่าง
+"-- Create Offline Order --","- สร้างคำสั่งซื้อแบบออฟไลน์ -"
+"Returned Item",รายการที่ส่งคืนแล้ว
+"Remove Item",ลบรายการ
+"Order or Receipt #","ใบสั่งซื้อหรือใบเสร็จรับเงิน #"
+"Add Item",เพิ่มรายการ
+"Add at least one item to this RMA","เพิ่มอย่างน้อยหนึ่งรายการลงใน RMA นี้"
+"Return Addresses",ที่อยู่ผู้ส่ง
+"Add New Return Address",เพิ่มที่อยู่ผู้ส่งใหม่
+"General Information",ข้อมูลทั่วไป
+Title,หัวข้อ
+"Sort Order",เรียงลำดับ
+"Is Active",ใช้งานอยู่
+ID,ID
+Active,คล่องแคล่ว
+Disabled,พิการ
+Enabled,เปิดการใช้งาน
+"Change status",เปลี่ยนสถานะ
+"Are you sure?",คุณแน่ใจไหม?
+Conditions,เงื่อนไข
+"Add New Condition",เพิ่มเงื่อนไขใหม่
+"[STORE VIEW]",[มุมมองร้านค้า]
+"Create RMA for this customer","สร้าง RMA สำหรับลูกค้ารายนี้"
+Fields,ทุ่ง
+"Add New Field",เพิ่มเขตข้อมูลใหม่
+Code,รหัส
+Type,ชนิด
+Description,ลักษณะ
+"Options list",รายการตัวเลือก
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","สำหรับรายการแบบหล่นลงเท่านั้น <br> ป้อนค่าแต่ละค่าจากบรรทัดใหม่โดยใช้รูปแบบ: <br> ค่า 1 | Label1 <br> ค่า 2 | Label2"
+"Sort order",เรียงลำดับ
+"Is required for staff",เป็นสิ่งจำเป็นสำหรับพนักงาน
+"Is required for customers",เป็นสิ่งจำเป็นสำหรับลูกค้า
+"Visible for customers in statuses",ปรากฏให้ลูกค้าเห็นในสถานะ
+"Is show in confirm shipping dialog",แสดงในกล่องโต้ตอบการยืนยันการจัดส่ง
+"Is editable for customers",สามารถแก้ไขได้สำหรับลูกค้า
+Statuses,สถานะ
+Reasons,เหตุผล
+Resolutions,มติ
+"Custom Fields",ฟิลด์ที่กำหนดเอง
+"Quick Responses",การตอบสนองอย่างรวดเร็ว
+"Workflow Rules",กฎของเวิร์กโฟลว์
+Reports,รายงาน
+Settings,การตั้งค่า
+"Add New Reason",เพิ่มเหตุผลใหม่
+"Add New Resolution",เพิ่มความละเอียดใหม่
+"Add New RMA","เพิ่ม RMA ใหม่"
+"Create New RMA","สร้าง RMA ใหม่"
+"Purchased From (Store)","ซื้อจาก (ร้านค้า)"
+"Purchased On",ซื้อเมื่อ
+"Bill to Name",เรียกเก็บเงินเพื่อชื่อ
+"Ship to Name",จัดส่งไปที่ชื่อ
+"G.T. (Base)","GT (ฐาน)"
+"G.T. (Purchased)","GT (ซื้อแล้ว)"
+Print,พิมพ์
+"Credit Memo",ใบลดหนี้
+"Exchange Order",แลกเปลี่ยนคำสั่ง
+"Delete File",ลบไฟล์
+"RMA Owner","เจ้าของ RMA"
+"Upload Return Label",อัพโหลดป้ายกำกับการคืนสินค้า
+"External Link",การเชื่อมโยงภายนอก
+open,เปิด
+"(received a gift)",(ได้รับของขวัญ)
+"Exchage Order",แลกเปลี่ยนคำสั่ง
+Company,บริษัท
+"Street Address",ที่อยู่ถนน
+City,เมือง
+Zip/Postcode,"Zip / รหัสไปรษณีย์"
+Rules,กฎระเบียบ
+"Add New Rule",เพิ่มกฎใหม่
+"Set Status",กำหนดสถานะ
+"Set Owner",ตั้งเจ้าของ
+Event,เหตุการณ์
+Filters,ฟิลเตอร์
+"Rule Name",ชื่อกฎ
+Priority,ลำดับความสำคัญ
+"Arranged in the ascending order. 0 is the highest.","จัดเรียงตามลำดับจากน้อยไปหามาก 0 คือค่าสูงสุด"
+"Stop Further Rules Processing",หยุดการประมวลผลกฎเพิ่มเติม
+Notifications,การแจ้งเตือน
+"Send email to RMA owner","ส่งอีเมลไปยังเจ้าของ RMA"
+"Send email to customer",ส่งอีเมลถึงลูกค้า
+"Send email to other email addresses",ส่งอีเมลไปยังที่อยู่อีเมลอื่น
+"Email subject",หัวเรื่องของอีเมล
+"Email body",เนื้อความอีเมล
+"Attach files which were attached to the last message",แนบไฟล์ที่แนบมากับข้อความล่าสุด
+"Is Stop Processing",เป็นการหยุดการประมวลผล
+"Create RMA for this order","สร้าง RMA สำหรับคำสั่งซื้อนี้"
+"Order meets RMA policy","คำสั่งซื้อเป็นไปตามนโยบาย RMA"
+"Order doesn't meet RMA policy","คำสั่งซื้อไม่เป็นไปตามนโยบาย RMA"
+"Add New Status",เพิ่มสถานะใหม่
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","แสดงปุ่ม &#39;พิมพ์สลิปการบรรจุ RMA&#39;, &#39;พิมพ์ฉลากการจัดส่ง RMA&#39; และ &#39;ยืนยันการจัดส่ง&#39; ในบัญชีลูกค้า"
+"Email Notification for customer",แจ้งเตือนทางอีเมลสำหรับลูกค้า
+"leave blank to not send",เว้นว่างไว้เพื่อไม่ส่ง
+"Message for RMA history","ข้อความสำหรับประวัติ RMA"
+"Email Notification for administrator",อีเมลแจ้งเตือนสำหรับผู้ดูแลระบบ
+Templates,แม่แบบ
+"Add New Template",เพิ่มเทมเพลตใหม่
+"Internal Title",ชื่อเรื่องภายใน
+Template,แบบ
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","คุณสามารถใช้ตัวแปร: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_lastname], [user_emast]"
+Stores,ร้านค้า
+"RMA Return Address","ที่อยู่ผู้ส่งของ RMA"
+"New Return Address",ใหม่ที่อยู่ผู้ส่ง
+"Return Address Manager",ผู้จัดการที่อยู่ผู้ส่ง
+"Add Return Address ",เพิ่มที่อยู่ผู้ส่ง
+"Add Return Address",เพิ่มที่อยู่ผู้ส่ง
+"Return Address was successfully deleted",ลบที่อยู่ผู้ส่งสำเร็จแล้ว
+"Edit Return Address '%1'","แก้ไขที่อยู่ผู้ส่ง &#39;%1&#39;"
+"Edit Return Address ",แก้ไขที่อยู่ผู้ส่ง
+"The Return Address does not exist.",ไม่มีที่อยู่ผู้ส่ง
+"Please select Return Address(es)",โปรดเลือกที่อยู่ผู้ส่ง
+"Total of %d record(s) were successfully updated","อัปเดตทั้งหมด% d รายการแล้ว"
+"Total of %1 record(s) were successfully deleted","ลบบันทึกทั้งหมด %1 รายการเรียบร้อยแล้ว"
+"return Address was successfully saved",บันทึกที่อยู่ผู้ส่งคืนสำเร็จแล้ว
+"Unable to find Return Address to save",ไม่พบที่อยู่ผู้ส่งที่จะบันทึก
+"New Condition",เงื่อนไขใหม่
+"Condition  Manager",ผู้จัดการสภาพ
+"Condition Manager",ผู้จัดการสภาพ
+"Add Condition ",เพิ่มเงื่อนไข
+"Add Condition",เพิ่มเงื่อนไข
+"Condition was successfully deleted",ลบเงื่อนไขสำเร็จแล้ว
+"Edit Condition '%1'","แก้ไขเงื่อนไข &#39;%1&#39;"
+"Edit Condition ",แก้ไขเงื่อนไข
+"The Condition does not exist.",ไม่มีเงื่อนไข
+"Please select Condition(s)",กรุณาเลือกเงื่อนไข
+"Total of %d record(s) were successfully deleted","ลบทั้งหมด% d รายการแล้ว"
+"Condition was successfully saved",บันทึกเงื่อนไขสำเร็จแล้ว
+"Unable to find Condition to save",ไม่พบเงื่อนไขที่จะบันทึก
+"New Field",ใหม่
+"Field  Manager",ผู้จัดการสนาม
+"Field Manager",ผู้จัดการสนาม
+"Add Field ",เพิ่มฟิลด์
+"Add Field",เพิ่มฟิลด์
+"Field was successfully deleted",ลบฟิลด์สำเร็จแล้ว
+"Edit Field '%1'","แก้ไขฟิลด์ &#39;%1&#39;"
+"Edit Field ",แก้ไขฟิลด์
+"The Field does not exist.",ไม่มีฟิลด์
+"Please select Field(s)",กรุณาเลือกฟิลด์
+"Field was successfully saved",บันทึกฟิลด์สำเร็จแล้ว
+"Unable to find Field to save",ไม่พบฟิลด์ที่จะบันทึก
+"New Reason",เหตุผลใหม่
+"Reason  Manager",ผู้จัดการเหตุผล
+"Reason Manager",ผู้จัดการเหตุผล
+"Add Reason ",เพิ่มเหตุผล
+"Add Reason",เพิ่มเหตุผล
+"Reason was successfully deleted",ลบสาเหตุสำเร็จแล้ว
+"Edit Reason '%1'","แก้ไขเหตุผล &#39;%1&#39;"
+"Edit Reason ",แก้ไขเหตุผล
+"The Reason does not exist.",ไม่มีเหตุผล
+"Please select Reason(s)",กรุณาเลือกเหตุผล
+"Reason was successfully saved",บันทึกเหตุผลได้สำเร็จ
+"Unable to find Reason to save",ไม่พบเหตุผลในการบันทึก
+"Statistics was successfully updated",อัปเดตสถิติเรียบร้อยแล้ว
+"RMA by Brand","RMA ตามยี่ห้อ"
+"RMA Report","รายงาน RMA"
+"RMA by Product","RMA แยกตามผลิตภัณฑ์"
+Rma,RMA
+"New Resolution",ความละเอียดใหม่
+"Resolution  Manager",ผู้จัดการความละเอียด
+"Resolution Manager",ผู้จัดการความละเอียด
+"Add Resolution ",เพิ่มความละเอียด
+"Add Resolution",เพิ่มความละเอียด
+"Resolution was successfully deleted",ลบความละเอียดสำเร็จแล้ว
+"Edit Resolution '%1'","แก้ไขความละเอียด &#39;%1&#39;"
+"Edit Resolution ",แก้ไขความละเอียด
+"The Resolution does not exist.",ไม่มีความละเอียด
+"Please select Resolution(s)",กรุณาเลือกความละเอียด
+"Resolution was successfully saved",บันทึกความละเอียดสำเร็จแล้ว
+"Unable to find Resolution to save",ไม่พบความละเอียดที่จะบันทึก
+"New RMA","ใหม่ RMA"
+"RMA was successfully deleted","ลบ RMA สำเร็จแล้ว"
+"The rma does not exist.","Rma ไม่มีอยู่"
+"Marked as read",ทำเครื่องหมายว่าอ่านแล้ว
+"Marked as unread",ทำเครื่องหมายว่ายังไม่ได้อ่าน
+"Please select rma(s)","กรุณาเลือก rma"
+"A total of %1 record(s) have been deleted.","ลบข้อมูลทั้งหมด %1 รายการแล้ว"
+"RMA was successfully saved","บันทึก RMA สำเร็จแล้ว"
+"Unable to find rma to save","ไม่พบ rma ที่จะบันทึก"
+"New Rule",ใหม่กฎ
+"Rule  Manager",ผู้จัดการกฎ
+"Rule Manager",ผู้จัดการกฎ
+"Add Rule ",เพิ่มกฎ
+"Add Rule",เพิ่มกฎ
+"Rule was successfully deleted",ลบกฎสำเร็จแล้ว
+"Edit Rule '%1'","แก้ไขกฎ &#39;%1&#39;"
+"Edit Rule ",แก้ไขกฎ
+"The Rule does not exist.",ไม่มีกฎ
+"Please select Rule(s)",กรุณาเลือกกฎ
+"Rule was successfully saved",บันทึกกฎเรียบร้อยแล้ว
+"Unable to find Rule to save",ไม่พบกฎที่จะบันทึก
+"New Status",สถานะใหม่
+"Status  Manager",เครื่องมือจัดการสถานะ
+"Status Manager",เครื่องมือจัดการสถานะ
+"Add Status ",เพิ่มสถานะ
+"Add Status",เพิ่มสถานะ
+"Status was successfully deleted",ลบสถานะสำเร็จแล้ว
+"Edit Status '%1'","แก้ไขสถานะ &#39;%1&#39;"
+"Edit Status ",แก้ไขสถานะ
+"The Status does not exist.",สถานะไม่อยู่
+"Please select Status(s)",กรุณาเลือกสถานะ
+"Status was successfully saved",บันทึกสถานะสำเร็จแล้ว
+"Unable to find Status to save",ไม่พบสถานะที่จะบันทึก
+"New Template",เทมเพลตใหม่
+"Template  Manager",เครื่องมือจัดการเทมเพลต
+"Template Manager",เครื่องมือจัดการเทมเพลต
+"Add Template ",เพิ่มเทมเพลต
+"Add Template",เพิ่มเทมเพลต
+"Template was successfully deleted",ลบเทมเพลตสำเร็จแล้ว
+"Edit Template '%1'","แก้ไขเทมเพลต &#39;%1&#39;"
+"Edit Template ",แก้ไขเทมเพลต
+"The Template does not exist.",ไม่มีเทมเพลต
+"Please select Template(s)",กรุณาเลือกเทมเพลต
+"Template was successfully saved",บันทึกเทมเพลตสำเร็จแล้ว
+"Unable to find Template to save",ไม่พบเทมเพลตที่จะบันทึก
+"Created Date",วันที่สร้าง
+Action,การกระทำ
+View,ดู
+RMAs,RMAs
+"Select Order",เลือกคำสั่ง
+"Exchange/Credit Balance","แลกเปลี่ยน / เครดิตคงเหลือ"
+"Customer credit balance:",ยอดเครดิตของลูกค้า:
+"Total price of new products:",ราคารวมของผลิตภัณฑ์ใหม่:
+"Total price of exchanged/credit products:","ราคารวมของการแลกเปลี่ยน / ผลิตภัณฑ์เครดิต:"
+"Price difference:",ราคาที่แตกต่าง:
+Resolution:,ความละเอียด:
+"Get %1 from customer credit balance","รับ %1 จากยอดเครดิตลูกค้า"
+"Put %1 to customer credit balance","ใส่ %1 ลงในเครดิตบาลานซ์ของลูกค้า"
+"Resolve manually",แก้ไขด้วยตนเอง
+"Message Type",ประเภทข้อความ
+"Message to Customer",ข้อความถึงลูกค้า
+"Internal Note",ภายในหมายเหตุ
+"mark as unread",ทำเครื่องหมายว่ายังไม่ได้อ่าน
+"mark as read",ทำเครื่องหมายว่าอ่านแล้ว
+"You can not return more, than available. Please, try again.","คุณไม่สามารถส่งคืนได้มากกว่าที่มีอยู่ กรุณาลองอีกครั้ง."
+"show all order items",แสดงรายการสั่งซื้อทั้งหมด
+"Qty to Return",ปริมาณที่จะกลับมา
+"Reason to Return",เหตุผลที่กลับมา
+"Item Condition",สภาพสินค้า
+"(Bundled Product)",(ผลิตภัณฑ์ที่แถม)
+Stock,หุ้น
+Ordered,สั่งซื้อ
+Available,ที่มีจำหน่าย
+--,-
+"Insert Quick Response",แทรกคำตอบด่วน
+"Default status for new RMA","สถานะเริ่มต้นสำหรับ RMA ใหม่"
+"Default owner for new RMA","เจ้าของเริ่มต้นสำหรับ RMA ใหม่"
+"Ask customer to confirm shipping",ขอให้ลูกค้ายืนยันการจัดส่ง
+"Shipping confirmation text",ข้อความยืนยันการจัดส่ง
+"Enable option ""This was a gift""","เปิดใช้งานตัวเลือก &quot;นี่คือของขวัญ&quot;"
+"Enable integration with Help Desk","เปิดใช้งานการรวมกับ Help Desk"
+"Code of ""Brand"" attribute","รหัสของแอตทริบิวต์ &quot;ยี่ห้อ&quot;"
+"Allow upload only attachments with extensions",อนุญาตให้อัปโหลดเฉพาะไฟล์แนบที่มีนามสกุล
+"Limit of attachments size, Mb","ขีด จำกัด ของขนาดไฟล์แนบ, Mb"
+"Show Columns in RMA Grid","แสดงคอลัมน์ใน RMA Grid"
+"Show RMA section in Customer Account","แสดงส่วน RMA ในบัญชีลูกค้า"
+"Customers are required to select:",ลูกค้าจะต้องเลือก:
+"Allow to request RMA after order completion, days","อนุญาตให้ขอ RMA หลังจากเสร็จสิ้นการสั่งซื้อวัน"
+"Allow to request RMA if order has status","อนุญาตให้ขอ RMA หากคำสั่งซื้อมีสถานะ"
+"Ask to agree with RMA policy text","ขอให้เห็นด้วยกับข้อความนโยบาย RMA"
+"CMS block with RMA policy text","บล็อก CMS พร้อมข้อความนโยบาย RMA"
+"Number Format",รูปแบบตัวเลข
+"Start Counter From",เริ่มนับจาก
+"Counter Increment Step",ขั้นตอนการเพิ่มเคาน์เตอร์
+"Counter Length",ความยาวเคาน์เตอร์
+"Email Sender",ผู้ส่งอีเมล์
+"Template of Notification Email for Customer",เทมเพลตของอีเมลแจ้งเตือนสำหรับลูกค้า
+"Template of Notification Email for RMA Owner","เทมเพลตของอีเมลแจ้งเตือนสำหรับเจ้าของ RMA"
+"Template of Rule Notification",เทมเพลตของการแจ้งเตือนกฎ
+" Send blind carbon copy (BCC) of all emails to","ส่งสำเนาลับถึง (BCC) ของอีเมลทั้งหมดถึง"
+"At least one RMA item should have resolution ""Exchange"".","รายการ RMA อย่างน้อยหนึ่งรายการควรมีความละเอียด &quot;แลกเปลี่ยน&quot;"
+"Add another order",เพิ่มคำสั่งซื้ออื่น
+"Offline Order",สั่งซื้อออฟไลน์
+OR,หรือ
+"Select Offline Order",เลือกคำสั่งออฟไลน์

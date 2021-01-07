@@ -1,0 +1,285 @@
+Field,Field
+Import,Import
+"Import Settings","Import Settings"
+"Product Identifier","Product Identifier"
+"File Type","File Type"
+"Field separator","Field separator"
+"Export & Save the current stock file before import?","Export & Save the current stock file before import?"
+"File to Import","File to Import"
+"Select File to Import","Select File to Import"
+Back,Back
+Delete,Delete
+"Are you sure you want to do this?","Are you sure you want to do this?"
+Duplicate,Duplicate
+"Can't get warehouse","Can't get warehouse"
+"Save and Continue Edit","Save and Continue Edit"
+Save,Save
+"Low stock","Low stock"
+Refresh,Refresh
+"There are no assigned products yet. To add the stock to the warehouse click on the product and fill in the quantity.","There are no assigned products yet. To add the stock to the warehouse click on the product and fill in the quantity."
+ID,ID
+Name,Name
+SKU,SKU
+Price,Price
+"Total Qty","Total Qty"
+"Qty To Ship","Qty To Ship"
+"Available Qty","Available Qty"
+"Room & Shelf","Room & Shelf"
+"Stock Status","Stock Status"
+Backorders,Backorders
+Title,Title
+"Manage Product Stock","Manage Product Stock"
+"A total of %1 record(s) have been imported.","A total of %1 record(s) have been imported."
+"You deleted the export file.","You deleted the export file."
+"We can't find a export to delete.","We can't find a export to delete."
+Inventory,Inventory
+Export,Export
+Manage,Manage
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+Grid,Grid
+"Select the Items to Import and choose action","Select the Items to Import and choose action"
+"Import Stock","Import Stock"
+"The back up has been created successfully. The exported file can be found here: %1","The back up has been created successfully. The exported file can be found here: %1"
+"The import file has been uploaded successfully. Please click ""Import"" to continue import.","The import file has been uploaded successfully. Please click ""Import"" to continue import."
+Warehouses,Warehouses
+"Low Stock","Low Stock"
+Stock,Stock
+"Manage Stock","Manage Stock"
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the stock.","Something went wrong while saving the stock."
+"You deleted the warehouse.","You deleted the warehouse."
+"We can't delete a warehouse","We can't delete a warehouse"
+"We can't find a warehouse to delete.","We can't find a warehouse to delete."
+"You duplicated the warehouse.","You duplicated the warehouse."
+"This warehouse no longer exists.","This warehouse no longer exists."
+"You can't edit the warehouse.","You can't edit the warehouse."
+"Edit Warehouse","Edit Warehouse"
+"New Warehouse","New Warehouse"
+Warehouse,Warehouse
+"Manage Warehouses","Manage Warehouses"
+"This warehouse code already exists.","This warehouse code already exists."
+"You saved the warehouse.","You saved the warehouse."
+"Something went wrong while saving the warehouse.","Something went wrong while saving the warehouse."
+"Make sure your file isn't more than %1 MB.","Make sure your file isn't more than %1 MB."
+"We can't provide the upload settings right now.","We can't provide the upload settings right now."
+"Location was not detected.","Location was not detected."
+error_message,error_message
+"Invalid request. Missing the address parameter.","Invalid request. Missing the address parameter."
+"Availability first","Availability first"
+"Backorders first","Backorders first"
+"Product value","Product value"
+"Warehouse value","Warehouse value"
+"Order Shipment","Order Shipment"
+"Order Creation","Order Creation"
+"Invoice Creation","Invoice Creation"
+"Response from Google is empty.","Response from Google is empty."
+"Export with id %1 does not exist.","Export with id %1 does not exist."
+"Could not delete the Export: %1","Could not delete the Export: %1"
+CSV,CSV
+XML,XML
+"Excel XML","Excel XML"
+"We can't rebuild the index for an undefined product.","We can't rebuild the index for an undefined product."
+"Could not rebuild index for empty products array","Could not rebuild index for empty products array"
+"We found an invalid request for adding product to quote.","We found an invalid request for adding product to quote."
+"We found an invalid product for adding product to quote.","We found an invalid product for adding product to quote."
+"Warehouse Customer Group with id ""%1"" does not exist.","Warehouse Customer Group with id ""%1"" does not exist."
+"Could not delete the warehouse customer group: %1","Could not delete the warehouse customer group: %1"
+"Warehouse Import with id ""%1"" does not exist.","Warehouse Import with id ""%1"" does not exist."
+"Could not delete the warehouse import: %1","Could not delete the warehouse import: %1"
+"This product is out of stock.","This product is out of stock."
+"Some of the products are out of stock.","Some of the products are out of stock."
+"We don't have as many ""%1"" as you requested, but we'll back order the remaining %2.","We don't have as many ""%1"" as you requested, but we'll back order the remaining %2."
+"We don't have as many ""%1"" as you requested.","We don't have as many ""%1"" as you requested."
+"Warehouse Store with id ""%1"" does not exist.","Warehouse Store with id ""%1"" does not exist."
+"Could not delete the warehouse store: %1","Could not delete the warehouse store: %1"
+"Warehouse Order Item with id ""%1"" does not exist.","Warehouse Order Item with id ""%1"" does not exist."
+"Warehouse Quote Item with id ""%1"" does not exist.","Warehouse Quote Item with id ""%1"" does not exist."
+"Shipping Method with id ""%1"" does not exist.","Shipping Method with id ""%1"" does not exist."
+"Could not delete the warehouse shipping %1","Could not delete the warehouse shipping %1"
+No,No
+Yes,Yes
+"Warehouse with id ""%1"" does not exist.","Warehouse with id ""%1"" does not exist."
+"Warehouse with code ""%1"" does not exist.","Warehouse with code ""%1"" does not exist."
+"Could not delete the warehouse: %1","Could not delete the warehouse: %1"
+"We can't update the order for warehouse now.","We can't update the order for warehouse now."
+"Export Inventory to ","Export Inventory to "
+"Export not work.","Export not work."
+"The ""Return Credit Memo Item to Stock"" setting is disabled. The returned item(s) do not affect the stock.","The ""Return Credit Memo Item to Stock"" setting is disabled. The returned item(s) do not affect the stock."
+"The returned item(s) affected the product quantity in the appropriate Warehouse %1.","The returned item(s) affected the product quantity in the appropriate Warehouse %1."
+"Use Config Settings","Use Config Settings"
+title,title
+"Not groups","Not groups"
+"All Customer Groups","All Customer Groups"
+Download,Download
+"Delete ""${ $.$data.title }""","Delete ""${ $.$data.title }"""
+"Are you sure you want to delete a ""${ $.$data.file }"" record?","Are you sure you want to delete a ""${ $.$data.file }"" record?"
+"All Store Views","All Store Views"
+Edit,Edit
+"Duplicate ""${ $.$data.title }""","Duplicate ""${ $.$data.title }"""
+"Are you sure you want to duplicate a ""${ $.$data.title }"" record?","Are you sure you want to duplicate a ""${ $.$data.title }"" record?"
+"Are you sure you want to delete a ""${ $.$data.title }"" record?","Are you sure you want to delete a ""${ $.$data.title }"" record?"
+"This field is disabled because of Multiple Stock Locations enabled. Please manage the product qty in the Warehouses section below or from Products>Inventory>Manage Stock","This field is disabled because of Multiple Stock Locations enabled. Please manage the product qty in the Warehouses section below or from Products>Inventory>Manage Stock"
+"This field is disabled because of Multiple Stock Locations enabled. Please manage the product stock in the Warehouses section","This field is disabled because of Multiple Stock Locations enabled. Please manage the product stock in the Warehouses section"
+"Select Warehouse","Select Warehouse"
+"records found","records found"
+selected,selected
+"per page","per page"
+"Previous page","Previous page"
+"of %1","of %1"
+"Next page","Next page"
+Criteria,Criteria
+Active,Active
+"Sort Option","Sort Option"
+"Export to:","Export to:"
+"Your order number is: %1.","Your order number is: %1."
+"Your order # is: <span>%1</span>.","Your order # is: <span>%1</span>."
+"We'll email you an order confirmation with details and tracking info.","We'll email you an order confirmation with details and tracking info."
+"Continue Shopping","Continue Shopping"
+Items,Items
+Qty,Qty
+"Gift Message for this Order","Gift Message for this Order"
+From:,From:
+To:,To:
+Message:,Message:
+"Gift Message","Gift Message"
+"Low stock for %product_name notification","Low stock for %product_name notification"
+"Hello,","Hello,"
+"This is an automatic notification about the low stock of the %product_name.","This is an automatic notification about the low stock of the %product_name."
+"Thank you!","Thank you!"
+"A new order #%increment_id notification","A new order #%increment_id notification"
+"This is an automatic notification about a new order placed on %store_name.","This is an automatic notification about a new order placed on %store_name."
+"Order #: <span class=""no-link"">%increment_id</span>","Order #: <span class=""no-link"">%increment_id</span>"
+"Order date: <span class=""no-link"">%created_at</span>","Order date: <span class=""no-link"">%created_at</span>"
+"Shipping Method","Shipping Method"
+"Thank you","Thank you"
+"File Name","File Name"
+"Invalid file format. Wrong column names. Please recheck the column headings","Invalid file format. Wrong column names. Please recheck the column headings"
+"Invalid file format. Wrong columns number. Please recheck the columns number","Invalid file format. Wrong columns number. Please recheck the columns number"
+"Record is not valid ","Record is not valid "
+"Invalid file data. There are duplicates, i.e. two or more lines with the same product and warehouse ","Invalid file data. There are duplicates, i.e. two or more lines with the same product and warehouse "
+"File is empty","File is empty"
+" product(s) stock will be updated. Please click ""To grid"" to finalize import."," product(s) stock will be updated. Please click ""To grid"" to finalize import."
+" product(s) will be ignored"," product(s) will be ignored"
+"We could not detect a size.","We could not detect a size."
+"Export Stock","Export Stock"
+"Export History","Export History"
+"Warehouses Low Stock","Warehouses Low Stock"
+"Multi Warehouse Inventory","Multi Warehouse Inventory"
+"Stock Settings","Stock Settings"
+"Multiple Stock Locations","Multiple Stock Locations"
+"Please enable to manage the product stock per warehouse. If disabled, the product stock is managed natively","Please enable to manage the product stock per warehouse. If disabled, the product stock is managed natively"
+"<b>Physical stock</b>: Current Stock in the warehouse<br/>
+                        <b>Quantity to ship</b>: Stock quantity booked for ordered products to be dispatched<br/>
+                        <b>Available Quantity</b>: Stock Quantity in the warehouse available for sale<br/>
+                        <b>Physical Stock</b> = <b>Available Quantity</b> + <b>Quantity to ship</b>","<b>Physical stock</b>: Current Stock in the warehouse<br/>
+                        <b>Quantity to ship</b>: Stock quantity booked for ordered products to be dispatched<br/>
+                        <b>Available Quantity</b>: Stock Quantity in the warehouse available for sale<br/>
+                        <b>Physical Stock</b> = <b>Available Quantity</b> + <b>Quantity to ship</b>"
+"Calculate the shipping cost based on warehouse location","Calculate the shipping cost based on warehouse location"
+"If the option is enabled, the address of a warehouse is considered as a pick-up address for the shipping service provider. Shipping rate to be calculated accordingly.","If the option is enabled, the address of a warehouse is considered as a pick-up address for the shipping service provider. Shipping rate to be calculated accordingly."
+"1. If the option is enabled, the address of a warehouse is considered as a pick-up address for the shipping service provider. Shipping rate to be calculated accordingly.<br/>
+                        2. If the option is disabled or when ordered product is not assigned to a warehouse, the store address is considered as a pick-up address for the shipping service provider. The shipping rate is to be calculated accordingly.<br/>
+                        3. When ordered products are assigned to multiple warehouses, multiple orders may be created depending on the appropriate setting. Otherwise, one order is created and the shipping rates are calculated separately for each warehouse and summarized<br/>","1. If the option is enabled, the address of a warehouse is considered as a pick-up address for the shipping service provider. Shipping rate to be calculated accordingly.<br/>
+                        2. If the option is disabled or when ordered product is not assigned to a warehouse, the store address is considered as a pick-up address for the shipping service provider. The shipping rate is to be calculated accordingly.<br/>
+                        3. When ordered products are assigned to multiple warehouses, multiple orders may be created depending on the appropriate setting. Otherwise, one order is created and the shipping rates are calculated separately for each warehouse and summarized<br/>"
+"Separate Orders for Products from different WH","Separate Orders for Products from different WH"
+"<b>Please note, that we can guarantee proper work of Separating Orders option only if offline payments methods are used.</b>","<b>Please note, that we can guarantee proper work of Separating Orders option only if offline payments methods are used.</b>"
+"Decrease Available Stock When Order is Placed","Decrease Available Stock When Order is Placed"
+"Decrease Stock Quantity available for sale if order is placed","Decrease Stock Quantity available for sale if order is placed"
+"<b>Available Stock</b> = <b>Physical stock</b> (are identical) when <b>Decrease Available Stock When Order is placed</b>: No","<b>Available Stock</b> = <b>Physical stock</b> (are identical) when <b>Decrease Available Stock When Order is placed</b>: No"
+"Decrease Physical Stock during","Decrease Physical Stock during"
+"Decrease Physical Stock Quantity","Decrease Physical Stock Quantity"
+"<b>Available Stock</b> = <b>Physical stock</b> (are identical) when <b>Decrease Physical Stock during</b>: Order Creation","<b>Available Stock</b> = <b>Physical stock</b> (are identical) when <b>Decrease Physical Stock during</b>: Order Creation"
+"Сhoose warehouse based on store view only","Сhoose warehouse based on store view only"
+"If 'Yes' is selected then current store view warehouse stock is used only. All other warehouses and criteria is ignored.","If 'Yes' is selected then current store view warehouse stock is used only. All other warehouses and criteria is ignored."
+"Please, notice that when this option is enabled, you won't be able to create more than 1 warehouse per store view.","Please, notice that when this option is enabled, you won't be able to create more than 1 warehouse per store view."
+"Choose Warehouse based on","Choose Warehouse based on"
+"Use the drag & drop option to reorder criteria according which a warehouse(s) for products assigned to multiple storages will be determined","Use the drag & drop option to reorder criteria according which a warehouse(s) for products assigned to multiple storages will be determined"
+"<br/>
+<b>Customer Group:</b> The warehouse assigned to the Customer Group is selected.<br/>
+<b>Nearest warehouse:</b> The warehouse nearest to customer address (uses the Google API) is selected.<br/>
+<b>Store view:</b> The warehouse assigned to the store view the order placed from is selected.<br/>
+<b>Warehouse priority:</b> The warehouse with the highest priority (1 is the highest) is selected.<br/>
+<b>How it works:</b><br/>
+    &nbsp;&nbsp;1.The extension starts searching for a warehouse by the first criteria. It moves to the next criteria if no warehouse matches the first one.<br/>
+    &nbsp;&nbsp;2.If more than one warehouse is found, the next criteria will be used. And so on until a single warehouse is determined.<br/>
+    &nbsp;&nbsp;3.If in the selected warehouse the product quantity is not enough for the order, the items from the next warehouse will be taken.<br/>
+    &nbsp;&nbsp;4.If more than one warehouse is found after all searches, the warehouse with the highest stock level will be used.<br/>
+    &nbsp;&nbsp;5.In case all search criteria are inactive, the warehouse with the highest stock level will be used.<br/>
+    &nbsp;&nbsp;6.If the ordered item is not assigned to any warehouse, the Total (default) Stock will be chosen.","<br/>
+<b>Customer Group:</b> The warehouse assigned to the Customer Group is selected.<br/>
+<b>Nearest warehouse:</b> The warehouse nearest to customer address (uses the Google API) is selected.<br/>
+<b>Store view:</b> The warehouse assigned to the store view the order placed from is selected.<br/>
+<b>Warehouse priority:</b> The warehouse with the highest priority (1 is the highest) is selected.<br/>
+<b>How it works:</b><br/>
+    &nbsp;&nbsp;1.The extension starts searching for a warehouse by the first criteria. It moves to the next criteria if no warehouse matches the first one.<br/>
+    &nbsp;&nbsp;2.If more than one warehouse is found, the next criteria will be used. And so on until a single warehouse is determined.<br/>
+    &nbsp;&nbsp;3.If in the selected warehouse the product quantity is not enough for the order, the items from the next warehouse will be taken.<br/>
+    &nbsp;&nbsp;4.If more than one warehouse is found after all searches, the warehouse with the highest stock level will be used.<br/>
+    &nbsp;&nbsp;5.In case all search criteria are inactive, the warehouse with the highest stock level will be used.<br/>
+    &nbsp;&nbsp;6.If the ordered item is not assigned to any warehouse, the Total (default) Stock will be chosen."
+"Use Google Maps for Warehouse Location","Use Google Maps for Warehouse Location"
+"Method to find nearest warehouse","Method to find nearest warehouse"
+"The Google Maps provide the most accurate warehouse location and correct distance calculation but increase the number of requests to Google servers. If you choose 'No', the coordinates will be used. It reduces the number of requests but simplifies distances calculation to the straight lines between the two locations.","The Google Maps provide the most accurate warehouse location and correct distance calculation but increase the number of requests to Google servers. If you choose 'No', the coordinates will be used. It reduces the number of requests but simplifies distances calculation to the straight lines between the two locations."
+"Return Credit Memo Item to Stock","Return Credit Memo Item to Stock"
+"If the option is enabled, the returned items will affect the general product quantity and will be automatically added to the appropriate warehouse","If the option is enabled, the returned items will affect the general product quantity and will be automatically added to the appropriate warehouse"
+"Low stock Quantity","Low stock Quantity"
+"Please specify the quantity value for the 'Low Stock'. All products with the stock level less or equal to the specified value will be considered as 'Low stock'","Please specify the quantity value for the 'Low Stock'. All products with the stock level less or equal to the specified value will be considered as 'Low stock'"
+"Backorders configuration","Backorders configuration"
+"This option defines the value to use for the ""Use Config Settings"" field. By default each product utilizes the ""Use Config Settings"" value for backorders. You can check and modify this options here: Products > Product Edit > Warehouses > Backorders Column.","This option defines the value to use for the ""Use Config Settings"" field. By default each product utilizes the ""Use Config Settings"" value for backorders. You can check and modify this options here: Products > Product Edit > Warehouses > Backorders Column."
+"<b>Product Value</b> — choose this option to use backorders value from the product's Advanced Inventory for ""Use Config Settings"". You can modify it here: Products > Product Edit > Advanced Inventory > ""Backorders"" DropDown.<br/>
+                        <b>Warehouse Value</b> — using this option the global backorder variable will be used for each particular warehouse. You can configure it here: Products > Warehouses > Edit Warehouse > ""Backorders"" DropDown.<br/><br/>
+                        Regardless of the selected value you can change the backorders settings for each particular product by setting the desired parameter instead of ""Use Config Settings"". You can select from: No Backorders; Allow Qty Below 0; Allow Qty Below 0 and Notify Customers.","<b>Product Value</b> — choose this option to use backorders value from the product's Advanced Inventory for ""Use Config Settings"". You can modify it here: Products > Product Edit > Advanced Inventory > ""Backorders"" DropDown.<br/>
+                        <b>Warehouse Value</b> — using this option the global backorder variable will be used for each particular warehouse. You can configure it here: Products > Warehouses > Edit Warehouse > ""Backorders"" DropDown.<br/><br/>
+                        Regardless of the selected value you can change the backorders settings for each particular product by setting the desired parameter instead of ""Use Config Settings"". You can select from: No Backorders; Allow Qty Below 0; Allow Qty Below 0 and Notify Customers."
+"Backorders Algorithm for ordering products","Backorders Algorithm for ordering products"
+"The option allows you to define the backorders algorithm for ordered products","The option allows you to define the backorders algorithm for ordered products"
+"<b>Backorders first</b> — choose this option to use backorders and avoid selling products that are available in other warehouses.<br/>
+                        <b>Availability first</b> — choose this option to use backorders only when the product is not available in all warehouses.","<b>Backorders first</b> — choose this option to use backorders and avoid selling products that are available in other warehouses.<br/>
+                        <b>Availability first</b> — choose this option to use backorders only when the product is not available in all warehouses."
+"General Settings","General Settings"
+"Enable Log file","Enable Log file"
+"All stock adjustments are logged in var/log/inventory-yy-mm-dd.log","All stock adjustments are logged in var/log/inventory-yy-mm-dd.log"
+"Google Address Suggestion","Google Address Suggestion"
+"Enable the Warehouse address auto complete while typing, using geolocation Google technology","Enable the Warehouse address auto complete while typing, using geolocation Google technology"
+"Google API","Google API"
+"Click <a href=""https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform"" target=""_blank"">here</a> to get an API key. Required for Shipping from the warehouse closest to customer's area","Click <a href=""https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform"" target=""_blank"">here</a> to get an API key. Required for Shipping from the warehouse closest to customer's area"
+"Warehouse stocks","Warehouse stocks"
+Product,Product
+"Stock Quantity","Stock Quantity"
+"Delete items","Delete items"
+"Are you sure you want to delete selected items?","Are you sure you want to delete selected items?"
+File,File
+"Create Time","Create Time"
+Created,Created
+"Complete Import","Complete Import"
+"Back up & Complete Import","Back up & Complete Import"
+"New Qty","New Qty"
+...,...
+Status,Status
+"General Information","General Information"
+"Warehouse Name","Warehouse Name"
+"Warehouse Code","Warehouse Code"
+Address,Address
+City,City
+Country,Country
+State,State
+"Zip/Postal code","Zip/Postal code"
+Phone,Phone
+"Email Address","Email Address"
+Description,Description
+Settings,Settings
+"Store View","Store View"
+"Customer Groups","Customer Groups"
+"Warehouse Priority","Warehouse Priority"
+"Order Email Notification","Order Email Notification"
+"Low Stock Notification","Low Stock Notification"
+"Products in Warehouse","Products in Warehouse"
+"Shipping methods and rates","Shipping methods and rates"
+"Use custom shipping rates","Use custom shipping rates"
+Shippings,Shippings
+"Add New Warehouse","Add New Warehouse"
+"Total Sku","Total Sku"
+"Qty to Ship","Qty to Ship"
+Email,Email
+Priority,Priority

@@ -1,0 +1,39 @@
+<div id="payment" role="presentation" class="checkout-payment-method">
+    <div class="checkout_title">
+        <h4 class="wow fadeIn" data-bind="i18n: 'Payment Methods'"></h4>
+    </div>    
+    <div id="checkout-step-payment"
+         class="payment_list wow fadeIn step-content col-mp mp-12"
+         data-role="content"
+         role="tabpanel"
+         aria-hidden="false"
+         data-bind="blockLoader: isLoading">
+
+        <form id="co-payment-form" class="form payments" novalidate="novalidate">
+            <input data-bind='attr: {value: getFormKey()}' type="hidden" name="form_key"/>
+            <div class="">                
+                <!-- ko foreach: getRegion('beforeMethods') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+                <ul id="checkout-payment-method-load" class="opc-payment" data-bind="visible: isPaymentMethodsAvailable">
+                    <!-- ko foreach: getRegion('payment-methods-list') -->
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                    <!-- /ko -->
+                </ul>
+                <div class="no-quotes-block" data-bind="visible: isPaymentMethodsAvailable() == false">
+                    <!-- ko i18n: 'No Payment method available.'--><!-- /ko -->
+                </div>
+                <!-- ko if: errorValidationMessage().length > 0 -->
+                <div class="message notice">
+                    <span><!-- ko i18n: errorValidationMessage()--><!-- /ko --></span>
+                </div>
+                <!-- /ko -->
+            </div>
+        </form>
+        <div class="osc-payment-after-methods">
+            <!-- ko foreach: getRegion('afterMethods') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Account\AuthorizationLink $block */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+//$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+$customerSession = $objectManager->get('Magento\Customer\Block\Account\Customer');
+$dataPostParam = '';
+if ($block->isLoggedIn()) {
+    $dataPostParam = sprintf(" data-post='%s'", $block->getPostParams());
+}
+?>
+
+<div class="account_div dropdown show">
+	<a class="btn dropdown-toggle theme_dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span>
+			<img src="<?php echo $block->getViewFileUrl('images/user.png'); ?> " class="header_icons_im">
+		</span>
+		<?php if($customerSession->customerLoggedIn()) :?>
+			<p><span data-bind="scope: 'customer'" class="login_btn"><span data-bind="text: customer().firstname"></span></span><?= $block->escapeHtml(__('My Account')) ?>
+			</p>
+				<?php else :?>
+				<p>
+					<span class="login_btn">Login</span><?= $block->escapeHtml(__('My Account')) ?>
+				</p>
+					
+		<?php endif; ?>
+	</a>
+	<?php if($block->isLoggedIn() == 1): ?>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/'; ?>"><?= $block->escapeHtml(__('My Account')) ?></a>
+			<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'wishlist/'; ?>">My Wishlist</a>
+			<a class="dropdown-item" href="#">Gift Card</a>
+			<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/logout'; ?>">Logout</a>
+		</div>
+	<?php else: ?>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+				<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/login'; ?>">Login</a>
+				<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/create'; ?>">Sign Up</a>
+			</div>
+	<?php endif; ?>
+</div>
+<div class="account_div dropdown show">
+	<a href="<?php echo $block->getBaseUrl().'amlocator'; ?>" class="btn dropdown-toggle theme_dropdown" >	
+	 <!-- <a class="btn dropdown-toggle theme_dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+		<span>
+			<img src="<?php echo $block->getViewFileUrl('images/hd_location.png'); ?> " class="header_icons_im">
+		</span>
+		<p>
+		<span class="login_btn"><?= $block->escapeHtml(__('Locations')) ?></span><?= $block->escapeHtml(__('Find Stores')) ?>
+		</p>
+	</a><!-- </a> -->
+	
+</div>
+<?php if($customerSession->customerLoggedIn()): ?>
+    <script type="text/x-magento-init">
+      {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customer": {
+                        "component": "Magento_Customer/js/view/customer"
+                    }
+                }
+            }
+        }
+      }
+    </script>
+<?php endif; ?>

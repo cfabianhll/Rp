@@ -1,0 +1,484 @@
+"Request RMA","Kérjen RMA-t"
+"My Returns","Az én visszatérésem"
+Grid,Rács
+List,Lista
+All,Minden
+"Create RMA","Hozzon létre RMA-t"
+"Request New Return","Új visszatérés kérése"
+"Max file size: %1Mb","Max. Fájlméret: %1Mb"
+"New Return for Order #%1","Új rendelés visszaállítása #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Rossz megrendelés #, e-mail vagy vezetéknév"
+Items,Példány
+"To apply changes you should fill in required ""%1"" field","A változtatások végrehajtásához be kell töltenie a szükséges &quot;%1&quot; mezőt"
+"Please, add order items to the RMA (set 'Qty to Return')","Kérjük, rendelési tételeket adjon hozzá az RMA-nak (&quot;Qty to Return&quot; beállítása)"
+"Please, set correct order items Quantity to return","Kérjük, állítsa be a helyes megrendelési tételeket Mennyiség vissza"
+"RMA was successfully created","Az RMA-t sikeresen létrehozták"
+"Shipping is confirmed. Thank you!","A hajózás megerősítést nyer. Köszönöm!"
+"Your message was successfully added","Az üzenet sikeresen hozzá lett adva"
+"Allowed extensions:","Engedélyezett kiterjesztések:"
+"Maximum size:","Maximális méret:"
+"-- Please Select --","-- Kérlek, válassz --"
+" at %1 (%2)",12-kor__)
+"Mark as unresolved","Mark a megoldatlan"
+"Mark as resolved","Jelölje meg a felbontást"
+"not set","nincs beállítva"
+Pattern,Minta
+"Attribute Value","Attribútum értéke"
+Default,Alapértelmezett
+Integer,"Egész szám"
+Price,Ár
+"Strip Tags","Strip címkék"
+"Primary Attributes","Elsődleges attribútumok"
+"Stock Attributes","Stock attribútumok"
+"Prices & Taxes","Árak és adók"
+Images,Képek
+"Custom Attributes","Egyéni attribútumok"
+Mapping,Térképészet
+Category,Kategória
+"Amasty Meta Tags","Amasty Meta Tags"
+"Others Attributes","Egyéb attribútumok"
+Text,Szöveg
+"Multi-line text","Többsoros szöveg"
+Date,Dátum
+Checkbox,Jelölőnégyzetet
+"Drop-down list","Legördülő lista"
+Reason,Ok
+Condition,Feltétel
+Resolution,Felbontás
+"RMA #","RMA #"
+"Order #","Sorrend #"
+"Customer Email","Ügyfél e-mail"
+"Customer Name","Ügyfél neve"
+Owner,Tulajdonos
+"Last Replier","Utolsó mappa"
+Status,Állapot
+Store,Bolt
+"Created At",Létrehozva
+"Last Activity","Utolsó bejelentkezés, utolsó használat"
+"View link","Link megtekintése"
+"New RMA has been created","Új RMA-t hoztak létre"
+"RMA has been changed","Az RMA megváltozott"
+"New reply from customer","Új válasz az ügyféltől"
+"New reply from staff","Új válasz a személyzetről"
+"-- Default Address --","-- Alapértelmezett cím --"
+"Update the Product","Frissítse a terméket"
+"Conditions Combination","Feltételek kombinációja"
+"RMA Attribute","RMA attribútumok"
+"Last 7-days Clicks","Utolsó 7 napos kattintások"
+"Last 7-days Orders","Utolsó 7 napos megbízások"
+"Last 7-days Revenue","Utolsó 7 napos bevétel"
+"Last 7-days Conversation Rate (%)","Utolsó 7 napos beszélgetési arány (%)"
+"Attribute Set","Attribútum készlet"
+Quantity,Mennyiség
+"Product Type",Terméktípus
+"Base Image",Alapkép
+Thumbnail,Thumbnail
+"Small Image","Kis kép"
+"Base Image Size (bytes)","Alap képméret (byte)"
+"Thumbnail Size (bytes)","Bélyegkép méret (byte)"
+"Small Image Size (bytes)","Kis képméret (byte)"
+"PHP Condition","PHP állapot"
+"Open Chooser","Nyílt választó"
+"Last message body","Az utolsó üzenet teste"
+"Updated At","Frissítve: At"
+"Status (before change)","Állapot (változás előtt)"
+"Owner (before change)","Tulajdonos (változás előtt)"
+"Last Reply By","Legutóbbi válasz"
+"Hours since Created","Órák óta létrehozva"
+"Hours since Updated","Óra óta frissítve"
+"Hours since Last reply","Óra az Utolsó válasz óta"
+"Items have reason","A tételeknek van oka"
+"Items have condition","Az elemek állapotban vannak"
+"Items have resolution","Elemek felbontással rendelkeznek"
+"%1 (before change)","%1 (változás előtt)"
+Customer,Vevő
+Staff,Személyzet
+"- Disable these emails -","- Letiltani ezeket az e-maileket -"
+Yes,Igen
+No,Nem
+Save,Mentés
+"Save & Continue Edit","Mentés és Folytatás Szerkesztés"
+"Save & Close","Mentés és bezárás"
+Edit,Szerkesztése
+Delete,Töröl
+"Delete ""${ $.$data.name }""","Törlés: "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Biztos benne, hogy nem törli a "${ $.$data.name }" rekordot?"
+"Are you sure you want to do this?","Biztosan meg akarja csinálni?"
+"Convert To Ticket","Konvertálás a jegyre"
+"View order #${ $.$data.order_id }","Megrendelés megtekintése #${ $.$data.order_id }"
+"View exchange order %1","Cserékrend megtekintése %1"
+"RMA: Report by Attribute","RMA: Attribútumjelentés"
+"RMA: Report by Status","RMA: Állapotjelentés"
+"RMA: Report by Product","RMA: Termékenkénti jelentés"
+"RMA: Report by Reasons","RMA: Jelentés az okok miatt"
+"Cannot delete return address with id %1","Nem lehet törölni a visszaadási címet azonosítóval %1"
+"Cannot delete item with id %1","Nem lehet törölni az elemet azonosítóval %1"
+"Cannot delete condition with id %1","Nem törölhető a feltétel id %1"
+"Cannot delete field with id %1","Nem lehet törölni a mezőt azonosítóval %1"
+"Cannot delete message with id %1","Nem sikerült törölni a következő üzenetet: id %1"
+"Cannot delete history with id %1","Nem törölhető a (z) %1 id"
+"Cannot delete Quick Response with id %1","Nem lehet törölni a gyors válasz id %1"
+"Cannot delete reason with id %1","Nem lehet törölni okát a következővel: id %1"
+"Cannot delete resolution with id %1","Nem törölhető a felbontás azonosítóval %1"
+"Cannot delete rma with id %1","Nem lehet törölni az rma azonosítóval %1"
+"Cannot delete rule with id %1","Nem törölhető a szabály %1 id"
+"Cannot delete status with id %1","Nem lehet törölni állapotát id %1"
+"Please, enter a message","Kérjük, írjon be egy üzenetet"
+"Product Name","Termék név"
+SKU,SKU
+Qty,Mennyiség
+"This was a gift, please do not notify purchaser","Ez egy ajándék, kérjük, ne értesítse a vásárlót"
+"Enter your contact information","Írja be a kapcsolattartási adatait"
+"First Name",Keresztnév
+"Last Name",Vezetéknév
+Email,Email
+Telephone,Telefon
+"To request a new RMA or check the status of current RMA, please, fill the form:","Új RMA kérése vagy a jelenlegi RMA állapotának ellenőrzése kérjük, töltse ki az űrlapot:"
+"* Required Fields","* Szükséges Mezők"
+"Order Information","Rendelési információ"
+"Email or Last Name","E-mail vagy vezetéknév"
+Next,Következő
+RMA,RMA
+Actions,Hozzászólások
+"View Return",Visszatérés
+"There are no Returns","Nincs visszatérés"
+"Items %1 to %2 of %3 total","%1 és %2 közötti %3 összességű elemek"
+"%1 Item(s)","%1 Tétel (ek)"
+Show,Előadás
+"per page",oldalanként
+"View as",Nézet
+"Sort by",Sorrend
+"Set Ascending Direction","Növekvő sorrend beállítása"
+"Set Descending Direction","Csökkenő irány beállítása"
+"Please, select an order","Kérjük, válasszon rendelést"
+Order,Sorrend
+"-- Select an Order --","- Válasszon rendelést -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","Önnek nincs kitöltött megrendelése arra, hogy kérjen RMA-t, vagy megrendelései több mint %1 napja vannak. Kérjük, vegye fel a kapcsolatot az ügyfélszolgálattal."
+"Submit Request","Benyújtási kérelem"
+"Please, select RMA items which you would like to return.","Kérjük, válassza ki azokat az RMA elemeket, amelyeket vissza kíván térni."
+"Additional Information","További információ"
+"Attach files","Fájlok csatolása"
+"Request Information","Információ kérése"
+"Email Address","Email cím"
+"Order Shipping Address","Rendelés szállítási címe"
+"Items in this order","Elemek ebben a sorrendben"
+"There are no items for this product that can be returned.","Ehhez a termékhez nem tartoznak vissza."
+"Another RMA for this product: %1","Egy másik RMA a termékhez: %1"
+"This product can not be returned due to RMA Policy","Ezt a terméket az RMA-házirend miatt nem lehet visszaküldeni"
+"This is a non-returnable item per our return policy.","Ez egy vissza nem térítendő tétel visszatérítési politikánk szerint."
+"Quantity to return","Mennyiség vissza"
+"-- Select a Reason --","- válasszon okot -"
+"-- Select a Condition --","- Válasszon egy állapotot -"
+"-- Select a Resolution --","- Válasszon felbontást -"
+"I agree",Egyetértek
+"Date: %1","Dátum: %1"
+"Original order: #%1","Eredeti rendelés: #%1"
+"Return Address","Visszaszállítási cím"
+"Customer Information","Vásárlói információ"
+"RMA History","RMA History"
+"RMA Items","RMA elemek"
+Weight,Súly
+"Print RMA Packing Slip","Nyomtassa ki az RMA csomagolását"
+"Print RMA Shipping Label","Nyomtassa ki az RMA szállítási címkét"
+"Confirm Shipping","A szállítás megerõsítése"
+"(This was a gift)","(Ez egy ajándék volt)"
+"Date Requested","Igényelt időpont"
+"Contact Information",Elérhetőség
+"Items RMA Requested for","RMA igényelt elemek"
+QTY,QTY
+"Add Message","Üzenet hozzáadása"
+Submit,Beküldése
+%name,%név
+"The quantity is incorrect.","A mennyiség hibás."
+"New Return for Offline Order","Új visszatérés az offline rendeléshez"
+" at %1",%1
+Select,Választ
+"If you do not have account on this store please fill the form below.","Ha nincs fiókja ebben a boltban, töltse ki az alábbi űrlapot."
+"-- Create Offline Order --","- Offline rendelés létrehozása -"
+"Returned Item","Visszaküldött tétel"
+"Remove Item","Elem eltávolítása"
+"Order or Receipt #","Rendelés vagy átvétel #"
+"Add Item","Elem hozzáadása"
+"Add at least one item to this RMA","Adjon hozzá legalább egy elemet ehhez az RMA-hoz"
+"Return Addresses","Címeket küld"
+"Add New Return Address","Új visszatérési cím hozzáadása"
+"General Information","Általános információ"
+Title,Cím
+"Sort Order",Sorrend
+"Is Active",Aktív
+ID,ID
+Active,Aktív
+Disabled,Tiltva
+Enabled,Bekapcsolt
+"Change status",Állapotváltozás
+"Are you sure?","Biztos vagy ebben?"
+Conditions,Körülmények
+"Add New Condition","Új feltétel hozzáadása"
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer","Hozzon létre RMA-t erre az ügyfélre"
+Fields,Fields
+"Add New Field","Új mező hozzáadása"
+Code,Kód
+Type,Típus
+Description,Leírás
+"Options list","Opciók listája"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Csak a legördülő listában. <br> Adjon meg minden értéket az új sorból a következő formátumban: <br> érték1 | Label1 <br> érték2 | címke2"
+"Sort order",Sorrend
+"Is required for staff","Személyzetre van szükség"
+"Is required for customers","Az ügyfelek számára szükséges"
+"Visible for customers in statuses","Látható az ügyfelek számára az állapotokban"
+"Is show in confirm shipping dialog","Megjelenik a megerősítő szállítási párbeszédpanelen"
+"Is editable for customers","Az ügyfelek számára szerkeszthető"
+Statuses,Állapotok
+Reasons,Okok
+Resolutions,Állásfoglalások
+"Custom Fields","Egyéni mezők"
+"Quick Responses","Gyors válaszok"
+"Workflow Rules","Munkafolyamat szabályok"
+Reports,Jelentések
+Settings,Beállítások
+"Add New Reason","Új ok hozzáadása"
+"Add New Resolution","Új felbontás hozzáadása"
+"Add New RMA","Új RMA hozzáadása"
+"Create New RMA","Új RMA létrehozása"
+"Purchased From (Store)","Vásárlás (Store)"
+"Purchased On",Megvásárolt
+"Bill to Name","Számla névre"
+"Ship to Name","Küldje el a nevet"
+"G.T. (Base)","GT (alap)"
+"G.T. (Purchased)","GT (vásárolt)"
+Print,Nyomtatás
+"Credit Memo",Hitelmemória
+"Exchange Order","Tőzsdei megbízás"
+"Delete File","Fájl törlése"
+"RMA Owner","RMA tulajdonos"
+"Upload Return Label","Feltöltési címke feltöltése"
+"External Link","Külső hivatkozás"
+open,"nyisd ki"
+"(received a gift)","(ajándékot kapott)"
+"Exchage Order","Exchage rendelés"
+Company,Vállalat
+"Street Address",Cím
+City,Város
+Zip/Postcode,Írányítószám
+Rules,Szabályok
+"Add New Rule","Új szabály hozzáadása"
+"Set Status","Állapot beállítása"
+"Set Owner","Tulajdonos beállítása"
+Event,Esemény
+Filters,Szűrők
+"Rule Name","Szabály neve"
+Priority,"Kiemelten fontos"
+"Arranged in the ascending order. 0 is the highest.","Rendezés növekvő sorrendben. 0 a legmagasabb."
+"Stop Further Rules Processing","További szabályok feldolgozása"
+Notifications,Értesítések
+"Send email to RMA owner","E-mail küldése az RMA tulajdonosának"
+"Send email to customer","E-mail küldése az ügyfélnek"
+"Send email to other email addresses","E-mail küldése más e-mail címekhez"
+"Email subject","Email tárgy"
+"Email body","E-mail szerver"
+"Attach files which were attached to the last message","Csatolja az utolsó üzenethez csatolt fájlokat"
+"Is Stop Processing","A leállítás feldolgozása"
+"Create RMA for this order","Hozzon létre RMA-t erre a sorrendre"
+"Order meets RMA policy","A rendelés megfelel az RMA szabályzatnak"
+"Order doesn't meet RMA policy","A rendelés nem felel meg az RMA szabályzatnak"
+"Add New Status","Új állapot hozzáadása"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Az ügyfélszámlán lévő „RMA csomagolási csík nyomtatása”, „RMA szállítási címke nyomtatása” és „Szállítás megerősítése” gombok megjelenítése"
+"Email Notification for customer","E-mail értesítés az ügyfél számára"
+"leave blank to not send","üresen hagyja, hogy ne küldjön"
+"Message for RMA history","Üzenet az RMA történetéhez"
+"Email Notification for administrator","E-mail értesítés az adminisztrátor számára"
+Templates,Sablonok
+"Add New Template","Új sablon hozzáadása"
+"Internal Title","Belső cím"
+Template,Sablon
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Használhat [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email] változókat:"
+Stores,Üzletek
+"RMA Return Address","RMA visszatérési cím"
+"New Return Address","Új visszatérési cím"
+"Return Address Manager","Címkezelő visszajuttatása"
+"Add Return Address ","Adja meg a címét"
+"Add Return Address","Adja meg a címét"
+"Return Address was successfully deleted","A visszatérési cím sikeresen törölve"
+"Edit Return Address '%1'","Szerkesztési cím szerkesztése &#39;%1&#39;"
+"Edit Return Address ","Szerkesztési cím szerkesztése"
+"The Return Address does not exist.","A visszatérési cím nem létezik."
+"Please select Return Address(es)","Kérjük, válassza a Cím (ek) címét"
+"Total of %d record(s) were successfully updated","A% d rekord (ok) sikeresen frissült"
+"Total of %1 record(s) were successfully deleted","A %1 rekord (ok) összesen törölve lett"
+"return Address was successfully saved","A cím sikeresen mentésre került"
+"Unable to find Return Address to save","A mentési cím nem található"
+"New Condition","Új Állapot"
+"Condition  Manager",Állapotkezelő
+"Condition Manager",Állapotkezelő
+"Add Condition ","Állapot hozzáadása"
+"Add Condition","Állapot hozzáadása"
+"Condition was successfully deleted","A feltétel sikeresen törölve"
+"Edit Condition '%1'","Állapot szerkesztése &#39;%1&#39;"
+"Edit Condition ","Állapot szerkesztése"
+"The Condition does not exist.","A feltétel nem létezik."
+"Please select Condition(s)","Kérjük, válassza a feltétel (ek) et"
+"Total of %d record(s) were successfully deleted","A% d rekord (ok) sikeresen törölve lett"
+"Condition was successfully saved","A feltétel sikeresen mentésre került"
+"Unable to find Condition to save","Nem sikerült megtalálni a mentés feltételeit"
+"New Field","Új mező"
+"Field  Manager",Terepkezelő
+"Field Manager",Terepkezelő
+"Add Field ","Mező hozzáadása"
+"Add Field","Mező hozzáadása"
+"Field was successfully deleted","A mező sikeresen törölve lett"
+"Edit Field '%1'","Mező szerkesztése &#39;%1&#39;"
+"Edit Field ","Mező szerkesztése"
+"The Field does not exist.","A mező nem létezik."
+"Please select Field(s)","Kérjük, válassza ki a mezőt"
+"Field was successfully saved","A mező sikeresen mentésre került"
+"Unable to find Field to save","Nem sikerült megtalálni a mezőt a mentésre"
+"New Reason","Új ok"
+"Reason  Manager","Reason Manager"
+"Reason Manager","Reason Manager"
+"Add Reason ","Ok hozzáadása"
+"Add Reason","Ok hozzáadása"
+"Reason was successfully deleted","Az ok sikeresen törölve"
+"Edit Reason '%1'","Ok szerkesztése &#39;%1&#39;"
+"Edit Reason ","Ok szerkesztése"
+"The Reason does not exist.","Az ok nem létezik."
+"Please select Reason(s)","Kérjük, válassza az Ok (ok)"
+"Reason was successfully saved","Az ok sikeresen mentésre került"
+"Unable to find Reason to save","Nem sikerült megtalálni az okot a mentéshez"
+"Statistics was successfully updated","A statisztika sikeresen frissült"
+"RMA by Brand","RMA márka szerint"
+"RMA Report","RMA jelentés"
+"RMA by Product","RMA termékenként"
+Rma,RMA
+"New Resolution","Új felbontás"
+"Resolution  Manager",Felbontáskezelő
+"Resolution Manager",Felbontáskezelő
+"Add Resolution ","Felbontás hozzáadása"
+"Add Resolution","Felbontás hozzáadása"
+"Resolution was successfully deleted","A felbontás sikeresen törölve"
+"Edit Resolution '%1'","Felbontás szerkesztése &#39;%1&#39;"
+"Edit Resolution ","Felbontás szerkesztése"
+"The Resolution does not exist.","A felbontás nem létezik."
+"Please select Resolution(s)","Kérjük, válassza a Felbontás (ok) lehetőséget"
+"Resolution was successfully saved","A felbontás sikeresen mentésre került"
+"Unable to find Resolution to save","Nem lehet megoldást találni a mentésre"
+"New RMA","Új RMA"
+"RMA was successfully deleted","Az RMA sikeresen törölve"
+"The rma does not exist.","A rma nem létezik."
+"Marked as read","Jelöltként olvasható"
+"Marked as unread","Nem olvasottként jelölve"
+"Please select rma(s)","Kérjük, válassza ki az rma-t"
+"A total of %1 record(s) have been deleted.","Összesen %1 rekordot töröltek."
+"RMA was successfully saved","Az RMA sikeresen mentésre került"
+"Unable to find rma to save","Nem sikerült megtalálni a rma-t a mentéshez"
+"New Rule","Új szabály"
+"Rule  Manager",Szabálykezelő
+"Rule Manager",Szabálykezelő
+"Add Rule ","Szabály hozzáadása"
+"Add Rule","Szabály hozzáadása"
+"Rule was successfully deleted","A szabály sikeresen törölve"
+"Edit Rule '%1'","Szabály szerkesztése %1"
+"Edit Rule ","Szabály szerkesztése"
+"The Rule does not exist.","A szabály nem létezik."
+"Please select Rule(s)","Kérjük, válassza a Szabály (ok)"
+"Rule was successfully saved","A szabály sikeresen mentésre került"
+"Unable to find Rule to save","Nem sikerült megtalálni a szabályt a mentésre"
+"New Status","Új állapot"
+"Status  Manager",Állapotkezelő
+"Status Manager",Állapotkezelő
+"Add Status ","Állapot hozzáadása"
+"Add Status","Állapot hozzáadása"
+"Status was successfully deleted","Az állapot sikeresen törölve"
+"Edit Status '%1'","Állapot szerkesztése &#39;%1&#39;"
+"Edit Status ","Állapot szerkesztése"
+"The Status does not exist.","Az állapot nem létezik."
+"Please select Status(s)","Kérjük, válassza az Állapot (ok)"
+"Status was successfully saved","Az állapot sikeresen mentésre került"
+"Unable to find Status to save","Nem sikerült megtalálni az állapotot a mentéshez"
+"New Template","Új sablon"
+"Template  Manager",Sablonkezelő
+"Template Manager",Sablonkezelő
+"Add Template ","Sablon hozzáadása"
+"Add Template","Sablon hozzáadása"
+"Template was successfully deleted","Sablon sikeresen törölve"
+"Edit Template '%1'","Sablon szerkesztése &#39;%1&#39;"
+"Edit Template ","Sablon szerkesztése"
+"The Template does not exist.","A sablon nem létezik."
+"Please select Template(s)","Kérjük, válassza a Sablon (ok) lehetőséget"
+"Template was successfully saved","Sablon mentése sikeres volt"
+"Unable to find Template to save","Nem sikerült megtalálni a menteni kívánt sablont"
+"Created Date","Létrehozás dátuma"
+Action,Akció
+View,Kilátás
+RMAs,RMAS
+"Select Order","Válassza a Rendelés lehetőséget"
+"Exchange/Credit Balance","Csere / hitel egyenleg"
+"Customer credit balance:",Ügyfélhitel:
+"Total price of new products:","Az új termékek teljes ára:"
+"Total price of exchanged/credit products:","A kicserélt / hiteltermékek teljes ára:"
+"Price difference:",Árkülönbség:
+Resolution:,Felbontás:
+"Get %1 from customer credit balance","Szerezzen %1-ot az ügyfélhitel-egyenlegből"
+"Put %1 to customer credit balance","Helyezzen %1 az ügyfélhitel egyenlegére"
+"Resolve manually","Kézi megoldás"
+"Message Type","Üzenet típusa"
+"Message to Customer","Üzenet az Ügyfélnek"
+"Internal Note","Belső megjegyzés"
+"mark as unread","megjelölés olvasatlanként"
+"mark as read","Jelöld olvasottként"
+"You can not return more, than available. Please, try again.","Nem lehet többet visszatérni, mint a rendelkezésre álló. Kérlek próbáld újra."
+"show all order items","az összes megrendelés elem megjelenítése"
+"Qty to Return",Visszatérés
+"Reason to Return","A visszatérés oka"
+"Item Condition","Áru állapota"
+"(Bundled Product)","(Csomagolt termék)"
+Stock,Készlet
+Ordered,Rendezett
+Available,Elérhető
+--,-
+"Insert Quick Response","Gyors válasz beillesztése"
+"Default status for new RMA","Az új RMA alapértelmezett állapota"
+"Default owner for new RMA","Az új RMA alapértelmezett tulajdonosa"
+"Ask customer to confirm shipping","Kérje meg az ügyfelet, hogy erősítse meg a szállítást"
+"Shipping confirmation text","Szállítási visszaigazolási szöveg"
+"Enable option ""This was a gift""","Az &quot;Ez egy ajándék&quot; lehetőség engedélyezése"
+"Enable integration with Help Desk","Engedélyezze az integrációt a Help Desk segítségével"
+"Code of ""Brand"" attribute","A &quot;Márka&quot; attribútum kódja"
+"Allow upload only attachments with extensions","Csak kiterjesztésekkel rendelkező mellékletek feltöltése"
+"Limit of attachments size, Mb","A mellékletek mérete, Mb"
+"Show Columns in RMA Grid","Oszlopok megjelenítése az RMA rácsban"
+"Show RMA section in Customer Account","Az RMA szakasz megjelenítése az Ügyfélfiókban"
+"Customers are required to select:","Az ügyfelek kötelesek kiválasztani:"
+"Allow to request RMA after order completion, days","A megrendelés befejezése után kérje az RMA kérését"
+"Allow to request RMA if order has status","Hagyja kérni az RMA-t, ha a megrendelésnek van állapota"
+"Ask to agree with RMA policy text","Kérdezd meg az RMA irányelv szövegét"
+"CMS block with RMA policy text","CMS-blokk RMA-irányelv szöveggel"
+"Number Format",Számformátum
+"Start Counter From","Indítsa el a számlálót"
+"Counter Increment Step","Számláló növekményes lépés"
+"Counter Length","Számláló hossza"
+"Email Sender","E-mail küldő"
+"Template of Notification Email for Customer","Az Ügyfél értesítési e-mail sablonja"
+"Template of Notification Email for RMA Owner","Az RMA-tulajdonos értesítési e-mailje"
+"Template of Rule Notification","A szabály értesítésének sablonja"
+" Send blind carbon copy (BCC) of all emails to","Küldje el az összes e-mail vakcukor-másolatát (BCC)"
+"At least one RMA item should have resolution ""Exchange"".","Legalább egy RMA elemnek rendelkeznie kell az „Exchange” felbontással."
+"Add another order","Adjon hozzá egy másik megrendelést"
+"Offline Order","Offline rendelés"
+OR,VAGY
+"Select Offline Order","Válassza az Offline rendelés lehetőséget"

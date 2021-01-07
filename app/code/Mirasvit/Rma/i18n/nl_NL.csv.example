@@ -1,0 +1,484 @@
+"Request RMA","Verzoek RMA"
+"My Returns","Mijn retouren"
+Grid,Rooster
+List,Lijst
+All,Alle
+"Create RMA","Maak RMA"
+"Request New Return","Vraag nieuwe retour aan"
+"Max file size: %1Mb","Max. Bestandsgrootte: %1Mb"
+"New Return for Order #%1","Nieuwe retour voor bestelling #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Verkeerde bestelnummer, e-mail of achternaam"
+Items,Items
+"To apply changes you should fill in required ""%1"" field","Om wijzigingen toe te passen, moet u het vereiste veld &quot;%1&quot; invullen"
+"Please, add order items to the RMA (set 'Qty to Return')","Voeg alsjeblieft orderitems toe aan de RMA (stel &#39;Qty to Return&#39; in)"
+"Please, set correct order items Quantity to return","Stel de juiste bestellingsitems in om terug te keren"
+"RMA was successfully created","RMA is succesvol gemaakt"
+"Shipping is confirmed. Thank you!","Verzending is bevestigd. Dank je!"
+"Your message was successfully added","Uw bericht is succesvol toegevoegd"
+"Allowed extensions:","Toegestane extensies:"
+"Maximum size:",Maximumgrootte:
+"-- Please Select --","-- Selecteer alstublieft --"
+" at %1 (%2)","om 12 uur__)"
+"Mark as unresolved","Markeren als onopgelost"
+"Mark as resolved","Markeer als opgelost"
+"not set","niet ingesteld"
+Pattern,Patroon
+"Attribute Value",Attribuutwaarde
+Default,Standaard
+Integer,"Geheel getal"
+Price,Prijs
+"Strip Tags","Strip Tags"
+"Primary Attributes","Primaire attributen"
+"Stock Attributes","Voorraad attributen"
+"Prices & Taxes","Prijzen en belastingen"
+Images,Afbeeldingen
+"Custom Attributes","Aangepaste kenmerken"
+Mapping,"In kaart brengen"
+Category,Categorie
+"Amasty Meta Tags","Amasty Meta-tags"
+"Others Attributes","Anderen Attributen"
+Text,Tekst
+"Multi-line text","Meerregelige tekst"
+Date,Datum
+Checkbox,Checkbox
+"Drop-down list",Keuzelijst
+Reason,Reden
+Condition,Staat
+Resolution,Resolutie
+"RMA #","RMA #"
+"Order #","Bestellen #"
+"Customer Email","Klanten email"
+"Customer Name",Klantnaam
+Owner,Eigenaar
+"Last Replier","Laatste map"
+Status,Staat
+Store,"Op te slaan"
+"Created At","Gemaakt bij"
+"Last Activity","Laatste Activiteit"
+"View link","Bekijk link"
+"New RMA has been created","Nieuwe RMA is gemaakt"
+"RMA has been changed","RMA is gewijzigd"
+"New reply from customer","Nieuw antwoord van klant"
+"New reply from staff","Nieuw antwoord van het personeel"
+"-- Default Address --","-- Standaard adres --"
+"Update the Product","Werk het product bij"
+"Conditions Combination","Voorwaarden Combinatie"
+"RMA Attribute",RMA-kenmerken
+"Last 7-days Clicks","Laatste zeven dagen klikken"
+"Last 7-days Orders","Laatste 7-daagse bestellingen"
+"Last 7-days Revenue","Laatste omzet van 7 dagen"
+"Last 7-days Conversation Rate (%)","Laatste 7-daagse conversatiepercentage (%)"
+"Attribute Set","Kenmerk instellen"
+Quantity,"Aantal stuks"
+"Product Type","Product type"
+"Base Image",Basisafbeelding
+Thumbnail,Thumbnail
+"Small Image","Kleine afbeelding"
+"Base Image Size (bytes)","Base Image Size (bytes)"
+"Thumbnail Size (bytes)","Miniatuurgrootte (bytes)"
+"Small Image Size (bytes)","Kleine afbeeldingsgrootte (bytes)"
+"PHP Condition",PHP-toestand
+"Open Chooser","Open Chooser"
+"Last message body","Het lichaam van het laatste bericht"
+"Updated At","Bijgewerkt op"
+"Status (before change)","Status (vóór verandering)"
+"Owner (before change)","Eigenaar (vóór verandering)"
+"Last Reply By","Laatste antwoord door"
+"Hours since Created","Uren sinds Gemaakt"
+"Hours since Updated","Uren sinds bijgewerkt"
+"Hours since Last reply","Aantal uren sinds laatste antwoord"
+"Items have reason","Items hebben reden"
+"Items have condition","Items hebben voorwaarde"
+"Items have resolution","Items hebben een resolutie"
+"%1 (before change)","%1 (vóór verandering)"
+Customer,Klant
+Staff,Personeel
+"- Disable these emails -","- Schakel deze e-mails uit -"
+Yes,Ja
+No,Nee
+Save,Opslaan
+"Save & Continue Edit","Opslaan en doorgaan met bewerken"
+"Save & Close","Opslaan &amp; Sluiten"
+Edit,Bewerk
+Delete,Verwijder
+"Delete ""${ $.$data.name }""","Verwijder "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Weet je zeker dat je een "${ $.$data.name }" record niet wilt verwijderen?"
+"Are you sure you want to do this?","Weet je zeker dat je dit wilt doen?"
+"Convert To Ticket",
+"View order #${ $.$data.order_id }","Bekijk bestelling #${ $.$data.order_id }"
+"View exchange order %1","Bekijk omwisselorder %1"
+"RMA: Report by Attribute","RMA: rapporteren door kenmerk"
+"RMA: Report by Status","RMA: rapport op status"
+"RMA: Report by Product","RMA: rapport per product"
+"RMA: Report by Reasons","RMA: rapport op basis van redenen"
+"Cannot delete return address with id %1","Kan retouradres niet verwijderen met id %1"
+"Cannot delete item with id %1","Kan item niet verwijderen met id %1"
+"Cannot delete condition with id %1","Kan conditie niet verwijderen met id %1"
+"Cannot delete field with id %1","Kan veld met ID niet verwijderen %1"
+"Cannot delete message with id %1","Kan bericht niet verwijderen met id %1"
+"Cannot delete history with id %1","Kan geschiedenis niet wissen met id %1"
+"Cannot delete Quick Response with id %1","Kan Quick Response niet verwijderen met id %1"
+"Cannot delete reason with id %1","Kan reden niet verwijderen met id %1"
+"Cannot delete resolution with id %1","Kan resolutie niet verwijderen met id %1"
+"Cannot delete rma with id %1","Kan rma niet verwijderen met id %1"
+"Cannot delete rule with id %1","Kan regel niet verwijderen met id %1"
+"Cannot delete status with id %1","Kan status niet verwijderen met id %1"
+"Please, enter a message","Voer alstublieft een bericht in"
+"Product Name",Productnaam
+SKU,SKU
+Qty,Aantal
+"This was a gift, please do not notify purchaser","Dit was een geschenk, laat de koper alstublieft niet weten"
+"Enter your contact information","Voer uw contactgegevens in"
+"First Name",Voornaam
+"Last Name",Achternaam
+Email,E-mail
+Telephone,Telefoon
+"To request a new RMA or check the status of current RMA, please, fill the form:","Als u een nieuwe RMA wilt aanvragen of de status van de huidige RMA wilt controleren, vult u het formulier in:"
+"* Required Fields","* Verplichte velden"
+"Order Information","Order informatie"
+"Email or Last Name","E-mail of achternaam"
+Next,Volgende
+RMA,RMA
+Actions,Acties
+"View Return","Bekijk Return"
+"There are no Returns","Er zijn geen retouren"
+"Items %1 to %2 of %3 total","Items %1 tot %2 van %3 totaal"
+"%1 Item(s)","%1 Item (s)"
+Show,"Laten zien"
+"per page","per pagina"
+"View as","Zien als"
+"Sort by","Sorteer op"
+"Set Ascending Direction","Van laag naar hoog sorteren"
+"Set Descending Direction","Van hoog naar laag sorteren"
+"Please, select an order","Selecteer alstublieft een bestelling"
+Order,Bestellen
+"-- Select an Order --","- Selecteer een bestelling -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","U hebt geen voltooide orders om RMA aan te vragen of uw bestellingen zijn meer dan %1 dagen geleden geplaatst. Neem contact op met de klantenservice."
+"Submit Request","Aanvraag indienen"
+"Please, select RMA items which you would like to return.","Selecteer alstublieft RMA-items die u wilt retourneren."
+"Additional Information","Extra informatie"
+"Attach files","Voeg bestanden toe"
+"Request Information","Verzoek informatie"
+"Email Address",E-mailadres
+"Order Shipping Address","Bestel verzendadres"
+"Items in this order","Items in deze volgorde"
+"There are no items for this product that can be returned.","Er zijn geen items voor dit product die kunnen worden geretourneerd."
+"Another RMA for this product: %1","Een andere RMA voor dit product: %1"
+"This product can not be returned due to RMA Policy","Dit product kan niet worden geretourneerd vanwege RMA-beleid"
+"This is a non-returnable item per our return policy.","Dit is een niet-retourneerbaar artikel volgens ons retourbeleid."
+"Quantity to return","Hoeveelheid om terug te keren"
+"-- Select a Reason --","-- Selecteer een reden --"
+"-- Select a Condition --","- Selecteer een voorwaarde -"
+"-- Select a Resolution --","- Selecteer een resolutie -"
+"I agree","Ik ben het eens"
+"Date: %1","Datum: %1"
+"Original order: #%1","Oorspronkelijke volgorde: #%1"
+"Return Address",Retouradres
+"Customer Information","Klant informatie"
+"RMA History",RMA-geschiedenis
+"RMA Items",RMA-items
+Weight,Gewicht
+"Print RMA Packing Slip","RMA-verpakkingsstrook afdrukken"
+"Print RMA Shipping Label","RMA-verzendlabel afdrukken"
+"Confirm Shipping","Bevestig verzending"
+"(This was a gift)","(Dit was een geschenk)"
+"Date Requested","Datum aangevraagd"
+"Contact Information",Contactgegevens
+"Items RMA Requested for","Items RMA aangevraagd voor"
+QTY,QTY
+"Add Message","Bericht toevoegen"
+Submit,Voorleggen
+%name,%naam
+"The quantity is incorrect.","De hoeveelheid is onjuist."
+"New Return for Offline Order","Nieuwe retour voor offline bestelling"
+" at %1","bij 1__"
+Select,Kiezen
+"If you do not have account on this store please fill the form below.","Als je geen account hebt in deze winkel, vul dan het onderstaande formulier in."
+"-- Create Offline Order --","- Offline bestelling maken -"
+"Returned Item","Geretourneerde artikel"
+"Remove Item","Verwijder voorwerp"
+"Order or Receipt #","Order of bonnetje #"
+"Add Item","Voeg item toe"
+"Add at least one item to this RMA","Voeg ten minste één item toe aan deze RMA"
+"Return Addresses",Retouradressen
+"Add New Return Address","Nieuw retouradres toevoegen"
+"General Information","Algemene informatie"
+Title,Titel
+"Sort Order",Sorteervolgorde
+"Is Active","Is actief"
+ID,"ID kaart"
+Active,Actief
+Disabled,Invalide
+Enabled,Ingeschakeld
+"Change status","Verander status"
+"Are you sure?","Weet je het zeker?"
+Conditions,Voorwaarden
+"Add New Condition","Nieuwe voorwaarde toevoegen"
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer","Maak een RMA voor deze klant"
+Fields,Fields
+"Add New Field","Nieuw veld toevoegen"
+Code,Code
+Type,Type
+Description,Omschrijving
+"Options list","Lijst met opties"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Alleen voor vervolgkeuzelijst. <br> Voer elke waarde van de nieuwe regel in met behulp van het formaat: <br> waarde1 | label1 <br> waarde2 | label2"
+"Sort order",Sorteervolgorde
+"Is required for staff","Is vereist voor personeel"
+"Is required for customers","Is vereist voor klanten"
+"Visible for customers in statuses","Zichtbaar voor klanten in statussen"
+"Is show in confirm shipping dialog","Wordt weergegeven in verzendvenster bevestigen"
+"Is editable for customers","Is bewerkbaar voor klanten"
+Statuses,Statussen
+Reasons,Redenen
+Resolutions,Resoluties
+"Custom Fields","Aangepaste velden"
+"Quick Responses","Snelle reacties"
+"Workflow Rules",Workflowregels
+Reports,Rapporten
+Settings,Instellingen
+"Add New Reason","Voeg een nieuwe reden toe"
+"Add New Resolution","Nieuwe resolutie toevoegen"
+"Add New RMA","Voeg nieuwe RMA toe"
+"Create New RMA","Maak nieuwe RMA"
+"Purchased From (Store)","Gekocht van (winkel)"
+"Purchased On","Gekocht op"
+"Bill to Name","Bill to Name"
+"Ship to Name","Verzenden naar naam"
+"G.T. (Base)","GT (basis)"
+"G.T. (Purchased)","GT (gekocht)"
+Print,Afdrukken
+"Credit Memo",Creditnota
+"Exchange Order","Exchange Order"
+"Delete File","Verwijder bestand"
+"RMA Owner",RMA-eigenaar
+"Upload Return Label","Upload retourlabel"
+"External Link","Externe link"
+open,Open
+"(received a gift)","(een geschenk ontvangen)"
+"Exchage Order","Bestelling uitwisselen"
+Company,Bedrijf
+"Street Address",Woonadres
+City,Stad
+Zip/Postcode,"Zip / Postcode"
+Rules,Reglement
+"Add New Rule","Voeg nieuwe regel toe"
+"Set Status","Status instellen"
+"Set Owner","Stel eigenaar in"
+Event,Evenement
+Filters,Filters
+"Rule Name",Regelnaam
+Priority,Prioriteit
+"Arranged in the ascending order. 0 is the highest.","Gerangschikt in oplopende volgorde. 0 is het hoogst."
+"Stop Further Rules Processing","Stop verdere regels verwerking"
+Notifications,Meldingen
+"Send email to RMA owner","Stuur een e-mail naar de RMA-eigenaar"
+"Send email to customer","Stuur een e-mail naar de klant"
+"Send email to other email addresses","Verzend e-mail naar andere e-mailadressen"
+"Email subject","E-mail onderwerp"
+"Email body","E-mail body"
+"Attach files which were attached to the last message","Bestanden bijvoegen die bij het laatste bericht waren gevoegd"
+"Is Stop Processing","Is stop verwerking"
+"Create RMA for this order","Maak RMA voor deze bestelling"
+"Order meets RMA policy","Bestelling voldoet aan RMA-beleid"
+"Order doesn't meet RMA policy","Bestelling voldoet niet aan RMA-beleid"
+"Add New Status","Nieuwe status toevoegen"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Toon knoppen &#39;Print RMA-pakbon&#39;, &#39;Print RMA-verzendlabel&#39; en &#39;Bevestig verzending&#39; in de klantaccount"
+"Email Notification for customer","E-mailmelding voor klant"
+"leave blank to not send","laat leeg om niet te verzenden"
+"Message for RMA history","Bericht voor RMA-geschiedenis"
+"Email Notification for administrator","E-mailmelding voor beheerder"
+Templates,Templates
+"Add New Template","Nieuwe sjabloon toevoegen"
+"Internal Title","Interne titel"
+Template,Sjabloon
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","U kunt variabelen gebruiken: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Winkel
+"RMA Return Address",RMA-retouradres
+"New Return Address","Nieuw retouradres"
+"Return Address Manager","Return Address Manager"
+"Add Return Address ","Voeg adres toe"
+"Add Return Address","Voeg adres toe"
+"Return Address was successfully deleted","Retouradres is succesvol verwijderd"
+"Edit Return Address '%1'","Bewerk retouradres &#39;%1&#39;"
+"Edit Return Address ","Bewerk retouradres"
+"The Return Address does not exist.","Het retouradres bestaat niet."
+"Please select Return Address(es)","Selecteer alstublieft Adres (sen)"
+"Total of %d record(s) were successfully updated","Totaal van% d record (s) is succesvol bijgewerkt"
+"Total of %1 record(s) were successfully deleted","Het totaal van %1 record (s) is succesvol verwijderd"
+"return Address was successfully saved","terug Adres werd succesvol opgeslagen"
+"Unable to find Return Address to save","Kan retouradres niet vinden om op te slaan"
+"New Condition","Nieuwe conditie"
+"Condition  Manager","Condition Manager"
+"Condition Manager","Condition Manager"
+"Add Condition ","Voorwaarde toevoegen"
+"Add Condition","Voorwaarde toevoegen"
+"Condition was successfully deleted","Voorwaarde is succesvol verwijderd"
+"Edit Condition '%1'","Voorwaarde &#39;%1&#39; bewerken"
+"Edit Condition ","Voorwaarde bewerken"
+"The Condition does not exist.","De voorwaarde bestaat niet."
+"Please select Condition(s)","Selecteer Conditie (s)"
+"Total of %d record(s) were successfully deleted","Totaal van% d record (s) is succesvol verwijderd"
+"Condition was successfully saved","Voorwaarde is succesvol opgeslagen"
+"Unable to find Condition to save","Kan conditie niet vinden om op te slaan"
+"New Field","Nieuw veld"
+"Field  Manager","Field Manager"
+"Field Manager","Field Manager"
+"Add Field ","Voeg veld toe"
+"Add Field","Voeg veld toe"
+"Field was successfully deleted","Veld is succesvol verwijderd"
+"Edit Field '%1'","Veld &#39;%1&#39; bewerken"
+"Edit Field ","Veld bewerken"
+"The Field does not exist.","Het veld bestaat niet."
+"Please select Field(s)","Selecteer veld (en)"
+"Field was successfully saved","Veld is succesvol opgeslagen"
+"Unable to find Field to save","Kan veld niet vinden om op te slaan"
+"New Reason","Nieuwe reden"
+"Reason  Manager","Reason Manager"
+"Reason Manager","Reason Manager"
+"Add Reason ","Voeg reden toe"
+"Add Reason","Voeg reden toe"
+"Reason was successfully deleted","Reden is succesvol verwijderd"
+"Edit Reason '%1'","Reden bewerken &#39;%1&#39;"
+"Edit Reason ","Bewerk reden"
+"The Reason does not exist.","De reden bestaat niet."
+"Please select Reason(s)","Selecteer aub reden (en)"
+"Reason was successfully saved","Reden is succesvol opgeslagen"
+"Unable to find Reason to save","Kan reden om te bewaren niet vinden"
+"Statistics was successfully updated","Statistieken is succesvol bijgewerkt"
+"RMA by Brand","RMA van Brand"
+"RMA Report",RMA-rapport
+"RMA by Product","RMA by Product"
+Rma,RMA
+"New Resolution","Nieuwe resolutie"
+"Resolution  Manager","Resolution Manager"
+"Resolution Manager","Resolution Manager"
+"Add Resolution ","Resolutie toevoegen"
+"Add Resolution","Resolutie toevoegen"
+"Resolution was successfully deleted","Resolutie is succesvol verwijderd"
+"Edit Resolution '%1'","Bewerk resolutie &#39;%1&#39;"
+"Edit Resolution ","Bewerk resolutie"
+"The Resolution does not exist.","De resolutie bestaat niet."
+"Please select Resolution(s)","Selecteer alstublieft Resolutie (en)"
+"Resolution was successfully saved","Resolutie is succesvol opgeslagen"
+"Unable to find Resolution to save","Kan resolutie niet vinden om op te slaan"
+"New RMA","Nieuwe RMA"
+"RMA was successfully deleted","RMA is succesvol verwijderd"
+"The rma does not exist.","De RMA bestaat niet."
+"Marked as read","Gemarkeerd als gelezen"
+"Marked as unread","Gemarkeerd als ongelezen"
+"Please select rma(s)","Selecteer alstublieft rma (s)"
+"A total of %1 record(s) have been deleted.","Een totaal van %1 record (s) is verwijderd."
+"RMA was successfully saved","RMA is succesvol opgeslagen"
+"Unable to find rma to save","Kan rma niet vinden om op te slaan"
+"New Rule","Nieuwe regel"
+"Rule  Manager",Regelbeheerder
+"Rule Manager",Regelbeheerder
+"Add Rule ","Regel toevoegen"
+"Add Rule","Regel toevoegen"
+"Rule was successfully deleted","Regel is succesvol verwijderd"
+"Edit Rule '%1'","Regel bewerken &#39;%1&#39;"
+"Edit Rule ","Regel bewerken"
+"The Rule does not exist.","De regel bestaat niet."
+"Please select Rule(s)","Selecteer alstublieft regel (s)"
+"Rule was successfully saved","Regel is succesvol opgeslagen"
+"Unable to find Rule to save","Kan regel niet vinden om op te slaan"
+"New Status","Nieuwe status"
+"Status  Manager","Status Manager"
+"Status Manager","Status Manager"
+"Add Status ","Status toevoegen"
+"Add Status","Status toevoegen"
+"Status was successfully deleted","Status is succesvol verwijderd"
+"Edit Status '%1'","Status bewerken &#39;%1&#39;"
+"Edit Status ","Status bewerken"
+"The Status does not exist.","De status bestaat niet."
+"Please select Status(s)","Selecteer Status (s)"
+"Status was successfully saved","Status is succesvol opgeslagen"
+"Unable to find Status to save","Kan status niet vinden om op te slaan"
+"New Template","Nieuwe sjabloon"
+"Template  Manager","Template Manager"
+"Template Manager","Template Manager"
+"Add Template ","Sjabloon toevoegen"
+"Add Template","Sjabloon toevoegen"
+"Template was successfully deleted","Sjabloon is succesvol verwijderd"
+"Edit Template '%1'","Sjabloon bewerken &#39;%1&#39;"
+"Edit Template ","Sjabloon bewerken"
+"The Template does not exist.","De sjabloon bestaat niet."
+"Please select Template(s)","Selecteer sjabloon (s)"
+"Template was successfully saved","Sjabloon is succesvol opgeslagen"
+"Unable to find Template to save","Kan sjabloon niet vinden om op te slaan"
+"Created Date","Datum gemaakt"
+Action,Actie
+View,Uitzicht
+RMAs,RMA&#39;s
+"Select Order","Selecteer bestelling"
+"Exchange/Credit Balance","Uitwisselings / creditsaldo"
+"Customer credit balance:",Klantkredietbalans:
+"Total price of new products:","Totale prijs van nieuwe producten:"
+"Total price of exchanged/credit products:","Totale prijs van geruilde / kredietproducten:"
+"Price difference:",Prijsverschil:
+Resolution:,Resolutie:
+"Get %1 from customer credit balance","Ontvang %1 van het tegoed van het klanttegoed"
+"Put %1 to customer credit balance","Zet %1 op het saldo van de klanttegoed"
+"Resolve manually","Los handmatig op"
+"Message Type",Berichttype
+"Message to Customer","Bericht aan de klant"
+"Internal Note","Interne notitie"
+"mark as unread","markeren als ongelezen"
+"mark as read","Markeer als gelezen"
+"You can not return more, than available. Please, try again.","Je kunt niet meer terugsturen dan beschikbaar. Probeer het alstublieft nog een keer."
+"show all order items","toon alle bestellingsitems"
+"Qty to Return","Aantal om terug te keren"
+"Reason to Return","Reden om terug te keren"
+"Item Condition",Artikelvoorwaarde
+"(Bundled Product)","(Gebundeld product)"
+Stock,Voorraad
+Ordered,Bestelde
+Available,Beschikbaar
+--,-
+"Insert Quick Response","Snelle reactie invoegen"
+"Default status for new RMA","Standaardstatus voor nieuwe RMA"
+"Default owner for new RMA","Standaard eigenaar voor nieuwe RMA"
+"Ask customer to confirm shipping","Vraag de klant om de verzending te bevestigen"
+"Shipping confirmation text",Verzendbevestigingstekst
+"Enable option ""This was a gift""","Optie inschakelen &quot;Dit was een cadeau&quot;"
+"Enable integration with Help Desk","Schakel integratie met Help Desk in"
+"Code of ""Brand"" attribute","Code van &quot;Merk&quot; -attribuut"
+"Allow upload only attachments with extensions","Toestaan dat alleen bijlagen met extensies worden geüpload"
+"Limit of attachments size, Mb","Beperking grootte bijlagen, Mb"
+"Show Columns in RMA Grid","Kolommen weergeven in RMA-raster"
+"Show RMA section in Customer Account","RMA-sectie weergeven in klantaccount"
+"Customers are required to select:","Klanten moeten selecteren:"
+"Allow to request RMA after order completion, days","Sta toe om RMA te vragen na het voltooien van de bestelling, dagen"
+"Allow to request RMA if order has status","Sta toe om RMA aan te vragen als order de status heeft"
+"Ask to agree with RMA policy text","Vraag om akkoord te gaan met de RMA-beleidstekst"
+"CMS block with RMA policy text","CMS-blok met RMA-beleidstekst"
+"Number Format","Nummer formaat"
+"Start Counter From","Startteller vanaf"
+"Counter Increment Step","Counter Increment Step"
+"Counter Length","Teller lengte"
+"Email Sender","E-mail afzender"
+"Template of Notification Email for Customer","Sjabloon voor kennisgevingse-mail voor klant"
+"Template of Notification Email for RMA Owner","Sjabloon voor kennisgeving E-mail voor RMA-eigenaar"
+"Template of Rule Notification","Sjabloon voor regelmeldingen"
+" Send blind carbon copy (BCC) of all emails to","Stuur blind carbon copy (BCC) van alle e-mails naar"
+"At least one RMA item should have resolution ""Exchange"".","Ten minste één RMA-item moet de resolutie &quot;Exchange&quot; hebben."
+"Add another order","Voeg nog een bestelling toe"
+"Offline Order",
+OR,OF
+"Select Offline Order","Selecteer Offline bestelling"

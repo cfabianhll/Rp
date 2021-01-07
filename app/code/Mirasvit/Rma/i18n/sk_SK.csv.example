@@ -1,0 +1,484 @@
+"Request RMA","Požiadajte o RMA"
+"My Returns","Moje vráti"
+Grid,Mriežka
+List,Zoznam
+All,Všetko
+"Create RMA","Vytvorte RMA"
+"Request New Return","Požiadajte o nový návrat"
+"Max file size: %1Mb","Maximálna veľkosť súboru: %1Mb"
+"New Return for Order #%1","Nový návrat na objednávku #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Nesprávna objednávka #, e-mail alebo priezvisko"
+Items,Predmety
+"To apply changes you should fill in required ""%1"" field","Ak chcete použiť zmeny, vyplňte požadované pole &quot;%1&quot;"
+"Please, add order items to the RMA (set 'Qty to Return')","Pridajte položky objednávky do RMA (nastavte položku &quot;Množstvo na vrátenie&quot;)"
+"Please, set correct order items Quantity to return","Zadajte správne položky objednávky Množstvo, ktoré sa má vrátiť"
+"RMA was successfully created","RMA bola úspešne vytvorená"
+"Shipping is confirmed. Thank you!","Preprava je potvrdená. Ďakujem!"
+"Your message was successfully added","Vaša správa bola úspešne pridaná"
+"Allowed extensions:","Povolené rozšírenia:"
+"Maximum size:","Maximálna veľkosť:"
+"-- Please Select --","-- Prosím vyber --"
+" at %1 (%2)","v %1 (%2)"
+"Mark as unresolved","Označiť ako nevyriešené"
+"Mark as resolved","Označiť ako vyriešené"
+"not set","nie je nastavené"
+Pattern,Vzor
+"Attribute Value","Hodnota atribútu"
+Default,Štandardné
+Integer,"Celé číslo"
+Price,Cena
+"Strip Tags","Strip značky"
+"Primary Attributes","Primárne atribúty"
+"Stock Attributes","Atribúty zásob"
+"Prices & Taxes","Ceny a dane"
+Images,Snímky
+"Custom Attributes","Vlastné atribúty"
+Mapping,Mapovanie
+Category,Kategórie
+"Amasty Meta Tags","Amasty Meta Tagy"
+"Others Attributes","Ostatné atribúty"
+Text,Text
+"Multi-line text","Text s viacerými riadkami"
+Date,Dátum
+Checkbox,Checkbox
+"Drop-down list","Rozbaľovací zoznam"
+Reason,Dôvod
+Condition,Podmienka
+Resolution,Rezolúcia
+"RMA #","RMA #"
+"Order #","Objednať #"
+"Customer Email","E-mail zákazníka"
+"Customer Name","Meno zákazníka"
+Owner,Vlastník
+"Last Replier","Posledná zložka"
+Status,Postavenie
+Store,Sklad
+"Created At","Vytvorené na"
+"Last Activity","Posledná aktivita"
+"View link","Zobraziť odkaz"
+"New RMA has been created","Bol vytvorený nový RMA"
+"RMA has been changed","RMA bola zmenená"
+"New reply from customer","Nová odpoveď od zákazníka"
+"New reply from staff","Nová odpoveď pracovníkov"
+"-- Default Address --","- Predvolená adresa -"
+"Update the Product","Aktualizujte produkt"
+"Conditions Combination","Kombinácia podmienok"
+"RMA Attribute","RMA atribúty"
+"Last 7-days Clicks","Posledné 7-dňové kliknutia"
+"Last 7-days Orders","Posledné 7-dňové objednávky"
+"Last 7-days Revenue","Posledné 7-dňové príjmy"
+"Last 7-days Conversation Rate (%)","Posledná 7-dňová konverzácia (%)"
+"Attribute Set","Súbor atribútov"
+Quantity,Množstvo
+"Product Type","Typ produktu"
+"Base Image","Základný obrázok"
+Thumbnail,Náhľady
+"Small Image","Malý obrázok"
+"Base Image Size (bytes)","Základná veľkosť obrázka (bajty)"
+"Thumbnail Size (bytes)","Veľkosť miniatúr (bajtov)"
+"Small Image Size (bytes)","Malá veľkosť obrázka (bajty)"
+"PHP Condition","PHP podmienka"
+"Open Chooser","Otvorte výber"
+"Last message body","Posledný orgán správy"
+"Updated At","Aktualizované na"
+"Status (before change)","Stav (pred zmenou)"
+"Owner (before change)","Vlastník (pred zmenou)"
+"Last Reply By","Posledná odpoveď"
+"Hours since Created","Počet hodín od vytvorenia"
+"Hours since Updated","Hodiny od aktualizácie"
+"Hours since Last reply","Hodiny od poslednej odpovede"
+"Items have reason","Položky majú dôvod"
+"Items have condition","Položky sú podmienené"
+"Items have resolution","Položky majú rozlíšenie"
+"%1 (before change)","%1 (pred zmenou)"
+Customer,Zákazník
+Staff,Zamestnanci
+"- Disable these emails -","- Zakázať tieto e-maily -"
+Yes,Áno
+No,Žiadny
+Save,Uložiť
+"Save & Continue Edit","Uložiť a pokračovať v úprave"
+"Save & Close","Uložiť a zatvoriť"
+Edit,Editovať
+Delete,Vymazať
+"Delete ""${ $.$data.name }""","Odstrániť "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Naozaj chcete odstrániť záznam "${ $.$data.name }"?"
+"Are you sure you want to do this?","Naozaj chcete to urobiť?"
+"Convert To Ticket","Konvertovať na lístok"
+"View order #${ $.$data.order_id }","Zobraziť objednávku #${ $.$data.order_id }"
+"View exchange order %1","Zobraziť výmenný príkaz %1"
+"RMA: Report by Attribute","RMA: Nahláste podľa atribútu"
+"RMA: Report by Status","RMA: Správa podľa stavu"
+"RMA: Report by Product","RMA: Správa podľa produktu"
+"RMA: Report by Reasons","RMA: Správa podľa dôvodov"
+"Cannot delete return address with id %1","Nie je možné odstrániť návratovú adresu s id %1"
+"Cannot delete item with id %1","Nemožno odstrániť položku s id %1"
+"Cannot delete condition with id %1","Nemožno odstrániť stav pomocou id %1"
+"Cannot delete field with id %1","Nemožno odstrániť pole s id %1"
+"Cannot delete message with id %1","Nemožno vymazať správu s ID %1"
+"Cannot delete history with id %1","Nie je možné odstrániť históriu pomocou id %1"
+"Cannot delete Quick Response with id %1","Nie je možné odstrániť rýchlu odpoveď pomocou id %1"
+"Cannot delete reason with id %1","Nemožno zmazať dôvod s ID %1"
+"Cannot delete resolution with id %1","Nemožno odstrániť rozlíšenie pomocou id %1"
+"Cannot delete rma with id %1","Nemožno vymazať rma s id %1"
+"Cannot delete rule with id %1","Nie je možné odstrániť pravidlo s ID %1"
+"Cannot delete status with id %1","Nemožno odstrániť stav pomocou id %1"
+"Please, enter a message","Zadajte prosím správu"
+"Product Name","Meno Produktu"
+SKU,SKU
+Qty,Množstvo
+"This was a gift, please do not notify purchaser","Bolo to dar, prosím neoznamujte kupujúceho"
+"Enter your contact information","Zadajte svoje kontaktné informácie"
+"First Name","Krstné meno"
+"Last Name",Priezvisko
+Email,E-mail
+Telephone,Telefónne
+"To request a new RMA or check the status of current RMA, please, fill the form:","Ak chcete požiadať o nový RMA alebo skontrolovať stav aktuálneho RMA, vyplňte formulár:"
+"* Required Fields","* Povinné políčka"
+"Order Information","Informacie o objednavke"
+"Email or Last Name","E-mail alebo priezvisko"
+Next,Ďalšie
+RMA,RMA
+Actions,Akcia
+"View Return","Zobraziť návrat"
+"There are no Returns","Nie sú žiadne výnosy"
+"Items %1 to %2 of %3 total","Položky %1 až %2 z celkového počtu %3"
+"%1 Item(s)","%1 Položka (-y)"
+Show,Šou
+"per page","na stránku"
+"View as","Zobraziť ako"
+"Sort by","Triediť podľa"
+"Set Ascending Direction","Nastaviť vzostupne"
+"Set Descending Direction","Nastaviť zostupne"
+"Please, select an order","Vyberte objednávku"
+Order,Objednať
+"-- Select an Order --",
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","Nemáte žiadne dokončené objednávky na vyžiadanie RMA alebo vaše objednávky boli zadané viac ako %1 dní. Obráťte sa na zákaznícky servis."
+"Submit Request","Odoslať žiadosť"
+"Please, select RMA items which you would like to return.","Vyberte položky RMA, ktoré chcete vrátiť."
+"Additional Information","Ďalšie informácie"
+"Attach files","Pripojte súbory"
+"Request Information","Vyžiadať informácie"
+"Email Address","Emailová adresa"
+"Order Shipping Address","Objednať adresu doručenia"
+"Items in this order","Položky v tomto poradí"
+"There are no items for this product that can be returned.","Neexistujú žiadne položky pre tento produkt, ktoré môžu byť vrátené."
+"Another RMA for this product: %1","Ďalšie RMA pre tento produkt: %1"
+"This product can not be returned due to RMA Policy","Tento produkt nie je možné vrátiť z dôvodu pravidiel RMA"
+"This is a non-returnable item per our return policy.","Toto je nevratná položka podľa našich pravidiel vrátenia."
+"Quantity to return","Množstvo, ktoré sa má vrátiť"
+"-- Select a Reason --","- Vyberte dôvod -"
+"-- Select a Condition --","- Vyberte podmienku -"
+"-- Select a Resolution --","- Vyberte rozlíšenie -"
+"I agree",Súhlasím
+"Date: %1","Dátum: %1"
+"Original order: #%1","Originálna objednávka: #%1"
+"Return Address","Spiatočná adresa"
+"Customer Information","Informácie pre zákazníka"
+"RMA History","História RMA"
+"RMA Items","Položky RMA"
+Weight,Závažia
+"Print RMA Packing Slip","Tlačte balenie RMA"
+"Print RMA Shipping Label","Vytlačte štítok RMA Shipping"
+"Confirm Shipping","Potvrďte zásielku"
+"(This was a gift)","(To bol dar)"
+"Date Requested","Požadovaný dátum"
+"Contact Information","Kontaktné informácie"
+"Items RMA Requested for","Položky RMA Požadované pre"
+QTY,POČET
+"Add Message","Pridať správu"
+Submit,Predložiť
+%name,%názov
+"The quantity is incorrect.","Množstvo je nesprávne."
+"New Return for Offline Order","Nový návrat pre objednávku offline"
+" at %1","pri %1"
+Select,Vybrať
+"If you do not have account on this store please fill the form below.","Ak nemáte účet v tomto obchode, vyplňte nižšie uvedený formulár."
+"-- Create Offline Order --","- Vytvoriť objednávku offline -"
+"Returned Item","Vrátená položka"
+"Remove Item","Odstrániť položku"
+"Order or Receipt #","Objednávka alebo potvrdenie #"
+"Add Item","Pridať položku"
+"Add at least one item to this RMA","Pridajte do tejto RMA aspoň jednu položku"
+"Return Addresses","Návratové adresy"
+"Add New Return Address","Pridať novú návratovú adresu"
+"General Information","Všeobecné informácie"
+Title,Nadpis
+"Sort Order","Poradie zoradenia"
+"Is Active","Je aktívny"
+ID,ID
+Active,Aktívny
+Disabled,Invalidný
+Enabled,Povolené
+"Change status","Zmeniť stav"
+"Are you sure?","Si si istý?"
+Conditions,Podmienky
+"Add New Condition","Pridať novú podmienku"
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer","Vytvorte RMA pre tohto zákazníka"
+Fields,Fields
+"Add New Field","Pridať nové pole"
+Code,Kód
+Type,Typ
+Description,Popis
+"Options list","Zoznam možností"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Iba pre rozbaľovací zoznam. <br> Zadajte každú hodnotu z nového riadka pomocou formátu: <br> hodnota1 Label1 <br> hodnota2 Label2"
+"Sort order","Usporiadať poradie"
+"Is required for staff","Vyžaduje sa pre zamestnancov"
+"Is required for customers","Vyžaduje sa pre zákazníkov"
+"Visible for customers in statuses","Viditeľné pre zákazníkov v stave"
+"Is show in confirm shipping dialog","Zobrazuje sa v potvrdenom dialógovom okne odoslania"
+"Is editable for customers","Je upraviteľný pre zákazníkov"
+Statuses,Stavy
+Reasons,Dôvody
+Resolutions,Rezolúcia
+"Custom Fields","Vlastné polia"
+"Quick Responses","Rýchle odpovede"
+"Workflow Rules","Pravidlá pracovného postupu"
+Reports,Správy
+Settings,Nastavenie
+"Add New Reason","Pridať nový dôvod"
+"Add New Resolution","Pridať nové rozlíšenie"
+"Add New RMA","Pridať nový RMA"
+"Create New RMA","Vytvoriť nový RMA"
+"Purchased From (Store)","Zakúpené z (obchodu)"
+"Purchased On","Zakúpené dňa"
+"Bill to Name","Bill to Name"
+"Ship to Name","Odošlite na meno"
+"G.T. (Base)","GT (Base)"
+"G.T. (Purchased)","GT (zakúpené)"
+Print,Vytlačiť
+"Credit Memo",Dobropis
+"Exchange Order","Výmenný príkaz"
+"Delete File","Vymazať súbor"
+"RMA Owner","Vlastník RMA"
+"Upload Return Label","Upload Return Label"
+"External Link","Externé prepojenie"
+open,otvorené
+"(received a gift)","(dostal darček)"
+"Exchage Order","Príkaz na výmenu"
+Company,Spoločnosť
+"Street Address",Ulica
+City,Veľkomesto
+Zip/Postcode,"Zip / Postcode"
+Rules,Pravidlá
+"Add New Rule","Pridať nové pravidlo"
+"Set Status","Nastaviť stav"
+"Set Owner","Nastaviť vlastníka"
+Event,Udalosť
+Filters,Filtre
+"Rule Name","Názov pravidla"
+Priority,Priorita
+"Arranged in the ascending order. 0 is the highest.","Usporiadané vo vzostupnom poradí. 0 je najvyššia."
+"Stop Further Rules Processing","Zastaviť ďalšie spracovanie pravidiel"
+Notifications,Oznámenia
+"Send email to RMA owner","Odoslať e-mail vlastníkovi RMA"
+"Send email to customer","Odoslať e-mail zákazníkovi"
+"Send email to other email addresses","Odoslať e-mail na iné e-mailové adresy"
+"Email subject","Predmet emailu"
+"Email body","E-mailové telo"
+"Attach files which were attached to the last message","Pripojte súbory, ktoré boli pripojené k poslednej správe"
+"Is Stop Processing","Je zastavenie spracovania"
+"Create RMA for this order","Vytvorte RMA pre túto objednávku"
+"Order meets RMA policy","Objednávka spĺňa zásady RMA"
+"Order doesn't meet RMA policy","Objednávka nespĺňa zásady RMA"
+"Add New Status","Pridať nový stav"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Zobrazte tlačidlá &#39;Print RMA Pack Slip&#39;, &#39;Print RMA Shipping Label&#39; a &#39;Confirm Shipping&#39; na účte zákazníka"
+"Email Notification for customer","Upozornenie e-mailom pre zákazníka"
+"leave blank to not send","ak nechcete odoslať, ponechajte prázdne"
+"Message for RMA history","Správa pre históriu RMA"
+"Email Notification for administrator","Upozornenie e-mailom pre správcu"
+Templates,Šablóny
+"Add New Template","Pridať novú šablónu"
+"Internal Title","Vnútorný názov"
+Template,Šablóna
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Môžete použiť premenné: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Obchody
+"RMA Return Address","RMA Return Address"
+"New Return Address","Nová návratová adresa"
+"Return Address Manager","Správca spiatočných adries"
+"Add Return Address ","Pridať návratovú adresu"
+"Add Return Address","Pridať návratovú adresu"
+"Return Address was successfully deleted","Návratová adresa bola úspešne odstránená"
+"Edit Return Address '%1'","Upraviť návratovú adresu „%1“"
+"Edit Return Address ","Upraviť návratovú adresu"
+"The Return Address does not exist.","Návratová adresa neexistuje."
+"Please select Return Address(es)","Vyberte adresu (-y) pre návrat"
+"Total of %d record(s) were successfully updated","Celkom% d záznamov bolo úspešne aktualizovaných"
+"Total of %1 record(s) were successfully deleted","Celkom %1 záznamov boli úspešne odstránené"
+"return Address was successfully saved","return Adresa bola úspešne uložená"
+"Unable to find Return Address to save","Nepodarilo sa nájsť návratovú adresu na uloženie"
+"New Condition","Nová podmienka"
+"Condition  Manager","Správca stavu"
+"Condition Manager","Správca stavu"
+"Add Condition ","Pridať podmienku"
+"Add Condition","Pridať podmienku"
+"Condition was successfully deleted","Podmienka bola úspešne odstránená"
+"Edit Condition '%1'","Upraviť podmienku „%1“"
+"Edit Condition ","Upraviť podmienku"
+"The Condition does not exist.","Podmienka neexistuje."
+"Please select Condition(s)","Vyberte podmienku (y)"
+"Total of %d record(s) were successfully deleted","Celkom% d záznamov bolo úspešne vymazaných"
+"Condition was successfully saved","Podmienka bola úspešne uložená"
+"Unable to find Condition to save","Nepodarilo sa nájsť podmienku na uloženie"
+"New Field","Nové pole"
+"Field  Manager","Field Manager"
+"Field Manager","Field Manager"
+"Add Field ","Pridať pole"
+"Add Field","Pridať pole"
+"Field was successfully deleted","Pole bolo úspešne odstránené"
+"Edit Field '%1'","Upraviť pole „%1“"
+"Edit Field ","Upraviť pole"
+"The Field does not exist.","Pole neexistuje."
+"Please select Field(s)","Vyberte pole (-a)"
+"Field was successfully saved","Pole bolo úspešne uložené"
+"Unable to find Field to save","Pole sa nedá nájsť"
+"New Reason","Nový dôvod"
+"Reason  Manager","Reason Manager"
+"Reason Manager","Reason Manager"
+"Add Reason ","Pridať dôvod"
+"Add Reason","Pridať dôvod"
+"Reason was successfully deleted","Dôvod bol úspešne odstránený"
+"Edit Reason '%1'","Upraviť dôvod „%1“"
+"Edit Reason ","Upraviť dôvod"
+"The Reason does not exist.","Dôvod neexistuje."
+"Please select Reason(s)","Vyberte dôvod (y)"
+"Reason was successfully saved","Dôvod bol úspešne uložený"
+"Unable to find Reason to save","Nepodarilo sa nájsť dôvod uloženia"
+"Statistics was successfully updated","Štatistika bola úspešne aktualizovaná"
+"RMA by Brand","RMA podľa značky"
+"RMA Report","Správa RMA"
+"RMA by Product","RMA podľa produktu"
+Rma,RMA
+"New Resolution","Nové rozlíšenie"
+"Resolution  Manager","Správca rozlíšenia"
+"Resolution Manager","Správca rozlíšenia"
+"Add Resolution ","Pridať rozlíšenie"
+"Add Resolution","Pridať rozlíšenie"
+"Resolution was successfully deleted","Rozlíšenie bolo úspešne odstránené"
+"Edit Resolution '%1'","Upraviť rozlíšenie „%1“"
+"Edit Resolution ","Upraviť rozlíšenie"
+"The Resolution does not exist.","Rozlíšenie neexistuje."
+"Please select Resolution(s)","Vyberte rozlíšenie"
+"Resolution was successfully saved","Rozlíšenie bolo úspešne uložené"
+"Unable to find Resolution to save","Nie je možné nájsť uznesenie na uloženie"
+"New RMA","Nový RMA"
+"RMA was successfully deleted","Služba RMA bola úspešne odstránená"
+"The rma does not exist.","Rma neexistuje."
+"Marked as read","Označené ako prečítané"
+"Marked as unread","Označené ako neprečítané"
+"Please select rma(s)","Vyberte rma (s)"
+"A total of %1 record(s) have been deleted.","Spolu bolo odstránených %1 záznamov."
+"RMA was successfully saved","Služba RMA bola úspešne uložená"
+"Unable to find rma to save","Nepodarilo sa nájsť rma na uloženie"
+"New Rule","Nové pravidlo"
+"Rule  Manager","Správca pravidiel"
+"Rule Manager","Správca pravidiel"
+"Add Rule ","Pridať pravidlo"
+"Add Rule","Pridať pravidlo"
+"Rule was successfully deleted","Pravidlo bolo úspešne odstránené"
+"Edit Rule '%1'","Upraviť pravidlo „%1“"
+"Edit Rule ","Upraviť pravidlo"
+"The Rule does not exist.","Pravidlo neexistuje."
+"Please select Rule(s)","Vyberte pravidlo (-y)"
+"Rule was successfully saved","Pravidlo bolo úspešne uložené"
+"Unable to find Rule to save","Nepodarilo sa nájsť pravidlo na uloženie"
+"New Status","Nový stav"
+"Status  Manager","Správca stavu"
+"Status Manager","Správca stavu"
+"Add Status ","Pridať stav"
+"Add Status","Pridať stav"
+"Status was successfully deleted","Stav bol úspešne odstránený"
+"Edit Status '%1'","Upraviť stav „%1“"
+"Edit Status ","Upraviť stav"
+"The Status does not exist.","Status neexistuje."
+"Please select Status(s)","Vyberte stav (y)"
+"Status was successfully saved","Stav bol úspešne uložený"
+"Unable to find Status to save","Stav sa nedá nájsť"
+"New Template","Nová šablóna"
+"Template  Manager","Správca šablón"
+"Template Manager","Správca šablón"
+"Add Template ","Pridať šablónu"
+"Add Template","Pridať šablónu"
+"Template was successfully deleted","Šablóna bola úspešne odstránená"
+"Edit Template '%1'","Upraviť šablónu „%1“"
+"Edit Template ","Upraviť šablónu"
+"The Template does not exist.","Šablóna neexistuje."
+"Please select Template(s)","Vyberte šablónu (y)"
+"Template was successfully saved","Šablóna bola úspešne uložená"
+"Unable to find Template to save","Nepodarilo sa nájsť šablónu na uloženie"
+"Created Date","Dátum vytvorenia"
+Action,Akčné
+View,Vyhliadka
+RMAs,RMAs
+"Select Order","Vyberte položku Objednávka"
+"Exchange/Credit Balance","Výmenný / kreditný zostatok"
+"Customer credit balance:","Zostatok kreditu zákazníka:"
+"Total price of new products:","Celková cena nových produktov:"
+"Total price of exchanged/credit products:","Celková cena vymieňaných / kreditných produktov:"
+"Price difference:","Cenový rozdiel:"
+Resolution:,Rozlíšenie:
+"Get %1 from customer credit balance","Získajte %1 z kreditného zostatku zákazníka"
+"Put %1 to customer credit balance","Dajte %1 k kreditnému zostatku zákazníka"
+"Resolve manually","Vyriešiť ručne"
+"Message Type","Typ správy"
+"Message to Customer","Správa pre zákazníka"
+"Internal Note","Interná poznámka"
+"mark as unread","Označiť ako neprečítané"
+"mark as read","Označiť ako prečítané"
+"You can not return more, than available. Please, try again.","Nemôžete sa vrátiť viac, ako je k dispozícii. Prosím skúste znova."
+"show all order items","zobraziť všetky položky objednávky"
+"Qty to Return","Množstvo na vrátenie"
+"Reason to Return","Dôvod vrátenia"
+"Item Condition","Stav položky"
+"(Bundled Product)","(Priložený produkt)"
+Stock,Sklad
+Ordered,Objednaný
+Available,"K dispozícii"
+--,-
+"Insert Quick Response","Vložte rýchlu odpoveď"
+"Default status for new RMA","Predvolený stav pre nový RMA"
+"Default owner for new RMA","Predvolený vlastník pre nový RMA"
+"Ask customer to confirm shipping","Požiadajte zákazníka, aby potvrdil odoslanie"
+"Shipping confirmation text","Text potvrdenia o doručení"
+"Enable option ""This was a gift""","Povoliť možnosť „Toto bol darček“"
+"Enable integration with Help Desk","Povoliť integráciu s Help Desk"
+"Code of ""Brand"" attribute","Kód atribútu &quot;značka&quot;"
+"Allow upload only attachments with extensions","Povoliť odovzdávanie iba príloh s rozšíreniami"
+"Limit of attachments size, Mb","Limit veľkosti príloh, Mb"
+"Show Columns in RMA Grid","Zobraziť stĺpce v mriežke RMA"
+"Show RMA section in Customer Account","Zobraziť RMA sekciu v Zákazníckom účte"
+"Customers are required to select:","Zákazníci musia vybrať:"
+"Allow to request RMA after order completion, days","Povoliť požiadavku RMA po dokončení objednávky, dni"
+"Allow to request RMA if order has status","Ak má objednávka status, povoľte požiadavku RMA"
+"Ask to agree with RMA policy text","Požiadajte o súhlas s textom politiky RMA"
+"CMS block with RMA policy text","Blok CMS s textom politiky RMA"
+"Number Format","Formát čísla"
+"Start Counter From","Spustiť počítadlo z"
+"Counter Increment Step","Krok kroku počítadla"
+"Counter Length","Dĺžka počítadla"
+"Email Sender","Odosielateľ e-mailu"
+"Template of Notification Email for Customer","Šablóna e-mailu s upozornením pre zákazníka"
+"Template of Notification Email for RMA Owner","Šablóna e-mailu s upozornením pre vlastníka RMA"
+"Template of Rule Notification","Šablóna oznamovania pravidiel"
+" Send blind carbon copy (BCC) of all emails to","Pošlite slepú kópiu (BCC) všetkých e-mailov"
+"At least one RMA item should have resolution ""Exchange"".","Aspoň jedna položka RMA by mala mať rozlíšenie „Výmena“."
+"Add another order","Pridať ďalšiu objednávku"
+"Offline Order","Offline Order"
+OR,OR
+"Select Offline Order","Vyberte položku Offline Order"

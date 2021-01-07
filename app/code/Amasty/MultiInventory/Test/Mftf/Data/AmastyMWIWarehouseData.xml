@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+    <!--wh1 Chicago Default Store View-->
+    <entity name="_Chicago" type="amastyWarehouse">
+        <data key="title">whChicago</data>
+        <data key="code">whChicago</data>
+        <data key="address">777 Aldis Ave</data>
+        <data key="city">Chicago</data>
+        <data key="country">US</data>
+        <data key="state">23</data>
+        <data key="zip">46312</data>
+        <data key="phone">+1 219-378-3000</data>
+        <data key="email">example.email@amasty.com</data>
+        <data key="description">whChicago text description</data>
+        <data key="storeView">1</data>
+        <data key="customerGroupsNOTLOGGEDIN">0</data>
+        <data key="customerGroupsGeneral">1</data>
+        <data key="customerGroupsWholesale">2</data>
+        <data key="customerGroupsRetailer">3</data>
+        <data key="checkedProductTotalQty">10</data>
+    </entity>
+    <!--wh2 New York Default Store View-->
+    <entity name="_NY" type="amastyWarehouse">
+        <data key="title">whNewYork</data>
+        <data key="code">whNewYork</data>
+        <data key="address">15 Broad St</data>
+        <data key="city">New York</data>
+        <data key="country">US</data>
+        <data key="state">43</data>
+        <data key="zip">10005</data>
+        <data key="phone">+1 212-480-3835</data>
+        <data key="email">example.email+2@amasty.com</data>
+        <data key="description">whNewYork text description</data>
+        <data key="storeView">1</data>
+        <data key="customerGroupsNOTLOGGEDIN">0</data>
+        <data key="customerGroupsGeneral">1</data>
+        <data key="customerGroupsWholesale">2</data>
+        <data key="customerGroupsRetailer">3</data>
+        <data key="checkedProductTotalQty">10</data>
+    </entity>
+    <!--wh2 New York storeView2-->
+    <entity name="_NYstoreView2" type="amastyWarehouse">
+        <data key="title">whNewYork</data>
+        <data key="code">whNewYork</data>
+        <data key="address">15 Broad St</data>
+        <data key="city">New York</data>
+        <data key="country">US</data>
+        <data key="state">43</data>
+        <data key="zip">10005</data>
+        <data key="phone">+1 212-480-3835</data>
+        <data key="email">example.email+2@amasty.com</data>
+        <data key="description">whNewYork text description</data>
+        <data key="storeView">2</data>
+        <data key="customerGroupsNOTLOGGEDIN">0</data>
+        <data key="customerGroupsGeneral">1</data>
+        <data key="customerGroupsWholesale">2</data>
+        <data key="customerGroupsRetailer">3</data>
+        <data key="checkedProductTotalQty">10</data>
+    </entity>
+</entities>

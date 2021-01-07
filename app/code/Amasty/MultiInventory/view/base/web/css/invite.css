@@ -1,0 +1,79 @@
+.amasty-email-content {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.amasty-email-chip {
+    background: #e0e0e0;
+    border: 1px solid #e0e0e0;
+    display: inline-block;
+    -webkit-border-radius: 3px;
+    color: #444;
+    margin: 4px 1px 0 2px;
+    outline: none;
+    vertical-align: middle;
+    cursor: default;
+    padding: 0;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    padding:5px;
+    padding-right:25px;
+}
+
+.amasty-email-input {
+    display: inline-block;
+    margin: 10px 4px 0 4px;
+    vertical-align: middle;
+    background: none;
+    border: 0;
+    height: 25px;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 0 0 5px;
+    position: relative;
+    resize: none;
+    width:50%;
+}
+.amasty-close-before {
+    position:relative;
+}
+.amasty-close{
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    cursor: pointer;
+}
+
+.amasty-close:before,
+.amasty-close:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 15px;
+    height: 4px;
+    background: #303030;
+}
+
+.amasty-close:before {
+    webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.amasty-close:after {
+    webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.amasty-shipping-content {
+    width:100%;
+}
+.amasty-shipping-content td {
+    width:50%;
+    padding-bottom:10px;
+}

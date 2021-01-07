@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AmastyMWIConfigurationGeneralSettingsSection">
+        <element name="open" type="a" selector="#amasty_multi_inventory_general-head"/>
+        <element name="GoogleApi" type="input" selector="#amasty_multi_inventory_general_google_api"/>
+        <element name="enableDisableAddressSuggestion" type="select" selector="#amasty_multi_inventory_general_google_address"/>
+    </section>
+ </sections>

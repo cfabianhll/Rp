@@ -1,0 +1,16 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+?>
+<?php /** @var $block \Amasty\MultiInventory\Block\Adminhtml\Catalog\Product\AfterRenderer */ ?>
+<script>
+    require(['Amasty_MultiInventory/js/product/disable-qty'], function(object) {
+        object.globals.isSimple = <?= (int)$block->isSimple(); ?>;
+        object.globals.enabled = <?= (int)$block->isEnabled(); ?>;
+        object.globals.haveAssigned = <?= (int)$block->isHaveAssigned(); ?>;
+        object.disable();
+    });
+</script>

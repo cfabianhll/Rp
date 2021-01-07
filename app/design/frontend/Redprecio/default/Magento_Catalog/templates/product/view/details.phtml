@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Catalog\Block\Product\View\Details $block */
+?>
+<?php if ($detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml')) :?>
+
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+
+            <ul class="nav nav-tabs" id="myTab">
+                <?php foreach ($detailedInfoGroup as $name) :?>
+                <?php
+                $html = $layout->renderElement($name);
+                if (!trim($html)) {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+                  <li class="data item nav-link">
+                    <a class="data switch nav-item" id="profile-tab tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title" data-toggle="tab" href="#<?= $block->escapeUrl($alias) ?>">
+                       <?php if($label=='Details') : ?>
+                        <?php  $label = $block->escapeHtml(__('Description')); 
+                        echo $label; ?>
+                        <?php else: ?>
+                            <?= /* @noEscape */ $label ?>
+                    <?php endif; ?>
+                    </a>
+                </li>
+                 <?php endforeach;?>
+            </ul>
+
+             <div class="tab-content">
+                   
+            <?php foreach ($detailedInfoGroup as $name) :?>
+                <?php
+                $html = $layout->renderElement($name);
+                if (!trim($html)) {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+            
+                        <div class="tab-pane fade in" id="<?= $block->escapeHtmlAttr($alias) ?>">
+                            <?= /* @noEscape */ $html ?>
+                        </div>
+                    
+            <?php endforeach;?>
+         
+        </div>
+        </div>
+
+<?php endif; ?>

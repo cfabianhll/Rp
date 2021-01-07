@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+    <section name="AmastyStorefrontCustomerDashboardAccountInformationSection">
+        <element name="ContactInformation" type="textarea" selector=".box.box-information .box-content"/>
+        <element name="AddressInformation" type="textarea" selector=".box.box-address-shipping .box-content"/>
+    </section>
+</sections>

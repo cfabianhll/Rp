@@ -1,0 +1,61 @@
+<?php
+/* @var $block \Mirasvit\Rma\Block\Rma\View */
+$rma      = $block->getRma();
+$orders   = $block->getOrders();
+$progress = $block->getProgress();
+
+$statusMessage = $block->getStatusMessage();
+
+$isMultiorders = count($orders) > 1;
+?>
+<div class="mst-rma-view">
+    
+
+    <?php if ($statusMessage): ?>
+        <div class="mst-rma-box mst-rma__status">
+            <?= $statusMessage ?>
+        </div>
+    <?php endif; ?>
+
+    <?= $block->getChildHtml('rma.view.buttons') ?>
+
+    <?= $block->getChildHtml('rma.view.info') ?>
+
+    <div class="mst-rma-view__orders rma_order_list_custom">
+        <?php foreach ($orders as $order): ?>
+            <?php if ($order): ?>
+                <div class="_no-border">
+                    <div class="mst-rma-box _no-border">
+                        <div class="mst-rma-box__title">
+                            <?php if ($isMultiorders): ?>
+                                <?= __('RMA Items (order %1)', $block->escapeHtml($block->getOrderLabel($order))) ?>
+                            <?php else: ?>
+                                <?= __('RMA Items') ?>
+                            <?php endif ?>
+                        </div>
+
+                        <div class="mst-rma-box__content">
+                            <?php
+                            $itemsBlock = $order->getIsOffline()
+                                ? $block->getChildBlock('rma.view.offline.items')
+                                : $block->getChildBlock('rma.view.items');
+                            $itemsBlock->setOrder($order);
+                            ?>
+                            <?= $itemsBlock->toHtml() ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endif ?>
+        <?php endforeach ?>
+    </div>
+
+    <div class="col-12 rma_mesage_history_custom">
+        <div class="mst-rma-block _align-top row">
+		<div class="col-lg-6 col-sm-12 rma_history_custom">
+		<?= $block->getChildHtml('rma.view.history') ?>
+		</div>
+		<div class="col-lg-6 col-sm-12 rma_message_custom">
+            <?= $block->getChildHtml('rma.view.message') ?>
+			</div>
+        </div>
+    </div>

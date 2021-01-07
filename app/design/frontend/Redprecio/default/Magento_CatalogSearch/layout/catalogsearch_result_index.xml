@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        
+        <referenceContainer name="right_bar" htmlClass="right_bar" />
+        <referenceContainer name="right_bar.search_menu.row.search" htmlClass="col-12 col-lg-6 col-md-4" />
+        <referenceContainer name="right_bar.search_menu.row.col-12" htmlClass="col-12 col-lg-6 col-md-8" />
+        <referenceBlock name="category.view.container" remove="true" />
+        <!-- <referenceBlock name="catalog.leftnav" remove="true"/> -->
+        <referenceContainer name="sidebar.additional" remove="true"/>
+        <referenceContainer name="gw-sidebar.left_menu_bar" remove="false"/>
+        <referenceContainer name="category_sidebar_left" remove="false"/>
+        <referenceContainer name="right_bar.search_menu.logo" remove="true"/>
+        
+        
+        <move element="page.main.title" destination="main.content" after="breadcrumbs" />
+        <move element="breadcrumbs" destination="breadcum.view.cols.category" before="page.main.title" />
+        <move element="search.result" destination="main.content" after="-" />
+        <!-- <move element="sidebar.main" destination="gw-sidebar.left_menu_bar" after="category_sidebar_left" /> -->
+        <move element="sidebar.main" destination="nano-content" after="category_sidebar_left"/>
+        <move element="logo" destination="nano-content" before="-" />
+        <move element="catalog.topnav" destination="after.body.start" after="page.wrapper" />
+
+    </body>
+</page>

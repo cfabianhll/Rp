@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_MultiInventory
+ */
+-->
+<!--
+/**
+ * Copyright © 2016 Amasty. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_save_after">
+        <observer name="amasty_multi_inventory_product" instance="Amasty\MultiInventory\Observer\SaveInventoryDataObserver"/>
+    </event>
+    <event name="amasty_multi_inventory_indexer">
+        <observer name="amasty_multi_inventory_index_stock" instance="Amasty\MultiInventory\Observer\UpdateInventoryObserver"/>
+    </event>
+    <event name="checkout_submit_all_after">
+        <observer name="available_multi_inventory" instance="Amasty\MultiInventory\Observer\CheckoutAllSubmitAfterObserver"/>
+    </event>
+    <event name="paypal_express_place_order_success">
+        <observer name="available_multi_inventory" instance="Amasty\MultiInventory\Observer\CheckoutAllSubmitAfterObserver"/>
+    </event>
+     <event name="sales_order_shipment_save_after">
+        <observer name="amasty_multi_shipment_create" instance="Amasty\MultiInventory\Observer\Sales\Order\CreateShipmentObserver"/>
+    </event>
+    <event name="sales_order_invoice_save_after">
+        <observer name="amasty_multi_invoice_create" instance="Amasty\MultiInventory\Observer\Sales\Order\CreateInvoiceObserver"/>
+    </event>
+    <event name="sales_order_creditmemo_save_after">
+        <observer name="amasty_multi_invoice_create" instance="Amasty\MultiInventory\Observer\Sales\Order\CreateCreditmemoObserver"/>
+    </event>
+    <event name="config_data_save_after">
+        <observer name="amasty_multi_config_data" instance="Amasty\MultiInventory\Observer\ConfigObserver"/>
+    </event>
+    <event name="sales_order_item_cancel">
+        <observer name="amasty_multiinventory" instance="Amasty\MultiInventory\Observer\CancelOrderItemObserver"/>
+    </event>
+    <event name="sales_quote_item_qty_set_after">
+        <observer name="amasty_multi_inventory" instance="Amasty\MultiInventory\Observer\QuantityValidatorObserver"/>
+    </event>
+    <event name="amasty_warehouse_save_before">
+        <observer name="amasty_warehouse_save_coordinates" instance="Amasty\MultiInventory\Observer\SaveCoordinates"/>
+    </event>
+    <event name="customer_address_save_after">
+        <observer name="amasty_warehouse_customer_address_save_before" instance="Amasty\MultiInventory\Observer\SaveCustomerCoordinates" />
+    </event>
+</config>

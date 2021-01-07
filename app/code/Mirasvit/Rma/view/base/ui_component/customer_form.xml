@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <!--not compatible with m2.1.x-->
+    <!--<htmlContent name="mirasvit_rma_content">-->
+        <!--<block class="Mirasvit\Rma\Block\Adminhtml\RmaTab" name="mirasvit_customer_rma" />-->
+    <!--</htmlContent>-->
+</form>

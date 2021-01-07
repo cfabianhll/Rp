@@ -1,0 +1,48 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Osc
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+
+   
+
+<div class="table-responsive  minicart-items-wrapper overflowed">
+    <table id="checkout-review-table" class="table wow fadeIn data-table">        
+        <thead>
+            <tr>
+                <th data-bind="i18n: 'Product Name'"></th>
+                <th class="text-center" data-bind="i18n: 'Qty'"></th>
+                <th class="text-center" data-bind="i18n: 'Price'"></th>
+                <th class="text-center" data-bind="i18n: 'Color'"></th>
+                <th class="text-center" data-bind="i18n: 'Size'"></th>
+                <th class="text-center" data-bind="i18n: 'Total'"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ko foreach: getItems() -->
+            <tr class="product-item">
+                <!-- ko foreach: $parent.elems() -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+            </tr>
+            <!-- /ko -->
+        </tbody>
+    </table>
+</div>

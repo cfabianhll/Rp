@@ -1,0 +1,54 @@
+<?php $isEnable = $block->getConfig('faqtab/general/enable') ?>
+<?php $showGroup = $block->getConfig('faqtab/general/showgroup') ?>
+<?php $showGroupTitle = $block->getConfig('faqtab/general/showgrouptitle');
+$ajaxUrl = $this->getBaseUrl()."faqs/index/ajax"; ?>
+<?php $faqGroupCollection = $block->getFaqGroupCollection() ?>
+<?php if ($faqGroupCollection->getSize()) : ?>
+    <?php if ($isEnable) : ?>    
+    <div class="col-12 col-lg-3 col-md-4">        
+    	<div class="tab">
+            <div class="nav faq-group flex-column nav-pills help-with" id="v-pills-tab">               
+                 <h5><?= __('Help With');?></h5>                  
+                <?php $first = false;
+                    foreach ($faqGroupCollection as $group) : ?>
+                    <a class="<?php if(!$first){$first = true; echo 'first '; }?>faq-question nav-link" href='#<?php echo strtolower(str_replace(" ","_",$group->getGroupName())); ?>' onClick="ajaxgetcontent(jQuery(this),'<?php echo $group->getFaqgroupId(); ?>','<?php echo $ajaxUrl ?>')"><?php echo $group->getGroupName(); ?></a>                    
+                <?php endforeach; ?>
+            </div>
+    	</div>
+        <div class="faq-content faq-right col-12 col-lg-9 col-md-9">
+    		<div class="shipping_info_form faq-accordion faq-right-contant">               
+    		</div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-9 col-md-8 bord">
+        <div class="tab-content faq">
+            <div class="tab-pane fade active show">
+                <div class="row">
+                    <div class="col-12 col-md-3 col-lg-6">
+                        <h3 class="faq_hd"><?= __('FAQ') ?></h3>
+                    </div>
+                    <div class="col-12 col-md-9 col-lg-6">
+                        <div class="form-group faq_search mb-0">
+                            <input type="text" id="faqsearch" class="form-control " name="" placeholder="<?= __('Search here') ?>">
+                            <button id="searchfaq" class="btn main_btn" onClick="ajaxgetcontent('',0,'<?php echo $ajaxUrl ?>',true)"><?= __('Submit') ?></button>
+                        </div>
+                        <div id="faq-validation" style="display:none;">
+                            <div generated="true" class="mage-error">
+                                <?= __('This is a required field.') ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div id="accordion" role="tablist" class="faq_tab faq-content-main"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+<?php else : ?>
+    <div class="col-12 bord">
+        <h2><?php echo __('No Records available.'); ?></h2>
+    </div>
+<?php endif; ?>
+

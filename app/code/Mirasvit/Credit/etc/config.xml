@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <credit>
+            <general>
+                <enable_send_friend>1</enable_send_friend>
+                <share_balance>balance_global</share_balance>
+            </general>
+            <email>
+                <email_identity>general</email_identity>
+                <send_balance_update>1</send_balance_update>
+                <balance_update_template>credit_email_balance_update_template</balance_update_template>
+            </email>
+            <calculation>
+                <include_tax>1</include_tax>
+                <include_shipping>1</include_shipping>
+                <credit_total_order>750</credit_total_order>
+            </calculation>
+            <advanced>
+                <order_expr>/#o\|([0-9]*)/is</order_expr>
+                <creditmemo_expr>/#m\|([0-9]*)/is</creditmemo_expr>
+            </advanced>
+        </credit>
+    </default>
+</config>

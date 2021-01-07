@@ -1,0 +1,17 @@
+<div class="data-grid-combi">
+    <div data-bind="foreach: { data: getList($row()), as: 'item' }" class="row">
+        <div attr="class: 'cell ' + item.key">
+            <!-- ko if: item.key == 'wh-stock_status' -->
+                <!-- ko if: item.value == 1 -->
+                    In Stock
+                <!-- /ko -->
+                <!-- ko if: item.value == 0 -->
+                    Out of Stock
+                <!-- /ko -->
+            <!-- /ko -->
+            <!-- ko if: item.key != 'wh-stock_status' -->
+                <div data-bind="text:item.value"></div>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>

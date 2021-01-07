@@ -1,0 +1,17 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="row" data-bind="if: (addressOptions.length > 1)">
+    <div class="mb-4 field col-12 col-md-12 col-lg-12 form-group field-select-billing" >
+        <label class="label" data-bind="i18n: 'Billing Address'"></label>
+        <select class="form-control select" name="billing_address_id" data-bind="
+            options: addressOptions,
+            optionsText: addressOptionsText,
+            value: selectedAddress,
+            event: {change: onAddressChange(selectedAddress())};
+        "></select>
+    </div>
+</div>

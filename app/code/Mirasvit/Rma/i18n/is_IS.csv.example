@@ -1,0 +1,484 @@
+"Request RMA","Beiðni RMA"
+"My Returns","Mín skilaréttur"
+Grid,Rist
+List,Listi
+All,Allt
+"Create RMA","Búðu til RMA"
+"Request New Return","Beðið um nýtt aftur"
+"Max file size: %1Mb","Max skráarstærð: %1Mb"
+"New Return for Order #%1","New Return for Order #%1"
+"RMA #%1","RMA #%1"
+"RMA #%1 - %2","RMA #%1 - %2"
+"Wrong Order #, Email or Last Name","Rangt Order #, Email eða Eftirnafn"
+Items,Hlutir
+"To apply changes you should fill in required ""%1"" field","Til að sækja um breytingar ættu að fylla inn nauðsynlegt &quot;%1&quot; reit"
+"Please, add order items to the RMA (set 'Qty to Return')","Vinsamlegast bættu við pöntunargögnum við RMA (sett &#39;Magn til að fara aftur&#39;)"
+"Please, set correct order items Quantity to return","Vinsamlegast settu réttar pöntunarhlutir Magn til að fara aftur"
+"RMA was successfully created","RMA var vel búin til"
+"Shipping is confirmed. Thank you!","Sendingarkostnaður er staðfestur. Þakka þér fyrir!"
+"Your message was successfully added","Skilaboðin þín voru bætt við"
+"Allowed extensions:","Leyfðar viðbætur:"
+"Maximum size:",Hámarksstærð:
+"-- Please Select --","-- Vinsamlegast veldu --"
+" at %1 (%2)","á %1 (%2)"
+"Mark as unresolved","Merktu sem óleyst"
+"Mark as resolved","Merkja sem leyst"
+"not set","ekki sett"
+Pattern,Mynstur
+"Attribute Value","Attribute Value"
+Default,Sjálfgefið
+Integer,Heiltala
+Price,Verð
+"Strip Tags","Strip Tags"
+"Primary Attributes","Helstu eiginleikar"
+"Stock Attributes",Hlutabréf
+"Prices & Taxes","Verð og skattar"
+Images,Myndir
+"Custom Attributes","Sérsniðin eiginleiki"
+Mapping,Kortlagning
+Category,Flokkur
+"Amasty Meta Tags","Amasty Meta Tags"
+"Others Attributes","Aðrir eiginleikar"
+Text,Texti
+"Multi-line text","Multi-lína texti"
+Date,Dagsetning
+Checkbox,Kassi
+"Drop-down list","Drop-down listi"
+Reason,Ástæða
+Condition,Skilyrði
+Resolution,Upplausn
+"RMA #","RMA #"
+"Order #","Panta #"
+"Customer Email","Viðskiptavinur tölvupóstur"
+"Customer Name","Nafn viðskiptavinar"
+Owner,Eigandi
+"Last Replier","Síðasta möppu"
+Status,Staða
+Store,Geymið
+"Created At","Búið til á"
+"Last Activity","Síðasta virkni"
+"View link","Skoða tengil"
+"New RMA has been created","Nýtt RMA hefur verið búið til"
+"RMA has been changed","RMA hefur verið breytt"
+"New reply from customer","Nýtt svar frá viðskiptavini"
+"New reply from staff","Nýtt svar frá starfsfólki"
+"-- Default Address --","- Sjálfgefið Heimilisfang -"
+"Update the Product","Uppfæra vöruna"
+"Conditions Combination","Skilyrði Samsetning"
+"RMA Attribute","RMA eiginleiki"
+"Last 7-days Clicks","Síðustu 7 daga smelli"
+"Last 7-days Orders","Síðasta 7 daga pantanir"
+"Last 7-days Revenue","Síðasta 7 daga Tekjur"
+"Last 7-days Conversation Rate (%)","Síðasta 7 daga samtalshraði (%)"
+"Attribute Set","Attribute Set"
+Quantity,Magn
+"Product Type",Vörugerð
+"Base Image",Grunnmynd
+Thumbnail,Smámyndir
+"Small Image","Lítil mynd"
+"Base Image Size (bytes)","Grunnupplýsingastærð (bæti)"
+"Thumbnail Size (bytes)","Thumbnail Size (bæti)"
+"Small Image Size (bytes)","Lítill myndastærð (bæti)"
+"PHP Condition","PHP skilyrði"
+"Open Chooser","Opna kjósandi"
+"Last message body","Síðasta skilaboðastofnun"
+"Updated At","Uppfært á"
+"Status (before change)","Staða (fyrir breytingu)"
+"Owner (before change)","Eigandi (áður en breyting er gerð)"
+"Last Reply By","Síðasta svar við"
+"Hours since Created","Hours síðan búið til"
+"Hours since Updated","Klukkustundir síðan uppfærð"
+"Hours since Last reply","Hours síðan Síðast svarað"
+"Items have reason","Atriði hafa ástæðu"
+"Items have condition","Atriði eru með skilyrði"
+"Items have resolution","Atriði hafa upplausn"
+"%1 (before change)","%1 (fyrir breytingu)"
+Customer,Viðskiptavinur
+Staff,Starfsfólk
+"- Disable these emails -","- Slökkva á þessum tölvupósti -"
+Yes,Já
+No,Nr
+Save,Vista
+"Save & Continue Edit","Vista &amp; Halda áfram Breyta"
+"Save & Close","Vista og loka"
+Edit,Breyta
+Delete,Eyða
+"Delete ""${ $.$data.name }""","Eyða "${ $.$data.name }""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Ertu viss um að þú viljir eyða "${ $.$data.name }" upptöku?"
+"Are you sure you want to do this?","Ertu viss um að þú viljir gera þetta?"
+"Convert To Ticket","Umbreyta í miða"
+"View order #${ $.$data.order_id }","Skoða pöntun #${ $.$data.order_id }"
+"View exchange order %1","Skoða skipta pöntun %1"
+"RMA: Report by Attribute","RMA: Skýrsla eftir eiginleikum"
+"RMA: Report by Status","RMA: Skýrsla eftir stöðu"
+"RMA: Report by Product","RMA: Skýrsla eftir vöru"
+"RMA: Report by Reasons","RMA: Skýrsla af ástæðum"
+"Cannot delete return address with id %1","Get ekki eytt afturfangi með auðkenni %1"
+"Cannot delete item with id %1","Ekki er hægt að eyða hlut með auðkenni %1"
+"Cannot delete condition with id %1","Ekki er hægt að eyða ástandi með auðkenni %1"
+"Cannot delete field with id %1","Ekki er hægt að eyða reit með auðkenni %1"
+"Cannot delete message with id %1","Ekki er hægt að eyða skilaboðum með auðkenni %1"
+"Cannot delete history with id %1","Ekki er hægt að eyða sögu með auðkenni %1"
+"Cannot delete Quick Response with id %1","Ekki er hægt að eyða Quick Response með auðkenni %1"
+"Cannot delete reason with id %1","Ekki er hægt að eyða ástæðu með auðkenni %1"
+"Cannot delete resolution with id %1","Ekki er hægt að eyða upplausn með auðkenni %1"
+"Cannot delete rma with id %1","Get ekki eytt rma með auðkenni %1"
+"Cannot delete rule with id %1","Ekki er hægt að eyða reglu með auðkenni %1"
+"Cannot delete status with id %1","Get ekki eytt stöðu með auðkenni %1"
+"Please, enter a message","Vinsamlegast sláðu inn skilaboð"
+"Product Name","Vöru Nafn"
+SKU,SKU
+Qty,Magn
+"This was a gift, please do not notify purchaser","Þetta var gjöf, vinsamlegast látið ekki tilkynna kaupanda"
+"Enter your contact information","Sláðu inn upplýsingar um tengiliðina þína"
+"First Name","Fyrsta nafn"
+"Last Name",Eftirnafn
+Email,Email
+Telephone,Sími
+"To request a new RMA or check the status of current RMA, please, fill the form:","Til að biðja um nýtt RMA eða athuga stöðu núverandi RMA skaltu vinsamlegast fylla út eyðublaðið:"
+"* Required Fields","* Nauðsynlegir reitir"
+"Order Information","Panta Upplýsingar"
+"Email or Last Name","Email eða eftirnafn"
+Next,Næst
+RMA,RMA
+Actions,Aðgerðir
+"View Return","Skoða aftur"
+"There are no Returns","Það eru engar afskriftir"
+"Items %1 to %2 of %3 total","Atriði %1 til %2 af %3 samtals"
+"%1 Item(s)","%1 Liður (ir)"
+Show,Sýna
+"per page","á síðu"
+"View as","Skoða sem"
+"Sort by","Raða eftir"
+"Set Ascending Direction","Setja upp stefnu"
+"Set Descending Direction","Setja niður stefnu"
+"Please, select an order","Vinsamlegast veldu pöntun"
+Order,Order
+"-- Select an Order --","- Veldu pöntun -"
+"You have no completed orders to request RMA or your orders were placed more than %1 days ago. Please, contact customer service.","Þú hefur ekki lokið pöntunum til að biðja um RMA eða pantanir þínar voru settar fyrir meira en %1 daga síðan. Vinsamlegast hafðu samband við þjónustudeild."
+"Submit Request","Sendu inn beiðni"
+"Please, select RMA items which you would like to return.","Vinsamlegast veldu RMA atriði sem þú vilt koma aftur."
+"Additional Information",Viðbótarupplýsingar
+"Attach files","Hengdu við skrár"
+"Request Information","Beiðni Upplýsingar"
+"Email Address",Netfang
+"Order Shipping Address","Panta sendingar heimilisfang"
+"Items in this order","Atriði í þessari röð"
+"There are no items for this product that can be returned.","Það eru engar vörur fyrir þessa vöru sem hægt er að skila."
+"Another RMA for this product: %1","Annar RMA fyrir þessa vöru: %1"
+"This product can not be returned due to RMA Policy","Þessi vara er ekki hægt að skila vegna RMA Policy"
+"This is a non-returnable item per our return policy.","Þetta er hluti sem ekki er hægt að skila samkvæmt stefnu okkar um afturferð."
+"Quantity to return","Magn til að fara aftur"
+"-- Select a Reason --","- Veldu ástæðu -"
+"-- Select a Condition --","- Veldu ástand -"
+"-- Select a Resolution --","- Veldu upplausn -"
+"I agree","Ég er sammála"
+"Date: %1","Dagsetning: %1"
+"Original order: #%1","Upprunaleg röð: #%1"
+"Return Address",Heimilisfang
+"Customer Information","Upplýsingar um viðskiptavin"
+"RMA History","RMA History"
+"RMA Items","RMA atriði"
+Weight,Þyngd
+"Print RMA Packing Slip","Prenta RMA Pökkunargluggi"
+"Print RMA Shipping Label","Prenta RMA Shipping Label"
+"Confirm Shipping","Staðfestu sendingu"
+"(This was a gift)","(Þetta var gjöf)"
+"Date Requested","Dagsetning óskað"
+"Contact Information","Tengiliður Upplýsingar"
+"Items RMA Requested for","Atriði RMA óskað eftir"
+QTY,QTY
+"Add Message","Bæta við skilaboðum"
+Submit,"Senda inn"
+%name,"% nafn"
+"The quantity is incorrect.","Magnið er rangt."
+"New Return for Offline Order","Nýtt aftur fyrir ótengda pöntun"
+" at %1","á %1"
+Select,Veldu
+"If you do not have account on this store please fill the form below.","Ef þú ert ekki með reikning í þessari verslun skaltu fylla út formið hér að neðan."
+"-- Create Offline Order --","- Búðu til ótengda pöntun -"
+"Returned Item","Skilað hlut"
+"Remove Item","Fjarlægja hlut"
+"Order or Receipt #","Panta eða kvittun #"
+"Add Item","Bæta við hlut"
+"Add at least one item to this RMA","Bættu að minnsta kosti einu atriði við þessa RMA"
+"Return Addresses",Afturköllun
+"Add New Return Address","Bæta við nýjum afturábaki"
+"General Information","Almennar upplýsingar"
+Title,Titill
+"Sort Order",Flokkun
+"Is Active","Er virk"
+ID,Auðkenni
+Active,Virkur
+Disabled,Óvirk
+Enabled,Virkja
+"Change status","Breyta stöðu"
+"Are you sure?","Ertu viss?"
+Conditions,Skilyrði
+"Add New Condition","Bæta við nýjum skilyrðum"
+"[STORE VIEW]","[STORE VIEW]"
+"Create RMA for this customer","Búðu til RMA fyrir þennan viðskiptavin"
+Fields,Fields
+"Add New Field","Bæta við nýjum reit"
+Code,Kóði
+Type,Tegund
+Description,Lýsing
+"Options list","Valkostir listi"
+"Only for drop-down list.
+                <br>Enter each value from the new line using format:
+                <br>value1 | label1
+                <br>value2 | label2","Aðeins fyrir fellilistann. <br> Sláðu inn hvert gildi úr nýju línunni með því að nota snið: <br> gildi1 | merki1 <br> value2 | label2"
+"Sort order",Flokkun
+"Is required for staff","Er krafist fyrir starfsfólk"
+"Is required for customers","Er krafist fyrir viðskiptavini"
+"Visible for customers in statuses","Sýnilegt fyrir viðskiptavini í stöðu"
+"Is show in confirm shipping dialog","Er sýning í staðfesta sendingarglugga"
+"Is editable for customers","Er hægt að breyta fyrir viðskiptavini"
+Statuses,Staða
+Reasons,Ástæður
+Resolutions,Upplausnir
+"Custom Fields","Sérsniðnar reitir"
+"Quick Responses","Fljótur svar"
+"Workflow Rules","Workflow reglur"
+Reports,Skýrslur
+Settings,Stillingar
+"Add New Reason","Bæta við nýrri ástæðu"
+"Add New Resolution","Bæta við nýrri upplausn"
+"Add New RMA","Bæta við nýjum RMA"
+"Create New RMA","Búðu til nýja RMA"
+"Purchased From (Store)","Keypt frá (verslun)"
+"Purchased On","Keypt á"
+"Bill to Name","Bill til Nafn"
+"Ship to Name","Senda á nafn"
+"G.T. (Base)","GT (Base)"
+"G.T. (Purchased)","GT (keypt)"
+Print,Prenta
+"Credit Memo",Lánshæfiseinkunn
+"Exchange Order",Skiptispöntun
+"Delete File","Eyða skrá"
+"RMA Owner","RMA Eigandi"
+"Upload Return Label","Hlaða aftur merkimiðanum"
+"External Link","Ytri hlekkur"
+open,opinn
+"(received a gift)","(fékk gjöf)"
+"Exchage Order",Skýringar
+Company,Fyrirtæki
+"Street Address",Heimilisfang
+City,Borg
+Zip/Postcode,"Póstnúmer / Póstnúmer"
+Rules,Reglur
+"Add New Rule","Bæta við nýrri reglu"
+"Set Status","Stilla stöðu"
+"Set Owner","Setja eiganda"
+Event,Viðburður
+Filters,Síur
+"Rule Name","Regla Nafn"
+Priority,Forgangur
+"Arranged in the ascending order. 0 is the highest.","Skipulagt í hækkandi röð. 0 er hæsta."
+"Stop Further Rules Processing","Stöðva frekari reglur vinnslu"
+Notifications,Tilkynningar
+"Send email to RMA owner","Senda tölvupóst til RMA eiganda"
+"Send email to customer","Senda tölvupóst til viðskiptavina"
+"Send email to other email addresses","Senda tölvupóst til annarra netfönga"
+"Email subject","Email Subject"
+"Email body","Email líkama"
+"Attach files which were attached to the last message","Hengdu við skrár sem voru tengdir síðustu skilaboðum"
+"Is Stop Processing","Er að stoppa vinnslu"
+"Create RMA for this order","Búðu til RMA fyrir þessa pöntun"
+"Order meets RMA policy","Panta uppfyllir RMA stefnu"
+"Order doesn't meet RMA policy","Pöntun uppfyllir ekki RMA stefnu"
+"Add New Status","Bæta við nýrri stöðu"
+"Show buttons 'Print RMA Packing Slip', 'Print RMA Shipping Label' and 'Confirm Shipping' in the customer account","Sýna hnappana &#39;Prenta RMA Pökkunargluggi&#39;, &#39;Prenta RMA Pakki Label&#39; og &#39;Staðfesta Shipping&#39; á viðskiptavinareikningnum"
+"Email Notification for customer","Email Tilkynning fyrir viðskiptavini"
+"leave blank to not send","slepptu ekki til að senda ekki"
+"Message for RMA history","Skilaboð til RMA sögu"
+"Email Notification for administrator","Email Tilkynning fyrir stjórnanda"
+Templates,Sniðmát
+"Add New Template","Bæta við nýjum sniðmáti"
+"Internal Title","Innri titill"
+Template,Sniðmát
+"You can use variables:
+                [rma_increment_id],
+                [rma_firstname],
+                [rma_lastname],
+                [rma_email],
+                [store_name],
+                [store_phone],
+                [store_address],
+                [user_firstname],
+                [user_lastname],
+                [user_email]","Þú getur notað breytur: [rma_increment_id], [rma_firstname], [rma_lastname], [rma_email], [store_name], [store_phone], [store_address], [user_firstname], [user_lastname], [user_email]"
+Stores,Búðir
+"RMA Return Address","RMA afturfang"
+"New Return Address","Nýtt veffang"
+"Return Address Manager","Til baka Heimilisfang Manager"
+"Add Return Address ","Bættu við heimilisfang"
+"Add Return Address","Bættu við heimilisfang"
+"Return Address was successfully deleted","Endurheimt heimilisfang var eytt"
+"Edit Return Address '%1'","Breyta aftur heimilisfang &#39;%1&#39;"
+"Edit Return Address ","Breyta afturfangi"
+"The Return Address does not exist.","Heimilisfangið er ekki til."
+"Please select Return Address(es)","Vinsamlegast veldu Til baka Heimilisfang (s)"
+"Total of %d record(s) were successfully updated","Samtals% d skrár (s) voru uppfærðar með góðum árangri"
+"Total of %1 record(s) were successfully deleted","Samtals %1 skrá (s) var eytt"
+"return Address was successfully saved","aftur Heimilisfang var vistað"
+"Unable to find Return Address to save","Ekki er hægt að finna Return Address til að vista"
+"New Condition","Nýtt skilyrði"
+"Condition  Manager",Ástandsstjóri
+"Condition Manager",Ástandsstjóri
+"Add Condition ","Bæta við ástandi"
+"Add Condition","Bæta við ástandi"
+"Condition was successfully deleted","Skilyrði var eytt"
+"Edit Condition '%1'","Breyta ástandinu &#39;%1&#39;"
+"Edit Condition ","Breyta ástandi"
+"The Condition does not exist.","Ástandið er ekki til."
+"Please select Condition(s)","Vinsamlegast veldu Ástand (s)"
+"Total of %d record(s) were successfully deleted","Samtals% d skrár (s) voru teknar með góðum árangri"
+"Condition was successfully saved","Skilyrði var vistað með góðum árangri"
+"Unable to find Condition to save","Ekki er hægt að finna skilyrðin sem á að vista"
+"New Field","New Field"
+"Field  Manager","Field Manager"
+"Field Manager","Field Manager"
+"Add Field ","Bæta við reit"
+"Add Field","Bæta við reit"
+"Field was successfully deleted","Veldi var eytt"
+"Edit Field '%1'","Breyta sviði &#39;%1&#39;"
+"Edit Field ","Breyta reit"
+"The Field does not exist.","Fieldið er ekki til."
+"Please select Field(s)","Vinsamlegast veldu Field (s)"
+"Field was successfully saved","Field var vistað með góðum árangri"
+"Unable to find Field to save","Ekki tókst að finna reit til að vista"
+"New Reason","Nýtt ástæða"
+"Reason  Manager","Reason Manager"
+"Reason Manager","Reason Manager"
+"Add Reason ","Bæta við ástæðu"
+"Add Reason","Bæta við ástæðu"
+"Reason was successfully deleted","Ástæða var eytt"
+"Edit Reason '%1'","Breyta ástæðu &#39;%1&#39;"
+"Edit Reason ","Breyta ástæðu"
+"The Reason does not exist.","Ástæðan er ekki til."
+"Please select Reason(s)","Vinsamlegast veldu Ástæða (s)"
+"Reason was successfully saved","Ástæða var vistað með góðum árangri"
+"Unable to find Reason to save","Ekki er hægt að finna ástæðu til að vista"
+"Statistics was successfully updated","Tölfræði var uppfærður með góðum árangri"
+"RMA by Brand","RMA eftir vörumerki"
+"RMA Report","RMA skýrsla"
+"RMA by Product","RMA eftir vöru"
+Rma,RMA
+"New Resolution","Ný ályktun"
+"Resolution  Manager",Upplausnastjóri
+"Resolution Manager",Upplausnastjóri
+"Add Resolution ","Bæta við upplausn"
+"Add Resolution","Bæta við upplausn"
+"Resolution was successfully deleted","Upplausn var eytt"
+"Edit Resolution '%1'","Breyta upplausn &#39;%1&#39;"
+"Edit Resolution ","Breyta upplausn"
+"The Resolution does not exist.","Upplausnin er ekki til."
+"Please select Resolution(s)","Vinsamlegast veldu Upplausn (ir)"
+"Resolution was successfully saved","Upplausn var vistuð með góðum árangri"
+"Unable to find Resolution to save","Ekki tókst að finna upplausn til að vista"
+"New RMA","Nýtt RMA"
+"RMA was successfully deleted","RMA var eytt"
+"The rma does not exist.","Rma er ekki til."
+"Marked as read","Merkið sem lesið"
+"Marked as unread","Merktur sem ólesinn"
+"Please select rma(s)","Vinsamlegast veldu RMA (s)"
+"A total of %1 record(s) have been deleted.","Samtals %1 skrá (ir) hefur verið eytt."
+"RMA was successfully saved","RMA var vistað með góðum árangri"
+"Unable to find rma to save","Gat ekki fundið rma til að vista"
+"New Rule","Ný regla"
+"Rule  Manager",Reglurastjóri
+"Rule Manager",Reglurastjóri
+"Add Rule ","Bæta reglu við"
+"Add Rule","Bæta reglu við"
+"Rule was successfully deleted","Regla var tekin úr gildi"
+"Edit Rule '%1'","Breyta reglu &#39;%1&#39;"
+"Edit Rule ","Breyta reglu"
+"The Rule does not exist.","Reglan er ekki til."
+"Please select Rule(s)","Vinsamlegast veldu Regla (s)"
+"Rule was successfully saved","Regla var vistað með góðum árangri"
+"Unable to find Rule to save","Ekki er hægt að finna reglu til að vista"
+"New Status","Ný staða"
+"Status  Manager","Staða Manager"
+"Status Manager","Staða Manager"
+"Add Status ","Bæta við stöðu"
+"Add Status","Bæta við stöðu"
+"Status was successfully deleted","Staða var eytt"
+"Edit Status '%1'","Breyta stöðu &#39;%1&#39;"
+"Edit Status ","Breyta stöðu"
+"The Status does not exist.","Staða er ekki til."
+"Please select Status(s)","Vinsamlegast veldu Staða (s)"
+"Status was successfully saved","Staða var vistað"
+"Unable to find Status to save","Ekki tókst að finna stöðu sem á að vista"
+"New Template","Ný sniðmát"
+"Template  Manager",Sniðstjóri
+"Template Manager",Sniðstjóri
+"Add Template ","Bæta við sniðmáti"
+"Add Template","Bæta við sniðmáti"
+"Template was successfully deleted","Sniðmát var eytt"
+"Edit Template '%1'","Breyta sniðmáti &#39;%1&#39;"
+"Edit Template ","Breyta sniðmáti"
+"The Template does not exist.","Sniðmátið er ekki til."
+"Please select Template(s)","Vinsamlegast veldu Snið (s)"
+"Template was successfully saved","Sniðmát var vistað með góðum árangri"
+"Unable to find Template to save","Ekki tókst að finna sniðmát til að vista"
+"Created Date","Búið til dagsetningu"
+Action,Aðgerð
+View,Útsýni
+RMAs,RMAs
+"Select Order","Veldu Order"
+"Exchange/Credit Balance",Gjaldeyrisjöfnuður
+"Customer credit balance:","Lánshlutfall viðskiptavina:"
+"Total price of new products:","Heildarverð nýrra vara:"
+"Total price of exchanged/credit products:","Heildarverð skipti / lánaafurða:"
+"Price difference:",Verðmunur:
+Resolution:,Upplausn:
+"Get %1 from customer credit balance","Fáðu %1 frá lánshæfiseinkunn viðskiptavina"
+"Put %1 to customer credit balance","Setjið %1 við lánshæfiseinkunn viðskiptavina"
+"Resolve manually","Leyst með handvirkt"
+"Message Type","Tegund skilaboða"
+"Message to Customer","Skilaboð til viðskiptavina"
+"Internal Note","Innri athugasemd"
+"mark as unread","merkja sem ólesið"
+"mark as read","merkja sem lesið"
+"You can not return more, than available. Please, try again.","Þú getur ekki skilað meira en í boði. Vinsamlegast reyndu aftur."
+"show all order items","Sýna öll pöntunar atriði"
+"Qty to Return","Magn til að fara aftur"
+"Reason to Return","Ástæða til að koma aftur"
+"Item Condition","Liður ástands"
+"(Bundled Product)","(Bundin vara)"
+Stock,Lager
+Ordered,Pantaði
+Available,Laus
+--,-
+"Insert Quick Response","Settu inn flýtiritun"
+"Default status for new RMA","Sjálfgefin staða fyrir nýja RMA"
+"Default owner for new RMA","Sjálfgefin eigandi fyrir nýja RMA"
+"Ask customer to confirm shipping","Spyrðu viðskiptavini að staðfesta sendinguna"
+"Shipping confirmation text","Sendingar staðfestingartexta"
+"Enable option ""This was a gift""","Virkja valkost &quot;Þetta var gjöf&quot;"
+"Enable integration with Help Desk","Virkja samþættingu með hjálparspjaldi"
+"Code of ""Brand"" attribute","Kóði &quot;Vörumerki&quot; eiginleiki"
+"Allow upload only attachments with extensions","Leyfa aðeins að hlaða inn viðhengjum með viðbótum"
+"Limit of attachments size, Mb","Takmörkun viðhengis stærð, Mb"
+"Show Columns in RMA Grid","Sýna dálka í RMA rist"
+"Show RMA section in Customer Account","Sýna RMA hluti í viðskiptavinareikningi"
+"Customers are required to select:","Viðskiptavinir þurfa að velja:"
+"Allow to request RMA after order completion, days","Leyfa að biðja um RMA eftir að lokið er, dagar"
+"Allow to request RMA if order has status","Leyfa að biðja um RMA ef pöntun hefur stöðu"
+"Ask to agree with RMA policy text","Beiðni um að samþykkja RMA stefnu texta"
+"CMS block with RMA policy text","CMS blokk með RMA stefnu texta"
+"Number Format",Númerasnið
+"Start Counter From","Byrjaðu á móti"
+"Counter Increment Step","Counter Stækkun Skref"
+"Counter Length","Counter Lengd"
+"Email Sender","Email sendandi"
+"Template of Notification Email for Customer","Sniðmát skilaboða tölvupósts fyrir viðskiptavini"
+"Template of Notification Email for RMA Owner","Sniðmát skilaboða tölvupósts fyrir RMA eiganda"
+"Template of Rule Notification","Sniðmát reglubirtingar"
+" Send blind carbon copy (BCC) of all emails to","Senda blinda kolefnisrit (BCC) af öllum tölvupósti til"
+"At least one RMA item should have resolution ""Exchange"".","Að minnsta kosti eitt RMA atriði ætti að hafa upplausn &quot;Exchange&quot;."
+"Add another order","Bættu við annarri pöntun"
+"Offline Order","Ónettengd pöntun"
+OR,OR
+"Select Offline Order","Veldu Ónettengd pöntun"
