@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <!-- Fill general form - new stocktaking -->
+    <actionGroup name="FillGeneralFormNewStocktakingActionGroup">
+        <annotations>
+            <description>Fill general form in new stocktaking.</description>
+        </annotations>
+        <arguments>
+            <argument name="stocktaking" defaultValue="StocktakingEmptyData"/>
+        </arguments>
+        <selectOption userInput="{{stocktaking.source_code}}" selector="{{AdminStocktakingGeneralSection.source_code}}" stepKey="fillSourceCode"/>
+        <selectOption userInput="{{stocktaking.stocktaking_type}}" selector="{{AdminStocktakingGeneralSection.stocktaking_type}}" stepKey="fillType" />
+        <fillField userInput="{{stocktaking.created_at}}" selector="{{AdminStocktakingGeneralSection.created_at}}" stepKey="fillCreatedAt"/>
+        <selectOption userInput="{{stocktaking.assign_user_id}}" selector="{{AdminStocktakingGeneralSection.assign_user_id}}" stepKey="fillUser"/>
+        <fillField userInput="{{stocktaking.description}}" selector="{{AdminStocktakingGeneralSection.description}}" stepKey="fillDescription"/>
+    </actionGroup>
+</actionGroups>

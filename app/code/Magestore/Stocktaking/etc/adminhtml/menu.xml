@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2016 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magestore_Stocktaking::view_listing" title="Stock-taking" translate="title" module="Magestore_Stocktaking" parent="Magestore_AdjustStock::stockcontrol" sortOrder="200" resource="Magestore_Stocktaking::view_listing" action="stocktaking/stocktaking/index"/>
+    </menu>
+</config>

@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/** @var \Magestore\Webpos\Block\Adminhtml\Customer\PersonalInfo $block */
+?>
+
+<tr>
+    <?php if ($block->getCreatedLocationName()): ?>
+        <th><?= $block->escapeHtml(__('Created at Location:')) ?></th>
+        <td><?= $block->escapeHtml($block->getCreatedLocationName()) ?></td>
+    <?php endif; ?>
+</tr>

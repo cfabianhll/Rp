@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="AdminCreateNewValidateFormTest">
+        <annotations>
+            <features value="Stocktaking"/>
+            <stories value="Create New stocktaking in Admin"/>
+            <title value="Admin should not be able to save new stocktaking without required fields"/>
+            <description value="Admin should not be able to save new stocktaking without required fields"/>
+            <severity value="MAJOR"/>
+            <group value="Stocktaking"/>
+            <group value="CreateNew"/>
+            <group value="pwapos"/>
+        </annotations>
+
+        <before>
+            <!-- Login as admin -->
+            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+        </before>
+
+        <after>
+            <actionGroup ref="logout" stepKey="logout"/>
+        </after>
+
+        <actionGroup ref="GoToNewStockTakingPageActionGroup" stepKey="goToNewStocktaking"/>
+        <actionGroup ref="FillGeneralFormNewStocktakingActionGroup" stepKey="fillEmpty"/>
+        <actionGroup ref="ClickStocktakingSaveFormActionGroup" stepKey="clickSave"/>
+        <actionGroup ref="AssertAdminStocktakingRequiredFieldActionGroup" stepKey="assertValidate"/>
+    </test>
+</tests>

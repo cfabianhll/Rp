@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+    <entity name="product_simple_1" type="product">
+        <data key="id">2038</data>
+        <data key="sku">WSH12-30-Purple</data>
+        <data key="name">Erika Running Short-30-Purple</data>
+        <data key="qty">100</data>
+        <data key="countedQty">0</data>
+        <data key="reasonDifferent"></data>
+    </entity>
+    <entity name="product_simple_2" type="product">
+        <data key="id">2039</data>
+        <data key="sku">WSH12-30-Red</data>
+        <data key="name">Erika Running Short-30-Red</data>
+        <data key="qty">100</data>
+        <data key="countedQty">0</data>
+        <data key="reasonDifferent"></data>
+    </entity>
+    <entity name="product_simple_3" type="product">
+        <data key="id">2040</data>
+        <data key="sku">WSH12-31-Green</data>
+        <data key="name">Erika Running Short-31-Green</data>
+        <data key="qty">100</data>
+        <data key="countedQty">3</data>
+        <data key="reasonDifferent"></data>
+    </entity>
+</entities>
+

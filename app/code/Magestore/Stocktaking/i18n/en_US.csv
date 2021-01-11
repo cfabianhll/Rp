@@ -1,0 +1,113 @@
+"Back to Count","Back to Count"
+"Back to Prepare","Back to Prepare"
+Cancel,Cancel
+"Are you sure to cancel this stock-taking?","Are you sure to cancel this stock-taking?"
+Complete,Complete
+"Complete & Adjust Stock","Complete & Adjust Stock"
+"Are you sure to complete stock-taking and adjust product’s quantity in source?","Are you sure to complete stock-taking and adjust product’s quantity in source?"
+"Complete Counting","Complete Counting"
+"Export Difference List","Export Difference List"
+"Export Not Counted Product","Export Not Counted Product"
+"Export Products","Export Products"
+Save,Save
+"Start Counting","Start Counting"
+Completed,Completed
+Counting,Counting
+Preparing,Preparing
+Verifying,Verifying
+"Please choose a CSV file to  upload product list with a maximum of 1000 SKUs. You can download this sample CSV file.","Please choose a CSV file to  upload product list with a maximum of 1000 SKUs. You can download this sample CSV file."
+"Import products","Import products"
+"Export Counted List","Export Counted List"
+"Stock-taking Archive","Stock-taking Archive"
+"This stock-taking no longer exists.","This stock-taking no longer exists."
+"Stock-taking ""%1""","Stock-taking ""%1"""
+"The stock-taking can not back to count.","The stock-taking can not back to count."
+"The stock-taking has been ready to count.","The stock-taking has been ready to count."
+"You have canceled the stock-taking successfully.","You have canceled the stock-taking successfully."
+"The stock-taking cannot be canceled.","The stock-taking cannot be canceled."
+"Sorry, you need permissions to view this content.","Sorry, you need permissions to view this content."
+"Edit Stock-taking ""%1""","Edit Stock-taking ""%1"""
+SKU,SKU
+"COUNTED QUANTITY","COUNTED QUANTITY"
+"REASON OF DIFFERENCE","REASON OF DIFFERENCE"
+"You have updated %1 item(s) to stock-taking.","You have updated %1 item(s) to stock-taking."
+"Could not import products. Please try again.","Could not import products. Please try again."
+"Invalid file upload attempt","Invalid file upload attempt"
+Stock-taking,Stock-taking
+"New Stock-taking","New Stock-taking"
+"The stock-taking could not be saved.","The stock-taking could not be saved."
+"The stock-taking has been saved successfully","The stock-taking has been saved successfully"
+NAME,NAME
+"CURRENT QUANTITY","CURRENT QUANTITY"
+"Missing file upload attempt.","Missing file upload attempt."
+"Sku has been not found in source","Sku has been not found in source"
+"Quantity must be a number","Quantity must be a number"
+"Quantity must be not empty","Quantity must be not empty"
+"Invalid file format.","Invalid file format."
+"-- Please Select --","-- Please Select --"
+Canceled,Canceled
+New,New
+Partial,Partial
+Full,Full
+"The stock-taking can not start counting.","The stock-taking can not start counting."
+"The stock-taking can not back to prepare.","The stock-taking can not back to prepare."
+"The stock-taking has been ready to prepare.","The stock-taking has been ready to prepare."
+"The stock-taking can not start verifying.","The stock-taking can not start verifying."
+"The stock-taking has been ready to verify.","The stock-taking has been ready to verify."
+"The stock-taking can not be completed.","The stock-taking can not be completed."
+"The stock-taking has been completed.","The stock-taking has been completed."
+Edit,Edit
+Details,Details
+Instruction,Instruction
+Download,Download
+"Please choose a CSV file to import:","Please choose a CSV file to import:"
+"Invalid data","Invalid data"
+"Some products could not be imported. Please download ","Some products could not be imported. Please download "
+"this file","this file"
+" for more detail"," for more detail"
+Import,Import
+"Order Success","Order Success"
+"Inventory Management","Inventory Management"
+"Stock Control","Stock Control"
+"View Listing","View Listing"
+"View Archive Listing","View Archive Listing"
+"Create New Stock-taking","Create New Stock-taking"
+"Edit Stock-taking","Edit Stock-taking"
+"Prepare Product List","Prepare Product List"
+Count,Count
+Verify,Verify
+"Adjust stock","Adjust stock"
+"View Archived Stock-taking Details","View Archived Stock-taking Details"
+"Return to Stock-taking Management","Return to Stock-taking Management"
+ID,ID
+Code,Code
+Source,Source
+"Stock-taking Type","Stock-taking Type"
+"Created At","Created At"
+Status,Status
+"Product Name","Product Name"
+"Current Quantity","Current Quantity"
+"Counted Quantity","Counted Quantity"
+"Reason of Difference","Reason of Difference"
+Back,Back
+"General Information","General Information"
+Type,Type
+"Stock-take Date","Stock-take Date"
+"Created By","Created By"
+"Assign User","Assign User"
+Description,Description
+"Product List","Product List"
+"Please add or import products to stocktake","Please add or import products to stocktake"
+"Import Products","Import Products"
+"Add Source Products","Add Source Products"
+"Add Selected Products","Add Selected Products"
+"Scan barcode here","Scan barcode here"
+Remove,Remove
+Action,Action
+"Go to Archive","Go to Archive"
+Name,Name
+Barcode,Barcode
+"The barcode #%s does not match with any product in stock-taking.","The barcode #%s does not match with any product in stock-taking."
+"The barcode #%s does not match with any product.","The barcode #%s does not match with any product."
+"The product with barcode #%s has been increased.","The product with barcode #%s has been increased."
+"The product with barcode #%s has been added.","The product with barcode #%s has been added."

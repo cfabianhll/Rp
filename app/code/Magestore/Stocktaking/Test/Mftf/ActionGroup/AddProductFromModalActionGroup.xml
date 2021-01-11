@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="AddProductFromModalActionGroup">
+        <annotations>
+            <description>Add Product from modal to stocktaking</description>
+        </annotations>
+        <arguments>
+            <argument name="product1" defaultValue="product_simple_1"/>
+            <argument name="product2" defaultValue="product_simple_2"/>
+        </arguments>
+        <click selector="{{AdminStocktakingProductListSection.addSourceProduct}}" stepKey="clickButtonAdd"/>
+
+        <waitForElementVisible selector="{{AdminStocktakingProductListSection.buttonAddSelectedProducts}}" stepKey="waitAddSelect"/>
+        <waitForAjaxLoad stepKey="waitForAjaxAddSource"/>
+        <waitForLoadingMaskToDisappear stepKey="waitForLoadingMaskToDisappear"/>
+
+        <click stepKey="clickToFiltersButton1" selector="{{AdminStocktakingProductListSection.buttonFilters}}"/>
+        <fillField stepKey="fillSkuToFilter1" selector="{{AdminStocktakingProductListSection.filterInputSku}}" userInput="{{product1.sku}}"/>
+        <click stepKey="clickToApplyFiltersButton1" selector="{{AdminStocktakingProductListSection.applyFiltersButton}}"/>
+        <waitForAjaxLoad stepKey="waitForAjax1"/>
+        <click stepKey="chooseItem1" selector="{{AdminStocktakingProductListSection.checkboxButton(product1.sku)}}"/>
+
+        <click stepKey="clickToFiltersButton2" selector="{{AdminStocktakingProductListSection.buttonFilters}}"/>
+        <fillField stepKey="fillSkuToFilter2" selector="{{AdminStocktakingProductListSection.filterInputSku}}" userInput="{{product2.sku}}"/>
+        <click stepKey="clickToApplyFiltersButton2" selector="{{AdminStocktakingProductListSection.applyFiltersButton}}"/>
+        <waitForAjaxLoad stepKey="waitForAjax2"/>
+        <click stepKey="chooseItem2" selector="{{AdminStocktakingProductListSection.checkboxButton(product2.sku)}}"/>
+
+        <click stepKey="clickToAddSelectedProductButton" selector="{{AdminStocktakingProductListSection.buttonAddSelectedProducts}}"/>
+        <waitForAjaxLoad stepKey="waitForAjax3"/>
+    </actionGroup>
+</actionGroups>

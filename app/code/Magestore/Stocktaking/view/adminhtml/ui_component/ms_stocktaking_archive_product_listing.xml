@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ms_stocktaking_archive_product_listing.ms_stocktaking_archive_product_listing_data_source</item>
+            <item name="deps" xsi:type="string">ms_stocktaking_archive_product_listing.ms_stocktaking_archive_product_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>stocktaking_archive_product_columns</spinner>
+        <deps>
+            <dep>ms_stocktaking_archive_product_listing.ms_stocktaking_archive_product_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="ms_stocktaking_archive_product_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="Magestore\Stocktaking\Ui\DataProvider\Archive\Form\Product" name="ms_stocktaking_archive_product_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="stocktaking_archive_product_columns">
+        <column name="id" sortOrder="1">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">ID</label>
+                <sortable>true</sortable>
+                <sorting>desc</sorting>
+                <visible>false</visible>
+            </settings>
+        </column>
+        <column name="product_sku" sortOrder="10">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">SKU</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="product_name" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Product Name</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="qty_in_source" sortOrder="30">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Current Quantity</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="counted_qty" sortOrder="40">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Counted Quantity</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="difference_reason" sortOrder="50">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Reason of Difference</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+    </columns>
+</listing>

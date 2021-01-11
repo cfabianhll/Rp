@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2016 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magestore_OrderSuccess::all" title="Order Success" translate="title" sortOrder="1">
+                    <resource id="Magestore_AdjustStock::inventory" title="Inventory Management" translate="title" sortOrder="2">
+                        <resource id="Magestore_AdjustStock::stockcontrol" title="Stock Control" translate="title" sortOrder="5">
+                            <!--Stock-taking Section-->
+                            <resource id="Magestore_Stocktaking::stocktaking" title="Stock-taking" translate="title" sortOrder="3">
+                                <resource id="Magestore_Stocktaking::view_listing" title="View Listing" translate="title" sortOrder="1">
+                                    <resource id="Magestore_Stocktaking::view_archive_listing" title="View Archive Listing" translate="title" sortOrder="1"/>
+                                </resource>
+                                <resource id="Magestore_Stocktaking::create_stocktaking" title="Create New Stock-taking" translate="title" sortOrder="2"/>
+                                <resource id="Magestore_Stocktaking::edit_stocktaking" title="Edit Stock-taking" translate="title" sortOrder="3">
+                                    <resource id="Magestore_Stocktaking::prepare_product_list" title="Prepare Product List" translate="title" sortOrder="1"/>
+                                    <resource id="Magestore_Stocktaking::count" title="Count" translate="title" sortOrder="2"/>
+                                    <resource id="Magestore_Stocktaking::verify" title="Verify" translate="title" sortOrder="3"/>
+                                    <resource id="Magestore_Stocktaking::cancel" title="Cancel" translate="title" sortOrder="4"/>
+                                    <resource id="Magestore_Stocktaking::complete" title="Complete" translate="title" sortOrder="5">
+                                        <resource id="Magestore_Stocktaking::adjust_stock" title="Adjust stock" translate="title" sortOrder="1"/>
+                                    </resource>
+                                </resource>
+                                <resource id="Magestore_Stocktaking::view_archived_stocktaking_details" title="View Archived Stock-taking Details" translate="title" sortOrder="4"/>
+                            </resource>
+                            <!--End Stock-taking Section-->
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

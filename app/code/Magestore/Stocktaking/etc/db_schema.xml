@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ms_stocktaking" resource="default" engine="innodb" comment="Inventory Stocktaking">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true"
+                comment="Stocktaking Id"/>
+        <column xsi:type="varchar" name="code" length="32" nullable="false" comment="Stocktaking Code"/>
+        <column xsi:type="varchar" name="source_code" length="255" nullable="false" comment="Source Code"/>
+        <column xsi:type="varchar" name="source_name" length="64" nullable="true" comment="Source Name"/>
+        <column xsi:type="date" name="created_at" nullable="true" comment="Created At"/>
+        <column xsi:type="int" name="status" padding="11" unsigned="false" nullable="false" comment="Status"/>
+        <column xsi:type="varchar" name="description" length="1024" nullable="true" comment="Description"/>
+        <column xsi:type="int" name="stocktaking_type" padding="11" unsigned="false" nullable="false"
+                comment="Stocktaking Type"/>
+        <column xsi:type="int" name="created_by_id" padding="11" unsigned="false" nullable="true"
+                comment="Created By Id"/>
+        <column xsi:type="varchar" name="created_by_first_name" length="128" nullable="true"
+                comment="Created By First Name"/>
+        <column xsi:type="varchar" name="created_by_last_name" length="128" nullable="true"
+                comment="Created By Last Name"/>
+        <column xsi:type="int" name="assign_user_id" padding="11" unsigned="false" nullable="true"
+                comment="Assign User Id"/>
+        <column xsi:type="varchar" name="assign_user_first_name" length="128" nullable="true"
+                comment="Assign User First Name"/>
+        <column xsi:type="varchar" name="assign_user_last_name" length="128" nullable="true"
+                comment="Assign User Last Name"/>
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="STOCKTAKING_ID_CODE">
+            <column name="code"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="INVENTORY_SOURCE_CODE_SOURCE_CODE_MS_STOCKTAKING_SOURCE_CODE"
+                    table="ms_stocktaking" column="source_code"
+                    referenceTable="inventory_source" referenceColumn="source_code"
+                    onDelete="CASCADE"/>
+    </table>
+
+    <table name="ms_stocktaking_item" resource="default" engine="innodb" comment="Inventory Stocktaking Item">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true"
+                comment="Id"/>
+        <column xsi:type="int" name="stocktaking_id" padding="11" unsigned="false" nullable="false"
+                comment="Stocktaking Id"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" comment="Product ID"/>
+        <column xsi:type="varchar" name="product_name" length="64" nullable="true" comment="Product Name"/>
+        <column xsi:type="varchar" name="product_sku" length="64" nullable="true" comment="Product SKU"/>
+        <column xsi:type="decimal" name="qty_in_source" precision="12" scale="4" unsigned="false" nullable="true"
+                comment="Qty In Source"/>
+        <column xsi:type="decimal" name="counted_qty" precision="12" scale="4" unsigned="false" nullable="true"
+                comment="Counted Qty"/>
+        <column xsi:type="varchar" name="difference_reason" length="512" nullable="true" comment="Difference Reason"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="STOCKTAKING_ID_STOCKTAKING_ITEM_STOCKTAKING_ID"
+                    table="ms_stocktaking_item" column="stocktaking_id"
+                    referenceTable="ms_stocktaking" referenceColumn="id"
+                    onDelete="CASCADE"/>
+    </table>
+
+    <table name="ms_stocktaking_archive" resource="default" engine="innodb" comment="Inventory Stocktaking Archive">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true"
+                comment="Stocktaking Id"/>
+        <column xsi:type="varchar" name="code" length="32" nullable="false" comment="Stocktaking Code"/>
+        <column xsi:type="varchar" name="source_code" length="255" nullable="false" comment="Source Code"/>
+        <column xsi:type="varchar" name="source_name" length="64" nullable="true" comment="Source Name"/>
+        <column xsi:type="date" name="created_at" nullable="true" comment="Created At"/>
+        <column xsi:type="int" name="status" padding="11" unsigned="false" nullable="false" comment="Status"/>
+        <column xsi:type="varchar" name="description" length="1024" nullable="true" comment="Description"/>
+        <column xsi:type="int" name="stocktaking_type" padding="11" unsigned="false" nullable="false"
+                comment="Stocktaking Type"/>
+        <column xsi:type="int" name="created_by_id" padding="11" unsigned="false" nullable="true"
+                comment="Created By Id"/>
+        <column xsi:type="varchar" name="created_by_first_name" length="128" nullable="true"
+                comment="Created By First Name"/>
+        <column xsi:type="varchar" name="created_by_last_name" length="128" nullable="true"
+                comment="Created By Last Name"/>
+        <column xsi:type="int" name="assign_user_id" padding="11" unsigned="false" nullable="true"
+                comment="Assign User Id"/>
+        <column xsi:type="varchar" name="assign_user_first_name" length="128" nullable="true"
+                comment="Assign User First Name"/>
+        <column xsi:type="varchar" name="assign_user_last_name" length="128" nullable="true"
+                comment="Assign User Last Name"/>
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="MS_STOCKTAKING_ARCHIVE_ID_CODE">
+            <column name="code"/>
+        </constraint>
+    </table>
+
+    <table name="ms_stocktaking_archive_item" resource="default" engine="innodb" comment="Inventory Stocktaking Archive Item">
+        <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true"
+                comment="Id"/>
+        <column xsi:type="int" name="stocktaking_id" padding="11" unsigned="false" nullable="false"
+                comment="Stocktaking Id"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" comment="Product ID"/>
+        <column xsi:type="varchar" name="product_name" length="64" nullable="true" comment="Product Name"/>
+        <column xsi:type="varchar" name="product_sku" length="64" nullable="true" comment="Product SKU"/>
+        <column xsi:type="decimal" name="qty_in_source" precision="12" scale="4" unsigned="false" nullable="true"
+                comment="Qty In Source"/>
+        <column xsi:type="decimal" name="counted_qty" precision="12" scale="4" unsigned="false" nullable="true"
+                comment="Counted Qty"/>
+        <column xsi:type="varchar" name="difference_reason" length="512" nullable="true" comment="Difference Reason"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="MS_STOCKTAKING_ARCHIVE_ID_MS_STOCKTAKING_ARCHIVE_ITEM_STOCKTAKING_ID"
+                    table="ms_stocktaking_archive_item" column="stocktaking_id"
+                    referenceTable="ms_stocktaking_archive" referenceColumn="id"
+                    onDelete="CASCADE"/>
+    </table>
+</schema>

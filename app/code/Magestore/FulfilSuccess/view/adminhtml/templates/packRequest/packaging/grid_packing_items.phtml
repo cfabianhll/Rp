@@ -1,0 +1,13 @@
+<?php
+// @codingStandardsIgnoreFile
+/**
+ * Copyright © 2016 Magestore. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magestore\FulfilSuccess\Block\Adminhtml\PackRequest\Packaging\GridPackagingItems $block */ ?>
+<?php foreach ($block->getItemsCollection() as $item): ?>
+    <input type="hidden"
+           name="shipment[items][<?= (int)$item->getItemId() ?>]"
+           value="<?= /* @escapeNotVerified */ (int)($item->getRequestQty()) ?>">
+<?php endforeach; ?>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="../../../../../../../dev/tests/acceptance/vendor/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/Page/etc/SectionObject.xsd">
+    <section name="AdminStocktakingProductListSection">
+        <!-- Add product modal -->
+        <element name="addSourceProduct" type="button" selector="//span[text()='Add Source Products']" />
+        <element name="addProductModal" type="text" selector="//aside[contains(@class, 'ms_stocktaking_edit_form_ms_stocktaking_edit_form_product_list_modal_button_product_stock_modal')]"/>
+        <element name="buttonAddSelectedProducts" type="button" selector="//aside[contains(@class, 'ms_stocktaking_edit_form_ms_stocktaking_edit_form_product_list_modal_button_product_stock_modal')]//div[@class = 'page-actions-buttons']/button[@class='action-primary']"/>
+        <element name="buttonFilters" type="button" selector="//aside[contains(@class, 'ms_stocktaking_edit_form_ms_stocktaking_edit_form_product_list_modal_button_product_stock_modal')]//div[@class = 'data-grid-filters-action-wrap']/button[text()='Filters']"/>
+        <element name="filterInputSku" type="input" selector="//aside[contains(@class, 'ms_stocktaking_edit_form_ms_stocktaking_edit_form_product_list_modal_button_product_stock_modal')]//input[@name = 'sku']"/>
+        <element name="applyFiltersButton" type="button" selector="//aside[contains(@class, 'ms_stocktaking_edit_form_ms_stocktaking_edit_form_product_list_modal_button_product_stock_modal')]//span[text()='Apply Filters']/.."/>
+        <element name="checkboxButton" type="input" selector="//aside[contains(@class, 'ms_stocktaking_edit_form_ms_stocktaking_edit_form_product_list_modal_button_product_stock_modal')]//div[@class='data-grid-cell-content' and text()='{{var1}}']/../..//input[@data-action='select-row']" parameterized="true"/>
+
+        <element name="dynamicGrid" type="text" selector=".admin__dynamic-rows" />
+        <element name="productGridXRowYColumnButton" type="input" selector="table.data-grid tr.data-row:nth-child({{row}}) td:nth-child({{column}})" parameterized="true" />
+        <element name="productGridXRowYInputButton" type="input" selector="table.data-grid tr.data-row:nth-child({{row}}) input:nth-child({{column}})" parameterized="true" />
+        <element name="productGridXRowYTextAreaButton" type="input" selector="table.data-grid tr.data-row:nth-child({{row}}) textarea:nth-child({{column}})" parameterized="true" />
+
+        <element name="scanBarcodeField" type="input" selector="input[name='product_list[barcode_scan_input]']" />
+    </section>
+</sections>

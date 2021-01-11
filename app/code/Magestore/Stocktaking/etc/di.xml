@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright © 2020 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="StocktakingActiveCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ms_stocktaking</argument>
+            <argument name="resourceModel" xsi:type="string">Magestore\Stocktaking\Model\ResourceModel\Stocktaking</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="StocktakingArchiveCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ms_stocktaking_archive</argument>
+            <argument name="resourceModel" xsi:type="string">Magestore\Stocktaking\Model\ResourceModel\StocktakingArchive</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="StocktakingArchiveItemCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ms_stocktaking_archive_item</argument>
+            <argument name="resourceModel" xsi:type="string">Magestore\Stocktaking\Model\ResourceModel\StocktakingArchive\StocktakingArchiveItem</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="ms_stocktaking_listing_data_source" xsi:type="string">StocktakingActiveCollection</item>
+                <item name="ms_stocktaking_archive_listing_data_source" xsi:type="string">StocktakingArchiveCollection</item>
+                <item name="ms_stocktaking_archive_product_listing_data_source" xsi:type="string">StocktakingArchiveItemCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magestore\Stocktaking\Api\Data\StocktakingInterface" type="Magestore\Stocktaking\Model\Stocktaking"/>
+    <preference for="Magestore\Stocktaking\Api\Data\StocktakingItemInterface" type="Magestore\Stocktaking\Model\Stocktaking\StocktakingItem"/>
+
+    <preference for="Magestore\Stocktaking\Api\Data\StocktakingArchiveInterface" type="Magestore\Stocktaking\Model\StocktakingArchive"/>
+    <preference for="Magestore\Stocktaking\Api\Data\StocktakingArchiveItemInterface" type="Magestore\Stocktaking\Model\StocktakingArchive\StocktakingArchiveItem"/>
+
+    <preference for="Magestore\Stocktaking\Api\StocktakingRepositoryInterface" type="Magestore\Stocktaking\Model\StocktakingRepository"/>
+    <preference for="Magestore\Stocktaking\Api\StocktakingItemRepositoryInterface" type="Magestore\Stocktaking\Model\Stocktaking\StocktakingItemRepository"/>
+
+    <preference for="Magestore\Stocktaking\Api\Db\QueryProcessorInterface" type="Magestore\Stocktaking\Model\Db\QueryProcessor"/>
+    <preference for="Magestore\Stocktaking\Api\StocktakingManagementInterface" type="Magestore\Stocktaking\Model\StocktakingManagement"/>
+</config>

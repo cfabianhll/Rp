@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="AssertAdminStocktakingProductListActionGroup">
+        <annotations>
+            <description>Assert Product List Information</description>
+        </annotations>
+        <arguments>
+            <argument name="product1" defaultValue="product_simple_1"/>
+            <argument name="product2" defaultValue="product_simple_2"/>
+            <argument name="product3" defaultValue="product_simple_3"/>
+        </arguments>
+        <waitForPageLoad stepKey="waitForPageLoad"/>
+        <waitForElementVisible selector="{{AdminStocktakingProductListSection.dynamicGrid}}" stepKey="waitDynamicGrid"/>
+
+        <see stepKey="seeSku1" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('1', '3')}}" userInput="{{product3.sku}}" />
+        <see stepKey="seeProductName1" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('1', '4')}}" userInput="{{product3.name}}" />
+        <see stepKey="seeCurrentQty1" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('1', '5')}}" userInput="{{product3.qty}}" />
+        <grabValueFrom selector="{{AdminStocktakingProductListSection.productGridXRowYInputButton('1', '1')}}"
+                       stepKey="seeCountedQty1"/>
+        <assertEquals actual="$seeCountedQty1" expected="{{product3.countedQty}}"
+                      stepKey="assertCountedQty1"/>
+        <grabValueFrom selector="{{AdminStocktakingProductListSection.productGridXRowYTextAreaButton('1', '1')}}"
+                       stepKey="seeDifferentReason1"/>
+        <assertEquals actual="$seeDifferentReason1" expected="{{product3.reasonDifferent}}"
+                      stepKey="assertDifferentReason1"/>
+
+        <see stepKey="seeSku2" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('2', '3')}}" userInput="{{product1.sku}}" />
+        <see stepKey="seeProductName2" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('2', '4')}}" userInput="{{product1.name}}" />
+        <see stepKey="seeCurrentQty2" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('2', '5')}}" userInput="{{product1.qty}}" />
+        <grabValueFrom selector="{{AdminStocktakingProductListSection.productGridXRowYInputButton('2', '1')}}"
+                       stepKey="seeCountedQty2"/>
+        <assertEquals actual="$seeCountedQty2" expected="{{product1.countedQty}}"
+                      stepKey="assertCountedQty2"/>
+        <grabValueFrom selector="{{AdminStocktakingProductListSection.productGridXRowYTextAreaButton('2', '1')}}"
+                       stepKey="seeDifferentReason2"/>
+        <assertEquals actual="$seeDifferentReason2" expected="{{product1.reasonDifferent}}"
+                      stepKey="assertDifferentReason2"/>
+
+        <see stepKey="seeSku3" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('3', '3')}}" userInput="{{product2.sku}}" />
+        <see stepKey="seeProductName3" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('3', '4')}}" userInput="{{product2.name}}" />
+        <see stepKey="seeCurrentQty3" selector="{{AdminStocktakingProductListSection.productGridXRowYColumnButton('3', '5')}}" userInput="{{product2.qty}}" />
+        <grabValueFrom selector="{{AdminStocktakingProductListSection.productGridXRowYInputButton('3', '1')}}"
+                       stepKey="seeCountedQty3"/>
+        <assertEquals actual="$seeCountedQty3" expected="{{product2.countedQty}}"
+                      stepKey="assertCountedQty3"/>
+        <grabValueFrom selector="{{AdminStocktakingProductListSection.productGridXRowYTextAreaButton('3', '1')}}"
+                       stepKey="seeDifferentReason3"/>
+        <assertEquals actual="$seeDifferentReason3" expected="{{product2.reasonDifferent}}"
+                      stepKey="assertDifferentReason3"/>
+    </actionGroup>
+</actionGroups>

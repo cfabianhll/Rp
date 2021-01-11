@@ -1,0 +1,30 @@
+<?php
+/**
+ *  Copyright © 2016 Magestore. All rights reserved.
+ *  See COPYING.txt for license details.
+ *
+ */
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magestore\ReportSuccess\Block\Adminhtml\Dashboard */
+?>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800"
+      rel="stylesheet" type="text/css"/>
+<?php if ($block->isEnableModule('Magestore_StockManagementSuccess')): ?>
+    <div id="messages">
+        <div class="messages">
+            <div class="message message-warning warning">
+                <div data-ui-id="messages-warning-success">You are using the Starter package of Inventory Management
+                    which
+                    doesn't have the multi-stock warehouse function. Please note that some report features will be
+                    limited.
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<div class="admin-report-webpos">
+    <div class="wrap-report">
+        <?= $block->getChildHtml(); ?>
+    </div>
+</div>

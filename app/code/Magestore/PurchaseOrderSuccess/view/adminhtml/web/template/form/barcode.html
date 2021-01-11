@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright © 2016 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+<div class="admin__field" data-bind="visible: false" id="inventorysuccess-barcode-input-wrapper">
+    <div class="admin__field-label">
+        <label data-bind="text: label, attr: {for: inputName}">
+            <span data-bind="i18n: label"/>
+        </label>
+    </div>
+    <div class="admin__field-control">
+        <input class="admin__control-text" type="text"
+               id="inventorysuccess-barcode-input"
+               onfocus="this.select()"
+               data-bind="
+                    event: {change: handleChange},
+                    value: value,
+                    hasFocus: focused,
+                    valueUpdate: valueUpdate,
+                    attr: {
+                        name: inputName,
+                        placeholder: placeholder,
+                        'aria-describedby': noticeId,
+                        disabled: disabled
+                }"/><br />
+        <span data-bind="i18n: warningMessage, style: {color: 'red'}, visible: warningMessage"/>
+        <span data-bind="i18n: successMessage, style: {color: 'green'}, visible: successMessage"/>
+    </div>
+</div>

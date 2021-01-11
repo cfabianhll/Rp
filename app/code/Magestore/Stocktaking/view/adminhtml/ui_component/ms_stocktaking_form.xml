@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright © 2016 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ms_stocktaking_form.ms_stocktaking_form_data_source
+            </item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="childrenFromMeta" xsi:type="boolean">true</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back">
+                <url path="*/*/index"/>
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+            <button name="save" class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Edit\Buttons\Save"/>
+        </buttons>
+        <namespace>ms_stocktaking_form</namespace>
+        <deps>
+            <dep>ms_stocktaking_form.ms_stocktaking_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="ms_stocktaking_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/stocktaking/save"/>
+        </settings>
+        <dataProvider class="Magestore\Stocktaking\Ui\DataProvider\Stocktaking\Form\Stocktaking"
+                      name="ms_stocktaking_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <!--General Information-->
+    <fieldset name="general_information">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">General Information</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="dataScope" xsi:type="string">data</item>
+            </item>
+        </argument>
+        <field name="source_code" formElement="select">
+            <settings>
+                <label translate="true">Source</label>
+                <dataType>text</dataType>
+                <dataScope>source_code</dataScope>
+                <required>true</required>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magestore\Stocktaking\Model\Source\Adminhtml\Source"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="stocktaking_type" formElement="select">
+            <settings>
+                <label translate="true">Type</label>
+                <dataType>text</dataType>
+                <dataScope>stocktaking_type</dataScope>
+                <required>true</required>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magestore\Stocktaking\Model\Source\Adminhtml\StocktakingType"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="created_at" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="class" xsi:type="string">Magestore\Stocktaking\Ui\Component\Form\Element\CreatedAt</item>
+                </item>
+            </argument>
+            <settings>
+                <required>true</required>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>date</dataType>
+                <label translate="true">Stock-take Date</label>
+                <dataScope>created_at</dataScope>
+            </settings>
+        </field>
+        <field name="assign_user_id" formElement="select">
+            <settings>
+                <label translate="true">Assign User</label>
+                <dataType>text</dataType>
+                <dataScope>assign_user_id</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magestore\Stocktaking\Model\Source\Adminhtml\User"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="description" formElement="textarea">
+            <settings>
+                <validation>
+                    <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Description</label>
+                <dataScope>description</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

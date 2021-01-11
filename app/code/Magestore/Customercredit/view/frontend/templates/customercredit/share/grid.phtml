@@ -1,0 +1,331 @@
+<?php
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Customercredit
+ * @copyright   Copyright (c) 2017 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ * @phpcs:disable Generic.Files.LineLength
+ * @phpcs:disable PSR2.ControlStructures.SwitchDeclaration.BreakIndent
+ */
+
+/**
+ * @var $block Magestore\Customercredit\Block\Sharecredit\Grid
+ */
+?>
+
+<?php $collection = $block->getCollection() ?>
+<?php $columns = $block->getColumns() ?>
+<?php if ($block->getData('add_searchable_row')): ?>
+    <div class="customercredit-search-button">
+        <button class="form-button button button-search" type="button"
+                onclick="setLocation('<?= /* @noEscape */ $block->getFilterUrl() ?>');">
+            <span>
+                <span><?= /* @noEscape */ __('Reset Filter') ?></span>
+            </span>
+        </button>
+        <button class="form-button button button-search hidden-xs" id="button-search-form" type="button"
+                onclick="searchGrid<?= /* @noEscape */ $block->getNameInLayout() ?>();">
+            <span>
+                <span><?= /* @noEscape */ __('Search') ?></span>
+            </span>
+        </button>
+        <button id ="button-seacrh-md" class="hidden-lg hidden-md hidden-sm form-button button button-search" type="button" onclick="showFormSearch()">
+            <span>
+                <span><?= /* @noEscape */ __('Search') ?></span>
+            </span>
+        </button>
+        <div class="button-img hidden-lg hidden-md hidden-sm hidden-xs" id="button-show" type="button"
+             onclick="closeFormSearch()">
+        </div>
+    </div>
+    <script type="text/javascript">
+     require([
+            "jquery",
+            "jquery/ui",
+            "prototype",
+            "mage/translate"
+        ], function (jQuery) {
+            showFormSearch = function() {
+                $('button-seacrh-md').addClassName('hidden-xs');
+                $('button-search-form').removeClassName('hidden-xs');
+                $('customercredit-grid-search').removeClassName('hidden-xs');
+                $('button-show').removeClassName('hidden-xs');
+            }
+            closeFormSearch = function() {
+                $('button-seacrh-md').removeClassName('hidden-xs');
+                $('button-search-form').addClassName('hidden-xs');
+                $('customercredit-grid-search').addClassName('hidden-xs');
+                $('button-show').addClassName('hidden-xs');
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        require([
+            "jquery",
+            "jquery/ui",
+            "prototype",
+            "mage/translate"
+        ], function (jQuery) {
+            searchGrid<?= /* @noEscape */ $block->getNameInLayout() ?> = function () {
+                var inputEl = $$('#<?= /* @noEscape */ $block->getNameInLayout() ?> thead input');
+                $$('#<?= /* @noEscape */ $block->getNameInLayout() ?> thead select').each(function (el) {
+                    inputEl.push(el);
+                });
+                var filter = Form.serializeElements(inputEl);
+                filter = aff_base64_encode(filter);
+                var url = '<?= /* @noEscape */ $block->getFilterUrl() ?>';
+                if (url.search('[?]') == -1) {
+                    url += '?filter=' + filter;
+                } else {
+                    url += '&filter=' + filter;
+                }
+                setLocation(url);
+            }
+
+            function inputPressEnter<?= /* @noEscape */ $block->getNameInLayout() ?>(event) {
+                if (event.which == 13) {
+                    searchGrid<?= /* @noEscape */ $block->getNameInLayout() ?>();
+                } else if (event.keyCode == 13) {
+                    searchGrid<?= /* @noEscape */ $block->getNameInLayout() ?>();
+                }
+            }
+
+            Event.observe(window, 'load', function () {
+                $$('#<?= /* @noEscape */ $block->getNameInLayout() ?> thead input').each(function (el) {
+                    Event.observe(el, 'keypress', inputPressEnter<?= /* @noEscape */ $block->getNameInLayout() ?>);
+                });
+                $$('#<?= /* @noEscape */ $block->getNameInLayout() ?> thead select').each(function (el) {
+                    Event.observe(el, 'keypress', inputPressEnter<?= /* @noEscape */ $block->getNameInLayout() ?>);
+                });
+            });
+            function aff_utf8_encode(string) {
+                string = string.replace(/\r\n/g, "\n");
+                var result = "";
+                for (var i = 0; i < string.length; i++) {
+                    var c = string.charCodeAt(i);
+                    if (c < 128) {
+                        result += String.fromCharCode(c);
+                    } else if ((c > 127) && (c < 2048)) {
+                        result += String.fromCharCode((c >> 6) | 192, (c & 63) | 128);
+                    } else {
+                        result += String.fromCharCode((c >> 12) | 224, ((c >> 6) & 63) | 128, (c & 63) | 128);
+                    }
+                }
+                return result;
+            }
+
+            function aff_base64_encode(string) {
+                var result = '';
+                var keyMap = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_,";
+                var c1, c2, c3;
+                string = aff_utf8_encode(string);
+                for (var i = 0; i < string.length; i++) {
+                    c1 = string.charCodeAt(i++);
+                    c2 = string.charCodeAt(i++);
+                    result += keyMap.charAt(c1 >> 2);
+                    result += keyMap.charAt(((c1 & 3) << 4) | (c2 >> 4));
+                    if (isNaN(c2)) {
+                        result += ',,';
+                        continue;
+                    }
+                    c3 = string.charCodeAt(i);
+                    result += keyMap.charAt(((c2 & 15) << 2) | (c3 >> 6));
+                    if (isNaN(c3)) {
+                        result += ',';
+                        continue;
+                    }
+                    result += keyMap.charAt(c3 & 63);
+                }
+                return result;
+            }
+        });
+    </script>
+<?php endif ?>
+<div id="no-more-tables" class="no-more-table">
+    <table class="table-bordered table-striped table-condensed cf" id="<?= /* @noEscape */ $block->getNameInLayout() ?>">
+        <colgroup>
+            <?php foreach ($columns as $id => $column): ?>
+                <col class="<?= /* @noEscape */ $id ?>"
+                     style="<?php if (isset($column['align'])): ?>align:<?= /* @noEscape */ $column['align'] ?>;<?php endif ?><?php if (isset($column['width'])): ?>width:<?= /* @noEscape */ $column['width'] ?><?php endif ?>"/>
+            <?php endforeach ?>
+        </colgroup>
+        <thead class="cf">
+        <tr <?php if ($block->getData('add_searchable_row')): ?>class="customercredit-grid-title"<?php endif ?>>
+            <?php foreach ($columns as $id => $column): ?>
+                <th class="col numeric"><?= /* @noEscape */ $column['header'] ?></th>
+            <?php endforeach ?>
+        </tr>
+        <?php if ($block->getData('add_searchable_row')): ?>
+            <tr class="customercredit-grid-search hidden-xs" id="customercredit-grid-search">
+                <?php $j = 0 ?>
+                <?php foreach ($columns as $id => $column): ?>
+                    <td data-title="<?= /* @noEscape */ $column['header'] ?>"
+                        class="col-td<?php if ($j == count($columns) - 1): ?> last<?php endif; ?>" id="<?php if (isset($column['type']) && ($column['type']) == 'date'):?>date-to<?php elseif (isset($column['type']) && ($column['type'] == 'price' || $column['type'] == 'baseprice')): ?>td-price<?php endif; ?>">
+                        <?php if (isset($column['searchable'])): ?>
+                            <div
+                                class="customercredit-grid-search-item"<?php if (isset($column['width']) && $column['width']): ?> style="width:<?= /* @noEscape */ $column['width'] ?>;"<?php endif ?>>
+                                <?php $type = isset($column['type']) ? $column['type'] : '' ?>
+                                <?php if ($type == 'date' || $type == 'datetime'): ?>
+                                    <div class="range-container">
+                                        <div class="data-range from-date">
+                                            <span class="label"><?= /* @noEscape */ __('From') ?>:</span>
+                                            <input type="text" name="<?= /* @noEscape */ $id ?>-from"
+                                                   id="<?= /* @noEscape */ $block->getNameInLayout() . '-' . $id ?>-from"
+                                                   class="search-item input-text range-text form-control"
+                                                   value="<?= /* @noEscape */ $block->getFilterValue($id, '-from') ?>"/>
+                                        </div>
+                                        <div class="data-range to-date">
+                                            <span class="label"><?= /* @noEscape */ __('To') ?>:</span>
+                                            <input type="text" name="<?= /* @noEscape */ $id ?>-to"
+                                                   id="<?= /* @noEscape */ $block->getNameInLayout() . '-' . $id ?>-to"
+                                                   class="search-item input-text range-text form-control"
+                                                   value="<?= /* @noEscape */ $block->getFilterValue($id, '-to') ?>"/>
+                                        </div>
+                                        <script>
+                                            require([
+                                                "jquery",
+                                                "mage/calendar"
+                                            ], function ($) {
+                                                $("#<?= /* @noEscape */ $block->getNameInLayout() . '-' . $id ?>-from").calendar({
+                                                    buttonText: "<?= /* @noEscape */ __('Select Date') ?>",
+                                                });
+                                                $("#<?= /* @noEscape */ $block->getNameInLayout() . '-' . $id ?>-to").calendar({
+                                                    buttonText: "<?= /* @noEscape */ __('Select Date') ?>",
+                                                });
+                                            });
+                                        </script>
+                                    </div>
+                                <?php elseif ($type == 'options'): ?>
+                                    <select name="<?= /* @noEscape */ $id ?>"
+                                            id="<?= /* @noEscape */ $block->getNameInLayout() . '-' . $id ?>"
+                                            class="search-item input-select form-control" style="padding: 0">
+                                        <option value=""></option>
+                                        <?php foreach ($column['options'] as $value => $label): ?>
+                                            <option
+                                                value="<?= /* @noEscape */ $value ?>"<?php if ($value == $block->getFilterValue($id)): ?> selected="selected"<?php endif ?>><?= /* @noEscape */ $label ?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                <?php elseif ($type == 'price' || $type == 'baseprice'): ?>
+                                    <div class="range-container">
+                                        <div class="data-range from-price">
+                                            <span class="label"><?= /* @noEscape */ __('From') ?>:</span>
+                                            <input type="text" name="<?= /* @noEscape */ $id ?>-from"
+                                                   id="<?= /* @noEscape */ $block->getNameInLayout() . '-' . $id ?>-from"
+                                                   class=" form-control search-item input-text range-text"
+                                                   value="<?= /* @noEscape */ $block->getFilterValue($id, '-from') ?>"/>
+                                        </div>
+                                        <div class="data-range to-price">
+                                            <span class="label"><?= /* @noEscape */ __('To') ?>:</span>
+                                            <input type="text" name="<?= /* @noEscape */ $id ?>-to"
+                                                   id="<?= /* @noEscape */ $block->getNameInLayout() . '-' . $id ?>-to"
+                                                   class="form-control search-item input-text range-text"
+                                                   value="<?= /* @noEscape */ $block->getFilterValue($id, '-to') ?>"/>
+                                        </div>
+                                    </div>
+                                <?php else: ?>
+                                    <input type="text" name="<?= /* @noEscape */ $id ?>"
+                                           id="<?= /* @noEscape */ $block->getNameInLayout() . '-' . $id ?>"
+                                           class="form-control search-item input-text search-text"
+                                           value="<?= /* @noEscape */ $block->getFilterValue($id) ?>"/>
+                                <?php endif ?>
+                            </div>
+                        <?php endif ?>
+                    </td>
+                    <?php $j++; ?>
+                <?php endforeach ?>
+            </tr>
+        <?php endif ?>
+        </thead>
+        <tbody>
+        <?php if ($collection->count()): ?>
+            <?php $k = 0 ?>
+            <?php foreach ($collection as $row): ?>
+                <?php if ($row->getIsContinueNextRow()) {continue;} ?>
+                <?php
+                $customer = $block->getCustomer();
+                ?>
+                <tr class="<?php if ($k == count($collection) - 1): ?> last<?php endif; ?>" <?php if (($row->getCustomerCheckId() == $customer->getId() || $row->getCustomerEmail() == $customer->getEmail()) && $row->getRecipientName()) { ?> class="gift-voucher-sent-friend <?php if ($k == count($collection) - 1): ?> last<?php endif; ?>" <?php } ?>>
+                    <?php $i = 0; ?>
+                    <?php foreach ($columns as $id => $column): ?>
+
+                        <td data-title="<?= /* @noEscape */ $column['header'] ?>"
+                            class="col-td<?php if ($i == count($columns) - 1): ?> last <?php endif; ?>"
+                            id="td-<?php if (isset($column['index']) && $column['index'] == 'credit_code'): ?>id-credit<?php endif; ?>">
+                            <?php if (isset($column['render']) && $column['render']): ?>
+                                <?= /* @noEscape */ $block->fetchRender($column['render'], $row) ?>
+                            <?php else: ?>
+                                <?php $type = isset($column['type']) ? $column['type'] : '' ?>
+                                <?php switch ($type):
+                                    case 'action':
+                                        ?>
+                                        <?php $action = $column['action'] ?>
+                                        <a href="<?= /* @noEscape */ $block->getUrl($action['url'], [$action['name'] => $row->getData($action['field'])]) ?>"
+                                           title="<?= /* @noEscape */ $action['label'] ?>"><?= /* @noEscape */ $action['label'] ?></a>
+                                        <?php
+                                        break;
+                                    case 'options':
+                                        ?>
+                                        <?= /* @noEscape */ $column['options'][$row->getData($column['index'])] ?>
+                                        <?php
+                                        break;
+                                    case 'date':
+                                        ?>
+                                        <?= /* @noEscape */ $row->getData($column['index']) ?>
+                                        <?php
+                                        break;
+                                    case 'datetime':
+                                        ?>
+                                        <?= /* @noEscape */ $block->formatDate($row->getData($column['index']), $column['format'], true) ?>
+                                        <?php
+                                        break;
+                                    case 'price':
+                                        ?>
+                                        <?= /* @noEscape */ $block->getPpriceCurrency->format($row->getData($column['index'])) ?>
+                                        <?php
+                                        break;
+                                    case 'baseprice':
+                                        ?>
+                                        <?= /* @noEscape */ $block->getPpriceCurrency->format($row->getData($column['index'])) ?>
+                                        <?php
+                                        break;
+                                    default:
+                                        ?>
+                                        <?= /* @noEscape */ $row->getData($column['index']) ?>
+                                    <?php endswitch ?>
+                            <?php endif ?>
+                        </td>
+                        <?php $i++; ?>
+                    <?php endforeach ?>
+                </tr>
+                <?php $k++; ?>
+            <?php endforeach ?>
+        <?php else: ?>
+            <tr>
+                <td colspan="<?= /* @noEscape */ count($columns) ?>" class="result">
+                    <div>
+                        <?= /* @noEscape */ __('There are no items matching this selection.') ?>
+                    </div>
+                </td>
+            </tr>
+        <?php endif ?>
+        </tbody>
+    </table>
+    <?php if ($block->getPagerHtml()): ?>
+                    <div class="order-products-toolbar toolbar bottom" style="float: left;width: 100%"><?= /* @noEscape */ $block->getPagerHtml(); ?></div>
+                <?php endif ?>
+</div>

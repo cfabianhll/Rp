@@ -1,0 +1,33 @@
+{
+    "name": "magestore/webpos-stripe-terminal-magento2",
+    "description": "N/A",
+    "require": {
+        "php": "~7.1.3||~7.2.0||~7.3.0||~7.4.0",
+        "magento/framework": "*",
+        "magestore/webpos-magento2": "*",
+        "magestore/payment-magento2": "*",
+        "magestore/webposstripe-magento2": "*"
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "magestore",
+            "email": "support@magestore.com",
+            "homepage": "https://www.magestore.com/",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magestore\\WebposStripeTerminal\\": ""
+        }
+    }
+}

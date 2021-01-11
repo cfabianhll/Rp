@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2016 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <update handle="styles"/>
+    <head>
+        <css src="Magestore_Stocktaking::css/stocktaking.css"/>
+    </head>
+    <body>
+        <referenceContainer name="page.main.actions">
+            <block class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Edit\Steps\Timeline" name="variation-steps-wizard">
+                <arguments>
+                    <argument name="config" xsi:type="array">
+                        <item name="form" xsi:type="string">ms_stocktaking_edit_form.ms_stocktaking_edit_form</item>
+                    </argument>
+                </arguments>
+                <block class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Edit\Steps\StatusPreparing" name="preparing">
+                    <arguments>
+                        <argument name="config" xsi:type="array">
+                            <item name="form" xsi:type="string">ms_stocktaking_edit_form.ms_stocktaking_edit_form</item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Edit\Steps\StatusCounting" name="counting">
+                    <arguments>
+                        <argument name="config" xsi:type="array">
+                            <item name="form" xsi:type="string">ms_stocktaking_edit_form.ms_stocktaking_edit_form</item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Edit\Steps\StatusVerifying" name="verifying">
+                    <arguments>
+                        <argument name="config" xsi:type="array">
+                            <item name="form" xsi:type="string">ms_stocktaking_edit_form.ms_stocktaking_edit_form</item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Edit\Steps\StatusCompleted" name="completed">
+                    <arguments>
+                        <argument name="config" xsi:type="array">
+                            <item name="form" xsi:type="string">ms_stocktaking_edit_form.ms_stocktaking_edit_form</item>
+                        </argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <uiComponent name="ms_stocktaking_edit_form"/>
+            <block class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Import\Form" name="import-form" template="Magestore_Stocktaking::import/form.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="messages.wrapper">
+            <block class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Import\NoticeMessage" name="stocktaking_success_message" template="Magestore_Stocktaking::import/message.phtml" before="-"/>
+        </referenceContainer>
+    </body>
+</page>

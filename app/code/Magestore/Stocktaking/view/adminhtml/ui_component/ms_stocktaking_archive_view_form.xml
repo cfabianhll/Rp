@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright © 2016 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ms_stocktaking_archive_view_form.ms_stocktaking_archive_view_form_data_source
+            </item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="childrenFromMeta" xsi:type="boolean">true</item>
+        <item name="reverseMetadataMerge" xsi:type="boolean">true</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back">
+                <url path="*/*/index"/>
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+            <button name="export_different" class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\StocktakingArchive\Buttons\ExportDifferent" />
+            <button name="export_counted" class="Magestore\Stocktaking\Block\Adminhtml\Stocktaking\StocktakingArchive\Buttons\ExportCounted" />
+        </buttons>
+        <label translate="true">Stock-taking</label>
+        <dataScope>data</dataScope>
+        <namespace>ms_stocktaking_archive_view_form</namespace>
+        <deps>
+            <dep>ms_stocktaking_archive_view_form.ms_stocktaking_archive_view_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="ms_stocktaking_archive_view_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="stocktaking/stocktaking/update"/>
+        </settings>
+        <dataProvider class="Magestore\Stocktaking\Ui\DataProvider\Archive\Form\StocktakingArchive"
+                      name="ms_stocktaking_archive_view_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <!--General Information-->
+    <fieldset name="general_information">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">General Information</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="dataScope" xsi:type="string">general_information</item>
+            </item>
+        </argument>
+        <field name="id" formElement="input">
+            <settings>
+                <visible>false</visible>
+                <label translate="true">ID</label>
+                <dataScope>id</dataScope>
+            </settings>
+        </field>
+        <field name="code" formElement="input">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <dataType>text</dataType>
+                <dataScope>code</dataScope>
+                <label translate="true">Code</label>
+            </settings>
+        </field>
+        <field name="source_name" formElement="input">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <dataType>text</dataType>
+                <dataScope>source_name</dataScope>
+                <label translate="true">Source</label>
+            </settings>
+        </field>
+        <field name="stocktaking_type_info" formElement="input">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <dataType>text</dataType>
+                <dataScope>stocktaking_type_info</dataScope>
+                <label translate="true">Type</label>
+            </settings>
+        </field>
+        <field name="created_at_info" formElement="date">
+            <settings>
+                <elementTmpl>ui/form/element/textDate</elementTmpl>
+                <dataType>text</dataType>
+                <label translate="true">Stock-take Date</label>
+                <dataScope>created_at</dataScope>
+            </settings>
+        </field>
+        <field name="created_by_info" formElement="input">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <dataType>text</dataType>
+                <dataScope>created_by_info</dataScope>
+                <label translate="true">Created By</label>
+            </settings>
+        </field>
+        <field name="assign_user_info" formElement="input">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <dataType>text</dataType>
+                <dataScope>assign_user_info</dataScope>
+                <label translate="true">Assign User</label>
+            </settings>
+        </field>
+        <field name="status_info" formElement="input">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <dataType>text</dataType>
+                <dataScope>status_info</dataScope>
+                <label translate="true">Status</label>
+            </settings>
+        </field>
+        <field name="description_info" formElement="input">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <dataType>text</dataType>
+                <dataScope>description</dataScope>
+                <label translate="true">Description</label>
+            </settings>
+        </field>
+    </fieldset>
+
+    <fieldset name="product_list">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Product List</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="dataScope" xsi:type="string">product_list</item>
+            </item>
+        </argument>
+        <insertListing class="Magestore\Stocktaking\Ui\DataProvider\Archive\Form\InsertListing" name="insert_listing_ms_stocktaking_archive_product_listing" >
+            <settings>
+                <dataLinks>
+                    <exports>true</exports>
+                    <imports>true</imports>
+                </dataLinks>
+                <autoRender>true</autoRender>
+                <realTimeLink>true</realTimeLink>
+                <dataScope>ms_stocktaking_archive_product_listing</dataScope>
+                <ns>ms_stocktaking_archive_product_listing</ns>
+                <externalFilterMode>true</externalFilterMode>
+            </settings>
+        </insertListing>
+    </fieldset>
+</form>

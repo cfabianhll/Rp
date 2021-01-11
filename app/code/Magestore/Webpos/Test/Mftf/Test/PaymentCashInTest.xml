@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="PaymentCashInTest">
+        <annotations>
+            <features value="Payment"/>
+            <stories value="Cash in - Full payment"/>
+            <title value="Full payment with Cash"/>
+            <description value="Full payment with method: Cash"/>
+            <severity value="CRITICAL"/>
+            <testCaseId value="SPM-01"/>
+            <group value="CashInFullPayment"/>
+            <group value="pwapos"/>
+        </annotations>
+        <before>
+            <actionGroup ref="PosOnCheckoutPage" stepKey="PosOnCheckoutPage"/>
+        </before>
+        <actionGroup ref="AddProductAndCharge" stepKey="AddProductAndCharge">
+            <argument name="dataProduct" value="pos_simple_product_2" />
+        </actionGroup>
+
+        <waitForElementVisible selector="{{PosCheckoutPaymentSection.cash}}" time="120" stepKey="waitCashPaymentVisible"/>
+        <click selector="{{PosCheckoutPaymentSection.cash}}" stepKey="clickCash"/>
+        <click selector="{{PosCheckoutPaymentSection.accept}}" stepKey="clickAccept"/>
+
+        <waitForElementVisible selector="{{CheckoutSection.CompleteOrder}}" time="120" stepKey="waitCompleteOrderPageVisible"/>
+        <seeElement selector="{{PosCheckoutPaymentSection.iconCashForPos}}" stepKey="findCashOnPaymentList" />
+
+        <!-- Check: Display Remaining amount = $0.00 -->
+        <grabTextFrom selector="{{PosCheckoutPaymentSection.totalLabel}}" stepKey="grabTotalPaymentLabel"/>
+        <grabTextFrom selector="{{PosCheckoutPaymentSection.totalValue}}" stepKey="grabTotalPaymentValue"/>
+        <assertEquals message="Remaining total label is correct." stepKey="compareRemainingTotalLabel">
+            <expectedResult type="string">Remaining</expectedResult>
+            <actualResult type="variable">grabTotalPaymentLabel</actualResult>
+        </assertEquals>
+        <assertEquals message="Remaining total value is correct." stepKey="compareRemainingTotalValue">
+            <expectedResult type="string">$0.00</expectedResult>
+            <actualResult type="variable">grabTotalPaymentValue</actualResult>
+        </assertEquals>
+        <!-- End Check: Display Remaining amount = $0.00 -->
+        <!-- Check: Show the button that named as Complete Order -->
+        <grabTextFrom selector="{{CheckoutSection.CompleteOrder}}" stepKey="grabCompleteButtonLabel"/>
+        <assertEquals message="Complete button label is correct." stepKey="compareCompleteButtonLabel">
+            <expectedResult type="string">Complete Order</expectedResult>
+            <actualResult type="variable">grabCompleteButtonLabel</actualResult>
+        </assertEquals>
+        <!-- End Check: Show the button that named as Complete Order -->
+        <actionGroup ref="DisablePrintPopup" stepKey="DisablePrintPopup"/>
+        <click selector="{{CheckoutSection.CompleteOrder}}" stepKey="completeOrder"/>
+    </test>
+</tests>

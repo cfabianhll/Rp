@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+    <actionGroup name="AssertAdminStocktakingRequiredFieldActionGroup">
+        <annotations>
+            <description>Assert Admin Stocktaking Required field.</description>
+        </annotations>
+
+        <see selector="{{AdminStocktakingGeneralSection.selectError('source_code')}}" userInput="This is a required field." stepKey="seeSourceCodeRequired"/>
+        <see selector="{{AdminStocktakingGeneralSection.fieldError('created_at')}}" userInput="This is a required field." stepKey="seeCreatedAtRequired"/>
+    </actionGroup>
+</actionGroups>

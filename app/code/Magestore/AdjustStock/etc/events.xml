@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2016 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="stocktaking_create_adjust_stock">
+        <observer name="adjuststock_create_adjust_stock_from_stocktaking" instance="Magestore\AdjustStock\Observer\StocktakingCreateAdjustStockObserver"/>
+    </event>
+</config>

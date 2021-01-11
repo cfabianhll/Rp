@@ -1,0 +1,92 @@
+<?php
+/* @var \Magestore\Stocktaking\Block\Adminhtml\Stocktaking\Import\Form $block */
+?>
+<div id="import-form"
+     class="import-product" hidden="hidden">
+    <div class="os_panel">
+        <div class="header">
+            <label><?= /* @noEscape */ __('Instruction'); ?></label>
+        </div>
+        <ul class="content">
+            <li class="item">
+                <span><b><?= /* @noEscape */ __($block->getContent()); ?></b></span>
+                <span data-role="data" data-key="form" data-type="text" class="value"/>
+                <div class="clear"></div>
+            </li>
+            <li class="item">
+                <span>
+                    <a href="<?=  /* @noEscape */$block->getCsvSampleLink(false); ?>">
+                        <?= /* @noEscape */ __('Download'); ?>
+                    </a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="import-product">
+        <form id="import-product-form" class="admin__fieldset"
+              action="<?= /* @noEscape */ $block->getImportLink() ?>"
+              method="post" enctype="multipart/form-data">
+            <?= /* @noEscape */ $block->getBlockHtml('formkey') ?>
+            <div class="fieldset admin__field">
+                <label for="import_product" class="admin__field-label">
+                    <span>
+                        <?= /* @noEscape */__('Please choose a CSV file to import:') ?>
+                    </span>
+                </label>
+                <div class="admin__field-control">
+                    <input type="file" id="import_product_file" name="import_product"
+                           class="input-file required-entry"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    require([
+        'jquery',
+        'Magento_Ui/js/modal/modal',
+        "mage/mage",
+        "mage/validation",
+        "loadingPopup"
+    ], function ($) {
+        $('#import-form').modal(
+            {
+                type: 'slide',
+                modalClass: 'form-inline',
+                title: $.mage.__('<?= /* @noEscape */ $block->getTitle()?>'),
+                buttons: [
+                    {
+                        text: $.mage.__('Cancel'),
+
+                        /**
+                         * Default action on button click
+                         */
+                        click: function (event) {
+                            this.closeModal(event);
+                        }
+                    },
+                    {
+                        text: $.mage.__('Import'),
+                        class: 'primary',
+                        /**
+                         * Default action on button click
+                         */
+                        click: function () {
+                            var form = $('#import-product-form');
+                            if (form.validation() && form.validation('isValid')) {
+                                if ($(':input[name="import_product"]').val()) {
+                                    $('body').loadingPopup({
+                                        timeout: false
+                                    });
+                                    form.submit();
+                                }
+                                $('#import-form').modal('closeModal');
+                            }
+                        }
+                    }
+                ],
+            }
+        );
+    });
+</script>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ms_stocktaking_archive_listing.ms_stocktaking_archive_listing_data_source</item>
+            <item name="deps" xsi:type="string">ms_stocktaking_archive_listing.ms_stocktaking_archive_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="archive">
+                <url path="*/stocktaking/index"/>
+                <class>return</class>
+                <label translate="true">Return to Stock-taking Management</label>
+            </button>
+        </buttons>
+        <spinner>stocktaking_columns</spinner>
+        <deps>
+            <dep>ms_stocktaking_archive_listing.ms_stocktaking_archive_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="ms_stocktaking_archive_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magestore_Stocktaking::view_archive_listing</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="ms_stocktaking_archive_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="stocktaking_columns">
+        <column name="id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sortable>true</sortable>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="code" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Code</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="source_name" sortOrder="30">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Source</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="stocktaking_type" component="Magento_Ui/js/grid/columns/select" sortOrder="40">
+            <settings>
+                <options class="Magestore\Stocktaking\Model\Source\Adminhtml\StocktakingType"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Stock-taking Type</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date" sortOrder="50">
+            <settings>
+                <dateFormat>MM/dd/yyyy</dateFormat>
+                <timezone>false</timezone>
+                <skipTimeZoneConversion>true</skipTimeZoneConversion>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Created At</label>
+                <sortable>true</sortable>
+            </settings>
+        </column>
+        <column name="status" component="Magento_Ui/js/grid/columns/select" sortOrder="60">
+            <settings>
+                <options class="Magestore\Stocktaking\Model\Source\Adminhtml\Status"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Magestore\Stocktaking\Ui\Component\Listing\Column\StocktakingArchiveActions">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

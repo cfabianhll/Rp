@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ /**
+  * Copyright © Magento, Inc. All rights reserved.
+  * See COPYING.txt for license details.
+  */
+-->
+
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+    <test name="AdminStocktakingCountingScanBarcodeTest">
+        <annotations>
+            <features value="Stocktaking"/>
+            <stories value="Scan barcode to count product in stocktaking"/>
+            <title value="Admin scan barcode to count product"/>
+            <description value="Admin scan barcode to count product"/>
+            <severity value="CRITICAL"/>
+            <group value="Stocktaking"/>
+            <group value="Counting"/>
+            <group value="pwapos"/>
+        </annotations>
+
+        <before>
+            <createData entity="StocktakingTypeFullData" stepKey="stocktaking"/>
+            <createData entity="default_barcode_config" stepKey="barcodeConfig"/>
+            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+        </before>
+
+        <actionGroup ref="EditNewestStocktakingActionGroup" stepKey="EditNewestStocktakingActionGroup"/>
+        <actionGroup ref="AddProductFromModalActionGroup" stepKey="AddProductFromModalActionGroup"/>
+        <actionGroup ref="ScanBarcodeActionGroup" stepKey="ScanBarcodeActionGroup1"/>
+        <actionGroup ref="ScanBarcodeActionGroup" stepKey="ScanBarcodeActionGroup2"/>
+        <actionGroup ref="ScanBarcodeActionGroup" stepKey="ScanBarcodeActionGroup3"/>
+        <actionGroup ref="AssertAdminStocktakingProductListActionGroup" stepKey="AssertAdminStocktakingProductListActionGroupBeforeSave"/>
+        <actionGroup ref="ClickStocktakingSaveFormActionGroup" stepKey="clickSave"/>
+        <actionGroup ref="AssertAdminStocktakingProductListActionGroup" stepKey="AssertAdminStocktakingProductListActionGroupAfterSave"/>
+        <after>
+            <actionGroup ref="logout" stepKey="logout"/>
+        </after>
+    </test>
+</tests>
