@@ -26,12 +26,12 @@
 //   jQuery(".sidebar-col").removeClass("sidebar-open");
 // });
     var highestBox = 0;
-    jQuery('.product_div').each(function() {
+    jQuery('#amasty-shopby-product-list .product_div').each(function() {
       if (jQuery(this).height() > highestBox) {
         highestBox = jQuery(this).height();
       }
     });
-    jQuery('.product_div').height(highestBox);
+    jQuery('#amasty-shopby-product-list .product_div').height(highestBox);
 
     /**product page tab**/
     jQuery(".product_review .nav-tabs li.data.item.nav-link:first-child").addClass('active');
