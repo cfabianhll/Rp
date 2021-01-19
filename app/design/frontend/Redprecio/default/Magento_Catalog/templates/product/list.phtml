@@ -85,16 +85,17 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								if ($specialprice< $orgprice) {
 									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
 										<div class="offer">         
-											<span class="offer_title"><font style="vertical-align: inherit;">Offer </font></span>
+											<span class="offer_title"><font style="vertical-align: inherit;"><?= $block->escapeHtml(__('Offer')) ?></font></span>
 										</div>
 									<?php } 
 								} ?>
 								<?php if($_product->getNewProduct())
 								{ ?>
 									<div class="new_products">          
-										<span class="new_title"><font style="vertical-align: inherit;">New </font></span>
+										<span class="new_title"><font style="vertical-align: inherit;"><?= $block->escapeHtml(__('New')) ?> </font></span>
 									</div>
 								<?php } ?>
+								<?php if ($_product->getAttributeText('manufacturer')) { ?>
 								<div class ="custom-merge-div">
 								<?php if ($_product->getAttributeText('manufacturer')) { ?>
 								<div class="custom-brand-name">
@@ -139,7 +140,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								<?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
 								</div>
 								</div>
-								
+								<?php } ?>
 								<?php if ($_product->isAvailable()) :?>
 													<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
 								<?php endif; ?>
@@ -234,14 +235,14 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								if ($specialprice< $orgprice) {
 									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
 										<div class="offer">         
-											<span class="offer_title"><font style="vertical-align: inherit;">Offer </font></span>
+											<span class="offer_title"><font style="vertical-align: inherit;"><?= $block->escapeHtml(__('Offer')) ?> </font></span>
 										</div>
 									<?php } 
 								} ?>
 								<?php if($_product->getNewProduct())
 								{ ?>
 									<div class="new_products">          
-										<span class="new_title"><font style="vertical-align: inherit;">New </font></span>
+										<span class="new_title"><font style="vertical-align: inherit;"><?= $block->escapeHtml(__('New')) ?> </font></span>
 									</div>
 								<?php } ?>
 								
@@ -260,7 +261,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								<?= $productImage->toHtml() ?>
 							</a>
 						</div>
-						<div class="col-12 col-lg-7 col-md-7">
+						<div class="col-12 col-lg-6 col-md-7">
 							<div class="about_pre_product">
 								<?php
 									$_productNameStripped = $block->stripTags($_product->getName(), null, true);
@@ -271,6 +272,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 										<h5><?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h5>
 									</a>
 								</strong>
+								<?php if ($_product->getAttributeText('manufacturer')) { ?>
 								<div class ="custom-merge-div">
 								<?php if ($_product->getAttributeText('manufacturer')) { ?>
 								<div class="custom-brand-name">
@@ -315,6 +317,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								<?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
 								</div>
 								</div>
+							<?php } ?>
                                 <?php if ($_product->isAvailable()) :?>
                                 <div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
                                 <?php endif; ?>
@@ -335,7 +338,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 							{?>
 							<div class="two"><p class="three"><?php echo "Free Shipping";?></p><?php 
 							 } ?>
-						<div class="col-12  col-md-7 offset-md-5 offset-lg-0 col-lg-2 ">
+						<div class="col-12 col-md-7 offset-md-5 offset-lg-0 col-lg-3">
 							<div class="custom-price-stock-list">
 							
 								<?= /* @noEscape */ $block->getProductPrice($_product) ?>

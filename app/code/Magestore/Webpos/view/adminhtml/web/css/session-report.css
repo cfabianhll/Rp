@@ -1,7 +1,7 @@
 @font-face {
     font-weight: normal;
     font-style: normal;
-;font-display:swap;}
+;font-display:swap;;font-display:swap;}
 .block-printreceipt {
     max-width: 325px;
     margin: 0 auto;

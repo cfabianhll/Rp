@@ -280,7 +280,7 @@
     }
 
     var x = jQuery('.left_mega_menu > li:first-child').position();
-    var top = jQuery(".fixed_header2").innerHeight();
+    var top = jQuery(".fixed_header2").outerHeight();
     jQuery(this).children('.sub_mega_menu').css({'top' : top + 'px'});
 
     jQuery("body").addClass('hidden')
@@ -304,7 +304,7 @@
     jQuery('.navigation.desktop_menu').mouseleave(function(){
      // console.log("fdsfdfs");
       jQuery(this).find('li').children(".sub_mega_menu").animate({
-        width: "0"
+        width: "1000px"
       });
     });
   }, 3000);
@@ -383,7 +383,10 @@
 
 
   // slimscroll
-  jQuery('.nano-content, .main_mega_menu').slimScroll({
+  // jQuery('.nano-content, .main_mega_menu').slimScroll({
+  //   height: '100%'
+  // });
+  jQuery('.nano-content').slimScroll({
     height: '100%'
   });
 
@@ -490,6 +493,8 @@
         items :8, 
         navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
         nav:true,
+        loop: false,
+    rewind: true,
         responsive:{
           0:{
             items:1,
@@ -513,11 +518,11 @@
             dots:false,
           },
           1111:{
-            items:5,
+            items:7,
             dots:false,
           },
           1366:{
-            items:5,
+            items:7,
             dots:false,
           },
           1921:{
@@ -630,7 +635,7 @@
 
       });
   // fixed menu
-if(jQuery('body').hasClass('catalog-category-view')== false) {
+//if(jQuery('body').hasClass('catalog-category-view')== false) {
   //console.log(jQuery('body').hasClass('catalog-category-view'));
   if (jQuery(window).width() > 768) {  
 
@@ -640,16 +645,22 @@ if(jQuery('body').hasClass('catalog-category-view')== false) {
       {
        
         jQuery('header').removeClass('fixed_header');
+        jQuery('.cat_sticky').removeClass('fixed_headerr');
         jQuery('header').addClass('fixed_header');
+        jQuery('.cat_sticky').addClass('fixed_headerr');
+        jQuery('.cat_sticky.fixed_headerr').height(jQuery(".search_menu").height());
       } 
       else 
       {
         jQuery('header').removeClass('fixed_header');
+        jQuery('.cat_sticky').removeClass('fixed_headerr');
+        jQuery('.cat_sticky').height(jQuery(".search_menu").height());
       }
     });
 
   }
-  }    
+  //}
+  jQuery('.cat_sticky').height(jQuery(".search_menu").height()); 
 
   /*product details slider*/
   var sync1 = jQuery("#sync1");

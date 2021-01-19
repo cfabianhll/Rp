@@ -1665,7 +1665,7 @@ a.see_all{margin-left: 0;}
 
 .category_divs{border-bottom: 1px solid #D8D8D8;margin-bottom: 30px;}
 /* 21-9-020*/
-.main_mega_menu{max-height:670px; min-height:670px;}
+.main_mega_menu{/*max-height:670px; */min-height:670px;}
 
 .styled-checkbox:checked + label:before {
     background: transparent;
@@ -2189,10 +2189,12 @@ ul.breadcum_links li a {
 .filter_m.hide_inmo {
     border-right: 1px solid #ccc;
     padding-right: 12px;
-    margin-right: 6px;
+    margin-right: 12px;
+    padding-left: 12px;
 }
 .catalog-category-view .filter_m.hide_inmo {
     padding-left: 12px;
+     margin-right: 6px;
 }
 .gw-menu-text img{width: 133px;
     }
@@ -2380,7 +2382,7 @@ div#mySidenavv .gw-nav-list>li>a{line-height:46px !important}
 .cms-home a.logo_section{padding: 8px 15px;}
 /*14-4-020 nishant*/
 section.product_Details {
-    padding: 10px 150px;
+    padding: 10px 62px;
 }
 .towishlist {color: #444 !important;
     padding-top: 10px;
@@ -2650,7 +2652,7 @@ body.catalog-product-view .breadcrumbs {
 .left_mega_menu_Sub {display: block !important;}
 @media(min-width:1023.98px){
 .cms-home .left_mega_menu {
-    padding-top: 2px;
+    padding-top: 0px;
 }
 .cms-home a.logo_section {
     padding: 1px 0px !important;
@@ -3592,7 +3594,7 @@ figure.amrev-toolbar-container {margin:0px !important;}
 .toolbar.review-toolbar.amreview-toolbar-wrap {margin-bottom: 20px;}
 /*14-4-020 nishant*/
 div#product-review-container {
-    padding: 0px 149px;
+    padding: 0px 62px;
 }
 .field.delivery {
     display: none;
@@ -3841,7 +3843,7 @@ a.ui-slider-handle.ui-state-default.ui-corner-all {
     margin-left:0 !important
 }
 .sidenav .closebtn {
-    left: 28px;
+    left: 18px;
     top: 20px;
     z-index: 5;
     margin-left: 0;
@@ -3985,7 +3987,7 @@ a.logo.logo_section.custom-top-left-logo {
     display: inline-block;
     width: auto;
     position: absolute;
-    right: 5px;
+    right: 9px;
     top: 0;
     /*border-left: 1px solid #eee;*/
 }
@@ -4156,10 +4158,10 @@ div#product_quickview .details_btn {
  div#product_quickview  #customer-reviews a.btn.review_btn {
     display: none;
 }
-body.catalog-product-view a.logo.logo_section.custom-top-left-logo {
+/*body.catalog-product-view a.logo.logo_section.custom-top-left-logo {
     padding: 5px 8px !important;
     
-}
+}*/
 body.catalog-product-view .sidenav {padding-top: 66px;}
 .catalog-product-view .product-reviews-summary span.review_links {
     color: #c2292f !important;
@@ -4808,7 +4810,7 @@ ul.third-cat li:hover a {
 }
 @media (min-width: 768px) {
 .search-autocomplete {
-    top: 57px !important;
+    top: 55px !important;
     max-width: 75vw;
 }
 }
@@ -4816,6 +4818,9 @@ ul.third-cat li:hover a {
 	.custom-stock .modal-inner-wrap.modal-dialog.modal-dialog-centered {
   
     max-height: 600px !important;
+}
+.listing_pr .carts_btns button, .listing_pr .carts_btns a {
+    max-width: 170px;
 }
 	/*.catalogsearch-result-index header.fixed_header2, .catalog-category-view header.fixed_header2 {
 	position: unset !important;
@@ -4826,8 +4831,8 @@ ul.third-cat li:hover a {
 }*/
 	.catalogsearch-result-index .fixed_header, .catalog-category-view .fixed_header {
     z-index: 10;
-    position: unset;
-    width: inherit;
+    position: fixed !important;
+   width: inherit !important;
     background: #fff;
     transition: all .4s ease-in-out;
     box-shadow: 0 0px 11px -6px rgba(0, 0, 0, 0.24);
@@ -4854,7 +4859,7 @@ ul.third-cat li:hover a {
 }
 .search-autocomplete.amsearch-left-position {
     right: unset;
-    left: -11px !important;
+    left: 0px !important;
 }
 }
 .catalog-product-view span.btn.qty-list.border_btn.mt-3 img {
@@ -4956,7 +4961,7 @@ span.store_qty {
 }
 .catalog-category-view .fixed_header2, .catalogsearch-result-index .fixed_header2{
     position: inherit;
-    width: 100%;
+   width: auto;
 }
 .catalog-category-view #content, .catalogsearch-result-index #content {
     padding-top: 0px !important;
@@ -6407,6 +6412,7 @@ color: #c00;
 }
 .listing_pr .product.description.product-item-description {
     font-size: 13px;
+    margin-left: 18px;
 }
 .listing_pr a.action.more {
     display: none;
@@ -6585,3 +6591,85 @@ a.logo.logo_section {
 .filter_m.hide_inmo {
     border-right: 0px solid #ccc}
 #mySidenav a.logo.logo_section:before{display:none}
+section.product_Details.pb-0.custom_step {
+    padding: 0;
+}
+input.custom_filter {
+    margin-top: 6px !important;
+}
+div#amasty-shopby-product-list .showing_result {
+    padding: 14px 30px !important;
+}
+p.amasty-xsearch-block-header {
+    display: none;
+}
+.amsearch-wrapper-content > .amsearch-item:before {
+   display: none;
+}
+.amsearch-wrapper-content > .amsearch-item {
+    box-shadow: 0 1px #c2c2c2, inset 0 1px #c2c2c2;
+}
+.amsearch-wrapper-content > .amsearch-item:first-child, .amsearch-wrapper-content > .amsearch-item:first-child:hover {
+    box-shadow: none;
+}
+.showing_result select#sorter {
+    border-radius: 0;
+}
+.filter_form select#sorter:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #D8D8D8;
+    outline: 0;
+    box-shadow: none;
+}
+.catalog-category-view .listing_pr .about_pre_product h5:hover, .catalogsearch-result-index .listing_pr .about_pre_product h5:hover {
+color: #c2292f !important;
+}
+.sub_mega_menu {
+    height: 100%;
+    overflow: auto;
+}
+ul.gw-nav.gw-nav-list.custom_category>li.active>ul {
+    box-shadow: none;
+    border: none;
+}
+ul.gw-nav.gw-nav-list.custom_category>li.active>a {
+   background-color: #fff;
+}
+.catalog-product-view .tab-content>.active ul {
+    margin-left: 18px;
+}
+.catalog-product-view .deleviery_section:first-child {
+    border-right: none;
+}
+.cms-home .sub_mega_menu {
+    border-left: none;
+    border-top: none;
+}
+.cat_sticky.fixed_headerr {
+    position: fixed;
+    background: #fff;
+    z-index: 10;
+    width: 199px;
+    border-bottom: 2px solid #f2f2f2;
+    height: auto;
+}
+ul.gw-nav.gw-nav-list.custom_category li a {
+    background: #f2f2f2;
+}
+ul.gw-nav.gw-nav-list.custom_category>li.active>ul li a {
+    background: #fff;
+}
+ul.gw-nav.gw-nav-list.custom_category>li.active>ul li a:hover {
+    background: #f2f2f2;
+}
+.sidenav.desktop_visible {
+    border-right: 1px solid #D8D8D8;
+}
+.catalog-category-view .cat_sticky a.logo_section, .catalogsearch-result-index .cat_sticky a.logo_section
+{
+	height: 100% !important
+}
+body.catalog-category-view .cat_sticky a.logo_section img, body.catalogsearch-result-index .cat_sticky a.logo_section img {
+	height: 100% !important;
+}

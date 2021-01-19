@@ -41,6 +41,7 @@ $filterCode = $block->escapeHtml($filterSetting->getFilterCode());
                         name="amshopby[<?= /* @noEscape */ $block->getFilter()->getRequestVar();?>][]"
                         value="<?= $block->escapeHtml($filterItem->getValueString());?>"
                         type="<?= /* @noEscape */ $inputType;?>"
+                        class="custom_filter"
                         style="<?= /* @noEscape */ $style ?>"
                     <?= /* @noEscape */ $block->checkedFilter($filterItem) ? ' checked' : ''; ?>
                 />

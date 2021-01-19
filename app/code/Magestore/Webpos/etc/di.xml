@@ -47,7 +47,7 @@
     <preference for="Magestore\Webpos\Api\Website\WebsiteInformationRepositoryInterface" type="Magestore\Webpos\Model\Website\WebsiteInformationRepository"/>
     <preference for="Magestore\Webpos\Api\Shipping\ShippingMethodRepositoryInterface" type="Magestore\Webpos\Model\Shipping\ShippingMethodRepository"/>
     <preference for="Magestore\Webpos\Api\Data\Shipping\ShippingMethodInterface" type="Magestore\Webpos\Model\Shipping\ShippingMethod"/>
-    <preference for="Magento\Customer\Model\ResourceModel\Customer\Indexer\Collection" type="Magestore\Webpos\Model\ResourceModel\Customer\Indexer\Collection"/>
+<!--    <preference for="Magento\Customer\Model\ResourceModel\Customer\Indexer\Collection" type="Magestore\Webpos\Model\ResourceModel\Customer\Indexer\Collection"/>-->
     <preference for="Magento\Quote\Model\QuoteRepository\Plugin\AccessChangeQuoteControl" type="Magestore\Webpos\Model\QuoteRepository\Plugin\AccessChangeQuoteControl"/>
     <!-- end rewrite api controller -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
@@ -183,7 +183,7 @@
     <preference for="Magestore\Webpos\Api\Data\Customer\CustomerSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
     <preference for="Magestore\Webpos\Api\Customer\CustomerRepositoryInterface" type="Magestore\Webpos\Model\Customer\CustomerRepository"/>
     <preference for="Magestore\Webpos\Api\Data\Customer\CustomerInterface" type="Magestore\Webpos\Model\Customer\Data\Customer"/>
-    <preference for="Magento\Customer\Model\Data\Customer" type="Magestore\Webpos\Model\Customer\Data\Customer"/>
+<!--    <preference for="Magento\Customer\Model\Data\Customer" type="Magestore\Webpos\Model\Customer\Data\Customer"/>-->
 
     <!-- Loyalty -->
     <preference for="Magestore\Webpos\Api\Integration\LoyaltyRepositoryInterface" type="Magestore\Webpos\Model\Integration\LoyaltyRepository"/>

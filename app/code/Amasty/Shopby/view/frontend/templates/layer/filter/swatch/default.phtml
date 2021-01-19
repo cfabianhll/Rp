@@ -57,6 +57,7 @@ $relNofollow = $filterSetting ? $filterSetting->isAddNofollow() : false;
                         <input  class="input -hidden"
                                 name="amshopby[<?= /* @noEscape */ $block->getFilter()->getRequestVar(); ?>][]"
                                 value="<?= /* @noEscape */ $option; ?>"
+                                class="custom_filter"
                                 type="<?= /* @noEscape */ $inputType; ?>"
                             <?= /* @noEscape */ $selected ? 'checked' : ''; ?>
                         />

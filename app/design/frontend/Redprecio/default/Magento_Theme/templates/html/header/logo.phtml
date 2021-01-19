@@ -16,7 +16,16 @@ $url = $block->getUrl('');
 if($block->isHomePage()) :
 	$url = 'javascrip:void(0)';
 endif;
+
 ?>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$request = $objectManager->get('\Magento\Framework\App\Request\Http');
+$checkModule = $request->getFullActionName();
+//echo $request->getFullActionName();
+?>
+<?php if($checkModule == "catalog_category_view") { ?>
+<div class="cat_sticky">
 <div class="filter_m hide_inmo" style="cursor: pointer;" onclick="nav2()"><i class="fa fa-bars" style="font-size: 22px;"></i><span class="newmenu">Menú</span></div>
 <a class="logo logo_section" href="<?= $block->getUrl('') ?>" title="<?= /* @escapeNotVerified */ $storeName ?>" aria-label="store logo">
 	<span class="gw-menu-text">
@@ -28,4 +37,18 @@ endif;
         />
 	</span>
 </a>
+</div>
+<?php } else { ?>
+	<div class="filter_m hide_inmo" style="cursor: pointer;" onclick="nav2()"><i class="fa fa-bars" style="font-size: 22px;"></i><span class="newmenu">Menú</span></div>
+<a class="logo logo_section" href="<?= $block->getUrl('') ?>" title="<?= /* @escapeNotVerified */ $storeName ?>" aria-label="store logo">
+	<span class="gw-menu-text">
+		<img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
+             title="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             alt="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+             <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+             <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+        />
+	</span>
+</a>
+<?php } ?>
 
