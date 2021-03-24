@@ -60,6 +60,14 @@ atlassian*
 /pub/media/captcha/*
 /pub/static/*
 !/pub/static/.htaccess
+/pub/media/brand/*
+/pub/media/amasty/*
+/pub/media/amasty_export_stock/*
+/pub/media/webpos/*
+/pub/media/sparsh/*
+*.sql
+*.zip
+*.tar.gz
 
 /var/*
 !/var/.htaccess

@@ -37,6 +37,7 @@ $filterCode = $block->escapeHtml($filterSetting->getFilterCode());
 
                 <?php $style = ($inputType == 'radio' && !$block->getRadioAllowed())
                 || in_array($filterCode, ['rating', 'stock'])  ? 'display: none;' : ''; ?>
+                <div class="container-cus-check">
                 <input
                         name="amshopby[<?= /* @noEscape */ $block->getFilter()->getRequestVar();?>][]"
                         value="<?= $block->escapeHtml($filterItem->getValueString());?>"
@@ -45,6 +46,8 @@ $filterCode = $block->escapeHtml($filterSetting->getFilterCode());
                         style="<?= /* @noEscape */ $style ?>"
                     <?= /* @noEscape */ $block->checkedFilter($filterItem) ? ' checked' : ''; ?>
                 />
+                 <span class="checkmark"></span>
+                </div>
 
                 <a
                     class="am-filter-item-<?= /* @noEscape */ $block->escapeId(uniqid())?>"

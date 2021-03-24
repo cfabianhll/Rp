@@ -234,8 +234,8 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
             else if($child->getLevel() == 2) {
                 /*$html .= '<div class="category_divs">';
                 $html .= '<div class="row">';*/
-                   if($count%5==0){
-                          $html .= '<ul class="col-12 col-md-3 left_mega_menu_Sub">';
+                   if($count%35==0){
+                          $html .= '<ul data-test-id="test'.$child->getLevel().'" class="left_mega_menu_Sub">';
 
                         }
 
@@ -270,7 +270,9 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
                       $html .= '<a href="' . $child->getUrl() . '" class="see_all">'.$this->escapeHtml(__('See All')).'</a>';
                   }
              $html .= '</div>';
+             $html .= '<div class="col-md-9">';
             }
+
 			if($child->getLevel() == 0 && $child->hasChildren()) {
 				$html .= '<i class="fas fa-chevron-right"></i>';
 			}
@@ -288,11 +290,16 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
 			} 
             else if($child->getLevel() == 2) {
                 $html .= '</li>';
-                if($count%5==0){
+                if($count%35==0){
                     $html .= '</ul>';
                 }
+                
 
             }
+            /*else if($child->getLevel() == 1) {
+                    $html .= '</div>';
+                
+            }*/
             // else if($child->getLevel() > 2) {
             //     $html .= '</li>';
                
@@ -303,10 +310,12 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
             else if($child->getLevel() == 1) {
                 $html .= '</div>';
                 $html .= '</div>';
+                $html .= '</div>';
             } 
             else {
 			$html .= '</li>';
 			}
+
             $itemPosition++;
             $counter++;
         }

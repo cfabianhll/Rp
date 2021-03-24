@@ -17,6 +17,10 @@ use Amasty\Storelocator\Model\ResourceModel\LocationProductIndex;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
+use Magento\Catalog\Api\Data\ProductInterface;
+use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Catalog\Model\Session as CatalogSession;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 class Location extends Template implements BlockInterface, IdentityInterface
 {
@@ -28,6 +32,23 @@ class Location extends Template implements BlockInterface, IdentityInterface
      * @var \Magento\Framework\Registry
      */
     protected $coreRegistry;
+
+    /**
+     * @var CatalogSession
+     */
+    private $catalogSession;
+
+    /**
+     * @var ProductRepositoryInterface
+     */
+    private $productRepository;
+
+    /**
+     * Current Product
+     *
+     * @var ProductInterface
+     */
+    private $currentProduct;
 
     /**
      * File system
@@ -135,6 +156,8 @@ class Location extends Template implements BlockInterface, IdentityInterface
         \Amasty\Storelocator\Model\ResourceModel\Location\CollectionFactory $locationCollectionFactory,
         LocationProductIndex $locationProduct,
         BaseImageLocation $baseImageLocation,
+        CatalogSession $catalogSession,
+        ProductRepositoryInterface $productRepository,
         array $data = []
     ) {
         $this->coreRegistry = $coreRegistry;
@@ -153,6 +176,8 @@ class Location extends Template implements BlockInterface, IdentityInterface
         $this->galleryCollection = $galleryCollection;
         $this->locationProduct = $locationProduct;
         $this->baseImageLocation = $baseImageLocation;
+        $this->catalogSession = $catalogSession;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -589,13 +614,37 @@ class Location extends Template implements BlockInterface, IdentityInterface
         return '';
     }
 
+//    public function getProduct()
+//    {
+//        if ($this->coreRegistry->registry('current_product')) {
+//            return $this->coreRegistry->registry('current_product');
+//        }
+//
+//        return false;
+//    }
+
+    /**
+     * @return ProductInterface
+     * @throws NoSuchEntityException
+     */
     public function getProduct()
     {
-        if ($this->coreRegistry->registry('current_product')) {
-            return $this->coreRegistry->registry('current_product');
-        }
+        if (!isset($this->currentProduct)) {
+            $productId = $this->getProductId();
 
-        return false;
+            if ($productId) {
+                $this->currentProduct = $this->productRepository->getById($productId);
+            }
+        }
+        return $this->currentProduct;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProductId()
+    {
+        return $this->catalogSession->getData('last_viewed_product_id');
     }
 
     /**
@@ -612,17 +661,17 @@ class Location extends Template implements BlockInterface, IdentityInterface
         return false;
     }
 
-    public function getProductId()
-    {
-        if ($this->getRequest()->getParam('product')) {
-            return (int)$this->getRequest()->getParam('product');
-        }
-        if ($this->coreRegistry->registry('current_product')) {
-            return $this->coreRegistry->registry('current_product')->getId();
-        }
-
-        return false;
-    }
+//    public function getProductId()
+//    {
+//        if ($this->getRequest()->getParam('product')) {
+//            return (int)$this->getRequest()->getParam('product');
+//        }
+//        if ($this->coreRegistry->registry('current_product')) {
+//            return $this->coreRegistry->registry('current_product')->getId();
+//        }
+//
+//        return false;
+//    }
 
     /**
      * Get current category
@@ -781,3 +830,4 @@ class Location extends Template implements BlockInterface, IdentityInterface
         return [LocationModel::CACHE_TAG];
     }
 }
+

@@ -41,14 +41,14 @@ if ($preorders && $preorders->count()):
 								if ($specialprice< $orgprice) {
 									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
 										<div class="offer">         
-											<span class="offer_title"><font style="vertical-align: inherit;">Offer </font></span>
+											<span class="offer_title"><font style="vertical-align: inherit;"><?= __('Offer') ?> </font></span>
 										</div>
 									<?php } 
 								} ?>
 								<?php if($_product->getNewProduct())
 								{ ?>
 									<div class="new_products">          
-										<span class="new_title"><font style="vertical-align: inherit;">New </font></span>
+										<span class="new_title"><font style="vertical-align: inherit;"><?= __('New') ?> </font></span>
 									</div>
 								<?php } ?>
 					<div class="img_container">

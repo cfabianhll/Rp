@@ -1,0 +1,62 @@
+{
+    "os_inventorytransfer": {
+        "column": {
+            "inventorytransfer_id": true,
+            "inventorytransfer_code": true,
+            "source_warehouse_code": true,
+            "des_warehouse_code": true,
+            "reason": true,
+            "created_by": true,
+            "created_on": true,
+            "status": true,
+            "stage": true,
+            "qty_transferred": true,
+            "qty_received": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "os_inventorytransfer_receive": {
+        "column": {
+            "receive_id": true,
+            "inventorytransfer_id": true,
+            "created_by": true,
+            "created_on": true,
+            "total_qty": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_54EA494F249C7EA7DA82FE771690DABD": true
+        }
+    },
+    "os_inventorytransfer_product": {
+        "column": {
+            "entity_id": true,
+            "inventorytransfer_id": true,
+            "product_id": true,
+            "product_name": true,
+            "product_sku": true,
+            "qty_transferred": true,
+            "qty_received": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "OS_INVTRANSFER_PRD_INVTRANSFER_ID_OS_INVTRANSFER_INVTRANSFER_ID": true
+        }
+    },
+    "os_inventorytransfer_receive_product": {
+        "column": {
+            "receive_product_id": true,
+            "receive_id": true,
+            "product_id": true,
+            "product_name": true,
+            "product_sku": true,
+            "qty": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_49465735BF8CBD776DFE355500FE4163": true
+        }
+    }
+}

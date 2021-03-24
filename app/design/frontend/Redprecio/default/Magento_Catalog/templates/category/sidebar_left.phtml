@@ -25,7 +25,7 @@ $category = $block->getCategory($_currentcategory);
 	foreach ($childrenCategories as $_category): ?>
 		<?php $_category = $_category->load($_category->getId()); ?>
 		<?php if($_category->getChildrenCount() > 0 ) { ?>		
-			<li class="init-arrow-down">
+			<li class="init-arrow-down hassub">
 				<a href="<?php echo $_category->getUrl() ?>" class="gw-menu-text"><?= $block->escapeHtml($_category->getName()) ?></a><a href="javascript:void(0)" class="icon_expand"> <b class="gw-arrow"></b> </a>
 				<?php $category = $block->getCategory($_category->getId()); ?>
 				<?php $childrenCategories = $category->getChildrenCategories();?>
@@ -39,7 +39,7 @@ $category = $block->getCategory($_currentcategory);
 				</ul>
 			</li>
 		<?php } else { ?>
-			<li>
+			<li class="nosub">
 				<a href="<?php echo $_category->getUrl() ?>"> <span class="gw-menu-text"><?= $block->escapeHtml($_category->getName()) ?></span></a>
 			</li>
 		<?php } ?>

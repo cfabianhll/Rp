@@ -801,22 +801,21 @@
  }
  var nav2 = function () 
  {
-  jQuery('#mySidenav').toggle();
-
+  jQuery('#mySidenav').toggle();  
   var x = jQuery('.desktop_visible_one').offset().top;
   console.log(x);
   jQuery('#mySidenav').css({'top' : x + 'px'});
 };
 function productQuickView() {
   require(['jquery'],function($){
-    var iFrameID = document.getElementById('product-quickview');
+    //var iFrameID = document.getElementById('product-quickview');
         //jQuery("#product-quickview").parent().css("height",(iFrameID.contentWindow.document.body.scrollHeight)+'px');
-        if(iFrameID.contentWindow.document.body.scrollHeight){
+        /*if(iFrameID.contentWindow.document.body.scrollHeight){
           setTimeout(function(){
             jQuery("#product-quickview").parent().css("height",(iFrameID.contentWindow.document.body.scrollHeight)+'px');
             $('.loading-mask').hide();
           },500);
-        }
+        }*/
       });
 }
 

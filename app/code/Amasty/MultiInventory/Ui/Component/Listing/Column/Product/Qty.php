@@ -23,6 +23,9 @@ class Qty extends AbstractColumn
      */
     protected function prepareItem(array $item)
     {
+        if(isset($item['qty']))
         return (int)$item['qty'];
+        return 0;
+        //return (int)$item['qty'];
     }
 }
