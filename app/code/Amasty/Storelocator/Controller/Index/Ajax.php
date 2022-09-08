@@ -7,13 +7,25 @@
 
 namespace Amasty\Storelocator\Controller\Index;
 
+use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Api\SearchCriteriaBuilderFactory;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\Framework\Json\Helper\Data;
 use Magento\Framework\ObjectManagerInterface;
+use Magento\Framework\Registry;
+use Magento\InventoryApi\Api\GetStockSourceLinksInterface;
 use Magento\InventoryApi\Api\SourceRepositoryInterface;
+use Magento\InventoryCatalog\Model\GetStockIdForCurrentWebsite;
+use Magestore\Storepickup\Helper\Image;
+use Magestore\Storepickup\Model\ResourceModel\Image\CollectionFactory;
+use Magestore\Storepickup\Model\ResourceModel\Store\Collection;
+use Zend_Json;
+use Magento\Catalog\Api\ProductRepositoryInterface;
+
 
 class Ajax extends Action
 {
@@ -41,13 +53,46 @@ class Ajax extends Action
      */
     protected $_storeCollectionFactory;
 
+    /**
+     * @var CollectionFactory
+     */
+    protected $_imageCollectionFactory;
+
+    /**
+     * Registry object.
+     *
+     * @var Registry
+     */
+    protected $_coreRegistry;
+
+    /**
+     * @var Image
+     */
+    protected $_imageHelper;
+
+    /**
+     * @var Data
+     */
+    protected $_jsonHelper;
+
+    /**
+     * @var ProductRepositoryInterface
+     */
+    private $productRepository;
+
     public function __construct(
         Context $context,
         JsonFactory $jsonResultFactory,
-        \Magento\Framework\ObjectManagerInterface $objectManager,
+        ObjectManagerInterface $objectManager,
         SourceRepositoryInterface $sourceRepository,
         SearchCriteriaBuilderFactory $searchCriteriaBuilderFactory,
-        \Magestore\Storepickup\Model\ResourceModel\Store\CollectionFactory $storeCollectionFactory
+        \Magestore\Storepickup\Model\ResourceModel\Store\CollectionFactory $storeCollectionFactory,
+        CollectionFactory $imageCollectionFactory,
+        Registry $coreRegistry,
+        Image $imageHelper,
+        Data $jsonHelper,
+        \Magento\Catalog\Helper\Data $helper,
+        ProductRepositoryInterface $productRepository
     ) {
         parent::__construct($context);
         $this->jsonResultFactory = $jsonResultFactory;
@@ -55,20 +100,33 @@ class Ajax extends Action
         $this->sourceRepository = $sourceRepository;
         $this->searchCriteriaBuilderFactory = $searchCriteriaBuilderFactory;
         $this->_storeCollectionFactory = $storeCollectionFactory;
+        $this->_imageCollectionFactory = $imageCollectionFactory;
+        $this->_coreRegistry = $coreRegistry;
+        $this->_imageHelper = $imageHelper;
+        $this->_jsonHelper = $jsonHelper;
+        $this->helper = $helper;
+        $this->productRepository = $productRepository;
 
     }
 
     public function execute()
     {
         /** @var Json $result */
+        $product_id = $this->getRequest()->getParam('product_id');
         $result = $this->jsonResultFactory->create();
         $this->_view->loadLayout();
-        $block = $this->_view->getLayout()->getBlock('amlocator_ajax');
+        if ($product_id) {
+            $_product = $this->productRepository->getById($product_id);
+        }
+//        $block = $this->_view->getLayout()->getBlock('amlocator_ajax');
         //        $productId = $block->getProductId();
-        $status = $this->getStockStatus($block);
+
+        $status = $this->getStockStatus($product_id);
+        
         $data = ['amlocator_block' => json_decode($this->getListStoreJson()),
-                'location_img'=> $this->getLocationImageArray($block),
-                'stock_status' => $status];
+                'location_img'=> json_decode($this->getImageJsonData()),
+                'stock_status' => $status
+        ];
 //        echo "<pre>";
 //        print_r($this->getListStore());
 //        die("LL");
@@ -76,59 +134,63 @@ class Ajax extends Action
         return $result;
     }
 
-    public function getLocationImageArray($block)
+    /**
+     * get images json data of store.
+     *
+     * @return string
+     */
+    public function getImageJsonData()
     {
-        $locations = $block->getLocationCollection();
-        $location_img = [];
-        foreach ($locations as $item) {
-            $locationId = $item->getData('id');
-            $location_img[] = $block->getLocationImage($locationId);
+//        $store = $this->_coreRegistry->registry('storepickup_store');
+        /** @var Collection $collection */
+        $collection = $this->_storeCollectionFactory->create();
+        $storepickup_id = $collection->addFieldToFilter('status', '1')
+            ->addFieldToSelect(
+                [
+                    'storepickup_id'
+                ]
+            )->getData();
+
+        $imageCollection = $this->_imageCollectionFactory->create()
+            ->addFieldToFilter('pickup_id', $storepickup_id);
+
+        $imageArray = [];
+        foreach ($imageCollection as $image) {
+            $imageData = [
+                'file' => $image->getPath(),
+                'url' => $this->_imageHelper->getMediaUrlImage($image->getPath()),
+                'image_id' => $image->getId(),
+            ];
+
+            $imageArray[] = $imageData;
         }
-        return $location_img;
+
+        return $this->_jsonHelper->jsonEncode($imageArray);
     }
 
-    public function getStockStatus($block)
+    public function getStockStatus($product_id)
     {
         $stock = [];
-        $product = $block->getProduct();
-        $sku = $product->getSku();
+        if ($product_id) {
+            $_product = $this->productRepository->getById($product_id);
+        }
+        $sku = $_product->getSku();
         $getSourceItemsBySku = $this->objectManager->get('Magento\InventoryApi\Api\GetSourceItemsBySkuInterface');
         $sourceRepository = $this->objectManager->get('Magento\InventoryApi\Api\SourceRepositoryInterface');
         $sourceItems = $getSourceItemsBySku->execute($sku);
         foreach ($sourceItems as $sourceItem) {
             $source = $sourceRepository->get($sourceItem->getSourceCode());
-            $qty[$sourceItem->getData('source_code')] = (float)$sourceItem->getQuantity();
+            $qty[] = (float)$sourceItem->getQuantity();
             $status[] = $sourceItem->getStatus();
             $code[] = $sourceItem->getData('source_code');
 //            echo "<pre>";
 //            print_r($sourceItem->getData());
-            $stock = ['qty'=>$qty, 'status'=>$status, 'code' => $code];//[] = $qty;
+            $stock = ['qty'=>$qty, 'status'=>$status, 'code' => $code ];//[] = $qty;
         }
-//        echo "<pre>";
-//        print_r($stock);
-//        die("LL");
+    //    echo "<pre>";
+    //    print_r($stock);
+    //    die("LL");
         return $stock;
-    }
-
-    /**
-     * {@inheritdoc}
-     * @codeCoverageIgnore
-     */
-    public function getAllOptions()
-    {
-//        if (!$this->_options) {
-        /** @var SearchCriteriaBuilder $searchCriteriaBuilder */
-        $searchCriteriaBuilder = $this->searchCriteriaBuilderFactory->create();
-        $searchCriteria = $searchCriteriaBuilder->create();
-        $sources = $this->sourceRepository->getList($searchCriteria)->getItems();
-        foreach ($sources as $source) {
-            $this->_options[] = [
-                    'value' => $source->getData(),
-                    'label' => $source->getCountryId()
-                ];
-        }
-//        }
-        return $this->_options;
     }
 
     /**
@@ -138,7 +200,7 @@ class Ajax extends Action
      */
     public function getListStoreJson()
     {
-        /** @var \Magestore\Storepickup\Model\ResourceModel\Store\Collection $collection */
+        /** @var Collection $collection */
         $collection = $this->_storeCollectionFactory->create();
         $collection->addFieldToFilter('status', '1')
             ->addFieldToSelect(
@@ -159,26 +221,26 @@ class Ajax extends Action
 
 //        $this->filterStoreByWebsite($collection);
 
-        return \Zend_Json::encode($collection->getData());
+        return Zend_Json::encode($collection->getData());
     }
 
     /**
      * Filter store by website
      *
-     * @param \Magestore\Storepickup\Model\ResourceModel\Store\Collection $collection
-     * @return \Magestore\Storepickup\Model\ResourceModel\Store\Collection
+     * @param Collection $collection
+     * @return Collection
      */
     public function filterStoreByWebsite($collection)
     {
         if (1) {
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $objectManager = ObjectManager::getInstance();
             $getStockIdForCurrentWebsite = $objectManager->get(
-                \Magento\InventoryCatalog\Model\GetStockIdForCurrentWebsite::class
+                GetStockIdForCurrentWebsite::class
             );
             $stockId = $getStockIdForCurrentWebsite->execute();
-            $searchCriteriaBuilder = $objectManager->create(\Magento\Framework\Api\SearchCriteriaBuilder::class);
+            $searchCriteriaBuilder = $objectManager->create(SearchCriteriaBuilder::class);
             $searchCriteria = $searchCriteriaBuilder->addFilter('stock_id', $stockId)->create();
-            $getStockSourceLinks = $objectManager->get(\Magento\InventoryApi\Api\GetStockSourceLinksInterface::class);
+            $getStockSourceLinks = $objectManager->get(GetStockSourceLinksInterface::class);
             $searchResult = $getStockSourceLinks->execute($searchCriteria);
             if ($searchResult->getTotalCount() > 0) {
                 $sourceCodes = [];
@@ -189,35 +251,8 @@ class Ajax extends Action
             } else {
                 $collection->addFieldToFilter('storepickup_id', 0);
             }
-
         }
         return $collection;
-    }
-
-    /**
-     * Get list store
-     *
-     * @return mixed
-     */
-    public function getListStore()
-    {
-        $collection = $this->_storeCollectionFactory->create();
-        $collection->addFieldToFilter('status', '1')
-            ->addFieldToSelect(
-                [
-                    'storepickup_id',
-                    'store_name',
-                    'address',
-                    'phone',
-                    'latitude',
-                    'longitude',
-                    ''
-                ]
-            );
-
-//        $this->filterStoreByWebsite($collection);
-
-        return $collection->getData();
     }
 }
 

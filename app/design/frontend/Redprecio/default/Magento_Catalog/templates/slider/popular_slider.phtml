@@ -118,16 +118,23 @@ if ($populars && $populars->count()):
 										</div>
 									<?php }
 								}?>
-					<?php //if($_product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE){
-						//$swatchBlock = $this->getLayout()->createBlock("Magento\Swatches\Block\Product\Renderer\Listing\Configurable")->setTemplate("Magento_Swatches::product/listing/renderer.phtml");
-						//echo $swatchBlock->setProduct($_product)->toHtml();                           
-					//} ?>
 					<?php if ($_product->isSaleable()): ?>
 						<div class="display_hvr">
-							<!-- <a class="btn theme_btn img_btn bss-quickview hovercart" title="<?php //echo $block->escapeHtml(__('Quick View')); ?>"  data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><i class="fas fa-eye"></i><?php //echo $block->escapeHtml(__('Quick View')); ?></a>-->
-							<?php /* <a href="javascript:void(0)" onClick="productaddtocart(jQuery(this))"><img src="<?php echo $block->getViewFileUrl('images/cart_white.png'); ?>"></a>
-							<a class="bss-quickview hovercart" data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><img src="<?php echo $block->getViewFileUrl('images/search_white.png'); ?>"></a> */ ?>
-						<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" data-role="tocart-form" class="action tocart primary btn theme_btn img_btn"><span><?php echo $block->escapeHtml(__('Add to Cart')); ?></span></button>
+							
+						<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                data-role="tocart-form"
+                                class="action tocart primary btn theme_btn img_btn"
+                                data-product-id = "<?php echo $_product->getId(); ?>"
+                                id="add-to-cart-<?php echo $_product->getId(); ?>'">
+                            <span><?php echo $block->escapeHtml(__('Add to Cart')); ?></span>
+                        </button>
+                            <div class="details_btns_container"
+                                 data-mage-init='{"Magento_Catalog/js/modal-form": {"product_id": <?php echo $_product->getId(); ?>}}'
+                                 data-product-id = "<?php echo $_product->getId(); ?>">
+                                <a class="btn details_btn btn_black_bg">
+                                    <?= __('Free withdrawal in store') ?>
+                                </a>
+                            </div>
 
 						</div>
 						<?php else: ?>
@@ -156,3 +163,75 @@ if ($populars && $populars->count()):
 	}
 </script>
 <?php endif; ?>
+
+<div id="modal-form" class="row" style="display: none">
+    <% if (posts) { %>
+    <div class="location_list">
+        <% if (posts.location_info) { %>
+        <% _.each(posts.location_info.location_id, function(text,value) { %>
+        <div class="location">
+            <% if (posts.location_info.location_img_url) { %>
+            <div class="location-info-row" >
+                <div class="store_img" >
+                    <img src="<%= posts.location_info.location_img_url[value] %>" />
+                </div>
+                <% } %>
+                <% if (posts.location_info) { %>
+                <div class="location-info" storepickup_id="<%= posts.location_info.location_id[value] %>">
+                    <% if (posts.location_info.location_name) { %>
+                    <div class="location-name">
+                    <b>
+                        <%= posts.location_info.location_name[value] %>
+                        </b>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_address) { %>
+                    <div class="location-address">
+                        <%= posts.location_info.location_address[value] %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_schedule) { %>
+                    <div class="location-time">
+                        <%= posts.location_info.location_schedule %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_phone_num) { %>
+                    <div class="location-contact">
+                        <%= posts.location_info.location_phone_num[value] %>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+            <% if (posts.stock_info) { %>
+            <div class="stock-info">
+                <% if (posts.stock_info.status[value] == 1) { %>
+                <div class="disponit-icon"> <i class="fa fa-check" aria-hidden="true"></i> Disponible en la tienda</div>
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
+                        class="popup-addtocart  btn theme_btn img_btn mb-3 action tocart primary">
+                    <span><?= $block->escapeHtmlAttr(__('Add to Cart')) ?></span>
+                </button>
+                <% } %>
+                <% if (posts.stock_info.status[value] == 0) { %>
+                                    <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
+                                <% } %>
+                                <% if (typeof posts.stock_info.status[value] == 'undefined') { %>
+                                    <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
+                                <% } %>
+               
+
+            </div>
+            <% } %>
+        </div>
+        <% }) %>
+        <% } %>
+        <% } %>
+    </div>
+    <% if (posts.length == 0) { %>
+    <div class="location_list">
+        <?= __('No Pickup store available.') ?>
+    </div>
+    <% } %>
+</div>
+

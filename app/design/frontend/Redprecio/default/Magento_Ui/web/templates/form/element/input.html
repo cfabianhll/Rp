@@ -1,19 +1,48 @@
-<!--
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
-<input class="form-control input-text" type="text" data-bind="
-    value: value,
-    valueUpdate: 'keyup',
-    hasFocus: focused,
-    attr: {
-        name: inputName,
-        placeholder: placeholder,
-        'aria-describedby': getDescriptionId(),
-        'aria-required': required,
-        'aria-invalid': error() ? true : 'false',
-        id: uid,
-        disabled: disabled
-    }" />
+    <!-- ko ifnot: (element.inputName === 'city'  || element.label == 'Dirección: Line 1')-->
+
+    <input class="admin__control-text" type="text"
+        data-bind="
+            event: {change: userChanges},
+            value: value,
+            hasFocus: focused,
+            valueUpdate: valueUpdate,
+            attr: {
+                name: inputName,
+                placeholder: label+'*',
+                'aria-describedby': noticeId,
+                id: uid,
+                disabled: disabled
+        }"/>
+    <!-- /ko -->
+
+    <!-- ko if: element.inputName === 'city' -->
+    <input class="admin__control-text" type="text" placeholder="Distrito*"
+    data-bind="
+        event: {change: userChanges},
+        value: value,
+        hasFocus: focused,
+        valueUpdate: valueUpdate,
+        attr: {
+            name: inputName,
+            'aria-describedby': noticeId,
+            id: uid,
+            disabled: disabled
+    }"/>
+    <!-- /ko -->
+
+    <!-- ko if: (element.inputName === 'street[0]') -->
+    <input class="admin__control-text" type="text" placeholder="Dirección (Calle, No. Casa)*"
+    data-bind="
+        event: {change: userChanges},
+        value: value,
+        hasFocus: focused,
+        valueUpdate: valueUpdate,
+        attr: {
+            name: inputName,
+            'aria-describedby': noticeId,
+            id: uid,
+            disabled: disabled
+    }"/>
+    <!-- /ko -->
+
+

@@ -1,0 +1,215 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$imageHelper  = $objectManager->get('\Magento\Catalog\Helper\Image');
+$imagewidth=50;
+$imageheight=50;
+$order = $objectManager->create('Magento\Checkout\Model\Session')->getLastRealOrder();
+$_quoteFactory = $objectManager->create('\Magento\Quote\Model\QuoteFactory');
+$quote = $_quoteFactory->create()->loadByIdWithoutStore($order->getQuoteId());
+$pickup_store_id = $quote->getData("pickup_store_id");
+// print_r($quote->debug());die("LL");
+if($pickup_store_id)
+{
+    $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+    $connection = $resource->getConnection();
+    $tableName = $resource->getTableName('magestore_storepickup_store');
+    $sql = "Select store_name FROM " . $tableName ." where storepickup_id = " .$pickup_store_id;
+    $result = $connection->fetchAll($sql);
+    if(isset($result[0]['store_name']))
+    {
+        $pickup_store_name = $result[0]['store_name'];
+    }
+}
+
+
+
+$shippingAddress = $order->getShippingAddress();
+
+ 
+$items = $order->getAllVisibleItems();
+
+
+
+
+?>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12 col-md-8 col-lg-8">
+            <div class="step-title" data-role="title" data-bind="i18n: 'INFORMACIÓN DE ENVÍO'">INFORMACIÓN DE ENVÍO</div>
+            <div class="checkout-success">
+                <div class="success-messages">
+                    <?php if ($block->getCanViewOrder()) :?>
+                        <div class="success-msg-img"><img src="<?php echo $this->getViewFileUrl('images/tickmark-success.svg'); ?>"></div>
+                        <div class="success-msg-text">
+                            <p>
+                                <?= /** @noEscape */
+                                __(
+                                    'Orden #%1.',
+                                    $block->escapeHtml($block->getOrderId())
+                                );
+                                ?>
+                            </p>
+                            <p>
+                            <?= /** @noEscape */ __($shippingAddress->getFirstName().' '. $shippingAddress->getLastName());?> 
+                            </p>
+                        </div>
+                    <?php else :?>
+                        <div class="success-msg-img"><img src="<?php echo $this->getViewFileUrl('images/tickmark-success.svg'); ?>"></div>
+                        <div class="success-msg-text">
+                                <p><b>
+                                    <?= /** @noEscape */
+                                        __(
+                                            'Orden #%1.',
+                                            $block->escapeHtml($block->getOrderId())
+                                        );
+                                    ?>
+                                    </b>
+                                </p>
+                                <p>
+                                
+                                <?= /** @noEscape */ __($shippingAddress->getFirstName().' '. $shippingAddress->getLastName());?> 
+                                </p>
+                        </div>
+                    <?php endif;?>                    
+                </div>
+                <p>
+                    <?= $block->escapeHtml(
+                        __('We\'ll email you an order confirmation with details and tracking info.')
+                    ); ?>
+                </p>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <a class="action primary continue"
+                        href="<?= $block->escapeHtml($block->getUrl()); ?>"
+                        >
+                            <span><?= $block->escapeHtml(__('Volver a la tienda')); ?></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4">
+            <div class="opc-block-summary13">
+                <span class="title">Resumen</span>
+            </div>
+            <div class="opc-block-summary" data-bind="blockLoader: isLoading">
+                <div class="block items-in-cart"  data-collapsible="true" role="tablist">
+                        <?php foreach($items as $item): 
+                        $product =  $item->getProduct();
+                        $image_url = $imageHelper->init($product, 'small_image')->setImageFile($product->getSmallImage())->resize($imagewidth, $imageheight)->getUrl();
+                        $shipping_type = $quote->getData("shipping_type");
+                        $estimate_time = $product->getData('estimate_time');
+                        $categories = $product->getCategoryIds(); /*will return category ids array*/
+                        foreach($categories as $category){
+                            $cat = $objectManager->create('Magento\Catalog\Model\Category')->load($category);
+                            if(!$estimate_time){
+                                $estimate_time = $cat->getData("estimate_shipping");
+                            }
+                            
+                        }
+                        // echo "<pre>";
+                        //     print_r($cat->getData("estimate_shipping"));
+                        // die("LL");
+                        
+                    // ?>
+
+                    <div class="content minicart-items" data-role="content" role="tabpanel" aria-hidden="true">
+                        <div class="minicart-items-wrapper overflowed">
+                            <ol class="minicart-items">
+                                <li class="product-item">
+                                    <div class="product">
+                                        <span class="product-image-container" style="height: 50px; width: 50px;">
+                                            <span class="product-image-wrapper">
+                                                <img src="<?php echo $image_url;?>" width="50" height="50" alt="<?php echo $item->getName(); ?>" title="<?php echo $item->getName(); ?>">
+                                            </span>
+                                        </span>
+                                        <div class="product-item-details">
+                                            <div class="product-item-inner">
+                                                <div class="product-item-name-block">
+                                                    <strong class="product-item-name"><?php echo $item->getName(); ?> </strong>
+                                                    
+                                                    <div class="details-qty">
+                                                        <span class="value"><?php echo number_format((int) $item->getQtyOrdered());?></span>
+                                                    </div>
+                                                    <?php if ($shipping_type == "delivery"): {?>
+                                                        <div class="details-qty">
+                                                                <span class="tst_link"><span>Envio a domicilio</span></span>
+                                                            <br>
+                                                                <span class="tst_link"><span><?php echo $estimate_time ; ?></span></span>
+                                                            
+                                                        </div>
+                                                    <?php } endif ?>
+                                                    <?php if ($shipping_type == "pickup"): {?>
+                                                        <div class="details-qty">
+                                                                <span class="tst_link"><span>Envio a domicilio</span></span>
+                                                            <br>
+                                                                <span class="tst_link"><span><?php echo $pickup_store_name; ?></span></span>
+                                                        </div>
+                                                    <?php } endif ?>
+                                                </div>
+                                                <div class="subtotal">
+                                                    <span class="price-excluding-tax">
+                                                    <span class="cart-price">
+                                                        <span class="price" ><?php echo number_format((int) $item->getBasePrice(), 2, '.', ''); ?></span>
+                                                    </span>
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+            
+            <?php endforeach; ?>
+            <table class="table wow fadeIn table-totals">
+                        <tbody>
+                            <tr class="totals sub">
+                                <th data-bind="i18n: title" class="mark" scope="row"><?php echo "Mi carrito("; echo (int)$order->getTotalQtyOrdered().")"; ?></th>
+                                <td class="amount">
+                                    <span class="price" data-bind="text: getValue(), attr: {'data-th': title}" data-th="Subtotal del carrito"><?php echo "$".number_format((int) $order->getData('base_subtotal'), 2, '.', '');?></span>
+                                </td>
+                            </tr>
+                            <tr class="totals sub">
+                                <th data-bind="i18n: title" class="mark" scope="row"><?php echo "Impuesto" ?></th>
+                                <td class="amount">
+                                    <span class="price" ><?php echo "$".number_format((int) $order->getData('base_tax_amount'), 2, '.', '');?></span>
+                                </td>
+                            </tr>
+                            <tr class="totals shipping excl">
+                                <th class="mark" >
+                                    <span class="label" ></span>
+                                    <?php if($order->getData('shipping_method')){?>
+                                        <span class="value" ><?php echo __('Gastos de Envio');?></span>
+                                    <?php } ?>
+                                    
+                                </th>
+                                <td class="amount">
+                                    <span class="price" ><?php echo "$".number_format((int) $order->getData('shipping_incl_tax'), 2, '.', '');?></span>
+                                </td>
+                            </tr>
+                            <tr class="grand totals">
+                                <th class="mark" scope="row">
+                                    <strong data-bind="i18n: title">TOTAL</strong>
+                                </th>
+                                <td data-bind="attr: {'data-th': title}" class="amount" data-th="TOTAL">
+                                    <strong><span class="price" data-bind="text: getValue()"><?php echo "$".number_format((int) $order->getGrandTotal(), 2, '.', ''); ?></span></strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
+    </div>
+</div>

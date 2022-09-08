@@ -29,8 +29,79 @@ $congratulation_message = $helper->getCongratulationMessageText();
 $countDown = ($helper->getCountDownTime() > 0) ? $helper->getCountDownTime() : 0;
 ?>
 <div class="popup">
-    <div class="block">
-        <div class="header"><strong><?php echo $block->escapeHtml(__('Shopping Cart')); ?></strong></div>
+    <?php if ($showCartInfo || $showCheckoutLink) :?>
+    <div class="cart-info">
+        <div class="cart-info">
+            <?php if ($showCartInfo) : ?>
+                <div class="items-count">
+                    <span>
+                        <?php
+                        if ($cart->getItemsQty() > 1) {
+                            echo $block->escapeHtml(__('%1 items in your cart', $cart->getItemsQty()));
+                        } else {
+                            echo $block->escapeHtml(__('1 item in your cart'));
+                        }
+                        ?>
+                    </span>
+                </div>
+                <div class="subtotal">
+                    <span class="label"><?php echo $block->escapeHtml(__('Cart Subtotal'));?></span>
+                    <?php
+                    $quote = $block->getCartHelper()->getQuote();
+                    if(isset($currencySymbols))
+                    {
+                        echo $block->escapeHtml(__($currencySymbols));
+                    }else{
+                        echo $block->escapeHtml(__($currencyCode));
+                    }
+                    echo $block->escapeHtml(__($quote->getSubtotal()));
+                    ?>
+                </div>
+            <?php endif; ?>
+            <?php
+            if($freeShipping_status == 1)
+            {
+                $quote = $block->getCartHelper()->getQuote();
+                $total = $quote->getSubtotal();
+                $freeShipping = $block->getPricingHelper()->currency(
+                    $freeShipping,
+                    false,
+                    false
+                );
+
+                if($total < $freeShipping) {
+                    $currency = isset($currencySymbols) ? $currencySymbols : $currencyCode;
+                    $needMore = $currency . ($freeShipping - $total);
+                    ?>
+                    <div class="freeShipping_message">
+                        <?php
+                        ?>
+                        <div class="needMore">
+                            <?php
+                            echo $block->escapeHtml(__('Spend %1 more to get free shipping!', $needMore));
+                            ?>
+                        </div>
+                        <?php
+                        echo $block->escapeHtml(__($freeShipping_message));
+                        ?>
+                    </div>
+                    <?php
+                }else{
+                    ?>
+                    <div class="congratulation"><?php echo $block->escapeHtml(__($congratulation_message)); ?></div>
+                    <?php
+                }
+            }
+            ?>
+
+        </div>
+    <?php endif; ?>
+        <div class="block">
+        <div id="popup-header" class="header"><strong><?php echo $block->escapeHtml(__('Agregado al Carrito')); ?></strong>
+            <button class="action-close close" data-role="closeBtn" data-dismiss="modal" aria-label="Close" type="button">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
 
         <div class="ajaxcart-wrapper-main">
             <?php if ($helper->isShowProductImage()) :?>
@@ -50,12 +121,12 @@ $countDown = ($helper->getCountDownTime() > 0) ? $helper->getCountDownTime() : 0
                                         $link = '<a href="' . $block->escapeUrl($product->getProductUrl()) . '" title="' . $block->escapeHtml($resultItem->getName()) . '">' . $block->escapeHtml($resultItem->getName()) . '</a>';
                                         if($block->getRelatedAdded()){
                                             echo __(
-                                                'You added %1 and related products to your shopping cart.',
+                                                '%1',
                                                 $link
                                             );
                                         } else {
                                             echo __(
-                                                'You added %1 to your shopping cart.',
+                                                '%1',
                                                 $link
                                             );
                                         }
@@ -74,7 +145,6 @@ $countDown = ($helper->getCountDownTime() > 0) ? $helper->getCountDownTime() : 0
                                     </span>
                                 </div>
                             <div>
-
                             </div>
                     </div>
                     <?php endif; ?>
@@ -89,15 +159,33 @@ $countDown = ($helper->getCountDownTime() > 0) ? $helper->getCountDownTime() : 0
                     </div>
                 <?php endif; ?>
                 <div class="btn-viewcart <?php echo (!$showContinue) ? 'full-width' : ''; ?>">
+                    
+                    <?php if ($showContinue) : ?>
+                        <div class="btn-continue">
+                            <button
+                                class="continue btn modal-viewcard-btn blank"
+                                type="button"
+                                title="<?php echo $block->escapeHtml(__($helper->getBtnContinueText())); ?>"
+                            >
+                                <span><?php echo $block->escapeHtml(__('Continue Shopping')); ?></span>
+                                <?php if ($helper->getCountDownActive() == \Magepow\Ajaxcart\Model\Config\Source\Countdown::POPUP_COUNTDOWN_CONTINUE_BTN
+                                    && $helper->getCountDownTime() > 0) :?>
+                                    <span class="<?php echo ($helper->getCountDownActive() == \Magepow\Ajaxcart\Model\Config\Source\Countdown::POPUP_COUNTDOWN_CONTINUE_BTN) ? 'countdown' : ''; ?>">
+                                (<?php echo $block->escapeHtml($helper->getCountDownTime()); ?>)
+                            </span>
+                                <?php endif; ?>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                     <a
                     href="<?php echo $block->escapeUrl($block->getUrl('checkout/cart')); ?>"
-                    title="<?php echo $block->escapeHtml(__($helper->getBtnViewcartText())); ?>"
+                    title="<?php echo $block->escapeHtml(__('Shopping Cart')); ?>"
                     class="view-cart"
                     >
                         <button class="viewcart btn modal-viewcard-btn"
                         type="button"
                         title="<?php echo $block->escapeHtml(__($helper->getBtnViewcartText())); ?>">
-                            <span><?php echo $block->escapeHtml(__($helper->getBtnViewcartText())); ?></span>
+                            <span><?php echo $block->escapeHtml(__('Shopping Cart')); ?></span>
                             <?php if ($helper->getCountDownActive() == \Magepow\Ajaxcart\Model\Config\Source\Countdown::POPUP_COUNTDOWN_VIEW_CART_BTN
                             && $helper->getCountDownTime() > 0) :?>
                                 <span class="<?php echo ($helper->getCountDownActive() == \Magepow\Ajaxcart\Model\Config\Source\Countdown::POPUP_COUNTDOWN_VIEW_CART_BTN) ? 'countdown' : ''; ?>">
@@ -107,93 +195,11 @@ $countDown = ($helper->getCountDownTime() > 0) ? $helper->getCountDownTime() : 0
                         </button>
                     </a>
                 </div>
-
-            <?php if ($showContinue) : ?>
-                <div class="btn-continue">
-                    <button
-                    class="continue btn modal-viewcard-btn blank"
-                    type="button"
-                    title="<?php echo $block->escapeHtml(__($helper->getBtnContinueText())); ?>"
-                    >
-                        <span><?php echo $block->escapeHtml(__($helper->getBtnContinueText())); ?></span>
-                        <?php if ($helper->getCountDownActive() == \Magepow\Ajaxcart\Model\Config\Source\Countdown::POPUP_COUNTDOWN_CONTINUE_BTN
-                        && $helper->getCountDownTime() > 0) :?>
-                            <span class="<?php echo ($helper->getCountDownActive() == \Magepow\Ajaxcart\Model\Config\Source\Countdown::POPUP_COUNTDOWN_CONTINUE_BTN) ? 'countdown' : ''; ?>">
-                                (<?php echo $block->escapeHtml($helper->getCountDownTime()); ?>)
-                            </span>
-                        <?php endif; ?>
-                    </button>
-                </div>
-            <?php endif; ?>
             </div>
         </div>
-    <?php if ($showCartInfo || $showCheckoutLink) :?>
-        <div class="cart-info">
-            <?php if ($showCartInfo) : ?>
-                <div class="items-count">
-                    <span>
-                        <?php
-                        if ($cart->getItemsQty() > 1) {
-                            echo $block->escapeHtml(__('%1 items in your cart', $cart->getItemsQty()));
-                        } else {
-                            echo $block->escapeHtml(__('1 item in your cart'));
-                        }
-                        ?>
-                    </span>
-                </div>
-                <div class="subtotal">
-                    <span class="label"><?php echo $block->escapeHtml(__('Cart Subtotal'));?></span>
-                    <?php
-                        $quote = $block->getCartHelper()->getQuote();
-                        if(isset($currencySymbols))
-                        {
-                            echo $block->escapeHtml(__($currencySymbols));
-                        }else{
-                            echo $block->escapeHtml(__($currencyCode));
-                        }
-                        echo $block->escapeHtml(__($quote->getSubtotal()));
-                    ?>
-                </div>
-            <?php endif; ?>
-            <?php
-            if($freeShipping_status == 1)
-            {
-                $quote = $block->getCartHelper()->getQuote();
-                $total = $quote->getSubtotal();
-                $freeShipping = $block->getPricingHelper()->currency(
-                    $freeShipping,
-                    false,
-                    false
-                );
 
-                if($total < $freeShipping) {
-                    $currency = isset($currencySymbols) ? $currencySymbols : $currencyCode;
-                    $needMore = $currency . ($freeShipping - $total);
-                ?>
-                    <div class="freeShipping_message">
-                        <?php
-                        ?>
-                        <div class="needMore">
-                            <?php
-                                echo $block->escapeHtml(__('Spend %1 more to get free shipping!', $needMore));
-                            ?>
-                        </div>
-                        <?php
-                        echo $block->escapeHtml(__($freeShipping_message));
-                        ?>
-                    </div>
-                <?php
-                }else{
-                    ?>
-                    <div class="congratulation"><?php echo $block->escapeHtml(__($congratulation_message)); ?></div>
-                    <?php
-                }
-            }
-            ?>
-            
-        </div>
-    <?php endif; ?>
 </div>
+    </div>
 <?php echo $block->getChildHtml('ajaxcart.popup.suggest'); ?>
 
 </div>

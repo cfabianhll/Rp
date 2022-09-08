@@ -18,7 +18,10 @@ if($block->isHomePage()) :
 endif;
 ?>
 <?php if($block->isHomePage()) : ?>
-<a href="#" class="menu_icon menuicon icon_home" id="ham"><i class="fas fa-stream"></i></a>
+<a href="#" class="menu_icon menuicon icon_home" id="ham">
+        <i class="fa fa-bars" style="font-size: 25px;"></i>
+        <i class="fas fa-times" style="font-size: 25px; display:none;" ></i>
+        <span class="newmenu">Menú</span></a>
 <a class="logo logo_section mobile" href="<?php echo $url; ?>" title="<?= $block->escapeHtmlAttr($storeName) ?>" aria-label="store logo">
 	<span class="gw-menu-text">
 		<img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
@@ -30,7 +33,10 @@ endif;
 	</span>
 </a>
 <?php else : ?>
-<div class="filter_m desktop_visible pl-0 menuicon" style="cursor: pointer;" id="ham"><i class="fas fa-stream"></i></div>
+<div class="filter_m desktop_visible pl-0 menuicon" style="cursor: pointer;" id="ham">
+        <i class="fa fa-bars" style="font-size: 25px;"></i>
+        <i class="fas fa-times hidden_menu-icon" style="font-size: 25px;"></i>
+        <span class="newmenu">Menú</span></div>
 <a class="logo logo_section mobile" href="<?php echo $url; ?>" title="<?= $block->escapeHtmlAttr($storeName) ?>" aria-label="store logo">
 	<span class="gw-menu-text">
 		<img src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"

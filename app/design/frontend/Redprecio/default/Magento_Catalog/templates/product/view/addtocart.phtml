@@ -11,133 +11,328 @@
 $prodid = $_product->getId();
 $attribute = $_product->getResource()->getAttribute('free_shipping');
 $attribute_value = $attribute->getFrontend()->getValue($_product);
+//$helper = $this->helper('Magento\Catalog\Helper\Data');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+$categories = $product->getCategoryIds(); /*will return category ids array*/
+$estimate_time = null;
+$estimate_time_dropdown = [];
+$objectManager =\Magento\Framework\App\ObjectManager::getInstance();
+$helperImport = $objectManager->get('\Magento\Catalog\Helper\Image');
 
-$helper = $this->helper('Magento\Catalog\Helper\Data');
-$estimate_time = $helper->getCategory()->getData('estimate_shipping');
-//echo "<pre>";
-//print_r($helper->getCategory()->getData('estimate_shipping'));die("KK");
+$getSourceItemsBySku = $objectManager->get('Magento\InventoryApi\Api\GetSourceItemsBySkuInterface');
+$sourceRepository = $objectManager->get('Magento\InventoryApi\Api\SourceRepositoryInterface');
+$sku = $_product->getSku();
+$qty = 0;
+$sourceItems = $getSourceItemsBySku->execute($sku);
+foreach ($sourceItems as $sourceItem) {
+    $source = $sourceRepository->get($sourceItem->getSourceCode());
+    $qty  = $qty + (float)$sourceItem->getQuantity();
 
-if ($attribute_value == "Yes") {?>
-    <div class="two"><p class="three"><?php echo "Free Shipping";?></p><?php
-  } ?>
-  <?php $buttonTitle = __('Add to Cart'); ?>
-  <?php if ($_product->isSaleable()) :?>
-    <div class="box-tocart product_numbr login_form mt-0">
-      <div class="fieldset ">
-        <div class="actions button_Section mt-5">
-          <h6 class="mb-3"><b><?= __('Choose a delivery method') ?></b></h6>
-          <div class="bottom_del_sec">
-            <div class="deleviery_section">
-             <div class="select_icon_title">
-              <img src="<?php echo $this->getViewFileUrl('images/truck.png');?>"><span><?= __('Choose at home') ?></span>
-                 <?php if ($_product->getData('free_shipping')): ?>
-                    <div class="free_delivery"><?= __('Free Shipping') ?></div>
-                 <?php endif?>
+}
+
+//=======================
+
+//=================
+
+//$data = $sourceDataBySku->execute($_product->getSku());
+//$qty = $_product->getQty();
+
+$imageUrl = $helperImport->init($product, 'product_page_image_small')
+                ->setImageFile($product->getSmallImage()) // image,small_image,thumbnail
+                ->resize(380)
+                ->getUrl();
+foreach ($categories as $category) {
+    $cat = $objectManager->create('Magento\Catalog\Model\Category')->load($category);
+    if (!empty($cat->getData('estimate_shipping'))) {
+        $estimate_time = $cat->getData('estimate_shipping');
+        $estimate_time_dropdown[] = $cat->getData('estimate_shipping');
+    }
+}
+if (!empty($_product->getData('estimate_time'))) {
+    $estimate_time = $_product->getData('estimate_time');
+    $estimate_time_dropdown[] = $_product->getData('estimate_time');
+}
+// print_r($estimate_time_dropdown);die("LLL");
+if ($attribute_value == "Yes") { ?>
+<div class="two"><p class="three"><?php echo "Free Shipping"; ?></p><?php
+    } ?>
+    <?php $buttonTitle = __('Add to Cart'); ?>
+    <?php if ($_product->isSaleable()) : ?>
+        <div class="box-tocart product_numbr login_form mt-0">
+            <div class="fieldset ">
+                <div class="actions button_Section mt-5">
+                    <h6 class="mb-3"><b><?= __('Choose a delivery method') ?></b></h6>
+                    <div class="bottom_del_sec">
+                        <div class="deleviery_section">
+                            <div class="select_icon_title">
+                                <?php if ($_product->isInStock()) { ?>
+                                    <img src="<?php echo $this->getViewFileUrl('images/truck.png'); ?>">
+                                    <span><?= __('Choose at home') ?></span>
+                                <?php } else { ?>
+                                    <img src="<?php echo $this->getViewFileUrl('images/truck.png'); ?>">
+                                    <span><?= __('Out of inventory') ?></span>
+                                <?php } ?>
+                            </div>
+
+                            <div class="bottom-tag-space">
+                                <?php if ($_product->getData('free_shipping')): ?>
+                                    <div class="free_delivery"><?= __('Free Shipping') ?></div>
+                                <?php endif ?>
+                                <?php if ($estimate_time): ?>
+                                    <div class="estimate_time"><?= $block->escapeHtmlAttr($estimate_time) ?></div>
+                                <?php endif ?>
+                            </div>
+                            <div class="details_btns_container">
+                                <button type="submit"
+                                        title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                                        class="action primary tocart btn details_btn disable"
+                                        id="product-addtocart-button" disabled>
+                                    <img src="<?php echo $this->getViewFileUrl('images/cart.svg'); ?>" class="mr-2">
+                                    <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                                </button>
+                                <?= $block->getChildHtml('', true) ?>
+                            </div>
+                        </div>
+                        <div class="deleviery_section">
+                            <div class="select_icon_title">
+                                <img src="<?php echo $this->getViewFileUrl('images/home.png'); ?>"><span><?= __('Pick up in store') ?></span>
+                            </div>
+                            <div class="bottom-tag-space">
+                                <?php     $qty = $_product->getExtensionAttributes()->getStockItem()->getQty();
+                                    if(0):{?>
+                                        <a class="tst_link"><?= __('Más de 10 en inventario') ?></a>
+                                <?php  }else: {?>
+                                    <a class="tst_link"><?= __($qty . ' en inventario') ?></a>
+                                <?php } ?>
+                                <?php endif ?>
+                                
+                                
+                            </div>
+                            <div class="details_btns_container">
+                                <a class="btn details_btn btn_black_bg"  data-mage-init='{"pickupstore_popup": {}}' id="click-me"><img
+                                            src="<?php echo $this->getViewFileUrl('images/btn_home.png'); ?>"
+                                            class="mr-2"><?= __('Free withdrawal in store') ?></a>
+                                <a class="btn qty-list border_btn mt-3" id="click-me-info" data-mage-init='{"pickupstore_popup2": {}}'>
+                                    <img src="<?php echo $this->getViewFileUrl('images/cart_bg.png'); ?>"
+                                         class="mr-2"><?= __('See Available') ?>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-                <?php if ($estimate_time): ?>
-                    <a href="" class="tst_link"><?= $block->escapeHtmlAttr($estimate_time) ?></a>
-                <?php endif?>
-            <div class="details_btns_container">
-             <button type="submit"
-             title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
-             class="action primary tocart btn details_btn"
-             id="product-addtocart-button" disabled>
-             <img src="<?php echo $this->getViewFileUrl('images/cart.svg');?>" class="mr-2">
-             <span><?= $block->escapeHtml($buttonTitle) ?></span>
-           </button>
-           <?= $block->getChildHtml('', true) ?>
-         </div>
-       </div>
-       <div class="deleviery_section">
-         <div class="select_icon_title">
-          <img src="<?php echo $this->getViewFileUrl('images/home.png');?>"><span><?= __('Pick up in store') ?></span>
         </div>
-        <a class="tst_link"><?= __('Units Available: 10+') ?></a>
-        <div class="details_btns_container" data-mage-init='{"pickupstore_popup": {}}'>
-          <a class="btn details_btn btn_black_bg" id="click-me" ><img src="<?php echo $this->getViewFileUrl('images/btn_home.png');?>"  class="mr-2"><?= __('Free withdrawal in store') ?></a>
-          <a class="btn qty-list border_btn mt-3" >
-              <img src="<?php echo $this->getViewFileUrl('images/cart_bg.png');?>"  class="mr-2"><?= __('See Available') ?>
-          </a>
+    <?php else: ?>
+        <div class="box-tocart out-of-stock product_numbr login_form mt-0">
+            <div class="fieldset ">
+                <div class="actions button_Section mt-5">
+                    <h6 class="mb-3"><b><?= __('Choose a delivery method') ?></b></h6>
+                    <div class="bottom_del_sec">
+                        <div class="deleviery_section">
+                            <div class="select_icon_title">
+                                <img src="<?php echo $this->getViewFileUrl('images/truck.png'); ?>"><span><?= __('Fuera de inventario') ?></span>
+                            </div>
+                            <div class="bottom-tag-space">
+                                <?php if ($_product->getData('free_shipping')): ?>
+                                    <div class="free_delivery"><?= __('Free Shipping') ?></div>
+                                <?php endif ?>
+                                <?php if ($estimate_time && $_product->isSalable()): ?>
+                                    <div class="estimate_time"><?= $block->escapeHtmlAttr($estimate_time) ?></div>
+                                <?php endif ?>
+                            </div>
+                            <div class="details_btns_container">
+                                <button type="submit"
+                                        title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                                        class="tocart btn details_btn disable"
+                                        id="product-addtocart-button"
+                                        style="pointer-events: none"
+                                        disabled>
+                                    <img src="<?php echo $this->getViewFileUrl('images/cart.svg'); ?>" class="mr-2">
+                                    <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                                </button>
+                                <?= $block->getChildHtml('', true) ?>
+                            </div>
+                        </div>
+                        <div class="deleviery_section">
+                            <div class="select_icon_title">
+                                <img src="<?php echo $this->getViewFileUrl('images/home.png'); ?>"><span><?= __('Pick up in store') ?></span>
+                            </div>
+                            <div class="bottom-tag-space">
+                                <a class="tst_link"><?= __('Fuera de inventario') ?></a>
+                            </div>
+                            <div class="details_btns_container" data-mage-init='{"pickupstore_popup": {}}'>
+                                <a style="pointer-events: none"style="pointer-events: none" class="btn details_btn btn_black_bg" id="click-me"><img
+                                            src="<?php echo $this->getViewFileUrl('images/btn_home.png'); ?>"
+                                            class="mr-2"><?= __('Free withdrawal in store') ?></a>
+                                <a style="pointer-events: none" class="btn qty-list border_btn mt-3">
+                                    <img src="<?php echo $this->getViewFileUrl('images/cart_bg.png'); ?>"
+                                         class="mr-2"><?= __('See Available') ?>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<?php endif; ?>
+    <?php endif; ?>
+
 <script type="text/x-magento-init">
-  {
+{
     "#product_addtocart_form": {
-    "Magento_Catalog/js/validate-product": {}
-  }
+        "Magento_Catalog/js/validate-product": {}
+    }
 }
 </script>
 
 <div id="popup-modal" class="row" style="display: none">
     <% if (posts) { %>
-    <div class="location_list" store_id= "<%= posts.storeid %>">
-            <% if (posts.location_info) { %>
-                <% _.each(posts.location_info.location_id, function(text,value) { %>
-                    <div class="location" store_id= "<%= posts.storeid %>">
-                        <% if (posts.location_info.location_img_url) { %>
-                        <div class="location-info-row" >
-                            <div class="store_img" >
-                                <img src="<%= posts.location_info.location_img_url[value] %>" />
-                            </div>
-                        <% } %>
-                        <% if (posts.location_info) { %>
-                            <div class="location-info" location-id="<%= posts.location_info.location_id[value] %>">
-                                <% if (posts.location_info.location_name) { %>
-                                <div class="location-name">
-                                    <%= posts.location_info.location_name[value] %>
-                                </div>
-                                <% } %>
-                                <% if (posts.location_info.location_address) { %>
-                                    <div class="location-address">
-                                        <%= posts.location_info.location_address[value] %>
-                                    </div>
-                                <% } %>
-                                <% if (posts.location_info.location_schedule) { %>
-                                    <div class="location-time">
-                                        <%= posts.location_info.location_schedule %>
-                                    </div>
-                                <% } %>
-                                <% if (posts.location_info.location_phone_num) { %>
-                                    <div class="location-contact">
-                                        <%= posts.location_info.location_phone_num[value] %>
-                                    </div>
-                                <% } %>
-                            </div>
-                        </div>
-                        <% } %>
-                        <% if (posts.stock_info) { %>
-                            <div class="stock-info">
-                                <% if (posts.stock_info.status[value] == 1) { %>
-                                    <div class="disponit-icon"> <i class="fa fa-check" aria-hidden="true"></i> Disponible en la tienda</div>
+    <div class="location_list">
+        <% if (posts.location_info) { %>
+        <% _.each(posts.location_info.location_id, function(text,value) { %>
+        <div class="location">
+            <% if (posts.location_info.location_img_url) { %>
+            <div class="location-info-row">
+                <div class="store_img">
+                    <img src="<%= posts.location_info.location_img_url[value] %>" alt="<%= posts.location_info.location_name[value] %>" >
+                </div>
+                <% } %>
+                <% if (posts.location_info) { %>
+                <div class="location-info" storepickup_id="<%- posts.location_info.location_id[value] %>">
+                    <% if (posts.location_info.location_name) { %>
+                    <div class="location-name">
+                        <b>
+                            <%= posts.location_info.location_name[value] %></b>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_address) { %>
+                    <div class="location-address">
+                        <%= posts.location_info.location_address[value] %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_schedule) { %>
+                    <div class="location-time">
+                        <%= posts.location_info.location_schedule %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_phone_num) { %>
+                    <div class="location-contact">
+                        <%= posts.location_info.location_phone_num[value] %>
+                    </div>
+                    <% } %>
+                </div>
+                <% if (posts.stock_info) { %>
+                    <div class="stock-info">
+                        <% if (posts.stock_info.status[value] == 1) { %>
+                            <div class="disponit-icon"> <i class="fa fa-check" aria-hidden="true"></i> Disponible en la tienda</div>
                                 <div class="details_btns_container">
                                     <button type="submit"
                                             title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
                                             class="action primary tocart btn popup-addtocart"
-                                            id="addtocart-button-popup" disabled>
-                                        <img src="<?php echo $this->getViewFileUrl('images/cart.svg');?>" class="mr-2">
+                                            id="addtocart-button-popup-<?php ?>" disabled>
                                         <span><?= $block->escapeHtml($buttonTitle) ?></span>
                                     </button>
-                                    <?= $block->getChildHtml('', true) ?>
                                 </div>
-                                <% } %>
-                                <% if (posts.stock_info.status[value] == 0) { %>
-                                    <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
-                                <% } %>
-                                <% if (!posts.stock_info.status[value]) { %>
-                                    <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
-                                <% } %>
-
-                            </div>
                         <% } %>
-                    </div>
+                        <% if (posts.stock_info.status[value] == 0) { %>
+                            <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
+                        <% } %>
+                        <% if (typeof posts.stock_info.status[value] == 'undefined') { %>
+                            <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
+                        <% } %>
 
-                <% }) %>
+                    </div>
+                <% } %>
+            </div>
             <% } %>
+        </div>
+        <% }) %>
+        <% } %>
         <% } %>
     </div>
+    <% if (posts.length == 0) { %>
+    <div class="location_list">
+        <?= __('No Pickup store available.') ?>
+    </div>
+    <% } %>
+</div>
+
+
+<div id="store-popup-modal" class="row store-popup-stock-info" style="display: none">
+    <% if (posts) { %>
+    <div class="col-md-5 col-12">
+        <div class="store-popup-product-title">
+            <b><?php echo  $_product->getName(); ?></b>
+        </div>
+        <div class="store-popup-product-image">
+                <img src="<?php echo $imageUrl ?>">
+        </div>
+    </div>
+    <div class="col-md-7 col-12">
+    <div class="location-title">
+           <b> Buscar en tienda </b>
+        </div>
+        <div class="location-header">
+            <div class="location-name">
+                Tienda               
+            </div>
+            <div class="stock-no">
+                Existencia
+            </div>
+        </div>
+        <div class="location_list">
+            <% if (posts.location_info) { %>
+            <% _.each(posts.location_info.location_id, function(text,value) { %>
+            <div class="location">
+                <div class="location-info-row">
+                    <% if (posts.location_info) { %>
+                    <div class="location-info" storepickup_id="<%- posts.location_info.location_id[value] %>">
+                        <% if (posts.location_info.location_name) { %>
+                        <div class="location-name">
+                            <b>
+                                <%= posts.location_info.location_name[value] %></b>
+                        </div>
+                        <% } %>
+                        <% if (posts.location_info.location_address) { %>
+                        <div class="location-address">
+                            Direccion: <%= posts.location_info.location_address[value] %>
+                        </div>
+                        <% } %>
+                        <% if (posts.location_info.location_schedule) { %>
+                        <div class="location-time">
+                           Horario: <%= posts.location_info.location_schedule %>
+                        </div>
+                        <% } %>
+                        <% if (posts.location_info.location_phone_num) { %>
+                        <div class="location-contact">
+                           Tel: <%= posts.location_info.location_phone_num[value] %>
+                        </div>
+                        <% } %>
+                    </div>
+                    <% if (posts.stock_info) { %>
+                        <% if (posts.stock_info.qty[value]) { %>
+                            <div class="store-stock-no">
+                             <%= posts.stock_info.qty[value] %>
+                            </div>
+                        <% } %>
+                        <% if (posts.stock_info.qty[value] == 0) { %>
+                            <div class="store-stock-no">
+                             0
+                            </div>
+                        <% } %>
+                        <% if (typeof posts.stock_info.qty[value] == 'undefined') { %>
+                            <div class="store-stock-no">
+                             0
+                            </div>
+                        <% } %>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+            <% }) %>
+            <% } %>
+            <% } %>
+        </div>
+    </div>
+
 </div>

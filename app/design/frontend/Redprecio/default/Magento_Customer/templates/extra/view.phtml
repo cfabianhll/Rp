@@ -19,29 +19,29 @@ if ($block->isLoggedIn()) {
 <div class="account_div dropdown show">
 	<a class="btn dropdown-toggle theme_dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		<span>
-			<img src="<?php echo $block->getViewFileUrl('images/user.png'); ?> " class="header_icons_im">
+			<img src="<?php echo $block->getViewFileUrl('images/user.svg'); ?> " class="header_icons_im">
 		</span>
 		<?php if($customerSession->customerLoggedIn()) :?>
 			<p><span data-bind="scope: 'customer'" class="login_btn"><span data-bind="text: customer().firstname"></span></span><?= $block->escapeHtml(__('My Account')) ?>
 			</p>
 				<?php else :?>
 				<p>
-					<span class="login_btn">Login</span><?= $block->escapeHtml(__('My Account')) ?>
+					<span class="login_btn"><?= __('Login') ?></span><?= $block->escapeHtml(__('My Account')) ?>
 				</p>
 					
 		<?php endif; ?>
 	</a>
 	<?php if($block->isLoggedIn() == 1): ?>
-		<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		<div class="dropdown-menu account_div-user" aria-labelledby="dropdownMenuLink">
 			<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/'; ?>"><?= $block->escapeHtml(__('My Account')) ?></a>
-			<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'wishlist/'; ?>">My Wishlist</a>
-			<a class="dropdown-item" href="#">Gift Card</a>
-			<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/logout'; ?>">Logout</a>
+			<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'wishlist/'; ?>"><?= __('My Wishlist') ?></a>
+			<a class="dropdown-item" href="#"><?= __('Gift Card') ?></a>
+			<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/logout'; ?>"><?= __('Logout') ?></a>
 		</div>
 	<?php else: ?>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-				<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/login'; ?>">Login</a>
-				<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/create'; ?>">Sign Up</a>
+			<div class="dropdown-menu account_div-user" aria-labelledby="dropdownMenuLink">
+				<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/login'; ?>"><?= __('Login') ?></a>
+				<a class="dropdown-item" href="<?php echo $block->getBaseUrl().'customer/account/create'; ?>"><?= __('Sign Up') ?></a>
 			</div>
 	<?php endif; ?>
 </div>
@@ -49,7 +49,7 @@ if ($block->isLoggedIn()) {
 	<a href="<?php echo $block->getBaseUrl().'amlocator'; ?>" class="btn dropdown-toggle theme_dropdown" >	
 	 <!-- <a class="btn dropdown-toggle theme_dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
 		<span>
-			<img src="<?php echo $block->getViewFileUrl('images/hd_location.png'); ?> " class="header_icons_im">
+			<img src="<?php echo $block->getViewFileUrl('images/hd_location.svg'); ?> " class="header_icons_im">
 		</span>
 		<p>
 		<span class="login_btn"><?= $block->escapeHtml(__('Locations')) ?></span><?= $block->escapeHtml(__('Find Stores')) ?>

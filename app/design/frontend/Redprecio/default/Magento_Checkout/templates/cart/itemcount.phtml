@@ -1,8 +1,10 @@
  <?php
  	$helper = $this->helper('\Magento\Checkout\Helper\Cart');
 ?>
-             <h4 class="totle_tablr_header"><?= $block->escapeHtml(__('Total')) ?>
-             <?php echo $helper->getSummaryCount(); ?> <?= $block->escapeHtml(__('Items in Cart')) ?>
-   
-             </h4>
-          
+<div class="checkout_cart_title">
+    <h4 class="totle_tablr_header"><?= $block->escapeHtml(__('Total')) ?>
+    <?php echo $helper->getSummaryCount(); ?> <?= $block->escapeHtml(__('Items in Cart')) ?>
+
+    </h4>
+    <h4 class="summary title"><?= $block->escapeHtml(__('Resumen')) ?> </h4>
+</div>

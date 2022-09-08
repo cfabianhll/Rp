@@ -1,0 +1,33 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="opc-block-summary" data-bind="blockLoader: isLoading">
+    <span data-bind="i18n: 'Resumen'" class="title"></span>
+</div>
+<div class="opc-block-summary" data-bind="blockLoader: isLoading">
+    <!-- <span data-bind="i18n: 'Order Summary'" class="title"></span> -->
+    <!-- ko foreach: elems() -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!-- /ko -->
+</div>
+<!-- ko if: (isVisibleShippingButton()) -->
+<div class="actions-toolbar-trigger" id="continue-to-payment-trigger-wrapper">
+    <div class="primary">
+        <button type="button" id="continue-to-payment-trigger" class="button action continue primary">
+            <span><!-- ko i18n: 'Continuar con el pago'--><!-- /ko --></span>
+        </button>
+    </div>
+</div>
+<!-- /ko -->
+<!-- ko if: (!isVisibleShippingButton()) -->
+    <!-- ko if: (isVisible()) -->
+    <div class="actions-toolbar-trigger" id="place-order-trigger-wrapper">
+	<button type="button" class="btn theme_btn btn btn_red action primary checkout" id="place-order-trigger" value="Place Order" >
+	    <span>Finalizar Compra</span>
+	</button>
+    </div>
+    <!-- /ko -->
+<!-- /ko -->

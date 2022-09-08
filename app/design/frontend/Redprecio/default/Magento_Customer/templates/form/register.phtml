@@ -128,35 +128,36 @@
     <fieldset class="fieldset create account" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
         <div class="field required">
             <div class="control form-group">
+                <span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/envelop.png'); ?>"></span>
                 <input type="email" name="email" autocomplete="email" placeholder="Email" id="email_address" value="<?= $block->escapeHtmlAttr($block->getFormData()->getEmail()) ?>" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" class="form-control input_box input-text" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
-				<span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/envelop.png'); ?>"></span>
+				
             </div>
         </div>
        <div class="field required">
              <div class="form-group">
-                <input name="contact" minlength="8" maxlength="15" onKeyDown="qtyKeyDown(event);" placeholder="Contact Number" id="contact" title="<?= $block->escapeHtmlAttr(__('Contact')) ?>" value="" class="form-control input_box input-text" type="text" data-validate="{required:true}" />
                 <span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_phone.png'); ?>"></span>
+                <input name="contact" minlength="8" maxlength="15" onKeyDown="qtyKeyDown(event);" placeholder="<?=__('Contact Number')?>" id="contact" title="<?= $block->escapeHtmlAttr(__('Contact')) ?>" value="" class="form-control input_box input-text" type="text" data-validate="{required:true}" />
+                
             </div>
         </div>
         <div class="field password required">
             <div class="control form-group">
+                <span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_key.png'); ?>"></span>
                 <input type="password" name="password" id="password"
                        title="<?= $block->escapeHtmlAttr(__('Password')) ?>"
-					   placeholder="Password"
+					   placeholder="<?= __('Password') ?>"
                        class="input-text form-control input_box"
                        data-password-min-length="<?= $block->escapeHtmlAttr($block->getMinimumPasswordLength()) ?>"
                        data-password-min-character-sets="<?= $block->escapeHtmlAttr($block->getRequiredCharacterClassesNumber()) ?>"
                        data-validate="{required:true, 'validate-customer-password':true}"
                        autocomplete="off">
-				<span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_key.png'); ?>"></span>
-
             </div>
 
         </div>
         <div class="field confirmation required">
             <div class="control form-group">
-                <input type="password" name="password_confirmation" placeholder="Confirm Password" title="<?= $block->escapeHtmlAttr(__('Confirm Password')) ?>" id="password-confirmation" class="form-control input_box input-text" data-validate="{required:true, equalTo:'#password'}" autocomplete="off">
-				<span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_key.png'); ?>"></span>
+                <span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_key.png'); ?>"></span>
+                <input type="password" name="password_confirmation" placeholder="<?= __('Confirm Password') ?>" title="<?= $block->escapeHtmlAttr(__('Confirm Password')) ?>" id="password-confirmation" class="form-control input_box input-text" data-validate="{required:true, equalTo:'#password'}" autocomplete="off">
             </div>
         </div>
 		<div class="form-group required control field">

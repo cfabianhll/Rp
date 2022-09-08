@@ -19,7 +19,7 @@
 				0
 				<!-- /ko -->
 			</span>
-			<img src="<?php echo $block->getViewFileUrl('images/cart.png'); ?>" class="header_icons_im">
+			<img src="<?php echo $block->getViewFileUrl('images/cart.svg'); ?>" class="header_icons_im">
         </span>
 		<p class="minicart_title">
 			<span class="login_btn"><?= $block->escapeHtml(__('My Cart')) ?></span>
@@ -28,7 +28,7 @@
         
     </a>
     <?php if ($block->getIsNeedToDisplaySideBar()) :?>
-        <div class="dropdown-menu cart_drop_down" aria-labelledby="dropdownMenuLink">
+        <div class="dropdown-menu cart_drop_down account_div-cart" aria-labelledby="dropdownMenuLink">
 			<div class="shopping-cart">
 				<div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
 					<!-- ko template: getTemplate() --><!-- /ko -->
@@ -55,8 +55,8 @@
         },
         "*": {
             "Magento_Ui/js/block-loader": "<?= $block->escapeJs(
-                $block->escapeUrl($block->getViewFileUrl('images/loader-1.gif'))
-            ) ?>"
+    $block->escapeUrl($block->getViewFileUrl('images/loader-1.gif'))
+) ?>"
         }
     }
     </script>

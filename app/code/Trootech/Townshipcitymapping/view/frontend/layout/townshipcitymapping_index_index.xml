@@ -1,0 +1,21 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+
+	<head>
+        <title>Titlename</title>
+        
+    </head>
+
+    <body>
+
+
+        <referenceContainer name="sidebar.main">
+            <block class="Trootech\Townshipcitymapping\Block\Index\Sidebar" name="townshipcitymapping_index_sidebar" before="-" template="Trootech_Townshipcitymapping::townshipcitymapping_index_sidebar.phtml"/>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="Trootech\Townshipcitymapping\Block\Index\Index" name="townshipcitymapping_index_index" template="Trootech_Townshipcitymapping::townshipcitymapping_index_index.phtml"/>
+        </referenceContainer>
+
+
+    </body>
+</page>

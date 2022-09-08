@@ -7,90 +7,38 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="main.content" htmlId="content">
+<!--            <block class="Magento\Framework\View\Element\Template" name="cart-checkout-breadcum" template="Magento_Checkout::cart/checkoutbreadcum.phtml" before="columns"/>-->
+            <container name="product.details.cart.view" htmlClass="product_Details pb-0" htmlTag="section" before="columns">
+                <container name="product.details.container.view" htmlClass="container" htmlTag="div" after="-">
+                    <block name="shopping_cart_step" as="with-items" class="Magento\Framework\View\Element\Template" template="Magento_Checkout::cart/steps.phtml" before="-"/>
+                </container>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="columns" htmlClass="container cart-custom-class product_Details" htmlTag="section">
+            <block name="itemcount" as="with-items" class="Magento\Framework\View\Element\Template" template="Magento_Checkout::cart/itemcount.phtml" before="-"/>
+        </referenceContainer>
+        
+        <referenceContainer name="checkout.cart.container" htmlClass="cart-container row checkout main-cart-new-sec" >
+            <container name="cart.items" htmlTag="div" htmlClass="col-12 col-md-8 col-lg-8">
+            </container>
+            <container name="check.order.summary" htmlTag="div" htmlClass="col-12 col-md-4 col-lg-4 custom-summary">
+            </container>
+        </referenceContainer>
+        <referenceContainer name="check.order.summary">
+            <block name="cart.summary.custom.block" class="Magento\Cms\Block\Block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cart_payment_logo</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <move element="checkout.cart.form" destination="cart.items"  />
+        <move element="cart.summary" destination="check.order.summary" />
+        <move element="cart.summary.custom.block" destination="check.order.summary" after="cart.summary"/>
+        <move element="checkout.cart.coupon" destination="check.order.summary" before="-"/>
 
         <referenceBlock name="page.main.title" remove="true"/>
-        <referenceContainer name="main.content" htmlId="content">
-           <!--  <container name="cart.breadcum.section.view" htmlClass="breadcum_section" htmlTag="section" before="columns">
-                    <container name="cart.breadcum.container.view" htmlClass="container" htmlTag="div" after="-">
-                         <container name="cart.breadcum.row.view" htmlClass="row" htmlTag="div" after="-">
-
-                         </container>
-                    </container>
-                </container> -->
-                <block class="Magento\Framework\View\Element\Template" name="cart-checkout-breadcum" template="Magento_Checkout::cart/checkoutbreadcum.phtml" before="columns"/>
-                <container name="product.details.cart.view" htmlClass="product_Details pb-0" htmlTag="section" after="cart-checkout-breadcum">
-                         <container name="product.details.container.view" htmlClass="container" htmlTag="div" after="-">
-
-                            <block name="shopping_cart_step" as="with-items" class="Magento\Framework\View\Element\Template" template="Magento_Checkout::cart/steps.phtml" before="-"/>    
-                         </container>
-                </container>
-
-
-            <!-- <container name="shoppingcart.section.view" htmlClass="shopping_Cart" htmlTag="section" after="cart.breadcum.section.view">
-                    <container name="shoppingcart.container.view" htmlClass="container" htmlTag="div" after="-">
-                        <container name="shoppingcart.cartlisting.view" htmlClass="cart_listing" htmlTag="div" after="-">
-
-                        </container>
-                    </container>
-        </container> -->
-        </referenceContainer>
-
-<!--         <referenceBlock name="breadcrumbs">
-            <action method="addCrumb">
-                <argument name="crumbName" xsi:type="string">Home</argument>
-                <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Go to Homepage</item>
-                    <item name="label" xsi:type="string">Home</item>
-                    <item name="link" xsi:type="string">/burroteka</item>
-                </argument>
-            </action>
-            <action method="addCrumb">
-                <argument name="crumbName" xsi:type="string">Shopping Cart</argument>
-                <argument name="crumbInfo" xsi:type="array">
-                    <item name="title" xsi:type="string">Shopping Cart</item>
-                    <item name="label" xsi:type="string">Shopping Cart</item>
-                    <item name="link" xsi:type="string"></item>
-                </argument>
-            </action>
-        </referenceBlock> -->
-
-        <!-- <move element="cart-checkout-breadcum" destination="main.content" before="product.details.cart.view" /> -->
-        <referenceContainer name="columns" htmlClass="product_Details" htmlTag="section" >
-        <!-- <referenceContainer name="main" htmlClass="container" > -->
-            <block name="itemcount" as="with-items" class="Magento\Framework\View\Element\Template" template="Magento_Checkout::cart/itemcount.phtml" before="-" />
-            
-        </referenceContainer>
-
-        
-        <!-- <referenceContainer name="checkout.cart.container" htmlClass="cart-container col-12" /> -->
-
-       <!--  <referenceContainer name="checkout.cart.items">
-                    
-        </referenceContainer> -->
-
-        <referenceContainer name="checkout.cart.items">
-            <container name="apply_promo.section" htmlTag="div" htmlClass="product_Details pb-1" after="-">
-                <container name="apply_promo.section.row" htmlTag="div" htmlClass="row" after="-">
-                    <container name="apply_promo.section.left" htmlTag="div" htmlClass="col-12 col-md-6 col-lg-8" before="-" />
-                    <container name="apply_promo.section.right" htmlTag="div" htmlClass="col-12 col-md-6 col-lg-4" after="-" />
-                </container>
-            </container>   
-        </referenceContainer>
-        
-        <referenceBlock name="checkout.cart.summary.title">
-            <action method="setTemplate">
-                <argument name="template" xsi:type="string">Magento_Checkout::cart/title.phtml</argument>
-            </action>
-        </referenceBlock>
-
-        <referenceContainer name="cart.summary" htmlClass="cart-summary cart_tottal_box promocode_div" />
-        <move element="checkout.cart.crosssell" destination="main.content" after="-"/>
-        <move element="checkout.cart.coupon" destination="apply_promo.section.left" before="-" />
-        <move element="cart.summary" destination="apply_promo.section.right" before="-" />
-        <move element="checkout.cart.form" destination="checkout.cart.container" before="-" />
-        <move element="checkout.cart.methods.bottom" destination="apply_promo.section.right" after="cart.summary"/>
-        <move element="checkout.cart.summary.title" destination="apply_promo.section.right" before="-"/>
-
-        <!-- <move element="product.details.cart.view" destination="checkout.cart.container" before="-" /> -->
+        <referenceBlock name="checkout.cart.coupon" remove="true"/>
+        <referenceContainer name="right_bar.fixed_header2" remove="true" />
     </body>
 </page>

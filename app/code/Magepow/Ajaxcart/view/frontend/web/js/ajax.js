@@ -1,8 +1,9 @@
 define([
     'jquery',
     'mage/translate',
-    'Magento_Ui/js/modal/modal'
-    ], function ($, $t, modal) {
+    'Magento_Ui/js/modal/modal',
+    'Magento_Customer/js/customer-data'
+    ], function ($, $t, modal, customerData) {
         'use strict';
 
         $.widget('magepow.ajaxcart', {
@@ -88,7 +89,8 @@ define([
                             window.location.href = oldAction;
                         }
                     } else {
-                        var dataPost = $.parseJSON($(this).attr('data-post'));
+                        var dataPost = JSON.stringify($(this).attr('data-post'));
+                        // var dataPost = $.parseJSON($(this).attr('data-post'));
                         if (dataPost) {
                             var formKey = $("input[name='form_key']").val();
                             var oldAction = dataPost.action;
@@ -183,7 +185,7 @@ define([
                             $(document.body).append('<div id="modals_ajaxcart" style="display:none">' + _qsModalContent + '</div>');
                         }
 
-                        var _qsModal = $('#modals_ajaxcart .content-ajaxcart');
+                        var _qsModal = $("#modals_ajaxcart .content-ajaxcart");
                         if (data.popup) {
                             self._showPopup(_qsModal, _qsModalContent, data.popup);
                         } else if (data.error && data.view) {
@@ -208,6 +210,8 @@ define([
                             }
                         }
                         if(form) self.enableAddToCartButton(form);
+                        var sections = ['cart'];
+                        customerData.reload(sections, true);
                     },
                     error: function () {
                         window.location.href = oldAction;
@@ -232,13 +236,16 @@ define([
                         clearInterval(window.ajaxcart_countdown);
                     }                           
                 }, _qsModal);
-                _qsModal.modal('openModal');
+
+                _qsModal.modal("openModal");
+
                 _qsModal.trigger('contentUpdated');
                 _qsModal.find('.btn-continue').on('click', function() {
                     self._closePopup();
                 });
                 /*Show count down*/
-                this._showCountdown(); 
+                this._showCountdown();
+                $('.modal-header').hide(); 
             },
 
             _closePopup: function(){

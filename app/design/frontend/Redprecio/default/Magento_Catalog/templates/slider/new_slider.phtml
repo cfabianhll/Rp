@@ -1,12 +1,13 @@
 <?php
 use Magento\Framework\App\Action\Action;
+
 $newproducts = $block->getNewCollection();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 if ($newproducts && $newproducts->count()):
-	$viewMode = 'grid';
-	$imageDisplayArea = 'category_page_grid';
-	$showDescription = false;
-	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;   
+    $viewMode = 'grid';
+    $imageDisplayArea = 'category_page_grid';
+    $showDescription = false;
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
 ?>
 <div class="bestseller_home">
 <div class="row">
@@ -22,25 +23,24 @@ if ($newproducts && $newproducts->count()):
  
 <div class="product_listing new_product_slider owl-carousel owl-them popular">
 <?php foreach ($newproducts as $_product) {
-	$postParams = $block->getAddToCartPostParams($_product);
-?>
+    $postParams = $block->getAddToCartPostParams($_product); ?>
 	<div class="product_div">
 	<?php $orgprice = $_product->getPrice();
-								$specialprice = $_product->getSpecialPrice();
-								$specialfromdate = $_product->getSpecialFromDate();
-								$specialtodate = $_product->getSpecialToDate();
-								$today = time();
-								if (!$specialprice)
-								  $specialprice = $orgprice;
-								if ($specialprice< $orgprice) {
-									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
+    $specialprice = $_product->getSpecialPrice();
+    $specialfromdate = $_product->getSpecialFromDate();
+    $specialtodate = $_product->getSpecialToDate();
+    $today = time();
+    if (!$specialprice) {
+        $specialprice = $orgprice;
+    }
+    if ($specialprice< $orgprice) {
+        if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
 										<div class="offer">         
 											<span class="offer_title"><font style="vertical-align: inherit;"><?= __('Offer') ?> </font></span>
 										</div>
-									<?php } 
-								} ?>
-								<?php if($_product->getNewProduct())
-								{ ?>
+									<?php }
+    } ?>
+								<?php if ($_product->getNewProduct()) { ?>
 									<div class="new_products">          
 										<span class="new_title"><font style="vertical-align: inherit;"><?= __('New') ?> </font></span>
 									</div>
@@ -50,7 +50,10 @@ if ($newproducts && $newproducts->count()):
 				<?= $block->getImage($_product, $imageDisplayArea)->toHtml() ?>
 			</a>
 		</div>
-		<form data-role="tocart-form" data-product-id="<?= $block->escapeHtml($_product->getId()) ?>" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+		<form data-role="tocart-form" data-product-id="<?= $block->escapeHtml($_product->getId()) ?>"
+              action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>"
+              method="post"
+              id="add-to-cartform-<?php echo $_product->getId(); ?>'">
 			<input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
 			<input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
 			<?php echo $block->getBlockHtml('formkey')?>
@@ -61,32 +64,31 @@ if ($newproducts && $newproducts->count()):
 								<div class="custom-brand-name">
 								<?php
 
+                                    $manufacturerName = $_product->getAttributeText('manufacturer');
+                                    $manufacturerName = strtolower($manufacturerName);
 
-									$manufacturerName = $_product->getAttributeText('manufacturer');
-									$manufacturerName = strtolower($manufacturerName);
+                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+                                    $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+                                    $connection = $resource->getConnection();
+                                    $tableName = $resource->getTableName('emizentech_shopbybrand_items'); //gives table name with prefix
 
+                                    //Select Data from table
+                                    $sql = "Select name, logo FROM " . $tableName;
+                                    $result = $connection->fetchAll($sql); // gives associated array, table fields as key in array.
 
-									$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
-									$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
-									$connection = $resource->getConnection();
-									$tableName = $resource->getTableName('emizentech_shopbybrand_items'); //gives table name with prefix
+                                    $img = '';
+                                    foreach ($result as $res) {
+                                        $brname = strtolower($res['name']);
+                                        if ($brname == $manufacturerName) {
+                                            $img = $res['logo'];
+                                        }
+                                    }
 
-									//Select Data from table
-									$sql = "Select name, logo FROM " . $tableName;
-									$result = $connection->fetchAll($sql); // gives associated array, table fields as key in array.
-
-									$img = '';
-									foreach($result as $res) {
-										$brname = strtolower($res['name']);
-										if($brname == $manufacturerName) {
-											$img = $res['logo'];
-										}
-									}
-
-									if($img) {
-								?>
-									<img class="img-responsive" src="<?php echo  $this->getUrl().'pub/media/'.$img ?>" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
-								<?php } else { ?>
+                                    if ($img) {
+                                        ?>
+									<img class="img-responsive" src="<?php echo  $this->getUrl() . 'pub/media/' . $img ?>" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
+								<?php
+                                    } else { ?>
 									<span class="br_name"><?php echo $manufacturerName; ?></span>
 								<?php } ?>
 								</div>
@@ -102,36 +104,45 @@ if ($newproducts && $newproducts->count()):
 				<div class="butt_price_section">
 					<?= $this->getProductPrice($_product); ?>
 					<?php $orgprice = $_product->getPrice();
-								$specialprice = $_product->getSpecialPrice();
-								$specialfromdate = $_product->getSpecialFromDate();
-								$specialtodate = $_product->getSpecialToDate();
-								$today = time();
-								if (!$specialprice)
-								  $specialprice = $orgprice;
-								if ($specialprice< $orgprice) {
-									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) {
-										$savingpct = number_format((float)(100*(($orgprice - $specialprice)/$orgprice)), 0);?>
+    $specialprice = $_product->getSpecialPrice();
+    $specialfromdate = $_product->getSpecialFromDate();
+    $specialtodate = $_product->getSpecialToDate();
+    $today = time();
+    if (!$specialprice) {
+        $specialprice = $orgprice;
+    }
+    if ($specialprice< $orgprice) {
+        if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) {
+            $savingpct = number_format((float)(100*(($orgprice - $specialprice)/$orgprice)), 0); ?>
 										<div class="money_saved">
 											<span class="price-save-label">Ahorra </span>
-											<span class="price-save-percent"><?php echo " ".$savingpct." %"?></span>
+											<span class="price-save-percent"><?php echo " " . $savingpct . " %"?></span>
 										</div>
-									<?php }
-								}?>
-					<?php //if($_product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE){
-						//$swatchBlock = $this->getLayout()->createBlock("Magento\Swatches\Block\Product\Renderer\Listing\Configurable")->setTemplate("Magento_Swatches::product/listing/renderer.phtml");
-						//echo $swatchBlock->setProduct($_product)->toHtml();                           
-					//} ?>
+									<?php
+        }
+    } ?>
+
 					<?php if ($_product->isSaleable()): ?>
 						<div class="display_hvr">
-						
-						<!--<a class="btn theme_btn img_btn bss-quickview hovercart" title="<?php //echo $block->escapeHtml(__('Quick View')); ?>"  data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><i class="fas fa-eye"></i><?php //echo $block->escapeHtml(__('Quick View')); ?></a>-->
-							<?php /* <a href="javascript:void(0)" onClick="productaddtocart(jQuery(this))"><img src="<?php echo $block->getViewFileUrl('images/cart_white.png'); ?>"></a>
-							<a class="bss-quickview hovercart" data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><img src="<?php echo $block->getViewFileUrl('images/search_white.png'); ?>"></a> */ ?>
-							
-							<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" data-role="tocart-form" class="action tocart primary btn theme_btn img_btn"><span><?= $block->escapeHtmlAttr(__('Add to Cart')) ?></span></button>
-															
+							<button type="submit"
+                                    title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                    data-role="tocart-form"
+                                    class="action tocart primary btn theme_btn img_btn"
+                                    data-product-id = "<?php echo $_product->getId(); ?>"
+                                    id="add-to-cart-<?php echo $_product->getId(); ?>'"
+                            >
+                                <span><?= $block->escapeHtmlAttr(__('Add to Cart')) ?></span>
+                            </button>
+                            <div class="details_btns_container"
+                                 data-mage-init='{"Magento_Catalog/js/modal-form": {"product_id": <?php echo $_product->getId(); ?>}}'
+                                 data-product-id = "<?php echo $_product->getId(); ?>">
+                                <a class="btn details_btn btn_black_bg">
+<!--                                    <img src="--><?php //echo $this->getViewFileUrl('images/btn_home.png'); ?><!--"  class="mr-2">-->
+                                    <?= __('Free withdrawal in store') ?>
+                                </a>
+                            </div>
 						</div>
-						<?php else: ?>
+                    <?php else: ?>
 								<?php if ($_product->isAvailable()): ?>
 									<div class="display_hvr"><div class="stock available btn btn_red"><span><?= /* @escapeNotVerified */ __('In stock') ?></span></div></div>
 								<?php else: ?>
@@ -141,7 +152,7 @@ if ($newproducts && $newproducts->count()):
 				</div>
 			</div>
 		</form>
-	</div>
+    </div>
 <?php
 }
 ?>
@@ -157,3 +168,70 @@ if ($newproducts && $newproducts->count()):
 	}
 </script>
 <?php endif; ?>
+
+<div id="modal-form" class="row" style="display: none">
+    <% if (posts) { %>
+    <div class="location_list">
+        <% if (posts.location_info) { %>
+        <% _.each(posts.location_info.location_id, function(text,value) { %>
+        <div class="location">
+            <% if (posts.location_info.location_img_url) { %>
+            <div class="location-info-row" >
+                <div class="store_img" >
+                    <img src="<%= posts.location_info.location_img_url[value] %>" />
+                </div>
+                <% } %>
+                <% if (posts.location_info) { %>
+                <div class="location-info" storepickup_id="<%= posts.location_info.location_id[value] %>">
+                    <% if (posts.location_info.location_name) { %>
+                    <div class="location-name">
+                        <%= posts.location_info.location_name[value] %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_address) { %>
+                    <div class="location-address">
+                        <%= posts.location_info.location_address[value] %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_schedule) { %>
+                    <div class="location-time">
+                        <%= posts.location_info.location_schedule %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_phone_num) { %>
+                    <div class="location-contact">
+                        <%= posts.location_info.location_phone_num[value] %>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+            <% if (posts.stock_info) { %>
+            <div class="stock-info">
+                <% if (posts.stock_info.status[value] == 1) { %>
+                <div class="disponit-icon"> <i class="fa fa-check" aria-hidden="true"></i> Disponible en la tienda</div>
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
+                        class="popup-addtocart  btn theme_btn img_btn mb-3 hvr-wobble-vertical action tocart primary">
+                    <span><?= $block->escapeHtmlAttr(__('Add to Cart')) ?></span>
+                </button>
+                <% } %>
+                <% if (posts.stock_info.status[value] == 0) { %>
+                                    <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
+                                <% } %>
+                                <% if (typeof posts.stock_info.status[value] == 'undefined') { %>
+                                    <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
+                                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <% }) %>
+        <% } %>
+        <% } %>
+    </div>
+    <% if (posts.length == 0) { %>
+    <div class="location_list">
+        <?= __('No Pickup store available.') ?>
+    </div>
+    <% } %>
+</div>

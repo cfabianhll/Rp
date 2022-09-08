@@ -32,7 +32,7 @@
             </arguments>
         </referenceBlock> -->
 
-        <referenceBlock name="breadcrumbs">
+        <!-- <referenceBlock name="breadcrumbs">
             <action method="addCrumb">
                 <argument name="crumbName" xsi:type="string">Home</argument>
                 <argument name="crumbInfo" xsi:type="array">
@@ -49,7 +49,9 @@
                     <item name="link" xsi:type="string"></item>
                 </argument>
             </action>
-        </referenceBlock>
-        <move element="breadcrumbs" destination="success.breadcum.row.view" before="columns" />
+        </referenceBlock> -->
+        <referenceContainer name="cart-checkout-breadcum" remove="true" />
+        <referenceContainer name="right_bar.fixed_header2" remove="true" />
+        <!-- <move element="breadcrumbs" destination="success.breadcum.row.view" before="columns" /> -->
     </body>
 </page>

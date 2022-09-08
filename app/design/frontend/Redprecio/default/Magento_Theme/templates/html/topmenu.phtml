@@ -26,7 +26,7 @@ $_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit)
 <div id="mySidenav" class="sidenav desktop_visible">
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="close_menu" style="display: inline-block;">&times;</span><span style="display: inherit;font-size: 11px;"><?= $block->escapeHtml(__('Menu')) ?></span></a>
 <a class="logo logo_section custom-top-left-logo" href="<?= $block->getUrl('') ?>" title="<?= $block->getChildHtml('logo') ?>" aria-label="store logo"><span class="gw-menu-text">
-	<img src="<?= $this->getUrl(); ?>pub/media/logo/stores/1/logo_1_.png"
+	<img src="<?= $this->getUrl(); ?>pub/media/logo/stores/1/logo_1_.svg"
              title="" alt="" width="189" height="64"/></span></a>
 <nav class="navigation desktop_menu" data-action="navigation">
 <ul class="left_mega_menu nohome" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
@@ -54,7 +54,7 @@ $category = $category_model->load($category_id);
         <?php $_categorys = $category_model->load($_categoryy->getId()); ?>
         <?php if($_categorys->getChildrenCount() > 0 ) { ?>      
             <li class="nav-item nav-expand">
-                <a href="<?php echo $_categorys->getUrl() ?>" class="nav-link nav-expand-link"><?php echo $_categorys->getName(); ?></a>
+                <a href="#" class="nav-link nav-expand-link"><?php echo $_categorys->getName(); ?></a>
                 <i class="fas fa-chevron-right"></i>
                 <?php $categoryyy = $category_model->load($_categorys->getId()); ?>
                 <?php $childrenCategoriess = $categoryyy->getChildrenCategories();?>
@@ -67,7 +67,7 @@ $category = $category_model->load($category_id);
                         <?php if($_categorysy->getChildrenCount() > 0 ) { ?>
                              
                             <li class="nav-item nav-expand">
-                                <a class="nav-link nav-expand-link" href="<?php echo $_categorysy->getUrl(); ?>"><?php echo $_categorysy->getName(); ?></a>
+                                <a class="nav-link nav-expand-link" href="#"><?php echo $_categorysy->getName(); ?></a>
                                 <i class="fas fa-chevron-right"></i>
                                 <?php $categoryaw = $category_model->load($_categorysy->getId()); ?>
                                 <?php $childrenCategoriesys = $categoryaw->getChildrenCategories();?>

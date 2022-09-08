@@ -28,14 +28,16 @@
 				<fieldset class="fieldset login login_form" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>">
 					<div class="field email required">
 						<div class="control form-group">
-							<input name="login[username]" placeholder="<?= $block->escapeHtml(__('Email')) ?>" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text form-control input_box" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
 							<span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/envelop.png'); ?>"></span>
+							<input name="login[username]" placeholder="<?= $block->escapeHtml(__('Email')) ?>" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text form-control input_box" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
+							
 						</div>
 					</div>
 					<div class="field password required">
 						<div class="control form-group">
-							<input name="login[password]" placeholder="<?= $block->escapeHtml(__('Password')) ?>" type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text form-control input_box" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
 							<span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_key.png'); ?>"></span>
+							<input name="login[password]" placeholder="<?= $block->escapeHtml(__('Password')) ?>" type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text form-control input_box" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
+							
 						</div>
 					</div>
 					<div class="secondary form-group mb-0"><div class="forgot_password"><a class="action remind" href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?= $block->escapeHtml(__('Forgot Your Password?')) ?></span></a></div></div>

@@ -1,0 +1,26 @@
+<?php
+/** @var \MagePsycho\RegionCityPro\Block\Customer\Address\Edit\Js $block */
+?>
+<script>
+    require(['jquery'], function($) {
+        $(document).ready(function() {
+            $('#city').before('<select id="city_id" name="city_id" title="<?= $block->escapeHtmlAttr(__('City')) ?>" class="validate-select" style="display: none;"><option value=""><?= $block->escapeHtml(__('Please select a city.')) ?></option></select>');
+        });
+    });
+</script>
+<script type="text/x-magento-init">
+    {
+        "#country": {
+            "cityUpdater": {
+                "isActive": <?= /* @noEscape */ $block->isActive() ? 'true' : 'false' ?>,
+                "isCitySearchable": <?= (int) $block->isCitySearchable() ?>,
+                "regionListId": "#region_id",
+                "regionInputId": "#region",
+                "cityListId": "#city_id",
+                "cityInputId": "#city",
+                "defaultCityId": "<?= (int) $block->getCityId() ?>",
+                "cityJson" : <?= /* @noEscape */ $block->getCityJson() ?>
+            }
+        }
+    }
+</script>

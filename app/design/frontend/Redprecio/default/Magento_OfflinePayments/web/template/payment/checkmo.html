@@ -4,13 +4,17 @@
  * See COPYING.txt for license details.
  */
 -->
-<li class="payment-method" data-bind="css: {'clicked': (getCode() == isChecked())}">
+<div class="payment-method" data-bind="css: {'clicked': (getCode() == isChecked())}">
     <div class="payment-method-title field choice">
         <a href="" class="payment_added"><img src=""></a>
-        <input type="radio"
+        <label class="container-check-radio">
+	  <input type="radio"
                name="payment[method]"
                class="radio"
                data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
+	  <span class="checkmark"></span>
+	</label>
+        
         <label data-bind="attr: {'for': getCode()}" class="label"><span data-bind="text: getTitle()"></span></label>
     </div>
     <div class="payment-method-content">
@@ -55,5 +59,5 @@
             </button>
         </div>
     </div>
-</li>
+</div>
         

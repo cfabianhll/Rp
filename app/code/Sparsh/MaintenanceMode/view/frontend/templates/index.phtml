@@ -11,6 +11,24 @@
             <h3 class="description"><?= $block->getDescription(); ?></h3>
             <?php if ($block->escapeHtml($block->getAddCountDownClock()) && $block->escapeHtml($block->getEndDate())) : ?>
                 <div id="flag" style="display: none;"></div>
+                <div class="timerblock">
+                    <div>
+                        <span class="days"></span>
+                        <h6 class="smalltext"><?= /* @noEscape */ __('Days') ?></h6>
+                    </div>
+                    <div>
+                        <span class="hours"></span>
+                        <h6 class="smalltext"><?= /* @noEscape */ __('Hours') ?></h6>
+                    </div>
+                    <div>
+                        <span class="minutes"></span>
+                        <h6 class="smalltext"><?= /* @noEscape */ __('Minutes') ?></h6>
+                    </div>
+                    <div>
+                        <span class="seconds"></span>
+                        <h6 class="smalltext"><?= /* @noEscape */ __('Seconds') ?></h6>
+                    </div>
+                </div>
                 <div id="timer" class="timer-block">
                     <div>
                         <span class="days"></span>
@@ -205,6 +223,14 @@ if ($block->getAddNewsletter()) { ?>
     }
     .social-block {
     	font-size :35px
+    }
+    .maintenance-page-wrapper .smalltext {
+	    padding-left: 50px;
+	    padding-bottom: 35px;
+	    font-size: 20px;
+    }
+    .maintenance-page-wrapper .timerblock {
+    	display: flex;
     }
 </style>
 

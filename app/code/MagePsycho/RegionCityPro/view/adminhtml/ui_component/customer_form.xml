@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<fieldset name="address">
+        <field name="city" formElement="input">
+            <settings>
+                 <visible>false</visible>
+            </settings>
+        </field>
+    <!-- @todo check for prior 2.3.4 -->
+    </fieldset>
+</form>

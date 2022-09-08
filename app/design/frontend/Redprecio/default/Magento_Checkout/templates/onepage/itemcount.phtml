@@ -1,0 +1,20 @@
+<?php
+ 	$helper = $this->helper('\Magento\Checkout\Helper\Cart');
+?>
+<div class="checkout_cart_title">
+    <h4 class="totle_tablr_header">
+     <?= $block->escapeHtml(__('Dirección de envío')) ?>
+
+    </h4>
+    <h4 class="summary title"><?= $block->escapeHtml(__('Resumen')) ?> </h4>
+</div>
+
+<script >
+    require(['jquery', 'jquery/ui'], function($){
+    $(document).ready( function() {
+        if($("#payment").is(":visible")){
+            $(".totle_tablr_header")replaceWith("Hello world!");
+        }
+    });
+    });
+</script>

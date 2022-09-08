@@ -37,37 +37,7 @@
                 <div class="cart-products-toolbar cart-products-toolbar-bottom toolbar" data-attribute="cart-products-toolbar-bottom"><?= $block->getPagerHtml() ?></div>
             <?php endif ?>
         </div>
-        <div class="row cart main actions">
-            <?php /* if ($block->getContinueShoppingUrl()): ?>
-                <a class="action continue"
-                   href="<?= $block->escapeUrl($block->getContinueShoppingUrl()) ?>"
-                   title="<?= $block->escapeHtml(__('Continue Shopping')) ?>">
-                    <?= __('Continue Shopping') ?>
-                </a>
-            <?php endif; */ ?>
-            <div class="col-12 col-lg-6 col-md-6 text-left mb-3">
-                <button type="submit"
-                        name="update_cart_action"
-                        data-cart-empty=""
-                        value="empty_cart"
-                        title="<?= $block->escapeHtml(__('Clear Shopping Cart')) ?>"
-                        class="btn theme_btn action clear" id="empty_cart_button">
-                    <?= /* @escapeNotVerified */ __('Clear Shopping Cart') ?>
-                </button>
-            </div>
-            <div class="col-12 col-lg-6 col-md-6 text-right mb-3">
-                <button type="submit"
-                        name="update_cart_action"
-                        data-cart-item-update=""
-                        value="update_qty"
-                        title="<?= $block->escapeHtml(__('Update Shopping Cart')) ?>"
-                        class="btn theme_btn action update">
-                    <?= /* @escapeNotVerified */ __('Update Shopping Cart') ?>
-                </button>
-            </div>
-            <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
-            <div class="col-12"><div class="border-bottom"></div></div>
-        </div>
+
     </form>
     <?= $block->getChildHtml('checkout.cart.order.actions') ?>
     <?= $block->getChildHtml('shopping.cart.table.after') ?>

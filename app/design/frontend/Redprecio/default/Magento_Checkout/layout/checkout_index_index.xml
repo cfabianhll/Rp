@@ -7,37 +7,87 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-      <!--   <referenceBlock name="page.main.title">
-            <action method="setTemplate">
-                <argument name="template" xsi:type="string">Magento_Theme::html/title_with_banner.phtml</argument>
-            </action>
-            <arguments>
-                <argument name="css_class" xsi:type="string">shopping_cart_bg</argument>
-                <argument name="banner_page" xsi:type="string">checkout</argument>
-            </arguments>
-        </referenceBlock> -->
-        <referenceContainer name="main.content" htmlId="content">
-            <container name="checkout.breadcum.section.view" htmlClass="breadcum_section" htmlTag="section" before="columns">
-                    <container name="checkout.breadcum.container.view" htmlClass="container" htmlTag="div" after="-">
-                         <container name="checkout.breadcum.row.view" htmlClass="row" htmlTag="div" after="-">
-
-                         </container>
-                    </container>
-                </container>
-        </referenceContainer>
         <referenceContainer name="main.content">
-             <block class="Magento\Framework\View\Element\Template" name="cart-checkout-breadcum" template="Magento_Checkout::cart/checkoutbreadcum.phtml" before="columns"/>
-                <container name="product.details.cart.view" htmlClass="product_Details pb-0" htmlTag="section" after="cart-checkout-breadcum">
-                         <container name="product.details.container.view" htmlClass="container" htmlTag="div" after="-">
+<!--             <block class="Magento\Framework\View\Element\Template" name="cart-checkout-breadcum" template="Magento_Checkout::cart/checkoutbreadcum.phtml" before="columns"/>-->
+            <container name="product.details.cart.view" htmlClass="product_Details pb-0" htmlTag="section" before="columns">
+                     <container name="product.details.container.view" htmlClass="container" htmlTag="div" after="-">
+                        <block name="shopping_cart_step" as="with-items" class="Magento\Framework\View\Element\Template" template="Magento_Checkout::onepage/steps.phtml" before="-"/>
+                     </container>
+            </container>
+            <container name="custom" htmlClass="container" htmlTag="div" after="-">
 
-                            <block name="shopping_cart_step" as="with-items" class="Magento\Framework\View\Element\Template" template="Magento_Checkout::onepage/steps.phtml" before="-"/>    
-                         </container>
-                </container>              
+            </container>
+
         </referenceContainer>
-        <!-- <move element="breadcrumbs" destination="checkout.breadcum.row.view" before="columns" /> -->
-        <!-- <move element="breadcrumbs" destination="page.main.title" /> -->
-        <referenceBlock name="page.main.title" remove="true" />
-        <referenceContainer name="columns" htmlTag="section" htmlClass="product_Details" />
-        <referenceContainer name="main" htmlTag="div" htmlClass="product_Details checkout_div" />        
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="afterMethods" xsi:type="array">
+                                                            <item name="children" xsi:type="array">        
+                                                                <item name="discount" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="progressBar" xsi:type="array">
+                                    <item name="config" xsi:type="array">
+                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                    </item>
+                                </item>
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="sortOrder" xsi:type="string">0</item>
+                                    <item name="children" xsi:type="array">
+                                        <item name="summary" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="totals" xsi:type="array">
+                                                    <item name="sortOrder" xsi:type="string">99</item>
+                                                </item>
+                                                <item name="cart_items" xsi:type="array">
+                                                    <item name="sortOrder" xsi:type="string">0</item>
+                                                </item>
+                                            </item>
+                                        </item> 
+                                        <item name="custom_sidebar" xsi:type="array">
+                                            <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/discount</item>
+                                            <item name="displayArea" xsi:type="string">summary</item>
+                                            <item name="sortOrder" xsi:type="string">0</item>
+                                            <item name="children" xsi:type="array">
+                                            <item name="errors" xsi:type="array">
+                                                <item name="sortOrder" xsi:type="string">0</item>
+                                                <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/discount-messages</item>
+                                                <item name="displayArea" xsi:type="string">messages</item>
+                                            </item>
+                                        </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+<!--        <referenceContainer name="columns" remove="true" />-->
+        <move element="columns" destination="custom" before="-" />
+        <referenceBlock name="storepickup.searchbox" remove="true"/>
+        <referenceContainer name="right_bar.fixed_header2" remove="true" /> 
+
     </body>
 </page>

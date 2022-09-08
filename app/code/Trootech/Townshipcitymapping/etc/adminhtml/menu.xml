@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Trootech_Townshipcitymapping::parent" title="Townshipcitymapping" module="Trootech_Townshipcitymapping" sortOrder="100" resource="Trootech_Townshipcitymapping::parent"/>
+		<add id="Trootech_Townshipcitymapping::township" title="Townshipcitymapping Township" module="Trootech_Townshipcitymapping" sortOrder="20" parent="Trootech_Townshipcitymapping::parent" action="townshipcitymapping/township" resource="Trootech_Townshipcitymapping::township"/>
+
+    </menu>
+</config>

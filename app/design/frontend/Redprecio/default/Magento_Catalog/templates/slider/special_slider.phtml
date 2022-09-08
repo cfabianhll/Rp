@@ -121,17 +121,10 @@ if ($specials && $specials->count()):
 										</div>
 									<?php }
 								}?>
-							
-							<?php //if($_product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE){
-								//$swatchBlock = $this->getLayout()->createBlock("Magento\Swatches\Block\Product\Renderer\Listing\Configurable")->setTemplate("Magento_Swatches::product/listing/renderer.phtml");
-								//echo $swatchBlock->setProduct($_product)->toHtml();                           
-							//} ?>
 							<?php if ($_product->isSaleable()): ?>
 								<div class="display_hvr">
 
-									<!-- <a class="btn theme_btn img_btn bss-quickview hovercart" title="<?php //echo $block->escapeHtml(__('Quick View')); ?>"  data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><i class="fas fa-eye"></i><?php //echo $block->escapeHtml(__('Quick View')); ?></a> -->
-									<?php /* <a href="javascript:void(0)" onClick="productaddtocart(jQuery(this))"><img src="<?php echo $block->getViewFileUrl('images/cart_white.png'); ?>"></a>
-									<a class="bss-quickview hovercart" data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><img src="<?php echo $block->getViewFileUrl('images/search_white.png'); ?>"></a> */ ?>
+								
 															<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" data-role="tocart-form" class="action tocart primary btn theme_btn img_btn"><span><?php echo $block->escapeHtml(__('Add to Cart')); ?></span></button>
 
 								</div>

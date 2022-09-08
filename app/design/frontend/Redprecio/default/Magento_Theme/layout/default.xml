@@ -65,6 +65,7 @@
 											</block>
 										</container>
 									</container>
+									
 									<container name="footer.footer_copyright" htmlTag="div" htmlClass="footer_copyright" after="footer.footer_inner">
 										<container name="footer.footer_copyright.row" htmlTag="div" htmlClass="row" after="-">
 											<container name="footer.footer_copyright.row.col" htmlTag="div" htmlClass="col-12 col-lg-6 col-md-8" before="footer.footer_copyright.row.col.social">
@@ -78,7 +79,16 @@
 											</container>
 										</container>
 									</container>
+									
 								</container>
+								<container name="overlay-minicart" htmlTag="div" htmlClass="content-overlay" after="-">
+										<block class="Magento\Framework\View\Element\Text">
+											<arguments>
+												<argument name="text" xsi:type="string"><![CDATA[&nbsp;]]></argument>
+											</arguments>
+										</block>
+								</container>
+								
 							</container>
 							<container name="overlay" htmlTag="div" htmlClass="overlay" after="right_bar">
 								 <block class="Magento\Framework\View\Element\Text">
@@ -99,6 +109,12 @@
 				</container>
 			</container>
 		</referenceContainer>
+
+		<referenceContainer name="main_body_wrapper">
+			<container name="overlay-minicart" htmlTag="div"  htmlClass="content-overlay" after="-"/>
+		</referenceContainer>
+		
+		
 		
 		<move element="minicart" destination="right_bar.minicart" before="-" />
 		<move element="logo" destination="right_bar.search_menu.logo" before="-" />
@@ -107,6 +123,8 @@
 		<move element="page.messages" destination="main.content" before="-" />
 		<move element="copyright" destination="footer.footer_copyright.row.col" after="-" />
 		<move element="catalog.topnav" destination="after.body.start" after="page.wrapper" />
+		<move element="overlay-minicart" destination="main.content" after="-" />
+
 		<referenceContainer name="header.panel.wrapper" remove="true" />
         <referenceContainer name="header-wrapper" remove="true" />
 		<referenceBlock name="navigation.sections" remove="true" />

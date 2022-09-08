@@ -1,0 +1,666 @@
+City Id,Corregimiento,City Name,Country Name
+1,Almirante,Almirante,PANAMA
+2,Barriada Guaymí,Almirante,PANAMA
+3,Barrio Francés,Almirante,PANAMA
+4,Nance de Riscó,Almirante,PANAMA
+5,Valle de Aguas Arriba,Almirante,PANAMA
+6,Valle de Riscó,Almirante,PANAMA
+7,Bastimentos,Bocas del Toro,PANAMA
+8,Bocas del Toro,Bocas del Toro,PANAMA
+9,Cauchero,Bocas del Toro,PANAMA
+10,Punta Laurel,Bocas del Toro,PANAMA
+11,Tierra Oscura,Bocas del Toro,PANAMA
+12,Barriada 4 de Abril,Changuinola,PANAMA
+13,Changuinola,Changuinola,PANAMA
+14,Cochigro,Changuinola,PANAMA
+15,El Empalme,Changuinola,PANAMA
+16,El Silencio,Changuinola,PANAMA
+17,El Teribe,Changuinola,PANAMA
+18,Finca 30,Changuinola,PANAMA
+19,Finca 6,Changuinola,PANAMA
+20,Finca 60,Changuinola,PANAMA
+21,Guabito,Changuinola,PANAMA
+22,La Gloria,Changuinola,PANAMA
+23,Las Delicias,Changuinola,PANAMA
+24,Las Tablas,Changuinola,PANAMA
+25,Bajo Cedro,Chiriquí Grande,PANAMA
+26,Chiriquí Grande,Chiriquí Grande,PANAMA
+27,Miramar,Chiriquí Grande,PANAMA
+28,Punta Peña,Chiriquí Grande,PANAMA
+29,Punta Robalo,Chiriquí Grande,PANAMA
+30,Rambala,Chiriquí Grande,PANAMA
+31,Alanje,Alanje,PANAMA
+32,Canta Gallo,Alanje,PANAMA
+33,Divalá,Alanje,PANAMA
+34,El Tejar,Alanje,PANAMA
+35,Guarumal,Alanje,PANAMA
+36,Nuevo México,Alanje,PANAMA
+37,Palo Grande,Alanje,PANAMA
+38,Querévalo,Alanje,PANAMA
+39,Santo Tomás,Alanje,PANAMA
+40,Baco,Barú,PANAMA
+41,Limones,Barú,PANAMA
+42,Progreso,Barú,PANAMA
+43,Puerto Armuelles,Barú,PANAMA
+44,Rodolfo Aguilar Delgado,Barú,PANAMA
+45,Bágala,Boquerón,PANAMA
+46,Boquerón,Boquerón,PANAMA
+47,Cordillera,Boquerón,PANAMA
+48,Guabal,Boquerón,PANAMA
+49,Guayabal,Boquerón,PANAMA
+50,Paraíso,Boquerón,PANAMA
+51,Pedregal,Boquerón,PANAMA
+52,Tijeras,Boquerón,PANAMA
+53,Alto Boquete,Boquete,PANAMA
+54,Bajo Boquete,Boquete,PANAMA
+55,Caldera,Boquete,PANAMA
+56,Jaramillo,Boquete,PANAMA
+57,Los Naranjos,Boquete,PANAMA
+58,Palmira,Boquete,PANAMA
+59,Aserrío de Gariché,Bugaba,PANAMA
+60,Bugaba,Bugaba,PANAMA
+61,El Bogon,Bugaba,PANAMA
+62,Gómez,Bugaba,PANAMA
+63,La Concepción,Bugaba,PANAMA
+64,La Estrella,Bugaba,PANAMA
+65,San Andrés,Bugaba,PANAMA
+66,San Isidro,Bugaba,PANAMA
+67,Santa María,Bugaba,PANAMA
+68,Santa Rosa,Bugaba,PANAMA
+69,Santo Domingo,Bugaba,PANAMA
+70,Solano,Bugaba,PANAMA
+71,Sortová,Bugaba,PANAMA
+72,Bijagual,David,PANAMA
+73,Chiriquí,David,PANAMA
+74,Cochea,David,PANAMA
+75,David,David,PANAMA
+76,David Este,David,PANAMA
+77,David Sur,David,PANAMA
+78,Guacá,David,PANAMA
+79,Las Lomas,David,PANAMA
+80,Pedregal,David,PANAMA
+81,San Carlos,David,PANAMA
+82,San Pablo Nuevo,David,PANAMA
+83,San Pablo Viejo,David,PANAMA
+84,Dolega,Dolega,PANAMA
+85,Dos Ríos,Dolega,PANAMA
+86,Los Algarrobos,Dolega,PANAMA
+87,Los Anastacios,Dolega,PANAMA
+88,Potrerillos,Dolega,PANAMA
+89,Potrerillos Abajo,Dolega,PANAMA
+90,Rovira,Dolega,PANAMA
+91,Tinajas,Dolega,PANAMA
+92,Gualaca,Gualaca,PANAMA
+93,Hornito,Gualaca,PANAMA
+94,Los Angeles,Gualaca,PANAMA
+95,Paja de Sombrero,Gualaca,PANAMA
+96,Rincón,Gualaca,PANAMA
+97,El Nancito,Remedios,PANAMA
+98,El Porvenir,Remedios,PANAMA
+99,El Puerto,Remedios,PANAMA
+100,Remedios,Remedios,PANAMA
+101,Santa Lucía,Remedios,PANAMA
+102,Breñón,Renacimiento,PANAMA
+103,Cañas Gordas,Renacimiento,PANAMA
+104,Dominical,Renacimiento,PANAMA
+105,Monte Lirio,Renacimiento,PANAMA
+106,Plaza de Caizán,Renacimiento,PANAMA
+107,Río Sereno,Renacimiento,PANAMA
+108,Santa Clara,Renacimiento,PANAMA
+109,Santa Cruz,Renacimiento,PANAMA
+110,Juay,San Félix,PANAMA
+111,Lajas Adentro,San Félix,PANAMA
+112,Las Lajas,San Félix,PANAMA
+113,San Félix,San Félix,PANAMA
+114,Santa Cruz,San Félix,PANAMA
+115,Boca Chica,San Lorenzo,PANAMA
+116,Boca del Monte,San Lorenzo,PANAMA
+117,Horconcitos,San Lorenzo,PANAMA
+118,San Juan,San Lorenzo,PANAMA
+119,San Lorenzo,San Lorenzo,PANAMA
+120,Cerro Punta,Tierras Altas,PANAMA
+121,Cuesta de Piedra,Tierras Altas,PANAMA
+122,Nueva California,Tierras Altas,PANAMA
+123,Paso Ancho,Tierras Altas,PANAMA
+124,Volcán,Tierras Altas,PANAMA
+125,Bella Vista,Tolé,PANAMA
+126,Cerro Viejo,Tolé,PANAMA
+127,El cristo,Tolé,PANAMA
+128,Justo Fidel Palacios,Tolé,PANAMA
+129,Lajas de Tolé,Tolé,PANAMA
+130,Potrero de Caña,Tolé,PANAMA
+131,Quebrada de Piedra,Tolé,PANAMA
+132,Tolé,Tolé,PANAMA
+133,Veladero,Tolé,PANAMA
+134,Aguadulce,Aguadulce,PANAMA
+135,Barrios Unidos,Aguadulce,PANAMA
+136,El Cristo,Aguadulce,PANAMA
+137,El Hato de San Juan de Dios,Aguadulce,PANAMA
+138,El Roble,Aguadulce,PANAMA
+139,Pocrí,Aguadulce,PANAMA
+140,Pueblo Unidos,Aguadulce,PANAMA
+141,Virgen del Carmen,Aguadulce,PANAMA
+142,Antón,Antón,PANAMA
+143,Caballero,Antón,PANAMA
+144,Cabuya,Antón,PANAMA
+145,El Chirú,Antón,PANAMA
+146,El Retiro,Antón,PANAMA
+147,El Valle,Antón,PANAMA
+148,Juan Díaz,Antón,PANAMA
+149,Río Hato,Antón,PANAMA
+150,San Juan de Dios,Antón,PANAMA
+151,Santa Rita,Antón,PANAMA
+152,El Harino,La Pintada,PANAMA
+153,El Potrero,La Pintada,PANAMA
+154,La Pintada,La Pintada,PANAMA
+155,Las Lomas,La Pintada,PANAMA
+156,Llano Grande,La Pintada,PANAMA
+157,Llano Norte,La Pintada,PANAMA
+158,Piedras Gordas,La Pintada,PANAMA
+159,Capellanía,Natá,PANAMA
+160,El Caño,Natá,PANAMA
+161,Guzmán,Natá,PANAMA
+162,Las Huacas,Natá,PANAMA
+163,Natá,Natá,PANAMA
+164,Toza,Natá,PANAMA
+165,Villareal,Natá,PANAMA
+166,El Copé,Olá,PANAMA
+167,El Palmar,Olá,PANAMA
+168,El Picacho,Olá,PANAMA
+169,La Pava,Olá,PANAMA
+170,Olá,Olá,PANAMA
+171,Cañaveral,Penonomé,PANAMA
+172,Chiguirí Arriba,Penonomé,PANAMA
+173,Coclé,Penonomé,PANAMA
+174,El Coco,Penonomé,PANAMA
+175,Pajonal,Penonomé,PANAMA
+176,Penonomé,Penonomé,PANAMA
+177,Río Grande,Penonomé,PANAMA
+178,Río Indio,Penonomé,PANAMA
+179,Toabré,Penonomé,PANAMA
+180,Tulú,Penonomé,PANAMA
+181,Achiote,Chagres,PANAMA
+182,El Guabo,Chagres,PANAMA
+183,La Encantada,Chagres,PANAMA
+184,Nuevo Chagres,Chagres,PANAMA
+185,Palmas Bellas,Chagres,PANAMA
+186,Piña,Chagres,PANAMA
+187,Salud,Chagres,PANAMA
+188,Barrio Norte,Colón,PANAMA
+189,Barrio Sur,Colón,PANAMA
+190,Buena Vista,Colón,PANAMA
+191,Cativá,Colón,PANAMA
+192,Ciricito,Colón,PANAMA
+193,Cristóbal,Colón,PANAMA
+194,Cristóbal Este,Colón,PANAMA
+195,Escobal,Colón,PANAMA
+196,Limón,Colón,PANAMA
+197,Nueva Providencia,Colón,PANAMA
+198,Puerto Pilón,Colón,PANAMA
+199,Sabanitas,Colón,PANAMA
+200,Salamanca,Colón,PANAMA
+201,San Juan,Colón,PANAMA
+202,Santa Rosa,Colón,PANAMA
+203,Coclé del Norte,Donoso,PANAMA
+204,El Guásimo,Donoso,PANAMA
+205,Gobea,Donoso,PANAMA
+206,Miguel de la Borda,Donoso,PANAMA
+207,Río Indio,Donoso,PANAMA
+208,Nueva Esperanza,Omar Torrijos Herrera,PANAMA
+209,San José del General,Omar Torrijos Herrera,PANAMA
+210,San Juan de Turbe,Omar Torrijos Herrera,PANAMA
+211,Cacique,Portobelo,PANAMA
+212,Garrote,Portobelo,PANAMA
+213,Isla Grande,Portobelo,PANAMA
+214,María Chiquita,Portobelo,PANAMA
+215,Portobelo,Portobelo,PANAMA
+216,Cuango,Santa Isabel,PANAMA
+217,Miramar,Santa Isabel,PANAMA
+218,Nombre de Dios,Santa Isabel,PANAMA
+219,Palenque,Santa Isabel,PANAMA
+220,Palmira,Santa Isabel,PANAMA
+221,Playa Chiquita,Santa Isabel,PANAMA
+222,Santa Isabel,Santa Isabel,PANAMA
+223,Viento Frio,Santa Isabel,PANAMA
+224,Camogantí,Chepigana,PANAMA
+225,Chepigana,Chepigana,PANAMA
+226,Garachiné,Chepigana,PANAMA
+227,Jaqué,Chepigana,PANAMA
+228,La Palma,Chepigana,PANAMA
+229,Puerto Piña,Chepigana,PANAMA
+230,Sambú,Chepigana,PANAMA
+231,Setegantí,Chepigana,PANAMA
+232,Taimatí,Chepigana,PANAMA
+233,Tucutí,Chepigana,PANAMA
+234,Boca de Cupe,Pinogana,PANAMA
+235,El Real de Santa María,Pinogana,PANAMA
+236,Metetí,Pinogana,PANAMA
+237,Paya,Pinogana,PANAMA
+238,Pinogana,Pinogana,PANAMA
+239,Púcuro,Pinogana,PANAMA
+240,Wargandí,Pinogana,PANAMA
+241,Yape,Pinogana,PANAMA
+242,Yaviza,Pinogana,PANAMA
+243,Agua Fría,Santa Fe,PANAMA
+244,Calovébora,Santa Fe,PANAMA
+245,Cucunatí,Santa Fe,PANAMA
+246,El Alto,Santa Fe,PANAMA
+247,El Cuay,Santa Fe,PANAMA
+248,El Pantano,Santa Fe,PANAMA
+249,Gatuncito,Santa Fe,PANAMA
+250,Río Congo,Santa Fe,PANAMA
+251,Río Congo Arriba,Santa Fe,PANAMA
+252,Río Iglesias,Santa Fe,PANAMA
+253,Río Luis,Santa Fe,PANAMA
+254,Rubén Cantú,Santa Fe,PANAMA
+255,Santa Fe,Santa Fe,PANAMA
+256,Zapallal,Santa Fe,PANAMA
+257,Chitré,Chitré,PANAMA
+258,La Arena,Chitré,PANAMA
+259,Llano Bonito,Chitré,PANAMA
+260,Monagrillo,Chitré,PANAMA
+261,San Juan Bautista,Chitré,PANAMA
+262,Chepo,Las Minas,PANAMA
+263,Chumical,Las Minas,PANAMA
+264,El Toro,Las Minas,PANAMA
+265,Las Minas,Las Minas,PANAMA
+266,Leones,Las Minas,PANAMA
+267,Quebrada del Rosario,Las Minas,PANAMA
+268,Quebrada El Ciprián,Las Minas,PANAMA
+269,El Calabacito,Los Pozos,PANAMA
+270,El Capurí,Los Pozos,PANAMA
+271,El Cedro,Los Pozos,PANAMA
+272,La Arena,Los Pozos,PANAMA
+273,La Pitaloza,Los Pozos,PANAMA
+274,Las Llanas,Los Pozos,PANAMA
+275,Los Cerritos,Los Pozos,PANAMA
+276,Los Cerros de Paja,Los Pozos,PANAMA
+277,Los Pozos,Los Pozos,PANAMA
+278,Cerro Largo,Ocú,PANAMA
+279,El Tijera,Ocú,PANAMA
+280,Entradero del Castillo,Ocú,PANAMA
+281,Llano Grande,Ocú,PANAMA
+282,Los Llanos,Ocú,PANAMA
+283,Menchaca,Ocú,PANAMA
+284,Ocú,Ocú,PANAMA
+285,Peñas Chatas,Ocú,PANAMA
+286,Cabuya,Parita,PANAMA
+287,Llano de la Cruz,Parita,PANAMA
+288,Los Castillos,Parita,PANAMA
+289,París,Parita,PANAMA
+290,Parita,Parita,PANAMA
+291,Portobelillo,Parita,PANAMA
+292,Potuga,Parita,PANAMA
+293,El Barrero,Pesé,PANAMA
+294,El Ciruelo,Pesé,PANAMA
+295,El Pájaro,Pesé,PANAMA
+296,El Pedregoso,Pesé,PANAMA
+297,Las Cabras,Pesé,PANAMA
+298,Pesé,Pesé,PANAMA
+299,Rincón Hondo,Pesé,PANAMA
+300,Sabanagrande,Pesé,PANAMA
+301,Chupampa,Santa María,PANAMA
+302,El Limón,Santa María,PANAMA
+303,El Rincon,Santa María,PANAMA
+304,Los Canelos,Santa María,PANAMA
+305,Santa María,Santa María,PANAMA
+306,El Espiral,Guararé,PANAMA
+307,El Hato,Guararé,PANAMA
+308,El Macano,Guararé,PANAMA
+309,Guararé,Guararé,PANAMA
+310,Guararé Arriba,Guararé,PANAMA
+311,La Enea,Guararé,PANAMA
+312,La Pasera,Guararé,PANAMA
+313,Las Trancas,Guararé,PANAMA
+314,Llano Abajo,Guararé,PANAMA
+315,Perales,Guararé,PANAMA
+316,Bajo Corral,Las Tablas,PANAMA
+317,Bayano,Las Tablas,PANAMA
+318,El Carate,Las Tablas,PANAMA
+319,El Cocal,Las Tablas,PANAMA
+320,El Manantial,Las Tablas,PANAMA
+321,El Muñoz,Las Tablas,PANAMA
+322,El Pedregoso,Las Tablas,PANAMA
+323,El Sesteadero,Las Tablas,PANAMA
+324,La Laja,Las Tablas,PANAMA
+325,La Miel,Las Tablas,PANAMA
+326,La Palma,Las Tablas,PANAMA
+327,La Tiza,Las Tablas,PANAMA
+328,Las Palmitas,Las Tablas,PANAMA
+329,Las Tablas,Las Tablas,PANAMA
+330,Las Tablas Abajo,Las Tablas,PANAMA
+331,Nuario,Las Tablas,PANAMA
+332,Palmira,Las Tablas,PANAMA
+333,Peña Blanca,Las Tablas,PANAMA
+334,Río Hondo,Las Tablas,PANAMA
+335,Agua Buena,Los Santos,PANAMA
+336,El Ejido,Los Santos,PANAMA
+337,El Guásimo,Los Santos,PANAMA
+338,La Colorada,Los Santos,PANAMA
+339,La Espigadilla,Los Santos,PANAMA
+340,La Villa de Los Santos,Los Santos,PANAMA
+341,Las Cruces,Los Santos,PANAMA
+342,Las Guabas,Los Santos,PANAMA
+343,Llano Largo,Los Santos,PANAMA
+344,Los Ángeles,Los Santos,PANAMA
+345,Los Olivos,Los Santos,PANAMA
+346,Sabanagrande,Los Santos,PANAMA
+347,Santa Ana,Los Santos,PANAMA
+348,Tres Quebradas,Los Santos,PANAMA
+349,Villa Lourdes,Los Santos,PANAMA
+350,Bahía Honda,Macaracas,PANAMA
+351,Bajos de Güera,Macaracas,PANAMA
+352,Chupá,Macaracas,PANAMA
+353,Corozal,Macaracas,PANAMA
+354,El Cedro,Macaracas,PANAMA
+355,Espino Amarillo,Macaracas,PANAMA
+356,La Mesa,Macaracas,PANAMA
+357,Las Palmas,Macaracas,PANAMA
+358,Llano de Piedras,Macaracas,PANAMA
+359,Macaracas,Macaracas,PANAMA
+360,Mogollón,Macaracas,PANAMA
+361,Los Asientos,Pedasí,PANAMA
+362,Mariabé,Pedasí,PANAMA
+363,Oria Arriba,Pedasí,PANAMA
+364,Pedasí,Pedasí,PANAMA
+365,Purio,Pedasí,PANAMA
+366,El Cañafístulo,Pocrí,PANAMA
+367,Lajamina,Pocrí,PANAMA
+368,Paraíso,Pocrí,PANAMA
+369,Paritilla,Pocrí,PANAMA
+370,Pocrí,Pocrí,PANAMA
+371,Altos de Güera,Tonosí,PANAMA
+372,Cambutal,Tonosí,PANAMA
+373,Cañas,Tonosí,PANAMA
+374,El Bebedero,Tonosí,PANAMA
+375,El Cacao,Tonosí,PANAMA
+376,El Cortezo,Tonosí,PANAMA
+377,Flores,Tonosí,PANAMA
+378,Guánico,Tonosí,PANAMA
+379,Isla de Cañas,Tonosí,PANAMA
+380,La Tronosa,Tonosí,PANAMA
+381,Tonosí,Tonosí,PANAMA
+382,La Ensenada,Balboa,PANAMA
+383,La Esmeralda,Balboa,PANAMA
+384,La Guinea,Balboa,PANAMA
+385,Pedro González,Balboa,PANAMA
+386,Sabona,Balboa,PANAMA
+387,San Miguel,Balboa,PANAMA
+388,Cañita,Chepo,PANAMA
+389,Chepillo,Chepo,PANAMA
+390,Chepo,Chepo,PANAMA
+391,El Llano,Chepo,PANAMA
+392,Las Margaritas,Chepo,PANAMA
+393,Madugandí,Chepo,PANAMA
+394,Santa Cruz de Chinina,Chepo,PANAMA
+395,Tortí,Chepo,PANAMA
+396,Brujas,Chimán,PANAMA
+397,Chimán,Chimán,PANAMA
+398,Gonzalo Vásquez,Chimán,PANAMA
+399,Pásiga,Chimán,PANAMA
+400,Unión Santeña,Chimán,PANAMA
+401,24 de Diciembre,Panamá,PANAMA
+402,Alcalde Díaz,Panamá,PANAMA
+403,Ancón,Panamá,PANAMA
+404,Bella Vista,Panamá,PANAMA
+405,Betania,Panamá,PANAMA
+406,Caimitillo,Panamá,PANAMA
+407,Calidonia,Panamá,PANAMA
+408,Chilibre,Panamá,PANAMA
+409,Curundú,Panamá,PANAMA
+410,Don Bosco,Panamá,PANAMA
+411,El Chorrillo,Panamá,PANAMA
+412,Ernesto Córdoba Campos,Panamá,PANAMA
+413,Juan Díaz,Panamá,PANAMA
+414,Las Cumbres,Panamá,PANAMA
+415,Las Garzas,Panamá,PANAMA
+416,Las Mañanitas,Panamá,PANAMA
+417,Pacora,Panamá,PANAMA
+418,Parque Lefevre,Panamá,PANAMA
+419,Pedregal,Panamá,PANAMA
+420,Amelia Denis de Icaza,San Miguelito,PANAMA
+421,Arnulfo Arias,San Miguelito,PANAMA
+422,Belisario Frías,San Miguelito,PANAMA
+423,Belisario Porras,San Miguelito,PANAMA
+424,José Domingo Espinar,San Miguelito,PANAMA
+425,Mateo Iturralde,San Miguelito,PANAMA
+426,Omar Torrijos,San Miguelito,PANAMA
+427,Rufina Alfaro,San Miguelito,PANAMA
+428,Victoriano Lorenzo,San Miguelito,PANAMA
+429,Otoque Occidente,Taboga,PANAMA
+430,Otoque Oriente,Taboga,PANAMA
+431,Taboga,Taboga,PANAMA
+432,Arraiján,Arraiján,PANAMA
+433,Burunga,Arraiján,PANAMA
+434,Cerro Silvestre,Arraiján,PANAMA
+435,Juan Demóstenes Arosemena,Arraiján,PANAMA
+436,Nuevo Esplendor,Arraiján,PANAMA
+437,Santa Clara,Arraiján,PANAMA
+438,Veracruz,Arraiján,PANAMA
+439,Vista Alegre,Arraiján,PANAMA
+440,Caimito,Capira,PANAMA
+441,Campana,Capira,PANAMA
+442,Capira,Capira,PANAMA
+443,Cermeño,Capira,PANAMA
+444,Cirí de Los Sotos,Capira,PANAMA
+445,Cirí Grande,Capira,PANAMA
+446,El Cacao,Capira,PANAMA
+447,La Trinidad,Capira,PANAMA
+448,Las Ollas Arriba,Capira,PANAMA
+449,Lídice,Capira,PANAMA
+450,Santa Rosa,Capira,PANAMA
+451,Villa Carmen,Capira,PANAMA
+452,Villa Rosario,Capira,PANAMA
+453,Bejuco,Chame,PANAMA
+454,Buenos Aires,Chame,PANAMA
+455,Cabuya,Chame,PANAMA
+456,Chame,Chame,PANAMA
+457,Chicá,Chame,PANAMA
+458,El Líbano,Chame,PANAMA
+459,Las Lajas,Chame,PANAMA
+460,Nueva Gorgona,Chame,PANAMA
+461,Punta Chame,Chame,PANAMA
+462,Sajalices,Chame,PANAMA
+463,Sorá,Chame,PANAMA
+464,Amador,La Chorrera,PANAMA
+465,Arosemena,La Chorrera,PANAMA
+466,Barrio Balboa,La Chorrera,PANAMA
+467,Barrio Colón,La Chorrera,PANAMA
+468,El Arado,La Chorrera,PANAMA
+469,El Coco,La Chorrera,PANAMA
+470,Feuillet,La Chorrera,PANAMA
+471,Guadalupe,La Chorrera,PANAMA
+472,Herrera,La Chorrera,PANAMA
+473,Hurtado,La Chorrera,PANAMA
+474,Iturralde,La Chorrera,PANAMA
+475,La Represa,La Chorrera,PANAMA
+476,Los Díaz,La Chorrera,PANAMA
+477,Mendoza,La Chorrera,PANAMA
+478,Obaldía,La Chorrera,PANAMA
+479,Playa Leona,La Chorrera,PANAMA
+480,Puerto Caimito,La Chorrera,PANAMA
+481,Santa Rita,La Chorrera,PANAMA
+482,El Espino,San Carlos,PANAMA
+483,El Higo,San Carlos,PANAMA
+484,Guayabito,San Carlos,PANAMA
+485,La Ermita,San Carlos,PANAMA
+486,La Laguna,San Carlos,PANAMA
+487,Las Uvas,San Carlos,PANAMA
+488,Los Llanitos,San Carlos,PANAMA
+489,San Carlos,San Carlos,PANAMA
+490,San José,San Carlos,PANAMA
+491,El Barrito,Atalaya,PANAMA
+492,El Carrillo,Atalaya,PANAMA
+493,La Montañuela,Atalaya,PANAMA
+494,San Antonio,Atalaya,PANAMA
+495,Barnizal,Calobre,PANAMA
+496,Calobre,Calobre,PANAMA
+497,Chitra,Calobre,PANAMA
+498,La Cocla,Calobre,PANAMA
+499,El Potrero,Calobre,PANAMA
+500,La Laguna,Calobre,PANAMA
+501,La Raya de Calobre,Calobre,PANAMA
+502,La Tetilla,Calobre,PANAMA
+503,La Yeguada,Calobre,PANAMA
+504,Las Guías,Calobre,PANAMA
+505,Monjarás,Calobre,PANAMA
+506,San José,Calobre,PANAMA
+507,Cañazas,Cañazas,PANAMA
+508,Cerro de Plata,Cañazas,PANAMA
+509,El Aromillo,Cañazas,PANAMA
+510,El Picador,Cañazas,PANAMA
+511,Las Cruces,Cañazas,PANAMA
+512,Los Valles,Cañazas,PANAMA
+513,San José,Cañazas,PANAMA
+514,San Marcelo,Cañazas,PANAMA
+515,Bisvalles,La Mesa,PANAMA
+516,Boró,La Mesa,PANAMA
+517,El Higo,La Mesa,PANAMA
+518,La Mesa,La Mesa,PANAMA
+519,Llano Grande,La Mesa,PANAMA
+520,Los Milagros,La Mesa,PANAMA
+521,San Bartolo,La Mesa,PANAMA
+522,Cerro de Casa,Las Palmas,PANAMA
+523,Corozal,Las Palmas,PANAMA
+524,El María,Las Palmas,PANAMA
+525,El Prado,Las Palmas,PANAMA
+526,El Rincón,Las Palmas,PANAMA
+527,Las Palmas,Las Palmas,PANAMA
+528,Lolá,Las Palmas,PANAMA
+529,Manuel E. Amador Terrero,Las Palmas,PANAMA
+530,Pixvae,Las Palmas,PANAMA
+531,Puerto Vidal,Las Palmas,PANAMA
+532,San Martín de Porres,Las Palmas,PANAMA
+533,Voguí,Las Palmas,PANAMA
+534,Zapotillo,Las Palmas,PANAMA
+535,Arenas,Mariato,PANAMA
+536,El Cacao,Mariato,PANAMA
+537,Mariato,Mariato,PANAMA
+538,Quebro,Mariato,PANAMA
+539,Tebario,Mariato,PANAMA
+540,Cébaco,Montijo,PANAMA
+541,Costa Hermosa,Montijo,PANAMA
+542,Gobernadora,Montijo,PANAMA
+543,La Garceana,Montijo,PANAMA
+544,Leones,Montijo,PANAMA
+545,Montijo,Montijo,PANAMA
+546,Pilón,Montijo,PANAMA
+547,Unión del Norte,Montijo,PANAMA
+548,14 de Noviembre,Río de Jesús,PANAMA
+549,Las Huacas,Río de Jesús,PANAMA
+550,Los Castillos,Río de Jesús,PANAMA
+551,Río de Jesús,Río de Jesús,PANAMA
+552,Utira,Río de Jesús,PANAMA
+553,Corral Falso,San Francisco,PANAMA
+554,Los Hatillos,San Francisco,PANAMA
+555,Remance,San Francisco,PANAMA
+556,San Francisco,San Francisco,PANAMA
+557,San José,San Francisco,PANAMA
+558,San Juan,San Francisco,PANAMA
+559,Canto del Llano,Santiago,PANAMA
+560,Carlos Santana Ávila,Santiago,PANAMA
+561,Edwin Fábrega,Santiago,PANAMA
+562,La Colorada,Santiago,PANAMA
+563,La Peña,Santiago,PANAMA
+564,La Raya de Santa María,Santiago,PANAMA
+565,Los Algarrobos,Santiago,PANAMA
+566,Nuevo Santiago,Santiago,PANAMA
+567,Ponuga,Santiago,PANAMA
+568,Rodriogo Luque,Santiago,PANAMA
+569,San Martín de Porres,Santiago,PANAMA
+570,San Pedro del Espino,Santiago,PANAMA
+571,Santiago,Santiago,PANAMA
+572,Santiago Este,Santiago,PANAMA
+573,Santiago Sur,Santiago,PANAMA
+574,Urracá,Santiago,PANAMA
+575,Bahía Honda,Soná,PANAMA
+576,Calidonia,Soná,PANAMA
+577,Cativé,Soná,PANAMA
+578,El Marañon,Soná,PANAMA
+579,Guarumal,Soná,PANAMA
+580,Hicaco,Soná,PANAMA
+581,La Soledad,Soná,PANAMA
+582,La Trinchera,Soná,PANAMA
+583,Quebrada de Oro,Soná,PANAMA
+584,Río Grande,Soná,PANAMA
+585,Rodeo Viejo,Soná,PANAMA
+586,Soná,Soná,PANAMA
+587,Cirilo Guaynora,Cémaco,PANAMA
+588,Lajas Blancas,Cémaco,PANAMA
+589,Manuel Ortega,Cémaco,PANAMA
+590,Jingurudó,Sambú,PANAMA
+591,Río Sabalo,Sambú,PANAMA
+592,Ailigandí,Guna Yala,PANAMA
+593,Narganá,Guna Yala,PANAMA
+594,Puerto Obaldía,Guna Yala,PANAMA
+595,Tubualá,Guna Yala,PANAMA
+596,Boca de Balsa,Besikó,PANAMA
+597,Camarón Arriba,Besikó,PANAMA
+598,Cerro Banco,Besikó,PANAMA
+599,Cerro Patena,Besikó,PANAMA
+600,Emplanada de Chorcha,Besikó,PANAMA
+601,Nämnoní,Besikó,PANAMA
+602,Niba,Besikó,PANAMA
+603,Soloy,Besikó,PANAMA
+604,Burí,Jirondai,PANAMA
+605,Guariviara,Jirondai,PANAMA
+606,Man Creek,Jirondai,PANAMA
+607,Samboa,Jirondai,PANAMA
+608,Tuwai,Jirondai,PANAMA
+609,Bisira,Kankintú,PANAMA
+610,Calante,Kankintú,PANAMA
+611,Guoroní,Kankintú,PANAMA
+612,Kankintú,Kankintú,PANAMA
+613,Mününí,Kankintú,PANAMA
+614,Piedra Roja,Kankintú,PANAMA
+615,Tolote,Kankintú,PANAMA
+616,Bahía Azul,Kusapín,PANAMA
+617,Cañaveral,Kusapín,PANAMA
+618,Kusapín,Kusapín,PANAMA
+619,Río Chiriquí,Kusapín,PANAMA
+620,Tobobé,Kusapín,PANAMA
+621,Cascabel,Mironó,PANAMA
+622,Hato Corotú,Mironó,PANAMA
+623,Hato Culantro,Mironó,PANAMA
+624,Hato Jobo,Mironó,PANAMA
+625,Hato Julí,Mironó,PANAMA
+626,Hato Pilón,Mironó,PANAMA
+627,Quebrada de Loro,Mironó,PANAMA
+628,Salto Dupí,Mironó,PANAMA
+629,Alto Caballero,Müna,PANAMA
+630,Bakama,Müna,PANAMA
+631,Cerro Caña,Müna,PANAMA
+632,Cerro Puerco,Müna,PANAMA
+633,Chichica,Müna,PANAMA
+634,Dikeri,Müna,PANAMA
+635,Diko,Müna,PANAMA
+636,Kikari,Müna,PANAMA
+637,Krüa,Müna,PANAMA
+638,Maraca,Müna,PANAMA
+639,Mreeni,Müna,PANAMA
+640,Nibra,Müna,PANAMA
+641,Peña Blanca,Müna,PANAMA
+642,Roka,Müna,PANAMA
+643,Sitio Prado,Müna,PANAMA
+644,Umaní,Müna,PANAMA
+645,Cerro Iglesias,Nole Düima,PANAMA
+646,Hato Chamí,Nole Düima,PANAMA
+647,Jädeberi,Nole Düima,PANAMA
+648,Lajero,Nole Düima,PANAMA
+649,Susama,Nole Düima,PANAMA
+650,Agua Salud,Ñürüm,PANAMA
+651,Alto de Jesús,Ñürüm,PANAMA
+652,Buenos Aires,Ñürüm,PANAMA
+653,Cerro Pelado,Ñürüm,PANAMA
+654,El Bale,Ñürüm,PANAMA
+655,El Parodón,Ñürüm,PANAMA
+656,El Peñón,Ñürüm,PANAMA
+657,El Piro,Ñürüm,PANAMA
+658,El Piro N°2,Ñürüm,PANAMA
+659,Guayabito,Ñürüm,PANAMA
+660,Güibale,Ñürüm,PANAMA
+661,Alto Bilingüe,Santa Catalina o Calovébora,PANAMA
+662,Loma Yuca,Santa Catalina o Calovébora,PANAMA
+663,San Pedrito,Santa Catalina o Calovébora,PANAMA
+664,Santa Catalina o Calovébora,Santa Catalina o Calovébora,PANAMA
+665,Valle Bonito,Santa Catalina o Calovébora,PANAMA

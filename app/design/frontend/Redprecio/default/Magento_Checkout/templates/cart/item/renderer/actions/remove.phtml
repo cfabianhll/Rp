@@ -8,9 +8,23 @@
 
 /** @var $block \Magento\Checkout\Block\Cart\Item\Renderer\Actions\Remove */
 ?>
+<button type="submit"
+    name="update_cart_action"
+    data-cart-item-update=""
+    value="update_qty"
+    title="<?= $block->escapeHtml(__('Update Shopping Cart')) ?>"
+    class="action update" 
+    style="
+    display: none;
+    cursor: pointer;
+    background: #ffffff;
+    color: #4d4d4d;
+    font-weight: 600;">
+<span><?= $block->escapeHtml(__('Update Shopping Cart')) ?></span>
+</button>
 <a href="#"
    title="<?= $block->escapeHtml(__('Remove item')) ?>"
    class="Remove_de action action-delete remove_from"
    data-post='<?= /* @escapeNotVerified */ $block->getDeletePostJson() ?>'>
-    <i class="far fa-trash-alt"></i>
+    <span><?= $block->escapeHtml(__('Remove item')) ?></span>
 </a>

@@ -13,6 +13,7 @@
     "require": {
         "liquid/liquid": "~1.4",
         "magento/product-community-edition": "2.3.3",
+        "magepal/magento2-preview-checkout-success-page": "^1.0",
         "zf1/zend-reflection": "*"
     },
     "require-dev": {

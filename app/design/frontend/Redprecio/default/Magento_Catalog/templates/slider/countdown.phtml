@@ -63,7 +63,6 @@ if ($dailydeals && $dailydeals->count() && $enable):
 									</script>
 									<?php if ($_product->isSaleable()): ?>
 										<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" data-role="tocart-form" class="action tocart primary btn theme_btn img_btn hvr-wobble-vertical"><img src="<?php echo $block->getViewFileUrl('images/cart_bg.png'); ?>"></button>
-										<!--<a class="btn theme_btn img_btn bss-quickview hovercart" title="<?php //echo $block->escapeHtml(__('Quick View')); ?>"  data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><img src="<?php //echo $block->getViewFileUrl('images/eye.png'); ?>"></a>-->
 									<?php else: ?>
 										<?php if ($_product->isAvailable()): ?>
 											<div class="display_hvr"><div class="stock available btn btn_red"><span><?= /* @escapeNotVerified */ __('In stock') ?></span></div></div>

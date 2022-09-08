@@ -26,33 +26,8 @@
                          </container>
                     </container>
                 </container>
-        <!-- <container name="banner.Section" htmlClass="banner_Section" htmlTag="section" after="columns">
-			<container name="banner.Section.row" htmlClass="row" htmlTag="div" after="-">
-				<container name="banner.Section.row.col-12" htmlClass="col-12" htmlTag="div" after="-">
-					<container name="banner.Section.row.col-12.pre_order_content" htmlClass="pre_order_content" htmlTag="div" after="-">
-						<container name="banner.Section.row.col-12.pre_order_content.section_title" htmlClass="section_title text-center mb-0" htmlTag="div" after="-">
-						</container>
-					</container>
-				</container>
-			</container>
-		</container> -->
-		<!-- <container name="showing.result" htmlClass="showing_result" htmlTag="section" after="banner.Section">
-			<container name="showing.result.row" htmlClass="row align-items-center" htmlTag="div" after="-">
-				<container name="showing.result.row.col-12" htmlClass="col-12 col-md-6" htmlTag="div" after="-">
-				</container>
-				<container name="showing.result.row.col-12.sorter" htmlClass="col-12 col-md-6 text-md-right" htmlTag="div" after="showing.result.row.col-12">
-					<block class="Magento\Catalog\Block\Product\ProductList\Toolbar" name="product_list_toolbar" template="Magento_Catalog::product/list/toolbar.phtml">
-                        <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager"/>
-						<action method="setToolbarBlockName">
-                        <argument name="name" xsi:type="string">product_list_toolbar</argument>
-                    </action>
-                    </block>
-                    
-				</container>
-			</container>
-		</container> -->
 		</referenceContainer>
-		
+
 		<move element="page.main.title" destination="main.content" after="breadcrumbs" />
 		<move element="breadcrumbs" destination="breadcum.view.cols.category" before="page.main.title" />
 		<move element="category.products" destination="main.content" after="-" />

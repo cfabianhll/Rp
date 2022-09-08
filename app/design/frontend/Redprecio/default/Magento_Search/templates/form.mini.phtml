@@ -13,29 +13,32 @@ $helper = $this->helper(\Magento\Search\Helper\Data::class);
 ?>
  
     <form class="drop_search_box form minisearch search_form" id="search_mini_form" action="<?= /* @escapeNotVerified */ $helper->getResultUrl() ?>" method="get">
-		<div class="header_search">
-			<input id="search"
-				   data-mage-init='{"quickSearch":{
-						"formSelector":"#search_mini_form",
-						"url":"<?= /* @escapeNotVerified */ $helper->getSuggestUrl()?>",
-						"destinationSelector":"#search_autocomplete"}
-				   }'
-				   type="text"
-				   name="<?= /* @escapeNotVerified */ $helper->getQueryParamName() ?>"
-				   value="<?= /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>"
-				   placeholder="<?= /* @escapeNotVerified */ __('Search any product  here') ?>"
-				   class="form-control input_search_main input-text search_text"
-				   maxlength="<?= /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>"
-				   role="combobox"
-				   aria-haspopup="false"
-				   aria-autocomplete="both"
-				   autocomplete="off"/>
-				   <div id="search_autocomplete" class="search-autocomplete"></div>
-			<?php  $block->getChildHtml() ?>            
-			<button type="submit"
-				title="<?= $block->escapeHtml(__('Search')) ?>"
-				class="search_btn action search"
-				aria-label="Search"
-			><img src="<?php echo $block->getViewFileUrl('images/search.png'); ?> "></button>
+		
+			<div class="header_search">
+			<div class="search_group">
+				<input id="search"
+					data-mage-init='{"quickSearch":{
+							"formSelector":"#search_mini_form",
+							"url":"<?= /* @escapeNotVerified */ $helper->getSuggestUrl()?>",
+							"destinationSelector":"#search_autocomplete"}
+					}'
+					type="text"
+					name="<?= /* @escapeNotVerified */ $helper->getQueryParamName() ?>"
+					value="<?= /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>"
+					placeholder="<?= /* @escapeNotVerified */ __('Search any product  here') ?>"
+					class="form-control input_search_main input-text search_text"
+					maxlength="<?= /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>"
+					role="combobox"
+					aria-haspopup="false"
+					aria-autocomplete="both"
+					autocomplete="off"/>
+					<button type="submit"
+					title="<?= $block->escapeHtml(__('Search')) ?>"
+					class="search_btn action search"
+					aria-label="Search"
+				><img src="<?php echo $block->getViewFileUrl('images/search.svg'); ?> "></button>
+				</div>
+					<div id="search_autocomplete" class="search-autocomplete"></div>
+				<?php  $block->getChildHtml() ?>            
 		</div>
     </form>

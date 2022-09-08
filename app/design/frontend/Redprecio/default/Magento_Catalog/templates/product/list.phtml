@@ -18,6 +18,11 @@ use Magento\Framework\App\Action\Action;
 <?php
 $_productCollection = $block->getLoadedProductCollection();
 $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$sourceDataBySku = $objectManager->get('\Magento\InventoryCatalogAdminUi\Model\GetSourceItemsDataBySku');
+$getSourceItemsBySku = $objectManager->get('Magento\InventoryApi\Api\GetSourceItemsBySkuInterface');
+$sourceRepository = $objectManager->get('Magento\InventoryApi\Api\SourceRepositoryInterface');
+
 ?>
 <?php if (!$_productCollection->count()) :?>
     <div class="message info empty"><div><?= $block->escapeHtml(__('We can\'t find products matching the selection.')) ?></div></div>
@@ -45,21 +50,37 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
     ?>
 	<section class="back_white_titlw product_section">
 	<!--<div class="filter_m desktop_visible_one" style="cursor: pointer;" onclick="nav2()"><i class="fas fa-stream"></i></div>-->
-		<?php if($viewMode == "grid") { ?>
+		<?php if ($viewMode == "grid") { ?>
 			<div class="product_listing products wrapper <?= /* @noEscape */ $viewMode ?> products-<?= /* @noEscape */ $viewMode ?>">
 				<div class="row products list items product-items">
 					<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
-					<?php foreach ($_productCollection as $_product) :?>
+					<?php foreach ($_productCollection as $_product) :
+                        $data = $sourceDataBySku->execute($_product->getSku());
+                        $qty=0;
+                        //foreach($data as $source):
+                          //  $qty = $qty + $source['quantity'];
+                        //endforeach;
+                        
+                        $sku = $_product->getSku();
+			
+                        $sourceItems = $getSourceItemsBySku->execute($sku);
+                        foreach ($sourceItems as $sourceItem) {
+                            $source = $sourceRepository->get($sourceItem->getSourceCode());
+                            $qty  = $qty + (float)$sourceItem->getQuantity();
+                    
+                        }
+                        //$qty = $_product->getQty();
+                    ?>
 					<div class="col-lg-3 col-md-4 col-6 item product product-item">
 						<div class="product_div product-item-info" data-container="product-<?= /* @noEscape */ $viewMode ?>">
 							<?php
-							$productImage = $block->getImage($_product, $imageDisplayArea);
-							if ($pos != null) {
-								$position = ' style="left:' . $productImage->getWidth() . 'px;'
-									. 'top:' . $productImage->getHeight() . 'px;"';
-							}
-							?>
-							<?php // Product Image ?>
+                            $productImage = $block->getImage($_product, $imageDisplayArea);
+                            if ($pos != null) {
+                                $position = ' style="left:' . $productImage->getWidth() . 'px;'
+                                    . 'top:' . $productImage->getHeight() . 'px;"';
+                            }
+                            ?>
+							<?php // Product Image?>
 							<a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>"
 							   class="product_img product photo product-item-photo"
 							   tabindex="-1">
@@ -67,8 +88,8 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 							</a>
 							<div class="about_pre_product product details product-item-details">
 								<?php
-									$_productNameStripped = $block->stripTags($_product->getName(), null, true);
-								?>
+                                    $_productNameStripped = $block->stripTags($_product->getName(), null, true);
+                                ?>
 								<strong class="product name product-item-name">
 									<a class="product-item-link"
 									   href="<?= $block->escapeUrl($_product->getProductUrl()) ?>">
@@ -76,21 +97,21 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 									</a>
 								</strong>
 								<?php $orgprice = $_product->getPrice();
-								$specialprice = $_product->getSpecialPrice();
-								$specialfromdate = $_product->getSpecialFromDate();
-								$specialtodate = $_product->getSpecialToDate();
-								$today = time();
-								if (!$specialprice)
-								  $specialprice = $orgprice;
-								if ($specialprice< $orgprice) {
-									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
+                                $specialprice = $_product->getSpecialPrice();
+                                $specialfromdate = $_product->getSpecialFromDate();
+                                $specialtodate = $_product->getSpecialToDate();
+                                $today = time();
+                                if (!$specialprice) {
+                                    $specialprice = $orgprice;
+                                }
+                                if ($specialprice< $orgprice) {
+                                    if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
 										<div class="offer">         
 											<span class="offer_title"><font style="vertical-align: inherit;"><?= $block->escapeHtml(__('Offer')) ?></font></span>
 										</div>
-									<?php } 
-								} ?>
-								<?php if($_product->getNewProduct())
-								{ ?>
+									<?php }
+                                } ?>
+								<?php if ($_product->getNewProduct()) { ?>
 									<div class="new_products">          
 										<span class="new_title"><font style="vertical-align: inherit;"><?= $block->escapeHtml(__('New')) ?> </font></span>
 									</div>
@@ -101,37 +122,36 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								<div class="custom-brand-name">
 								<?php
 
+                                    $manufacturerName = $_product->getAttributeText('manufacturer');
+                                    $manufacturerName = strtolower($manufacturerName);
 
-									$manufacturerName = $_product->getAttributeText('manufacturer');
-									$manufacturerName = strtolower($manufacturerName);
+                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+                                    $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+                                    $connection = $resource->getConnection();
+                                    $tableName = $resource->getTableName('emizentech_shopbybrand_items'); //gives table name with prefix
 
+                                    //Select Data from table
+                                    $sql = "Select name, logo FROM " . $tableName;
+                                    $result = $connection->fetchAll($sql); // gives associated array, table fields as key in array.
 
-									$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
-									$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
-									$connection = $resource->getConnection();
-									$tableName = $resource->getTableName('emizentech_shopbybrand_items'); //gives table name with prefix
+                                    $img = '';
 
-									//Select Data from table
-									$sql = "Select name, logo FROM " . $tableName;
-									$result = $connection->fetchAll($sql); // gives associated array, table fields as key in array.
-
-									$img = '';
-
-									foreach($result as $res) {
-										$brname = strtolower($res['name']);
-										if($brname == $manufacturerName) {
-											if($res['logo']) {
-												$img = $res['logo'];
-											} else {
-												$img = '';
-											}
-										}
-									}
-									//print_r($img);
-									if($img) {
-								?>
-									<img class="img-responsive" src="<?php echo  $this->getUrl().'pub/media/'.$img ?>" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
-								<?php } else { ?>
+                                    foreach ($result as $res) {
+                                        $brname = strtolower($res['name']);
+                                        if ($brname == $manufacturerName) {
+                                            if ($res['logo']) {
+                                                $img = $res['logo'];
+                                            } else {
+                                                $img = '';
+                                            }
+                                        }
+                                    }
+                                    //print_r($img);
+                                    if ($img) {
+                                        ?>
+									<img class="img-responsive" src="<?php echo  $this->getUrl() . 'pub/media/' . $img ?>" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
+								<?php
+                                    } else { ?>
 									<span class="br_name"><?php echo $manufacturerName; ?></span>
 								<?php } ?>
 								</div>
@@ -142,28 +162,34 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								</div>
 								<?php } ?>
 								<?php if ($_product->isAvailable()) :?>
-													<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+													<div class="stock available"><span><?= $block->escapeHtml(__($qty.' en inventario')) ?></span></div>
 								<?php endif; ?>
 					
 								<div class="butt_price_section">
 								<?= /* @noEscape */ $block->getProductPrice($_product) ?>
 								<?php $orgprice = $_product->getPrice();
-								$specialprice = $_product->getSpecialPrice();
-								$specialfromdate = $_product->getSpecialFromDate();
-								$specialtodate = $_product->getSpecialToDate();
-								$today = time();
-								if (!$specialprice)
-								  $specialprice = $orgprice;
-								if ($specialprice< $orgprice) {
-									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) {
-										$savingpct = number_format((float)(100*(($orgprice - $specialprice)/$orgprice)), 0);?>
+                                $specialprice = $_product->getSpecialPrice();
+                                $specialfromdate = $_product->getSpecialFromDate();
+                                $specialtodate = $_product->getSpecialToDate();
+                                $today = time();
+                                if (!$specialprice) {
+                                    $specialprice = $orgprice;
+                                }
+                                if ($specialprice< $orgprice) {
+                                    if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) {
+                                        $savingpct = number_format((float)(100*(($orgprice - $specialprice)/$orgprice)), 0); ?>
 										<div class="money_saved">
 											<span class="price-save-label"><?= __('Save') ?> </span>
-											<span class="price-save-percent"><?php echo " ".$savingpct." %"?></span>
+											<span class="price-save-percent"><?php echo " " . $savingpct . " %"?></span>
 										</div>
-									<?php }
-								}?>
+									<?php
+                                    }
+                                }?>
 								<?php $block->getProductDetailsHtml($_product) ?>
+								<?php if (!$_product->isAvailable()) :?>
+													
+													<div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
+												<?php endif; ?>
 							
 								<div class="product-item-inner display_hvr">
 									<div class="product actions product-item-actions"<?= strpos($pos, $viewMode . '-actions') ? $block->escapeHtmlAttr($position) : '' ?>>
@@ -182,18 +208,25 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 													<?= $block->getBlockHtml('formkey') ?>
 
 													<button type="submit"
+                                                            id="add-to-cart-<?php echo $_product->getId();?>"
 															title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
-															class="btn theme_btn img_btn action tocart primary">
+															class="btn theme_btn img_btn action tocart primary"
+                                                            data-product-id = "<?php echo $_product->getId();?>">
+
 															<img src="<?php echo $this->getViewFileUrl('images/cart.svg');?>" class="mr-2">
 														<span><?= $block->escapeHtmlAttr(__('Add to Cart')) ?></span>
 													</button>
 												</form>
-											<?php else :?>
-												<?php if ($_product->isAvailable()) :?>
-													<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
-												<?php else :?>
-													<div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
-												<?php endif; ?>
+                                                <div class="details_btns_container"
+                                                     data-mage-init='{"Magento_Catalog/js/modal-form": {"product_id": <?php echo $_product->getId();?>}}'
+                                                     data-product-id = "<?php echo $_product->getId();?>">
+                                                    <a class="btn details_btn btn_black_bg">
+                                                        <img src="<?php echo $this->getViewFileUrl('images/btn_home.png');?>"  class="mr-2"><?= __('Free withdrawal in store') ?>
+                                                    </a>
+                                                </div>
+
+										<?php else :?>
+												
 											<?php endif; ?>
 										</div>
 									</div>
@@ -202,7 +235,24 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 							</div>
 						</div>
 					</div>
-					<?php endforeach; ?>
+                        <script>
+                            require(['jquery'], function($){
+                                //your js code here
+                                $('#add-to-cart-<?php echo $_product->getId();?>').click(function (event) {
+                                    var form =  $(this).parent();
+                                    var input = ('<input type="hidden" name="shipping_type" value="delivery">');
+                                    if(!(form.find('input[name=shipping_type]').val())){
+                                        $(form).children().eq(0).after(input);
+                                    }else if(form.find('input[name=shipping_type]').val() === "pickup"){
+                                        form.find('input[name=shipping_type]').replaceWith(input);
+                                        form.find('input[name=pickup_store_id]').remove();
+                                    }
+                                });
+
+                            });
+
+                        </script>
+					<?php endforeach;   ?>
 				</div>
 			</div>
 			<div class="row align-items-center bottom-toolbar" style="display: none;">
@@ -222,24 +272,39 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 		<?php } else { ?>
 			<div class="listing_new_cus">
 			    <?php foreach ($_productCollection as $_product) :?>
+                    <?php $data = $sourceDataBySku->execute($_product->getSku());
+                        $qty=0;
+                        //foreach($data as $source):
+                          //  $qty = $qty + $source['quantity'];
+                        //endforeach;
+                        
+                        $sku = $_product->getSku();
+			
+                        $sourceItems = $getSourceItemsBySku->execute($sku);
+                        foreach ($sourceItems as $sourceItem) {
+                            $source = $sourceRepository->get($sourceItem->getSourceCode());
+                            $qty  = $qty + (float)$sourceItem->getQuantity();
+                    
+                        }
+                    ?>
 					<div class="item product product-item listing_pr">
 					<div class="row">
 						<?php $orgprice = $_product->getPrice();
-								$specialprice = $_product->getSpecialPrice();
-								$specialfromdate = $_product->getSpecialFromDate();
-								$specialtodate = $_product->getSpecialToDate();
-								$today = time();
-								if (!$specialprice)
-								  $specialprice = $orgprice;
-								if ($specialprice< $orgprice) {
-									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
+                                $specialprice = $_product->getSpecialPrice();
+                                $specialfromdate = $_product->getSpecialFromDate();
+                                $specialtodate = $_product->getSpecialToDate();
+                                $today = time();
+                                if (!$specialprice) {
+                                    $specialprice = $orgprice;
+                                }
+                                if ($specialprice< $orgprice) {
+                                    if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) { ?>
 										<div class="offer">         
 											<span class="offer_title"><font style="vertical-align: inherit;"><?= $block->escapeHtml(__('Offer')) ?> </font></span>
 										</div>
-									<?php } 
-								} ?>
-								<?php if($_product->getNewProduct())
-								{ ?>
+									<?php }
+                                } ?>
+								<?php if ($_product->getNewProduct()) { ?>
 									<div class="new_products">          
 										<span class="new_title"><font style="vertical-align: inherit;"><?= $block->escapeHtml(__('New')) ?> </font></span>
 									</div>
@@ -247,13 +312,13 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								
 						<div class="col-12 col-lg-3 col-md-5">
 							<?php
-							$productImage = $block->getImage($_product, $imageDisplayArea);
-							if ($pos != null) {
-								$position = ' style="left:' . $productImage->getWidth() . 'px;'
-									. 'top:' . $productImage->getHeight() . 'px;"';
-							}
-							?>
-							<?php // Product Image ?>
+                            $productImage = $block->getImage($_product, $imageDisplayArea);
+                            if ($pos != null) {
+                                $position = ' style="left:' . $productImage->getWidth() . 'px;'
+                                    . 'top:' . $productImage->getHeight() . 'px;"';
+                            }
+                            ?>
+							<?php // Product Image?>
 							<a href="<?= $block->escapeUrl($_product->getProductUrl()) ?>"
 							   class="listing_img product photo product-item-photo"
 							   tabindex="-1">
@@ -263,8 +328,8 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 						<div class="col-12 col-lg-6 col-md-7">
 							<div class="about_pre_product">
 								<?php
-									$_productNameStripped = $block->stripTags($_product->getName(), null, true);
-								?>
+                                    $_productNameStripped = $block->stripTags($_product->getName(), null, true);
+                                ?>
 								<strong class="product name product-item-name" style="display: inline-block;">
 									<a class="product-item-link"
 									   href="<?= $block->escapeUrl($_product->getProductUrl()) ?>">
@@ -277,37 +342,36 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								<div class="custom-brand-name">
 								<?php
 
+                                    $manufacturerName = $_product->getAttributeText('manufacturer');
+                                    $manufacturerName = strtolower($manufacturerName);
 
-									$manufacturerName = $_product->getAttributeText('manufacturer');
-									$manufacturerName = strtolower($manufacturerName);
+                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+                                    $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+                                    $connection = $resource->getConnection();
+                                    $tableName = $resource->getTableName('emizentech_shopbybrand_items'); //gives table name with prefix
 
+                                    //Select Data from table
+                                    $sql = "Select name, logo FROM " . $tableName;
+                                    $result = $connection->fetchAll($sql); // gives associated array, table fields as key in array.
 
-									$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
-									$resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
-									$connection = $resource->getConnection();
-									$tableName = $resource->getTableName('emizentech_shopbybrand_items'); //gives table name with prefix
+                                    $img = '';
 
-									//Select Data from table
-									$sql = "Select name, logo FROM " . $tableName;
-									$result = $connection->fetchAll($sql); // gives associated array, table fields as key in array.
-
-									$img = '';
-
-									foreach($result as $res) {
-										$brname = strtolower($res['name']);
-										if($brname == $manufacturerName) {
-											if($res['logo']) {
-												$img = $res['logo'];
-											} else {
-												$img = '';
-											}
-										}
-									}
-									//print_r($img);
-									if($img) {
-								?>
-									<img class="img-responsive" src="<?php echo  $this->getUrl().'pub/media/'.$img ?>" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
-								<?php } else { ?>
+                                    foreach ($result as $res) {
+                                        $brname = strtolower($res['name']);
+                                        if ($brname == $manufacturerName) {
+                                            if ($res['logo']) {
+                                                $img = $res['logo'];
+                                            } else {
+                                                $img = '';
+                                            }
+                                        }
+                                    }
+                                    //print_r($img);
+                                    if ($img) {
+                                        ?>
+									<img class="img-responsive" src="<?php echo  $this->getUrl() . 'pub/media/' . $img ?>" alt="<?php echo $manufacturerName; ?>" height="60px" width="60px" />
+								<?php
+                                    } else { ?>
 									<span class="br_name"><?php echo $manufacturerName; ?></span>
 								<?php } ?>
 								</div>
@@ -318,7 +382,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								</div>
 							<?php } ?>
                                 <?php if ($_product->isAvailable()) :?>
-                                <div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+                                <div class="stock available"><span><?= $block->escapeHtml(__($qty.' en inventario')) ?></span></div>
                                 <?php endif; ?>
 								<?php if ($showDescription) :?>
 									<div class="product description product-item-description">
@@ -330,33 +394,34 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 								<?php endif; ?>
 							</div>
 						</div>
-						<?php 
-							$attribute = $_product->getResource()->getAttribute('free_shipping');
-							$attribute_value = $attribute ->getFrontend()->getValue($_product);
-							if ($attribute_value == "Yes")
-							{?>
-							<div class="two"><p class="three"><?php echo "Free Shipping";?></p><?php 
-							 } ?>
+						<?php
+                            $attribute = $_product->getResource()->getAttribute('free_shipping');
+                            $attribute_value = $attribute->getFrontend()->getValue($_product);
+                            if ($attribute_value == "Yes") {?>
+							<div class="two"><p class="three"><?php echo "Free Shipping";?></p><?php
+                             } ?>
 						<div class="col-12 col-md-7 offset-md-5 offset-lg-0 col-lg-3">
 							<div class="custom-price-stock-list">
 							
 								<?= /* @noEscape */ $block->getProductPrice($_product) ?>
 								<?php $orgprice = $_product->getPrice();
-								$specialprice = $_product->getSpecialPrice();
-								$specialfromdate = $_product->getSpecialFromDate();
-								$specialtodate = $_product->getSpecialToDate();
-								$today = time();
-								if (!$specialprice)
-								  $specialprice = $orgprice;
-								if ($specialprice< $orgprice) {
-									if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) {
-										$savingpct = number_format((float)(100*(($orgprice - $specialprice)/$orgprice)), 0);?>
+                                $specialprice = $_product->getSpecialPrice();
+                                $specialfromdate = $_product->getSpecialFromDate();
+                                $specialtodate = $_product->getSpecialToDate();
+                                $today = time();
+                                if (!$specialprice) {
+                                    $specialprice = $orgprice;
+                                }
+                                if ($specialprice< $orgprice) {
+                                    if ((is_null($specialfromdate) &&is_null($specialtodate)) || ($today >= strtotime($specialfromdate) &&is_null($specialtodate)) || ($today <= strtotime($specialtodate) &&is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))) {
+                                        $savingpct = number_format((float)(100*(($orgprice - $specialprice)/$orgprice)), 0); ?>
 										<div class="money_saved">
 											<span class="price-save-label"><?= __('Save') ?> </span>
-											<span class="price-save-percent"><?php echo " ".$savingpct." %"?></span>
+											<span class="price-save-percent"><?php echo " " . $savingpct . " %"?></span>
 										</div>
-									<?php }
-								}?>
+									<?php
+                                    }
+                                }?>
 							 </div>
 							<div class="carts_btns">
 								<div class="product-item-inner">
@@ -367,15 +432,15 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 												<form data-role="tocart-form"
 													  data-product-sku="<?= $block->escapeHtml($_product->getSku()) ?>"
 													  action="<?= $block->escapeUrl($postParams['action']) ?>"
-													  method="post">
+													  method="post"
+                                                      id="add-to-cart-<?php echo $_product->getId();?>'">
 													<input type="hidden"
 														   name="product"
 														   value="<?= /* @noEscape */ $postParams['data']['product'] ?>">
 													<input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>"
-														   value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+														   value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>"
+                                                           id="add-to-cart-<?php echo $_product->getId();?>'">
 													<?= $block->getBlockHtml('formkey') ?>
-													<!-- <a class="btn theme_btn img_btn bss-quickview hovercart" title="<?php //echo $block->escapeHtml(__('Quick View')); ?>"  data-toggle="modal" data-target="#product_quickview" data-quickview-url="" href="javascript:void(0)"><i class="fas fa-eye"></i>
-													<?php //echo $block->escapeHtml(__('Quick View')); ?></a> -->
 													<button type="submit"
 															title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
 															class="btn theme_btn img_btn mb-3 hvr-wobble-vertical action tocart primary">
@@ -386,7 +451,7 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 												</form>
 											<?php else :?>
 												<?php if ($_product->isAvailable()) :?>
-													<div class="stock available"><span><?= $block->escapeHtml(__('In stock')) ?></span></div>
+													<div class="stock available"><span><?= $block->escapeHtml(__($qty.' en inventario')) ?></span></div>
 												<?php else :?>
 													<div class="stock unavailable"><span><?= $block->escapeHtml(__('Out of stock')) ?></span></div>
 												<?php endif; ?>
@@ -398,6 +463,27 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 						</div>
 					</div>
 				</div>
+                        <script>
+                            require(['jquery'], function($){
+                                //your js code here
+                                $('#add-to-cart-<?php echo $_product->getId();?>').click(function (event) {
+                                    var form =  $(this).parent();
+                                    if(form.is(':input')){
+                                        form = $(this).parent().parent().parent().parent();
+                                        console.log(form);
+                                    }
+                                    var input = ('<input type="hidden" name="shipping_type" value="delivery">');
+                                    if(!(form.find('input[name=shipping_type]').val())){
+                                        $(form).children().eq(0).after(input);
+                                    }else if(form.find('input[name=shipping_type]').val() === "pickup"){
+                                        form.find('input[name=shipping_type]').replaceWith(input);
+                                        form.find('input[name=pickup_store_id]').remove();
+                                    }
+                                });
+
+                            });
+
+                        </script>
 			<?php endforeach; ?>
 			</div>
 			<div class="row align-items-center bottom-toolbar" style="display: none;">
@@ -417,3 +503,76 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 		<?php } ?>
 	</section>
 <?php endif; ?>
+
+<!--<div id="modal-form">-->
+<!--</div>-->
+
+<div id="modal-form" class="row" style="display: none">
+    <% if (posts) { %>
+    <div class="location_list">
+        <% if (posts.location_info) { %>
+        <% _.each(posts.location_info.location_id, function(text,value) { %>
+        <div class="location">
+            <% if (posts.location_info.location_img_url) { %>
+            <div class="location-info-row" >
+                <div class="store_img" >
+                    <img src="<%= posts.location_info.location_img_url[value] %>" />
+                </div>
+                <% } %>
+                <% if (posts.location_info) { %>
+                <div class="location-info" storepickup_id="<%= posts.location_info.location_id[value] %>">
+                    <% if (posts.location_info.location_name) { %>
+                    <div class="location-name">
+                    <b>
+                        <%= posts.location_info.location_name[value] %>
+                        </b>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_address) { %>
+                    <div class="location-address">
+                        <%= posts.location_info.location_address[value] %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_schedule) { %>
+                    <div class="location-time">
+                        <%= posts.location_info.location_schedule %>
+                    </div>
+                    <% } %>
+                    <% if (posts.location_info.location_phone_num) { %>
+                    <div class="location-contact">
+                        <%= posts.location_info.location_phone_num[value] %>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% } %>
+            <% if (posts.stock_info) { %>
+            <div class="stock-info">
+                <% if (posts.stock_info.status[value] == 1) { %>
+                <div class="disponit-icon"> <i class="fa fa-check" aria-hidden="true"></i> Disponible en la tienda</div>
+                <button type="submit"
+                        title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
+                        class="popup-addtocart  btn theme_btn img_btn mb-3 action tocart primary">
+                    <span><?= $block->escapeHtmlAttr(__('Add to Cart')) ?></span>
+                </button>
+                <% } %>
+                <% if (posts.stock_info.status[value] == 0) { %>
+                                    <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
+                                <% } %>
+                                <% if (typeof posts.stock_info.status[value] == 'undefined') { %>
+                                    <div class="no-disponit-icon"><i class="fa fa-times" aria-hidden="true"></i> No Disponible </div>
+                                <% } %>
+
+            </div>
+            <% } %>
+        </div>
+        <% }) %>
+        <% } %>
+        <% } %>
+    </div>
+    <% if (posts.length == 0) { %>
+    <div class="location_list">
+        <?= __('No Pickup store available.') ?>
+    </div>
+    <% } %>
+</div>

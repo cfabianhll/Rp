@@ -12,7 +12,7 @@ define([
     'mage/template',
     'text!ui/template/modal/modal-popup.html',
     'text!ui/template/modal/modal-slide.html',
-    'text!ui/template/modal/modal-custom.html',
+   // 'text!ui/template/modal/modal-custom.html',
     'Magento_Ui/js/lib/key-codes',
     'jquery/ui',
     'mage/translate'

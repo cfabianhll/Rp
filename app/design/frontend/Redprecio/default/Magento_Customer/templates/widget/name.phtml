@@ -63,6 +63,7 @@ $suffix = $block->showSuffix();
           <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('firstname')) ?>"><span><?= $block->escapeHtml($block->getStoreLabel('firstname')) ?></span></label>
            
             <div class="control form-group">
+                <span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_user.png'); ?>"></span>
                 <input type="text" id="<?= $block->escapeHtmlAttr($block->getFieldId('firstname')) ?>"
                        name="<?= $block->escapeHtmlAttr($block->getFieldName('firstname')) ?>"
 					   placeholder="<?= $block->escapeHtml(__('Enter Firstname')) ?>"
@@ -70,7 +71,6 @@ $suffix = $block->showSuffix();
                        value="<?= $block->escapeHtmlAttr($block->getObject()->getFirstname()) ?>"
                        title="<?= $block->escapeHtmlAttr($block->getStoreLabel('firstname')) ?>"
                        class="input-text form-control input_box <?= $block->escapeHtmlAttr($block->getAttributeValidationClass('firstname')) ?>" <?= ($block->getAttributeValidationClass('firstname') == 'required-entry') ? ' data-validate="{required:true}"' : '' ?>>
-				<span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_user.png'); ?>"></span>
             </div>
         </div>
 
@@ -90,6 +90,7 @@ $suffix = $block->showSuffix();
           <div class="field field-name-lastname required">
               <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('lastname')) ?>"><span><?= $block->escapeHtml($block->getStoreLabel('lastname')) ?></span></label>
               <div class="control form-group">
+                <span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_user.png'); ?>"></span>
                   <input type="text" id="<?= $block->escapeHtmlAttr($block->getFieldId('lastname')) ?>"
                          name="<?= $block->escapeHtmlAttr($block->getFieldName('lastname')) ?>"
                          minlength="2" maxlength="15"
@@ -97,7 +98,6 @@ $suffix = $block->showSuffix();
                          value="<?= $block->escapeHtmlAttr($block->getObject()->getLastname()) ?>"
                          title="<?= $block->escapeHtmlAttr($block->getStoreLabel('lastname')) ?>"
                          class="input-text form-control input_box <?= $block->escapeHtmlAttr($block->getAttributeValidationClass('lastname')) ?>" <?= ($block->getAttributeValidationClass('lastname') == 'required-entry') ? ' data-validate="{required:true}"' : '' ?>>
-						 <span class="form_imgs"><img src="<?php echo $block->getViewFileUrl('images/form_user.png'); ?>"></span>
               </div>
           </div>
     <?php if ($suffix) : ?>

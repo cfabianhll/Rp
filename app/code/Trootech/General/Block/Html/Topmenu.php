@@ -10,7 +10,6 @@ use Magento\Framework\Data\Tree\NodeFactory;
 use Magento\Framework\Data\TreeFactory;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
-use Magento\Catalog\Model\Category;
 
 
 
@@ -36,7 +35,10 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
 
     protected $_categoryCollection;
 
-    private $category;
+    protected $_categoryFactory;
+    /* @var \Magento\Store\Model\StoreManagerInterface
+     */
+    protected $_storeManager;
 
     public function __construct(
      \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory  $categoryCollection,
@@ -44,7 +46,8 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
      Template\Context $context,
      NodeFactory $nodeFactory,
      TreeFactory $treeFactory,
-     Category $category,
+     \Magento\Catalog\Model\CategoryFactory $categoryFactory,
+     \Magento\Store\Model\StoreManagerInterface $storeManager,
      array $data = []
 )
 {
@@ -52,7 +55,8 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
     parent::__construct($context, $nodeFactory, $treeFactory, $data);
     $this->_categoryCollection = $categoryCollection;
 	$this->_request = $request;
-    $this->category = $category;
+    $this->_categoryFactory = $categoryFactory;
+    $this->_storeManager = $storeManager;
 }
 
     
@@ -128,22 +132,40 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
 		}*/
         $html .= $this->_getHtml($child, $childrenWrapClass, $limit, $colStops);
 		if($child->getLevel() == 0) {
-
+            
 			$html .= '</div>';
             $collection = $this->_categoryCollection->create();
-            $collection->addFieldToFilter('name',$child->getName());
+            $collection->addAttributeToFilter('name',$child->getName())
+            ->setStore($this->_storeManager->getStore());
+            $id = '';
+            foreach($collection as $array){
+                $id = $array->getId();
+            }
+            // print_r($id);die("LL");
             //if ($collection->getSize()) {
-                $category = $this->category->load($collection->getFirstItem()->getId());
-                /*print_r($catobj->getData());
-                print_r($catobj->getCustomImage());*/
+                $categoryId = $id;//$collection->getFirstItem()->getId();
+                $category = $this->_categoryFactory->create()->load($categoryId);
+                // $category = $this->category->load();
+                
+                // print_r($catobj->getCustomImage());
           // }
-//print_r($category->getData());
-                if($category->getImageUrl('custom_image')) {
-           $html .=  '<div class="img_advertise"><a href="' . $category->getUrl() . '"><img src="' .$category->getImageUrl('custom_image'). '"></a>';  
+                // if($category->getData('image'))
+                // {
+                //     print_r($category->getData());                    
+                // }
+                
 
-           $html .= '</div>';
-       }
-          $html .= '</div></div>';
+                if($category->getData('custom_image')) {
+                    $mediaUrl = $this->_storeManager
+                     ->getStore()
+                     ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+                    //  echo "<pre>";
+                // print_r($mediaUrl.'catalog/category/');die("LL");
+                    $html .=  '<div class="img_advertise"><a href="' . $category->getUrl() . '"><img src="'. $mediaUrl.'catalog/category/'.$category->getData('custom_image'). '"></a>';  
+
+                    $html .= '</div>';
+                }
+                $html .= '</div></div>';
 
 
 		}/* else {	

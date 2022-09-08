@@ -341,11 +341,11 @@ define([
                 outerHeight;
 
             self.scrollHeight = 0;
-			
+
 			jQuery('.scroller').slimScroll({
 				height: '100%'
 			});
-			
+
             target.children().each(function () {
 
                 if ($(this).find('.options').length > 0) {
